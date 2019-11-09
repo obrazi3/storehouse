@@ -44,11 +44,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookerPresenter.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrderPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrderPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerPresenter.cs" />
+    <Compile Include="CourierGetOrderPresenter.cs" />
+    <Compile Include="CourierPresenter.cs" />
+    <Compile Include="IBack.cs" />
+    <Compile Include="IBookerView.cs" />
+    <Compile Include="ClientManager\IClientManagerAddOrderPresenter.cs" />
+    <Compile Include="ClientManager\IClientManagerAddOrderSecondStepView.cs" />
+    <Compile Include="ClientManager\IClientManagerAddOrderView.cs" />
+    <Compile Include="ClientManager\IClientManagerInspectOrderView.cs" />
+    <Compile Include="ClientManager\IClientManagerView.cs" />
+    <Compile Include="ICourierGetOrderView.cs" />
+    <Compile Include="ICourierView.cs" />
+    <Compile Include="IPresenter.cs" />
+    <Compile Include="IPurcpManagerView.cs" />
+    <Compile Include="ISetInfoInvoiceForSearchInvoice.cs" />
+    <Compile Include="ISignInView.cs" />
+    <Compile Include="IStorekeeperSearchIncomingInvoiceView.cs" />
+    <Compile Include="IStorekeeperSearchInvoiceView.cs" />
+    <Compile Include="IStorekeeperSearchSalesInvoiceView.cs" />
+    <Compile Include="IStorekeeperView.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurcpManagerPresenter.cs" />
+    <Compile Include="SignInPresenter.cs" />
+    <Compile Include="StorekeeperPresenter.cs" />
+    <Compile Include="StorekeeperSeacrhIncomingInvoicePresenter.cs" />
+    <Compile Include="StorekeeperSearchSalesInvoicePresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
