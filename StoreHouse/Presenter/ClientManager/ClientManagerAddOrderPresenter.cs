@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
+﻿using Model;
 using Ninject;
-using View;
-using View.Presentation.ClientManager;
 
-namespace Presentation
+namespace Presenter
 {
-    class ClientManagerAddOrderPresenter : IClientManagerAddOrderPresenter
+    internal class ClientManagerAddOrderPresenter : IClientManagerAddOrderPresenter
     {
         private readonly IKernel _kernel;
         private readonly IClientManagerAddOrderView _view;
@@ -29,15 +21,16 @@ namespace Presentation
             _kernel = kernel;
             _view = view;
 
-            _view.Back += () => back();
+            _view.Back += () => Back();
             _view.NextStep += () => NextStep();
         }
 
-        private void back()
+        private void Back()
         {
             _kernel.Get<ClientManagerPresenter>().Run();
             _view.Close();
         }
+
         public void Run()
         {
             _view.Show();

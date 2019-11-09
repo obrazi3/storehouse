@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Presentation
+namespace Presenter
 {
     public interface IStorekeeperView : IView
     {

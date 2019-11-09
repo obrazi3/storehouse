@@ -1,6 +1,6 @@
 ﻿using Ninject;
 
-namespace Presentation
+namespace Presenter
 {
     internal class BookerPresenter : IPresenter
     {

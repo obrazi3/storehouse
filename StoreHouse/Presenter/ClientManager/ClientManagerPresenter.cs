@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ninject;
 
-namespace Presentation
+namespace Presenter
 {
     public class ClientManagerPresenter : IPresenter
     {

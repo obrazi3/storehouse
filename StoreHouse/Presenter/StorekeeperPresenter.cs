@@ -1,6 +1,5 @@
 ﻿using Ninject;
-using View;
-namespace Presentation
+namespace Presenter
 {
     public class StorekeeperPresenter : IPresenter
     {

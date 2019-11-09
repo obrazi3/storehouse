@@ -1,7 +1,7 @@
 ﻿using Ninject;
 
 
-namespace Presentation
+namespace Presenter
 {
     internal class SignInPresenter : IPresenter
     {

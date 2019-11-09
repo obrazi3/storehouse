@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Ninject;
 using Model;
 
-namespace Presentation
+namespace Presenter
 {
     class StorekeeperSearchSalesInvoicePresenter : IPresenter
     {

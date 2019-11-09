@@ -1,4 +1,4 @@
-﻿namespace Presentation
+﻿namespace Presenter
 {
     internal interface IClientManagerAddOrderPresenter : IPresenter
     {

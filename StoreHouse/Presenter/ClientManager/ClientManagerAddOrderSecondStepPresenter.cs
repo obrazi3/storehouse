@@ -1,16 +1,9 @@
 ﻿using Model;
 using Ninject;
-using Presentation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace View.Presentation.ClientManager
+namespace Presenter
 {
-    class ClientManagerAddOrderSecondStepPresenter : IPresenter
+    internal class ClientManagerAddOrderSecondStepPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IClientManagerAddOrderSecondStepView _view;
@@ -21,7 +14,7 @@ namespace View.Presentation.ClientManager
             _kernel = kernel;
             _view = view;
 
-            _view.AddProduct += () => addProduct();
+            _view.AddProduct += () => AddProduct();
             _view.Back += () => Back();
             _view.Cancel += () => Cancel();
         }
@@ -36,17 +29,18 @@ namespace View.Presentation.ClientManager
             _kernel.Get<ClientManagerPresenter>().Run();
             _view.Close();
         }
-        
+
         private void Back()
         {
-            new ClientManagerAddOrderPresenter(_kernel, new ClientManagerAddOrderView(_kernel.Get<ApplicationContext>()), _order).Run();
+            // Uncomment when view will be added.
+            // new ClientManagerAddOrderPresenter(_kernel, new ClientManagerAddOrderView(_kernel.Get<ApplicationContext>()), _order).Run();
             _view.Close();
         }
 
-        private void addProduct()
+        private void AddProduct()
         {
-
         }
+
         public void Run()
         {
             _view.Show();
