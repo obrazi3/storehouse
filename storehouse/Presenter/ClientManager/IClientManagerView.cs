@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Presenter
+namespace Presentation
 {
-    public class Class1
+    public interface IClientManagerView : IView
     {
+        event Action addOrder;
+        event Action lookOrder;
     }
 }
