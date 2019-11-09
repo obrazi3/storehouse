@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Class1
+    public interface IModel
     {
+        IBriefInvoiceInfo findIncomingInvoice(int number);
+        IBriefInvoiceInfo findSalesInvoice(int number);
     }
 }
