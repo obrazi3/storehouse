@@ -3,7 +3,7 @@
 
 namespace Presenter
 {
-    internal class SignInPresenter : IPresenter
+    public class SignInPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly ISignInView _view;

@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    class Model : IModel
+    public class Model : IModel
     {
         public IBriefInvoiceInfo findIncomingInvoice(int number)
         {

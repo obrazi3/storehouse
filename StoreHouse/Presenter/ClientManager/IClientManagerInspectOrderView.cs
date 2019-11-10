@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    interface IClientManagerInspectOrderView : IView, IBack
+    public interface IClientManagerInspectOrderView : IView, IBack
     {
         event Action CancelOrder;
         event Action EditOrder;

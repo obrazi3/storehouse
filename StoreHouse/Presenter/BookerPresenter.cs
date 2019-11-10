@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    internal class BookerPresenter : IPresenter
+    public class BookerPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IBookerView _view;

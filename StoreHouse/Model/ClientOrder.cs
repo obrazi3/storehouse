@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    class ClientOrder : IClientOrder
+    public class ClientOrder : IClientOrder
     {
         private string name;
         private string surname;
