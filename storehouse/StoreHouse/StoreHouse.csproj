@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB8C465A-09F5-420E-A781-C2D4FD4193D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StoreHouse</RootNamespace>
+    <AssemblyName>StoreHouse</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookerView.Designer.cs">
+      <DependentUpon>BookerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManagerAddOrderSecondStepView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManagerAddOrderSecondStepView.Designer.cs">
+      <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManagerAddOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManagerAddOrderView.Designer.cs">
+      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManagerInspectOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManagerInspectOrderView.Designer.cs">
+      <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManagerView.Designer.cs">
+      <DependentUpon>ClientManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourierGetOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourierGetOrderView.Designer.cs">
+      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourierView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourierView.Designer.cs">
+      <DependentUpon>CourierView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurcpManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManagerView.Designer.cs">
+      <DependentUpon>PurcpManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignInView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignInView.Designer.cs">
+      <DependentUpon>SignInView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorekeeperSearchIncomingInvoiceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorekeeperSearchIncomingInvoiceView.Designer.cs">
+      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorekeeperSearchSalesInvoiceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorekeeperSearchSalesInvoiceView.Designer.cs">
+      <DependentUpon>StorekeeperSearchSalesInvoiceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorekeeperView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorekeeperView.Designer.cs">
+      <DependentUpon>StorekeeperView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BookerView.resx">
+      <DependentUpon>BookerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManagerAddOrderSecondStepView.resx">
+      <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManagerAddOrderView.resx">
+      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManagerInspectOrderView.resx">
+      <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManagerView.resx">
+      <DependentUpon>ClientManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourierGetOrderView.resx">
+      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourierView.resx">
+      <DependentUpon>CourierView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PurcpManagerView.resx">
+      <DependentUpon>PurcpManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignInView.resx">
+      <DependentUpon>SignInView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StorekeeperSearchIncomingInvoiceView.resx">
+      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StorekeeperView.resx">
+      <DependentUpon>StorekeeperView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

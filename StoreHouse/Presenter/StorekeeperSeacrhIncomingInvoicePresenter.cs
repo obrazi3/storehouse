@@ -1,10 +1,6 @@
 ﻿using System;
-using Ninject;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Model;
+using Ninject;
 
 namespace Presenter
 {
@@ -20,7 +16,7 @@ namespace Presenter
             _view = view;
             _model = model;
 
-            _view.search += () => SearchInvoice();
+            _view.Search += () => SearchInvoice();
             _view.ShowInvoiceContent += () => ShowInvoiceContent();
             _view.ConfirmAdmission += () => ConfirmAdmission();
             _view.Back += () => Back();
@@ -31,7 +27,7 @@ namespace Presenter
             int number = 0;
             try
             {
-                number = int.Parse((_view.getNumberInvoice()));
+                number = int.Parse((_view.GetNumberInvoice()));
             }
             catch (Exception e)
             {
@@ -40,9 +36,9 @@ namespace Presenter
             IBriefInvoiceInfo info = _model.findIncomingInvoice(number);
             if (info != null)
             {
-                _view.setName(info.getName());
-                _view.setNumberInvoice(info.getNumber());
-                _view.setCost(info.getCost());
+                _view.SetName(info.getName());
+                _view.SetNumberInvoice(info.getNumber());
+                _view.SetCost(info.getCost());
                 return true;
             }
             else

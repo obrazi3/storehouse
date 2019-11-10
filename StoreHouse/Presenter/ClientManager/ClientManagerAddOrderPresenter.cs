@@ -41,16 +41,16 @@ namespace Presenter
             if (_order == null)
                 _order = _kernel.Get<IClientOrder>();
 
-            _order.Name = _view.getName();
-            _order.Surname = _view.getSurname();
-            _order.Patronymic = _view.getPatronymic();
-            _order.PhoneNumber = _view.getPhoneNumber();
-            _order.EmailAddress = _view.getEmailAddress();
-            _order.City = _view.getCity();
-            _order.Street = _view.getStreet();
-            _order.HouseNumber = _view.getHouseNumber();
-            _order.Pavilion = _view.getPavilion();
-            _order.Flat = _view.getFlat();
+            _order.Name = _view.GetName();
+            _order.Surname = _view.GetSurname();
+            _order.Patronymic = _view.GetPatronymic();
+            _order.PhoneNumber = _view.GetPhoneNumber();
+            _order.EmailAddress = _view.GetEmailAddress();
+            _order.City = _view.GetCity();
+            _order.Street = _view.GetStreet();
+            _order.HouseNumber = _view.GetHouseNumber();
+            _order.Pavilion = _view.GetPavilion();
+            _order.Flat = _view.GetFlat();
 
             new ClientManagerAddOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(), _order).Run();
             _view.Close();
@@ -58,16 +58,16 @@ namespace Presenter
 
         private void setOrderInfo()
         {
-            _view.setName(_order.Name);
-            _view.setSurname(_order.Surname);
-            _view.setPatronymic(_order.Patronymic);
-            _view.setPhoneNumber(_order.PhoneNumber);
-            _view.setEmailAddress(_order.EmailAddress);
-            _view.setCity(_order.City);
-            _view.setStreet(_order.Street);
-            _view.setHouseNumber(_order.HouseNumber);
-            _view.setPavilion(_order.Pavilion);
-            _view.setFlat(_order.Flat);
+            _view.SetName(_order.Name);
+            _view.SetSurname(_order.Surname);
+            _view.SetPatronymic(_order.Patronymic);
+            _view.SetPhoneNumber(_order.PhoneNumber);
+            _view.SetEmailAddress(_order.EmailAddress);
+            _view.SetCity(_order.City);
+            _view.SetStreet(_order.Street);
+            _view.SetHouseNumber(_order.HouseNumber);
+            _view.SetPavilion(_order.Pavilion);
+            _view.SetFlat(_order.Flat);
         }
     }
 }

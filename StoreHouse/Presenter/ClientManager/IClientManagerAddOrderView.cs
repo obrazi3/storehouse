@@ -2,29 +2,29 @@
 
 namespace Presenter
 {
-    internal interface IClientManagerAddOrderView : IView, IBack
+    public interface IClientManagerAddOrderView : IView, IBack
     {
         event Action NextStep;
 
-        string getName();
-        void setName(string name);
-        string getSurname();
-        void setSurname(string surname);
-        string getPatronymic();
-        void setPatronymic(string patronymic);
-        string getCity();
-        void setCity(string city);
-        string getStreet();
-        void setStreet(string street);
-        string getPavilion();
-        void setPavilion(string pavilion);
-        string getHouseNumber();
-        void setHouseNumber(string houseNumber);
-        string getFlat();
-        void setFlat(string flat);
-        string getPhoneNumber();
-        void setPhoneNumber(string phoneNumber);
-        string getEmailAddress();
-        void setEmailAddress(string emailAddress);
+        string GetName();
+        void SetName(string name);
+        string GetSurname();
+        void SetSurname(string surname);
+        string GetPatronymic();
+        void SetPatronymic(string patronymic);
+        string GetCity();
+        void SetCity(string city);
+        string GetStreet();
+        void SetStreet(string street);
+        string GetPavilion();
+        void SetPavilion(string pavilion);
+        string GetHouseNumber();
+        void SetHouseNumber(string houseNumber);
+        string GetFlat();
+        void SetFlat(string flat);
+        string GetPhoneNumber();
+        void SetPhoneNumber(string phoneNumber);
+        string GetEmailAddress();
+        void SetEmailAddress(string emailAddress);
     }
 }

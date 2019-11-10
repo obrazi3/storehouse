@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
     //Интерфейс, который предназначен для получения краткой информации о накладной, чтобы отобразить ее в окне
     //поиск накладной(StorekeeperSearchInvoiceView)
