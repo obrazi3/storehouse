@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    class CourierGetOrderPresenter : IPresenter
+    public class CourierGetOrderPresenter : IPresenter
     {
         IKernel _kernel;
         ICourierGetOrderView _view;

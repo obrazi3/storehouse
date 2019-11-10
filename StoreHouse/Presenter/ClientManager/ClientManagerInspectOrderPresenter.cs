@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    class ClientManagerInspectOrderPresenter : IPresenter
+    public class ClientManagerInspectOrderPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IClientManagerInspectOrderView _view;

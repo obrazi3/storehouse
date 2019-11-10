@@ -3,7 +3,7 @@ using Ninject;
 
 namespace Presenter
 {
-    internal class ClientManagerAddOrderPresenter : IClientManagerAddOrderPresenter
+    public class ClientManagerAddOrderPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IClientManagerAddOrderView _view;

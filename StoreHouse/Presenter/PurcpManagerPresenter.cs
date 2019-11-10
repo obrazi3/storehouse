@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    class PurcpManagerPresenter : IPresenter
+    public class PurcpManagerPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IPurcpManagerView _view;

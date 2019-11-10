@@ -4,7 +4,7 @@ using Ninject;
 
 namespace Presenter
 {
-    class StorekeeperSeacrhIncomingInvoicePresenter : IPresenter
+    public class StorekeeperSeacrhIncomingInvoicePresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IStorekeeperSearchInvoiceView _view;
