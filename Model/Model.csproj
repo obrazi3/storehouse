@@ -47,7 +47,15 @@
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />
+    <Compile Include="LotInformation.cs" />
+    <Compile Include="Measure\Measure.cs" />
+    <Compile Include="Measure\MeasureKilogram.cs" />
+    <Compile Include="Measure\MeasureLiter.cs" />
+    <Compile Include="Measure\MeasurePiece.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductFromLot.cs" />
+    <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
