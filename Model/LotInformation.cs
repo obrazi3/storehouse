@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    class LotInformation : IComparable, ICloneable
+   public class LotInformation : IComparable, ICloneable
     {
         public DateTime ProductionDate { set; get; }
         public int QuantityProduct { set; get; }
@@ -28,6 +28,11 @@ namespace Model
         public bool Equals(LotInformation lot)
         {
             return (ProductionDate.Equals(lot.ProductionDate) && QuantityProduct == lot.QuantityProduct);
+        }
+
+        public bool EqualsProductionDate(LotInformation info)
+        {
+            return ProductionDate.Equals(info.ProductionDate);
         }
     }
 }

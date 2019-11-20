@@ -1,7 +1,7 @@
 ﻿
 namespace Model
 {
-    class MeasureKilogram : Measure
+   public class MeasureKilogram : Measure
     {
         public MeasureKilogram() : base("Килограмм") { }
 

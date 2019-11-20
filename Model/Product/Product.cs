@@ -1,7 +1,7 @@
 ﻿
 namespace Model
 {
-    abstract class Product
+    public abstract class Product
     {
         public string ProductCategory { set; get; }
         public string ProductGroup { set; get; }
@@ -10,7 +10,7 @@ namespace Model
         public int ExpirationDate { set; get; }
         public int Price { set; get; }
         public string ProduceCountry { set; get; }
-        public string ProductId { set; get; }
+        public int ProductId { set; get; }
 
         public Product() { }
 

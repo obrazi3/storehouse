@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -43,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BriefInvoiceInfo.cs" />
-    <Compile Include="ClientOrder.cs" />
+    <Compile Include="ClientOrder\ClientInformation.cs" />
+    <Compile Include="ClientOrder\ClientOrder.cs" />
+    <Compile Include="ClientOrder\HomeAddress.cs" />
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />
@@ -53,10 +58,21 @@
     <Compile Include="Measure\MeasureLiter.cs" />
     <Compile Include="Measure\MeasurePiece.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="ProductProviderOrder\ProductProviderOrder.cs" />
     <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductCharacteristic.cs" />
     <Compile Include="Product\ProductFromLot.cs" />
     <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProductProvider\ProductProvider.cs" />
+    <Compile Include="Storehouse\StorehouseRepository\IStorehouseRepository.cs" />
+    <Compile Include="Storehouse\StorehouseRepository\StorehouseRepository.cs" />
+    <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
+    <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
+    <Compile Include="Storehouse\StorehouseService\StorehouseService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿
 namespace Model
 {
-    class ClientInformation
+    public class ClientInformation
     {
         public string Name { get; set; }
         public string Surname { get; set; }

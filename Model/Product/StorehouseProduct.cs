@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model
 {
-    class StorehouseProduct : Product, IComparable
+    public class StorehouseProduct : Product, IComparable
     {
         public int TotalQuantityProduct { private set; get; }
 
@@ -12,19 +12,35 @@ namespace Model
 
         public StorehouseProduct()
         {
-            characteristic = new ProductCharacteristic();
-            characteristic.Measure = (Measure)this.Measure.Clone();
-            characteristic.Price = this.Price;
-            characteristic.ProductId = (string)this.ProductId.Clone();
-            characteristic.ProductName = (string)this.ProductName.Clone();
-            characteristic.TotalQuantityProduct = this.TotalQuantityProduct;
+
+            listLotInformation = new List<LotInformation>();
+        }
+
+        public StorehouseProduct(ProductFromLot prod) : base()
+        {
+            ProductCategory = (string)prod.ProductCategory.Clone();
+            ProduceCountry = (string)prod.ProduceCountry.Clone();
+            ProductGroup = (string)prod.ProductGroup.Clone();
+            ProductName = (string)prod.ProductName.Clone();
+            AddLot(prod.Lot);
+            Measure = (Measure)prod.Measure.Clone();
+            Price = prod.Price;
         }
 
         public void AddLot(LotInformation info)
         {
-            listLotInformation.Add(info);
             TotalQuantityProduct += info.QuantityProduct;
             UpdateProductCharacteristic();
+            foreach (LotInformation inf in listLotInformation)
+            {
+                if (inf.EqualsProductionDate(info))
+                {
+                    inf.QuantityProduct += info.QuantityProduct;
+                    return;
+                }
+            }
+
+            listLotInformation.Add(info);
         }
 
         public void RemoveLot(LotInformation info)
@@ -38,6 +54,7 @@ namespace Model
                     break;
                 }
             }
+            UpdateProductCharacteristic();
         }
 
         public ProductFromLot GetProductFromLot(int number)
@@ -51,7 +68,7 @@ namespace Model
             product.ProductGroup = (string)this.ProductGroup.Clone();
             product.Price = this.Price;
             product.ProductCategory = (string)this.ProductCategory.Clone();
-            product.ProductId = (string)this.ProductId.Clone();
+            product.ProductId = this.ProductId;
             product.Measure = (Measure)this.Measure.Clone();
             product.ExpirationDate = this.ExpirationDate;
 
@@ -100,6 +117,7 @@ namespace Model
 
         public ProductCharacteristic GetProductCharacteristic()
         {
+            UpdateProductCharacteristic();
             return characteristic;
         }
 
@@ -110,9 +128,16 @@ namespace Model
 
         private void UpdateProductCharacteristic()
         {
+            if (characteristic == null)
+            {
+                characteristic = new ProductCharacteristic();
+                characteristic.Measure = (Measure)this.Measure.Clone();
+                characteristic.Price = this.Price;
+                characteristic.ProductId = this.ProductId;
+                characteristic.ProductName = (string)this.ProductName.Clone();
+            }
             characteristic.TotalQuantityProduct = TotalQuantityProduct;
         }
-
 
 
         /* 

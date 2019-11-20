@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Model
 {
-    class ClientOrder
+    public class ClientOrder
     {
         public int OrderId { get; private set; }
         public DateTime OrderDate { get; private set; }

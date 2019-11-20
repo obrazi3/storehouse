@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ProductProvider
+    public class ProductProvider
     {
         public string Name { get; set; }
         public string BankAccountNumber { get; set; }
@@ -23,7 +23,7 @@ namespace Model
         {
             productCategories.Add(category);
         }
-        
+
         public void RemoveProductCategory(string category)
         {
             productCategories.Remove(category);

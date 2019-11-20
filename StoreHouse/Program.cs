@@ -31,7 +31,7 @@ namespace View
             kernel.Bind<IClientManagerAddOrderView>().To<ClientManagerAddOrderView>();
             kernel.Bind<IClientManagerAddOrderSecondStepView>().To<ClientManagerAddOrderSecondStepView>();
             kernel.Bind<IModel>().To<Model.Model>();
-            kernel.Bind<IClientOrder>().To<ClientOrder2>();
+            kernel.Bind<IClientOrder>().To<ClientOrder>();
             kernel.Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
             kernel.Bind<ICourierGetOrderView>().To<CourierGetOrderView>();
 
@@ -46,7 +46,6 @@ namespace View
             kernel.Bind<ClientManagerAddOrderPresenter>().ToSelf();
             kernel.Bind<ClientManagerInspectOrderPresenter>().ToSelf();
             kernel.Bind<CourierGetOrderPresenter>().ToSelf();
-
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

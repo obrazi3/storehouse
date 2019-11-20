@@ -1,7 +1,7 @@
 ﻿
 namespace Model
 {
-    class MeasurePiece : Measure
+    public class MeasurePiece : Measure
     {
         public MeasurePiece() : base("Штука") { }
 
