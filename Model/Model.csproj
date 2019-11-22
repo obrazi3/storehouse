@@ -70,6 +70,7 @@
     <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
     <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
     <Compile Include="Storehouse\StorehouseService\StorehouseService.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -33,6 +33,6 @@ namespace Model
         }
     }
 
-    enum StatusProviderOrder
+    public enum StatusProviderOrder
     { NotPaid, Paid, Received }
 }

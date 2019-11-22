@@ -36,7 +36,7 @@ namespace Model
         }
     }
 
-    enum StatusClientOrder
+    public enum StatusClientOrder
     {
         NotPaid, Paid, GiveOut
     }

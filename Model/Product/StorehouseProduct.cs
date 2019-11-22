@@ -16,13 +16,14 @@ namespace Model
             listLotInformation = new List<LotInformation>();
         }
 
-        public StorehouseProduct(ProductFromLot prod) : base()
+        public StorehouseProduct(ProductFromLot prod) : this()
         {
             ProductCategory = (string)prod.ProductCategory.Clone();
             ProduceCountry = (string)prod.ProduceCountry.Clone();
             ProductGroup = (string)prod.ProductGroup.Clone();
             ProductName = (string)prod.ProductName.Clone();
-            AddLot(prod.Lot);
+            TotalQuantityProduct += prod.Lot.QuantityProduct;
+            listLotInformation.Add(prod.Lot);
             Measure = (Measure)prod.Measure.Clone();
             Price = prod.Price;
         }
@@ -72,17 +73,20 @@ namespace Model
             product.Measure = (Measure)this.Measure.Clone();
             product.ExpirationDate = this.ExpirationDate;
 
-            DateTime oldestProduct = new DateTime(0, 0, 0);
+            DateTime oldestProduct = new DateTime(1, 1, 1);
             LotInformation clientLot = new LotInformation();
+
+            List<LotInformation> lotsForRemove = new List<LotInformation>();
             foreach (LotInformation lot in listLotInformation)
             {
                 if (lot.QuantityProduct >= number)
                 {
                     clientLot.QuantityProduct += number;
-                    if (oldestProduct.Equals(new DateTime(0, 0, 0)))
+                    if (oldestProduct.Equals(new DateTime(1, 1, 1)))
                         clientLot.ProductionDate = lot.ProductionDate;
                     if (lot.QuantityProduct == number)
-                        listLotInformation.Remove(lot);
+                        lotsForRemove.Add(lot);
+                    //listLotInformation.Remove(lot);
                     lot.QuantityProduct -= number;
                     break;
                 }
@@ -90,17 +94,19 @@ namespace Model
                 {
                     clientLot.QuantityProduct += lot.QuantityProduct;
                     number -= lot.QuantityProduct;
-                    if (oldestProduct.Equals(new DateTime(0, 0, 0)))
+                    if (oldestProduct.Equals(new DateTime(1, 1, 1)))
                     {
                         clientLot.ProductionDate = lot.ProductionDate;
                         oldestProduct = lot.ProductionDate;
                     }
-                    listLotInformation.Remove(lot);
+                    lotsForRemove.Add(lot);
+                    //listLotInformation.Remove(lot);
                 }
             }
 
             product.Lot = clientLot;
             UpdateProductCharacteristic();
+            RemoveEmptyLots(lotsForRemove);
             return product;
         }
 
@@ -140,6 +146,13 @@ namespace Model
         }
 
 
+        private void RemoveEmptyLots(List<LotInformation> lotsForRemove)
+        {
+            foreach (var lot in lotsForRemove)
+            {
+                listLotInformation.Remove(lot);
+            }
+        }
         /* 
          private void CountTotalQuantityProduct()
          {
