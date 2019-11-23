@@ -50,8 +50,8 @@
     <Compile Include="ClientOrder\ClientOrder.cs" />
     <Compile Include="ClientOrder\HomeAddress.cs" />
     <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\DeliveryOrderService.cs" />
-    <Compile Include="DeliveryOrderFunctionality\ProductProvidersRepository\IProductProvidersRepository.cs" />
-    <Compile Include="DeliveryOrderFunctionality\ProductProvidersRepository\ProductProvidersRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\IProductProviderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\ProductProviderRepository.cs" />
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />

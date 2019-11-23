@@ -3,7 +3,7 @@
 
 namespace Model
 {
-    public interface IProductProvidersRepository
+    public interface IProductProviderRepository
     {
         void AddProductProvider(ProductProvider prov);
         ProductProvider GetProductProvider(int providerId);

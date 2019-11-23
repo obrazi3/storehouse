@@ -2,11 +2,14 @@
 
 namespace Model
 {
-    public class ProductProvidersRepository : IProductProvidersRepository
+    public class ProductProviderRepository : IProductProviderRepository
     {
         private List<ProductProvider> providers;
 
-        public ProductProvidersRepository() { }
+        public ProductProviderRepository()
+        {
+            providers = new List<ProductProvider>();
+        }
 
         public void AddProductProvider(ProductProvider prov)
         {
@@ -24,7 +27,7 @@ namespace Model
             foreach (var provider in providers)
             {
                 if (provider.ProviderId == providerId)
-                    return provider;
+                    return (ProductProvider)provider.Clone();
             }
 
             return null;

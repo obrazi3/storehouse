@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ProductProvider : IComparable
+    public class ProductProvider : IComparable, ICloneable
     {
         public string Name { get; set; }
         public string BankAccountNumber { get; set; }
@@ -43,6 +40,29 @@ namespace Model
             }
 
             return 0;
+        }
+
+        public object Clone()
+        {
+            var clone = new ProductProvider();
+            clone.Name = (string)this.Name.Clone();
+            clone.BankAccountNumber = (string)this.BankAccountNumber.Clone();
+            clone.ContactNumber = (string)this.ContactNumber.Clone();
+            clone.Email = (string)this.Email.Clone();
+            clone.ProviderId = this.ProviderId;
+            clone.productCategories = new List<string>(this.productCategories.ToArray());
+            return clone;
+        }
+
+        public List<string> GetListProductCategories()
+        {
+            List<string> copy = new List<string>();
+            foreach(var category in productCategories)
+            {
+                copy.Add((string)category.Clone());
+            }
+
+            return copy;
         }
     }
 }

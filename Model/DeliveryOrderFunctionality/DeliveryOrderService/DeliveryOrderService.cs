@@ -8,10 +8,10 @@ namespace Model
 {
     public class DeliveryOrderService
     {
-        private IProductProvidersRepository providersRepository;
+        private IProductProviderRepository providersRepository;
 
 
-        public DeliveryOrderService(IProductProvidersRepository _providersRepository) 
+        public DeliveryOrderService(IProductProviderRepository _providersRepository) 
         {
             providersRepository = _providersRepository;
         }

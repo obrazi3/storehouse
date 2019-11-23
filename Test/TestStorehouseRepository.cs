@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Model;
 namespace Test
 {
     class TestStorehouseRepository
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
 
             IStorehouseServiceForClientOrderService serviceClientOrder = new StorehouseService(new StorehouseRepository());
@@ -64,7 +62,7 @@ namespace Test
             serviceClientOrder.AddProduct(product3);
 
             var catalog = serviceClientOrder.GetProdCatalog();
-           // System.Console.WriteLine("Полученный адрес: " + catalog);
+            // System.Console.WriteLine("Полученный адрес: " + catalog);
             foreach (var cat1 in catalog)
             {
                 foreach (var cat2 in cat1.Value)
@@ -91,6 +89,6 @@ namespace Test
                 }
             }
 
-        }
+        }*/
     }
 }
