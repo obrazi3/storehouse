@@ -132,6 +132,22 @@ namespace Model
             return this.ProductName.CompareTo(((StorehouseProduct)obj).ProductName);
         }
 
+        public override object Clone()
+        {
+            StorehouseProduct clone = new StorehouseProduct();
+            clone.ExpirationDate = this.ExpirationDate;
+            clone.Measure = (Measure)this.Measure.Clone();
+            clone.Price = this.Price;
+            clone.ProduceCountry = (string)this.ProduceCountry.Clone();
+            clone.ProductCategory = (string)this.ProductCategory.Clone();
+            clone.ProductGroup = (string)this.ProductGroup.Clone();
+            clone.ProductId = this.ProductId;
+            clone.ProductName = (string)this.ProductName.Clone();
+            clone.TotalQuantityProduct = this.TotalQuantityProduct;
+
+            return clone;
+        }
+
         private void UpdateProductCharacteristic()
         {
             if (characteristic == null)
@@ -153,18 +169,20 @@ namespace Model
                 listLotInformation.Remove(lot);
             }
         }
+
+
         /* 
-         private void CountTotalQuantityProduct()
-         {
-             int totalQuant = 0;
+private void CountTotalQuantityProduct()
+{
+    int totalQuant = 0;
 
-             foreach (LotInformation lot in listLotInformation)
-             {
-                 totalQuant += lot.QuantityProduct;
-             }
+    foreach (LotInformation lot in listLotInformation)
+    {
+        totalQuant += lot.QuantityProduct;
+    }
 
-             TotalQuantityProduct = totalQuant;
-         }
-         */
+    TotalQuantityProduct = totalQuant;
+}
+*/
     }
 }

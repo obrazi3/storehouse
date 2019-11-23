@@ -52,6 +52,8 @@
     <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\DeliveryOrderService.cs" />
     <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\IProductProviderRepository.cs" />
     <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\ProductProviderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProviderOrderRepository\IProviderOrderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProviderOrderRepository\ProviderOrderRepository.cs" />
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />
@@ -61,24 +63,24 @@
     <Compile Include="Measure\MeasureLiter.cs" />
     <Compile Include="Measure\MeasurePiece.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="ProductProviderOrder\ComparerProductProviderOrderForRepository.cs" />
     <Compile Include="ProductProviderOrder\ProductProviderOrder.cs" />
+    <Compile Include="ProductProviderOrder\ComparerProductProviderOrderForSelectionByStatus.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductCharacteristic.cs" />
     <Compile Include="Product\ProductFromLot.cs" />
     <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductProvider\ProductProvider.cs" />
-    <Compile Include="Storehouse\StorehouseRepository\IStorehouseRepository.cs" />
-    <Compile Include="Storehouse\StorehouseRepository\StorehouseRepository.cs" />
-    <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
-    <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
-    <Compile Include="Storehouse\StorehouseService\StorehouseService.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseRepository\StorehouseRepository.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\StorehouseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DeliveryOrderFunctionality\ProviderOrderRepository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

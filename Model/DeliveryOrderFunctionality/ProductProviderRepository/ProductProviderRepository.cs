@@ -19,7 +19,13 @@ namespace Model
 
         public List<ProductProvider> GetListProductProviders()
         {
-            return providers;
+            List<ProductProvider> clone = new List<ProductProvider>();
+            foreach(var provider in providers)
+            {
+                clone.Add((ProductProvider)provider.Clone());
+            }
+
+            return clone;
         }
 
         public ProductProvider GetProductProvider(int providerId)

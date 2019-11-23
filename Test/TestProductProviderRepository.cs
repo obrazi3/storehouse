@@ -8,7 +8,7 @@ namespace Test
     class TestProductProviderRepository
     {
 
-        public static void Main()
+        /*public static void Main()
         {
             IProductProviderRepository provRep = new ProductProviderRepository();
 
@@ -41,6 +41,6 @@ namespace Test
             {
                 Console.WriteLine(prov.Name);
             }
-        }
+        }*/
     }
 }

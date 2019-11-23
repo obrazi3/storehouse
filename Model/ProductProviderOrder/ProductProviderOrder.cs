@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ProductProviderOrder
+    public class ProductProviderOrder : ICloneable
     {
         public ProductProvider Provider { get; set; }
-        public int OrderNumber { get; set; }
+        public int OrderId { get; set; }
         public int TotalSumOrder { get; private set; }
         public StatusProviderOrder Status { get; set; }
         public DateTime OrderDate { get; set; }
@@ -30,6 +30,24 @@ namespace Model
         {
             if (listProducts.Remove(prod))
                 TotalSumOrder -= (prod.Price * prod.Lot.QuantityProduct);
+        }
+
+        public object Clone()
+        {
+            ProductProviderOrder clone = new ProductProviderOrder();
+            clone.Provider = (ProductProvider)this.Provider.Clone();
+            clone.OrderId = this.OrderId;
+            clone.TotalSumOrder = this.TotalSumOrder;
+            clone.Status = this.Status;
+            clone.OrderDate = this.OrderDate;
+
+            List<ProductFromLot> clonelistProducts = new List<ProductFromLot>();
+            foreach (var prod in listProducts)
+            {
+                clonelistProducts.Add((ProductFromLot)prod.Clone());
+            }
+
+            return clone;
         }
     }
 

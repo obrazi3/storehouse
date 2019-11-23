@@ -1,7 +1,9 @@
 ﻿
+using System;
+
 namespace Model
 {
-    public abstract class Product
+    public abstract class Product : ICloneable
     {
         public string ProductCategory { set; get; }
         public string ProductGroup { set; get; }
@@ -19,5 +21,7 @@ namespace Model
             return (ProductCategory.Equals(prod.ProductCategory) && ProductGroup.Equals(prod.ProductGroup)
                 && ProductName.Equals(prod.ProductName));
         }
+
+        public abstract object Clone();
     }
 }
