@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace Model
@@ -97,7 +98,27 @@ namespace Model
 
         public SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProductCatalog()
         {
-            return productCatalog;
+            //Console.WriteLine("Оригинал: " + productCatalog);
+            var cloneCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
+           // Console.WriteLine("Копия: " + cloneCatalog);
+            foreach (var categoryPair in productCatalog)
+            {
+                var cloneCategory = categoryPair.Key;
+                cloneCatalog.Add(cloneCategory, new SortedDictionary<string, List<ProductCharacteristic>>());
+                foreach (var groupPair in categoryPair.Value)
+                {
+                    var cloneGroup = cloneCatalog[cloneCategory];
+                    var cloneListCharact = new List<ProductCharacteristic>();
+                    cloneGroup.Add(groupPair.Key, cloneListCharact);
+                    foreach (var prod in groupPair.Value)
+                    {
+                        var cloneProd = (ProductCharacteristic)prod.Clone();
+                        cloneListCharact.Add(cloneProd);
+                    }
+                }
+            }
+
+            return cloneCatalog;
         }
 
         private SortedDictionary<string, List<StorehouseProduct>> GetGroupsFromCategory(string category)
@@ -176,6 +197,5 @@ namespace Model
                 }
             }
         }
-
     }
 }

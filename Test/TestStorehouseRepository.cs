@@ -64,13 +64,14 @@ namespace Test
             serviceClientOrder.AddProduct(product3);
 
             var catalog = serviceClientOrder.GetProdCatalog();
-            foreach( var cat1 in catalog)
+           // System.Console.WriteLine("Полученный адрес: " + catalog);
+            foreach (var cat1 in catalog)
             {
-                foreach( var cat2 in cat1.Value)
+                foreach (var cat2 in cat1.Value)
                 {
-                    foreach( var prod in cat2.Value)
+                    foreach (var prod in cat2.Value)
                     {
-                        Console.WriteLine(prod.ProductName + " " + prod.Price + " " + prod.Measure.TypeMeasure + " "+ prod.Price+ " "+ prod.TotalQuantityProduct);
+                        Console.WriteLine(prod.ProductName + " " + prod.Price + " " + prod.Measure.TypeMeasure + " " + prod.Price + " " + prod.TotalQuantityProduct);
                     }
                 }
             }
@@ -89,7 +90,7 @@ namespace Test
                     }
                 }
             }
-            
+
         }
     }
 }

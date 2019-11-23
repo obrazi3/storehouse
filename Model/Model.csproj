@@ -49,6 +49,9 @@
     <Compile Include="ClientOrder\ClientInformation.cs" />
     <Compile Include="ClientOrder\ClientOrder.cs" />
     <Compile Include="ClientOrder\HomeAddress.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\DeliveryOrderService.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProvidersRepository\IProductProvidersRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProvidersRepository\ProductProvidersRepository.cs" />
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />
@@ -70,10 +73,12 @@
     <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
     <Compile Include="Storehouse\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
     <Compile Include="Storehouse\StorehouseService\StorehouseService.cs" />
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DeliveryOrderFunctionality\ProviderOrderRepository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
