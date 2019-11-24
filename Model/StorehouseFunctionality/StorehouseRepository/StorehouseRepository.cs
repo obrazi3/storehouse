@@ -100,7 +100,7 @@ namespace Model
         {
             //Console.WriteLine("Оригинал: " + productCatalog);
             var cloneCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
-           // Console.WriteLine("Копия: " + cloneCatalog);
+            // Console.WriteLine("Копия: " + cloneCatalog);
             foreach (var categoryPair in productCatalog)
             {
                 var cloneCategory = categoryPair.Key;
@@ -119,6 +119,23 @@ namespace Model
             }
 
             return cloneCatalog;
+        }
+
+        public List<StorehouseProduct> GetListAllProducts()
+        {
+            List<StorehouseProduct> clone = new List<StorehouseProduct>();
+            foreach (var categoryPair in productStorage)
+            {
+                foreach (var groupPair in categoryPair.Value)
+                {
+                    foreach (var prod in groupPair.Value)
+                    {
+                        clone.Add((StorehouseProduct)prod.Clone());
+                    }
+                }
+            }
+
+            return clone;
         }
 
         private SortedDictionary<string, List<StorehouseProduct>> GetGroupsFromCategory(string category)
@@ -197,5 +214,7 @@ namespace Model
                 }
             }
         }
+
+
     }
 }
