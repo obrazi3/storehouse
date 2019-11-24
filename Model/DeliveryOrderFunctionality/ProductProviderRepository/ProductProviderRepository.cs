@@ -45,7 +45,7 @@ namespace Model
             {
                 if (provider.ProviderId == providerId)
                 {
-                    providers.Remove(providers[providerId]);
+                    providers.Remove(provider);
                     break;
                 }
             }

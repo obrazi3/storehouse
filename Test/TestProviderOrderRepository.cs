@@ -7,7 +7,7 @@ namespace Test
 {
     class TestProviderOrderRepository
     {
-        public static void Main()
+        /*public static void Main()
         {
             IProviderOrderRepository rep = new ProviderOrderRepository();
 
@@ -81,9 +81,6 @@ namespace Test
             Console.WriteLine(rep.ContainsOrder(2));
             Console.WriteLine();
             
-
-
-
-        }
+        }*/
     }
 }

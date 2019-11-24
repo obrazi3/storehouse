@@ -1,12 +1,9 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
-    public interface IDeliverOrderServiceForPurcpManager
+    public interface IDeliveryOrderServiceForPurcpManager
     {
         void AddProductProvider(ProductProvider prov);
         ProductProvider GetProductProvider(int providerId);
@@ -17,6 +14,7 @@ namespace Model
         void AddNotPaidOrder(ProductProviderOrder order);
         ProductProviderOrder GetNotPaidOrder(int orderId);
         void EditNotPaidOrder(ProductProviderOrder order);
+        void RemoveNotPaidOrder(int orderId);
         List<ProductProviderOrder> GetListNotPaidOrders();
         List<StorehouseProduct> GetListDificitProducts(int number);
     }

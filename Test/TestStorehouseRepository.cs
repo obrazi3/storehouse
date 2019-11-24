@@ -4,11 +4,11 @@ namespace Test
 {
     class TestStorehouseRepository
     {
-        /*static void Main(string[] args)
+       /* static void Main(string[] args)
         {
 
             IStorehouseServiceForClientOrderService serviceClientOrder = new StorehouseService(new StorehouseRepository());
-            IStorehouseServiceForDeliveryOrderService serviceDelivery = serviceClientOrder;
+            IStorehouseServiceForDeliveryOrderService serviceDelivery = (IStorehouseServiceForDeliveryOrderService)serviceClientOrder;
             ProductFromLot product = new ProductFromLot();
             product.ProductName = "Берёзка";
             product.ProductGroup = "Конфеты";
@@ -61,6 +61,7 @@ namespace Test
 
             serviceClientOrder.AddProduct(product3);
 
+            System.Console.WriteLine("Каталог товаров:");
             var catalog = serviceClientOrder.GetProdCatalog();
             // System.Console.WriteLine("Полученный адрес: " + catalog);
             foreach (var cat1 in catalog)
@@ -73,10 +74,10 @@ namespace Test
                     }
                 }
             }
-
+            Console.WriteLine();
 
             var prod2 = serviceClientOrder.GetProduct(1, 30);
-            Console.WriteLine();
+            Console.WriteLine("Каталог после взятия товара");
             catalog = serviceClientOrder.GetProdCatalog();
             foreach (var cat1 in catalog)
             {
@@ -88,7 +89,14 @@ namespace Test
                     }
                 }
             }
+            Console.WriteLine();
 
+            var listDificitProducts = serviceDelivery.GetListDificitProducts(20);
+            Console.WriteLine("Список товаров, количество которых 20>=");
+            foreach (var prod in listDificitProducts)
+            {
+                Console.WriteLine(prod.ProductName + " " + prod.Price + " " + prod.Measure.TypeMeasure + " " + prod.Price + " " + prod.TotalQuantityProduct);
+            }
         }*/
     }
 }
