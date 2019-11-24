@@ -1,6 +1,7 @@
 ﻿using System;
 using Model;
 using Ninject;
+using View;
 
 namespace Test
 {
@@ -182,7 +183,7 @@ namespace Test
             Console.WriteLine(order.OrderDate + " ID:" + order.OrderId + " " + order.TotalSumOrder);
             Console.WriteLine();
 
-            Console.WriteLine("Есть ли заказ с ID:1 в списке для выдачи после подтверждения о выдачи?");
+            Console.WriteLine("Есть ли заказ с ID:1 в списке для получения после подтверждения о получении?");
             storekeeper.ConfirmProviderPaidOrder(1);
             order = storekeeper.GetProviderPaidOrder(1);
             if (order == null)

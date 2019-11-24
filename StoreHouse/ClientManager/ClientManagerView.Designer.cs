@@ -41,17 +41,17 @@
             this.flowLayoutPanel1.Controls.Add(this.LookOrderButton);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(312, 439);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(273, 412);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // AddOrderButton
             // 
-            this.AddOrderButton.Location = new System.Drawing.Point(11, 10);
-            this.AddOrderButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.AddOrderButton.Location = new System.Drawing.Point(9, 9);
+            this.AddOrderButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.AddOrderButton.Name = "AddOrderButton";
-            this.AddOrderButton.Size = new System.Drawing.Size(287, 151);
+            this.AddOrderButton.Size = new System.Drawing.Size(251, 142);
             this.AddOrderButton.TabIndex = 0;
             this.AddOrderButton.Text = "Добавить заказ";
             this.AddOrderButton.UseVisualStyleBackColor = true;
@@ -59,28 +59,26 @@
             // LookOrderButton
             // 
             this.LookOrderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LookOrderButton.Location = new System.Drawing.Point(11, 181);
-            this.LookOrderButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.LookOrderButton.Location = new System.Drawing.Point(9, 169);
+            this.LookOrderButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.LookOrderButton.Name = "LookOrderButton";
-            this.LookOrderButton.Size = new System.Drawing.Size(287, 151);
+            this.LookOrderButton.Size = new System.Drawing.Size(251, 142);
             this.LookOrderButton.TabIndex = 1;
             this.LookOrderButton.Text = "Просмотреть заказы";
             this.LookOrderButton.UseVisualStyleBackColor = true;
             // 
             // ClientManagerView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 341);
+            this.ClientSize = new System.Drawing.Size(268, 328);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(322, 388);
-            this.MinimumSize = new System.Drawing.Size(322, 388);
+            this.MaximumSize = new System.Drawing.Size(284, 367);
+            this.MinimumSize = new System.Drawing.Size(284, 367);
             this.Name = "ClientManagerView";
             this.Text = "Менеджер по работе с клиентами";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

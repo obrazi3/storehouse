@@ -32,6 +32,17 @@ namespace Model
                 TotalSumOrder -= (prod.Price * prod.Lot.QuantityProduct);
         }
 
+        public List<ProductFromLot> GetListProducts()
+        {
+            List<ProductFromLot> clone=new List<ProductFromLot>();
+            foreach (var prod in listProducts)
+            {
+                clone.Add((ProductFromLot)prod.Clone());
+            }
+
+            return clone;
+        }
+
         public object Clone()
         {
             ProductProviderOrder clone = new ProductProviderOrder();

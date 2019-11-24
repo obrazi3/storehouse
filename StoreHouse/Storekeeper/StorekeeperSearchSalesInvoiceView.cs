@@ -2,21 +2,21 @@
 using System.Windows.Forms;
 using Presenter;
 
-namespace View.Storekeeper
+namespace View
 {
-    public partial class StorekeeperSearchIncomingInvoiceView : Form, IStorekeeperSearchIncomingInvoiceView
+    public partial class StorekeeperSearchSalesInvoiceView : Form, IBack, IStorekeeperSearchSalesInvoiceView
     {
+        public event Action Back;
+        public event Search Search;
         public event Action ShowInvoiceContent;
         public event Action ConfirmAdmission;
-        public event Search Search;
-        public event Action Back;
 
-        private ApplicationContext _context;
-        public StorekeeperSearchIncomingInvoiceView(ApplicationContext context)
+        private readonly ApplicationContext _context;
+
+        public StorekeeperSearchSalesInvoiceView(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public string GetNumberInvoice()
@@ -24,9 +24,9 @@ namespace View.Storekeeper
             return TextBoxNumberInvoice.Text;
         }
 
-        public void SetNumberInvoice(string number)
+        public void SetCost(string cost)
         {
-            this.LabelNumberSet.Text = number;
+            this.LabelCostSet.Text = cost;
         }
 
         public void SetName(string name)
@@ -34,9 +34,9 @@ namespace View.Storekeeper
             this.LabelNameOrganizSet.Text = name;
         }
 
-        public void SetCost(string cost)
+        public void SetNumberInvoice(string number)
         {
-            this.LabelCostSet.Text = cost;
+            this.LabelNumberSet.Text = number;
         }
 
         public new void Show()
@@ -44,7 +44,6 @@ namespace View.Storekeeper
             _context.MainForm = this;
             base.Show();
         }
-
 
         private void OnButtonSearchClick(object o, EventArgs e)
         {
@@ -64,7 +63,7 @@ namespace View.Storekeeper
             ShowInvoiceContent?.Invoke();
         }
 
-        private void OnButtonConfirmAdmissionClick(object o, EventArgs e)
+        private void OnButtonIssuanceAdmissionClick(object o, EventArgs e)
         {
             ConfirmAdmission?.Invoke();
         }
@@ -73,5 +72,6 @@ namespace View.Storekeeper
         {
             Back?.Invoke();
         }
+        
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace View.Storekeeper
+﻿namespace View
 {
-    partial class StorekeeperSearchSalesInvoiceView
+    partial class StorekeeperSearchIncomingInvoiceView
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.GeneralPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.LabelExplaneMessage = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.TextBoxNumberInvoice = new System.Windows.Forms.MaskedTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.PanelNotFoundInvoice = new System.Windows.Forms.Panel();
             this.LabelNotFoundInvoice = new System.Windows.Forms.Label();
             this.PanelFoundInvoice = new System.Windows.Forms.Panel();
-            this.BtnIssuanceAdmission = new System.Windows.Forms.Button();
+            this.BtnConfirmAdmission = new System.Windows.Forms.Button();
             this.BtnShowInvoiceContent = new System.Windows.Forms.Button();
             this.LabelFoundInvoice = new System.Windows.Forms.Label();
             this.PanelInvoiceInfo = new System.Windows.Forms.FlowLayoutPanel();
@@ -65,7 +65,8 @@
             this.GeneralPanel.Controls.Add(this.flowLayoutPanel3);
             this.GeneralPanel.Controls.Add(this.PanelNotFoundInvoice);
             this.GeneralPanel.Controls.Add(this.PanelFoundInvoice);
-            this.GeneralPanel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GeneralPanel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GeneralPanel.Location = new System.Drawing.Point(14, 12);
             this.GeneralPanel.Name = "GeneralPanel";
             this.GeneralPanel.Size = new System.Drawing.Size(873, 375);
@@ -73,7 +74,7 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.LabelExplaneMessage);
+            this.flowLayoutPanel2.Controls.Add(this.label1);
             this.flowLayoutPanel2.Controls.Add(this.TextBoxNumberInvoice);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -81,16 +82,17 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(426, 36);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
-            // LabelExplaneMessage
+            // label1
             // 
-            this.LabelExplaneMessage.AutoSize = true;
-            this.LabelExplaneMessage.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelExplaneMessage.Location = new System.Drawing.Point(1, 7);
-            this.LabelExplaneMessage.Margin = new System.Windows.Forms.Padding(1, 7, 1, 1);
-            this.LabelExplaneMessage.Name = "LabelExplaneMessage";
-            this.LabelExplaneMessage.Size = new System.Drawing.Size(241, 17);
-            this.LabelExplaneMessage.TabIndex = 0;
-            this.LabelExplaneMessage.Text = "Введите номер расходной накладной:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(1, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 7, 1, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(241, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Введите номер приходной накладной:";
             // 
             // TextBoxNumberInvoice
             // 
@@ -119,7 +121,6 @@
             this.BtnSearch.TabIndex = 2;
             this.BtnSearch.Text = "Поиск";
             this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += OnButtonSearchClick;
             // 
             // PanelNotFoundInvoice
             // 
@@ -133,18 +134,20 @@
             // LabelNotFoundInvoice
             // 
             this.LabelNotFoundInvoice.AutoSize = true;
-            this.LabelNotFoundInvoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNotFoundInvoice.Font = new System.Drawing.Font("Times New Roman", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNotFoundInvoice.Location = new System.Drawing.Point(239, 29);
             this.LabelNotFoundInvoice.Name = "LabelNotFoundInvoice";
             this.LabelNotFoundInvoice.Size = new System.Drawing.Size(417, 38);
             this.LabelNotFoundInvoice.TabIndex = 0;
-            this.LabelNotFoundInvoice.Text = "К сожалению, накладная с таким номером не найдена. \r\nПроверьте правильность ввода" +
-    " и повторите поиска ещё раз.";
+            this.LabelNotFoundInvoice.Text =
+                "К сожалению, накладная с таким номером не найдена. \r\nПроверьте правильность ввода" +
+                " и повторите поиска ещё раз.";
             this.LabelNotFoundInvoice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // PanelFoundInvoice
             // 
-            this.PanelFoundInvoice.Controls.Add(this.BtnIssuanceAdmission);
+            this.PanelFoundInvoice.Controls.Add(this.BtnConfirmAdmission);
             this.PanelFoundInvoice.Controls.Add(this.BtnShowInvoiceContent);
             this.PanelFoundInvoice.Controls.Add(this.LabelFoundInvoice);
             this.PanelFoundInvoice.Controls.Add(this.PanelInvoiceInfo);
@@ -153,33 +156,36 @@
             this.PanelFoundInvoice.Size = new System.Drawing.Size(867, 225);
             this.PanelFoundInvoice.TabIndex = 6;
             // 
-            // BtnIssuanceAdmission
+            // BtnConfirmAdmission
             // 
-            this.BtnIssuanceAdmission.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnIssuanceAdmission.Location = new System.Drawing.Point(547, 107);
-            this.BtnIssuanceAdmission.Name = "BtnIssuanceAdmission";
-            this.BtnIssuanceAdmission.Size = new System.Drawing.Size(262, 56);
-            this.BtnIssuanceAdmission.TabIndex = 2;
-            this.BtnIssuanceAdmission.Text = "Подтвердить выдачу заказа";
-            this.BtnIssuanceAdmission.UseVisualStyleBackColor = true;
-            this.BtnIssuanceAdmission.Click += OnButtonIssuanceAdmissionClick;
+            this.BtnConfirmAdmission.Font = new System.Drawing.Font("Times New Roman", 11F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnConfirmAdmission.Location = new System.Drawing.Point(547, 107);
+            this.BtnConfirmAdmission.Name = "BtnConfirmAdmission";
+            this.BtnConfirmAdmission.Size = new System.Drawing.Size(262, 56);
+            this.BtnConfirmAdmission.TabIndex = 2;
+            this.BtnConfirmAdmission.Text = "Подтвердить приём заказа";
+            this.BtnConfirmAdmission.UseVisualStyleBackColor = true;
             // 
             // BtnShowInvoiceContent
             // 
-            this.BtnShowInvoiceContent.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnShowInvoiceContent.Font = new System.Drawing.Font("Times New Roman", 11F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnShowInvoiceContent.Location = new System.Drawing.Point(64, 107);
             this.BtnShowInvoiceContent.Name = "BtnShowInvoiceContent";
             this.BtnShowInvoiceContent.Size = new System.Drawing.Size(262, 56);
             this.BtnShowInvoiceContent.TabIndex = 1;
             this.BtnShowInvoiceContent.Text = "Просмотреть содержимое заказа";
             this.BtnShowInvoiceContent.UseVisualStyleBackColor = true;
-            this.BtnShowInvoiceContent.Click += OnButtonShowInvcContClick;
             // 
             // LabelFoundInvoice
             // 
-            this.LabelFoundInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelFoundInvoice.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelFoundInvoice.AutoSize = true;
-            this.LabelFoundInvoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelFoundInvoice.Font = new System.Drawing.Font("Times New Roman", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelFoundInvoice.Location = new System.Drawing.Point(188, 3);
             this.LabelFoundInvoice.Margin = new System.Windows.Forms.Padding(3);
             this.LabelFoundInvoice.Name = "LabelFoundInvoice";
@@ -202,9 +208,12 @@
             // 
             // LabelNumber
             // 
-            this.LabelNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelNumber.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelNumber.AutoSize = true;
-            this.LabelNumber.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNumber.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNumber.Location = new System.Drawing.Point(1, 3);
             this.LabelNumber.Margin = new System.Windows.Forms.Padding(1, 3, 3, 0);
             this.LabelNumber.Name = "LabelNumber";
@@ -214,9 +223,12 @@
             // 
             // LabelNumberSet
             // 
-            this.LabelNumberSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelNumberSet.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelNumberSet.AutoSize = true;
-            this.LabelNumberSet.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNumberSet.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNumberSet.Location = new System.Drawing.Point(142, 3);
             this.LabelNumberSet.Margin = new System.Windows.Forms.Padding(1, 3, 0, 0);
             this.LabelNumberSet.Name = "LabelNumberSet";
@@ -226,21 +238,27 @@
             // 
             // LabelNameOrganization
             // 
-            this.LabelNameOrganization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelNameOrganization.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelNameOrganization.AutoSize = true;
-            this.LabelNameOrganization.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNameOrganization.Font = new System.Drawing.Font("Times New Roman", 11F,
+                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNameOrganization.Location = new System.Drawing.Point(189, 3);
             this.LabelNameOrganization.Margin = new System.Windows.Forms.Padding(4, 3, 0, 0);
             this.LabelNameOrganization.Name = "LabelNameOrganization";
             this.LabelNameOrganization.Size = new System.Drawing.Size(175, 17);
             this.LabelNameOrganization.TabIndex = 0;
-            this.LabelNameOrganization.Text = "ФИО заказчика: ";
+            this.LabelNameOrganization.Text = "Название организации: ";
             // 
             // LabelNameOrganizSet
             // 
-            this.LabelNameOrganizSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelNameOrganizSet.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelNameOrganizSet.AutoSize = true;
-            this.LabelNameOrganizSet.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNameOrganizSet.Font = new System.Drawing.Font("Times New Roman", 11F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNameOrganizSet.Location = new System.Drawing.Point(365, 3);
             this.LabelNameOrganizSet.Margin = new System.Windows.Forms.Padding(1, 3, 0, 0);
             this.LabelNameOrganizSet.Name = "LabelNameOrganizSet";
@@ -250,9 +268,12 @@
             // 
             // LabelCost
             // 
-            this.LabelCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelCost.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelCost.AutoSize = true;
-            this.LabelCost.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelCost.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelCost.Location = new System.Drawing.Point(581, 3);
             this.LabelCost.Margin = new System.Windows.Forms.Padding(4, 3, 0, 0);
             this.LabelCost.Name = "LabelCost";
@@ -262,9 +283,12 @@
             // 
             // LabelCostSet
             // 
-            this.LabelCostSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelCostSet.Anchor =
+                ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top |
+                                                      System.Windows.Forms.AnchorStyles.Right)));
             this.LabelCostSet.AutoSize = true;
-            this.LabelCostSet.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelCostSet.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelCostSet.Location = new System.Drawing.Point(644, 3);
             this.LabelCostSet.Margin = new System.Windows.Forms.Padding(1, 3, 0, 0);
             this.LabelCostSet.Name = "LabelCostSet";
@@ -283,14 +307,14 @@
             // 
             // BtnBack
             // 
-            this.BtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnBack.Location = new System.Drawing.Point(3, 78);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(126, 33);
             this.BtnBack.TabIndex = 0;
             this.BtnBack.Text = "Назад";
             this.BtnBack.UseVisualStyleBackColor = true;
-            this.BtnBack.Click += OnButtonBackClick;
             // 
             // StorekeeperSearchIncomingInvoiceView
             // 
@@ -299,11 +323,12 @@
             this.ClientSize = new System.Drawing.Size(902, 514);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.GeneralPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MaximumSize = new System.Drawing.Size(918, 553);
             this.MinimumSize = new System.Drawing.Size(918, 553);
-            this.Name = "StorekeeperSearchSalesInvoiceView";
-            this.Text = "Поиск расходной накладной";
+            this.Name = "StorekeeperSearchIncomingInvoiceView";
+            this.Text = "Поиск приходной накладной";
             this.GeneralPanel.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -316,13 +341,12 @@
             this.PanelInvoiceInfo.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel GeneralPanel;
-        private System.Windows.Forms.Label LabelExplaneMessage;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.MaskedTextBox TextBoxNumberInvoice;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -330,7 +354,7 @@
         private System.Windows.Forms.Panel PanelNotFoundInvoice;
         private System.Windows.Forms.Label LabelNotFoundInvoice;
         private System.Windows.Forms.Panel PanelFoundInvoice;
-        private System.Windows.Forms.Button BtnIssuanceAdmission;
+        private System.Windows.Forms.Button BtnConfirmAdmission;
         private System.Windows.Forms.Button BtnShowInvoiceContent;
         private System.Windows.Forms.Label LabelFoundInvoice;
         private System.Windows.Forms.FlowLayoutPanel PanelInvoiceInfo;

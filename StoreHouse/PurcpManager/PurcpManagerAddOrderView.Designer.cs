@@ -1,11 +1,13 @@
-﻿namespace StoreHouse
+﻿using System.ComponentModel;
+
+namespace View
 {
-    partial class Form1
+    partial class PurcpManagerAddOrderView
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -17,6 +19,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -31,7 +34,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "PurcpManagerAddOrderView";
         }
 
         #endregion
