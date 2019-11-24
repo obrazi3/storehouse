@@ -50,6 +50,7 @@
     <Compile Include="ClientOrder\ClientOrder.cs" />
     <Compile Include="ClientOrder\HomeAddress.cs" />
     <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\DeliveryOrderService.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\IDeliverOrderServiceForPurcpManager.cs" />
     <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\IProductProviderRepository.cs" />
     <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\ProductProviderRepository.cs" />
     <Compile Include="DeliveryOrderFunctionality\ProviderOrderRepository\IProviderOrderRepository.cs" />

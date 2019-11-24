@@ -52,7 +52,6 @@ namespace Test
                 Console.WriteLine(ord.OrderDate + " " + ord.Status);
             }
             Console.WriteLine();
-
             Console.WriteLine("Orders with status 'paid'");
             var ordersByStatus = rep.GetOrderSelectionByStatus(StatusProviderOrder.Paid);
             foreach(var ord in ordersByStatus)

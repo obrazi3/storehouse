@@ -11,5 +11,6 @@ namespace Model
         ProductFromLot GetProduct(int idProduct, int numberOfProduct);
         SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProductCatalog();
         bool ContainsProduct(ProductFromLot prod);
+        List<StorehouseProduct> GetListAllProducts();
     }
 }

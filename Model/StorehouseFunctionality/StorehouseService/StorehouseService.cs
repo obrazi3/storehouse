@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Model
 {
-    public class StorehouseService : IStorehouseServiceForClientOrderService
+    public class StorehouseService : IStorehouseServiceForClientOrderService, IStorehouseServiceForDeliveryOrderService
     {
         private static int productId;
         private IStorehouseRepository repository;
@@ -36,10 +36,33 @@ namespace Model
             return repository.GetProduct(idProduct, numberOfProduct);
         }
 
+
+
+        public void AddProductFromDelivery(ProductFromLot prod)
+        {
+            AddProduct(prod);
+        }
+
+        public List<StorehouseProduct> GetListDificitProducts(int number)
+        {
+            List<StorehouseProduct> dificitProducts = new List<StorehouseProduct>();
+            List<StorehouseProduct> products = repository.GetListAllProducts();
+            
+            foreach(var product in products)
+            {
+                if (product.TotalQuantityProduct <= number)
+                    dificitProducts.Add(product);
+            }
+
+            return dificitProducts;
+        }
+
         private static int GetProductId()
         {
             productId++;
             return productId;
         }
+
+
     }
 }
