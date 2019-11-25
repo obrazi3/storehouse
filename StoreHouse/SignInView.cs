@@ -52,7 +52,5 @@ namespace View
         {
             OpenCourier?.Invoke();
         }
-
-     
     }
 }

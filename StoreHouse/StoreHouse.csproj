@@ -94,11 +94,23 @@
     <Compile Include="NinjectConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurcpManager\PurcpManagerAddOrderView.cs">
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PurcpManager\PurcpManagerAddOrderView.Designer.cs">
-      <DependentUpon>PurcpManagerAddOrderView.cs</DependentUpon>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.Designer.cs">
+      <DependentUpon>PurcpManagerAddOrderFirstStepView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.Designer.cs">
+      <DependentUpon>PurcpManagerAddOrderSecondStepView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.Designer.cs">
+      <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
     </Compile>
     <Compile Include="PurcpManager\PurcpManagerView.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.resx">
+      <DependentUpon>PurcpManagerAddOrderFirstStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.resx">
+      <DependentUpon>PurcpManagerAddOrderSecondStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.resx">
+      <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurcpManager\PurcpManagerView.resx">
       <DependentUpon>PurcpManagerView.cs</DependentUpon>
     </EmbeddedResource>

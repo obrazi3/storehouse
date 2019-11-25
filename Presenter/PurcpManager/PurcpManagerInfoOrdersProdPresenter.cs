@@ -19,7 +19,7 @@ namespace Presenter
             model = _model;
             kernel = _kernel;
             
-            CreateInformation();
+            DisplayInfo();
 
             view.Back += OnButtonCancelClick;
             view.RemoveOrders += OnButtonRemoveOrdersClick;
@@ -64,125 +64,11 @@ namespace Presenter
             }
         }
 
-        private void CreateInformation()
+        private void DisplayInfo()
         {
-            var listNotPaidOrders = model.GetListNotPaidOrders();
-            foreach (var order in listNotPaidOrders)
-            {
-                FlowLayoutPanel panelCurrentOrder = new FlowLayoutPanel();
-                panelCurrentOrder.Size = new System.Drawing.Size(905, 74);
-                panelCurrentOrder.MaximumSize = panelCurrentOrder.Size;
-                panelCurrentOrder.MinimumSize = panelCurrentOrder.Size;
-                panelCurrentOrder.TabIndex = 8;
-                panelCurrentOrder.ResumeLayout(false);
-
-                Label labelOrganizationName = new Label();
-                labelOrganizationName.Font =
-                    new Font("Times New Roman", 11F, FontStyle.Bold);
-                labelOrganizationName.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-                labelOrganizationName.Size = new System.Drawing.Size(178, 18);
-                labelOrganizationName.Text = "Название организации:";
-                panelCurrentOrder.Controls.Add(labelOrganizationName);
-
-                Label labelCurrentOrganizationName = new Label();
-                labelCurrentOrganizationName.Font = new System.Drawing.Font("Times New Roman", 11F);
-                labelCurrentOrganizationName.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentOrganizationName.Size = new System.Drawing.Size(703, 18);
-                labelOrganizationName.Text = order.Provider.Name;
-                panelCurrentOrder.Controls.Add(labelCurrentOrganizationName);
-
-                Label labelOrderNumber = new Label();
-                labelOrderNumber.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
-                labelOrderNumber.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-                labelOrderNumber.Size = new System.Drawing.Size(110, 18);
-                labelOrderNumber.TabIndex = 2;
-                labelOrderNumber.Text = "Номер заказа:";
-                panelCurrentOrder.Controls.Add(labelOrderNumber);
-
-                Label labelCurrentOrderNumber = new Label();
-                labelCurrentOrderNumber.Font = new System.Drawing.Font("Times New Roman", 11F);
-                labelCurrentOrderNumber.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentOrderNumber.Size = new System.Drawing.Size(70, 18);
-                labelCurrentOrderNumber.TabIndex = 3;
-                labelCurrentOrderNumber.Text = order.OrderId.ToString();
-                panelCurrentOrder.Controls.Add(labelCurrentOrderNumber);
-
-                Label labelSum = new Label();
-                labelSum.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
-                labelSum.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-                labelSum.Size = new System.Drawing.Size(58, 18);
-                labelSum.TabIndex = 4;
-                labelSum.Text = "Сумма:";
-                panelCurrentOrder.Controls.Add(labelSum);
-
-                Label labelCurrentSum = new Label();
-                labelCurrentSum.Font = new System.Drawing.Font("Times New Roman", 11F);
-                labelCurrentSum.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentSum.Size = new System.Drawing.Size(117, 18);
-                labelCurrentSum.TabIndex = 5;
-                labelCurrentSum.Text = order.TotalSumOrder.ToString() + " рублей(-я)";
-                panelCurrentOrder.Controls.Add(labelCurrentSum);
-
-                Label labelDate = new Label();
-                labelDate.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
-                labelDate.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-                labelDate.Size = new System.Drawing.Size(92, 18);
-                labelDate.TabIndex = 6;
-                labelDate.Text = "Дата заказа:";
-                panelCurrentOrder.Controls.Add(labelDate);
-
-                Label labelCurrentDate = new Label();
-                labelCurrentDate.Font = new System.Drawing.Font("Times New Roman", 11F);
-                labelCurrentDate.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentDate.Size = new System.Drawing.Size(348, 18);
-                labelCurrentDate.TabIndex = 7;
-                labelCurrentDate.Text = order.OrderDate.ToShortDateString();
-                panelCurrentOrder.Controls.Add(labelCurrentDate);
-
-                Label labelContent = new Label();
-                labelContent.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
-                labelContent.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-                labelContent.Size = new System.Drawing.Size(110, 18);
-                labelContent.TabIndex = 8;
-                labelContent.Text = "Содержимое:";
-                panelCurrentOrder.Controls.Add(labelContent);
-
-                Label labelCurrentContent = new Label();
-                labelCurrentContent.Font = new System.Drawing.Font("Times New Roman", 11F);
-                labelCurrentContent.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentContent.Size = new System.Drawing.Size(696, 18);
-                labelCurrentContent.TabIndex = 9;
-                AddThreeProduct(labelCurrentContent, order);
-                panelCurrentOrder.Controls.Add(labelContent);
-
-                CheckBox checkBoxRemove = new CheckBox();
-                checkBoxRemove.Size = new System.Drawing.Size(82, 18);
-                checkBoxRemove.TabIndex = 10;
-                checkBoxRemove.Text = "Удалить";
-                checkBoxRemove.UseVisualStyleBackColor = true;
-                panelCurrentOrder.Controls.Add(checkBoxRemove);
-                
-                view.AddOrder(panelCurrentOrder, order.OrderId, checkBoxRemove);
-            }
-
-            //TO-DO
+            view.AddOrders(model.GetListNotPaidOrders());
         }
 
-        private void AddThreeProduct(Label label, ProductProviderOrder order)
-        {
-            int i = 0;
-            var listProd = order.GetListProducts();
-            while (i < 3 && i < listProd.Count)
-            {
-                label.Text += listProd[i].ProductName + "-" + listProd[i].Lot.QuantityProduct.ToString() + " " +
-                              listProd[i].Measure.TypeMeasure;
-                if (i == 2)
-                    label.Text += ".";
-                else
-                {
-                    label.Text += ", ";
-                }
-            }
-        }
+       
     }
 }

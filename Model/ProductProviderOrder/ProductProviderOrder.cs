@@ -18,6 +18,8 @@ namespace Model
         public ProductProviderOrder()
         {
             listProducts = new List<ProductFromLot>();
+            Provider = new ProductProvider();
+            OrderDate = new DateTime();
         }
 
         public void AddProduct(ProductFromLot prod)
@@ -34,7 +36,7 @@ namespace Model
 
         public List<ProductFromLot> GetListProducts()
         {
-            List<ProductFromLot> clone=new List<ProductFromLot>();
+            List<ProductFromLot> clone = new List<ProductFromLot>();
             foreach (var prod in listProducts)
             {
                 clone.Add((ProductFromLot)prod.Clone());
@@ -63,5 +65,7 @@ namespace Model
     }
 
     public enum StatusProviderOrder
-    { NotPaid, Paid, Received }
+    {
+        NotPaid, Paid, Received
+    }
 }

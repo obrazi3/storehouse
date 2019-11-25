@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Model;
 
 namespace Presenter
 {
@@ -8,7 +9,7 @@ namespace Presenter
     {
         event Action RemoveOrders;
 
-        void AddOrder(FlowLayoutPanel order, int orderNumber, CheckBox box);
+        void AddOrders(List<ProductProviderOrder> orders);
         Dictionary<int, CheckBox> GetDictionaryBoxes();
     }
 }
