@@ -1,12 +1,13 @@
-﻿
-
-namespace Model
+﻿namespace Model
 {
     public class ProductFromLot : Product
     {
-        public LotInformation Lot { set; get; }
+        public LotInformation Lot { private set; get; }
 
-        public ProductFromLot() { }
+        public ProductFromLot()
+        {
+            Lot = new LotInformation();
+        }
 
         public override object Clone()
         {

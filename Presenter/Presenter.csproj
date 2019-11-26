@@ -73,6 +73,7 @@
     <Compile Include="PurcpManager\PurcpManagerAddOrder\IPurcpManagerAddProductInOrderView.cs" />
     <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddOrderFirstStepPresenter.cs" />
     <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddProductToOrderPresenter.cs" />
     <Compile Include="PurcpManager\PurcpManagerInfoOrdersProdPresenter.cs" />
     <Compile Include="PurcpManager\PurcpManagerPresenter.cs" />
     <Compile Include="SignInPresenter.cs" />
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{23bdf9a6-5b9b-40ff-8e26-9d99652a8fd7}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreHouse\StoreHouse.csproj">
+      <Project>{fb8c465a-09f5-420e-a781-c2d4fd4193d3}</Project>
+      <Name>StoreHouse</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

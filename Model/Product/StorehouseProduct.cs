@@ -12,7 +12,6 @@ namespace Model
 
         public StorehouseProduct()
         {
-
             listLotInformation = new List<LotInformation>();
         }
 
@@ -55,6 +54,7 @@ namespace Model
                     break;
                 }
             }
+
             UpdateProductCharacteristic();
         }
 
@@ -99,12 +99,14 @@ namespace Model
                         clientLot.ProductionDate = lot.ProductionDate;
                         oldestProduct = lot.ProductionDate;
                     }
+
                     lotsForRemove.Add(lot);
                     //listLotInformation.Remove(lot);
                 }
             }
 
-            product.Lot = clientLot;
+            product.Lot.ProductionDate = clientLot.ProductionDate;
+            product.Lot.QuantityProduct = clientLot.QuantityProduct;
             UpdateProductCharacteristic();
             RemoveEmptyLots(lotsForRemove);
             return product;
@@ -117,8 +119,8 @@ namespace Model
             {
                 copyList.Add((LotInformation)lot.Clone());
             }
-            return copyList;
 
+            return copyList;
         }
 
         public ProductCharacteristic GetProductCharacteristic()
@@ -158,6 +160,7 @@ namespace Model
                 characteristic.ProductId = this.ProductId;
                 characteristic.ProductName = (string)this.ProductName.Clone();
             }
+
             characteristic.TotalQuantityProduct = TotalQuantityProduct;
         }
 

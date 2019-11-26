@@ -45,7 +45,10 @@ namespace Presenter
             order.Provider.Name = view.OrganizationName;
             order.Provider.ContactNumber = view.ContactNumber;
             order.Provider.BankAccountNumber = view.BankAccount;
+            new PurcpManagerAddProductToOrderPresenter(kernel.Get<IPurcpManagerAddProductInOrderView>(), kernel, order).Run();
+            view.Close();
             //TO-DO
+            //Ninject
         }
     }
 }

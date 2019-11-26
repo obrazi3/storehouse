@@ -50,74 +50,81 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(398, 297);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(453, 396);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // ViewInfoOrderProdButton
             // 
-            this.ViewInfoOrderProdButton.Location = new System.Drawing.Point(10, 10);
+            this.ViewInfoOrderProdButton.Location = new System.Drawing.Point(11, 13);
+            this.ViewInfoOrderProdButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ViewInfoOrderProdButton.Name = "ViewInfoOrderProdButton";
-            this.ViewInfoOrderProdButton.Size = new System.Drawing.Size(185, 84);
+            this.ViewInfoOrderProdButton.Size = new System.Drawing.Size(211, 112);
             this.ViewInfoOrderProdButton.TabIndex = 0;
             this.ViewInfoOrderProdButton.Text = "Просмотреть информацию о сделаных заказах";
             this.ViewInfoOrderProdButton.UseVisualStyleBackColor = true;
             // 
             // AddOrderButton
             // 
-            this.AddOrderButton.Location = new System.Drawing.Point(10, 100);
+            this.AddOrderButton.Location = new System.Drawing.Point(11, 133);
+            this.AddOrderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddOrderButton.Name = "AddOrderButton";
-            this.AddOrderButton.Size = new System.Drawing.Size(185, 84);
+            this.AddOrderButton.Size = new System.Drawing.Size(211, 112);
             this.AddOrderButton.TabIndex = 1;
             this.AddOrderButton.Text = "Добавить заказ";
             this.AddOrderButton.UseVisualStyleBackColor = true;
             // 
             // ViewInfoProviderButton
             // 
-            this.ViewInfoProviderButton.Location = new System.Drawing.Point(10, 190);
+            this.ViewInfoProviderButton.Location = new System.Drawing.Point(11, 253);
+            this.ViewInfoProviderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ViewInfoProviderButton.Name = "ViewInfoProviderButton";
-            this.ViewInfoProviderButton.Size = new System.Drawing.Size(185, 84);
+            this.ViewInfoProviderButton.Size = new System.Drawing.Size(211, 112);
             this.ViewInfoProviderButton.TabIndex = 2;
             this.ViewInfoProviderButton.Text = "Просмотреть инфомацию о поставщике\r\n";
             this.ViewInfoProviderButton.UseVisualStyleBackColor = true;
             // 
             // AddProviderButton
             // 
-            this.AddProviderButton.Location = new System.Drawing.Point(201, 10);
+            this.AddProviderButton.Location = new System.Drawing.Point(228, 13);
+            this.AddProviderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddProviderButton.Name = "AddProviderButton";
-            this.AddProviderButton.Size = new System.Drawing.Size(185, 84);
+            this.AddProviderButton.Size = new System.Drawing.Size(211, 112);
             this.AddProviderButton.TabIndex = 5;
             this.AddProviderButton.Text = "Добавить поставщика";
             this.AddProviderButton.UseVisualStyleBackColor = true;
             // 
             // ViewInfoEndedProdButton
             // 
-            this.ViewInfoEndedProdButton.Location = new System.Drawing.Point(201, 100);
+            this.ViewInfoEndedProdButton.Location = new System.Drawing.Point(228, 133);
+            this.ViewInfoEndedProdButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ViewInfoEndedProdButton.Name = "ViewInfoEndedProdButton";
-            this.ViewInfoEndedProdButton.Size = new System.Drawing.Size(185, 84);
+            this.ViewInfoEndedProdButton.Size = new System.Drawing.Size(211, 112);
             this.ViewInfoEndedProdButton.TabIndex = 4;
             this.ViewInfoEndedProdButton.Text = "Просмотреть информацию о закончившемся и заканчивающемся товаре";
             this.ViewInfoEndedProdButton.UseVisualStyleBackColor = true;
             // 
             // RemoveProviderButton
             // 
-            this.RemoveProviderButton.Location = new System.Drawing.Point(201, 190);
+            this.RemoveProviderButton.Location = new System.Drawing.Point(228, 253);
+            this.RemoveProviderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RemoveProviderButton.Name = "RemoveProviderButton";
-            this.RemoveProviderButton.Size = new System.Drawing.Size(185, 84);
+            this.RemoveProviderButton.Size = new System.Drawing.Size(211, 112);
             this.RemoveProviderButton.TabIndex = 3;
             this.RemoveProviderButton.Text = "Удалить поставщика";
             this.RemoveProviderButton.UseVisualStyleBackColor = true;
             // 
             // PurcpManagerView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 281);
+            this.ClientSize = new System.Drawing.Size(453, 370);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(414, 320);
-            this.MinimumSize = new System.Drawing.Size(414, 320);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(471, 417);
+            this.MinimumSize = new System.Drawing.Size(471, 417);
             this.Name = "PurcpManagerView";
             this.Text = "Менеждер по закупкам";
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -61,13 +61,20 @@ namespace View
             this.GroupBoxLotInfo.SuspendLayout();
             this.PanelControlButtons.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // PanelMainContainer
+            // 
             this.PanelMainContainer.Controls.Add(this.GroupBoxProductInfo);
             this.PanelMainContainer.Controls.Add(this.GroupBoxLotInfo);
             this.PanelMainContainer.Controls.Add(this.PanelControlButtons);
             this.PanelMainContainer.Location = new System.Drawing.Point(3, 2);
+            this.PanelMainContainer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelMainContainer.Name = "PanelMainContainer";
-            this.PanelMainContainer.Size = new System.Drawing.Size(926, 512);
+            this.PanelMainContainer.Size = new System.Drawing.Size(1058, 682);
             this.PanelMainContainer.TabIndex = 0;
+            // 
+            // GroupBoxProductInfo
+            // 
             this.GroupBoxProductInfo.Controls.Add(this.LabelMeasure);
             this.GroupBoxProductInfo.Controls.Add(this.CheckBoxMeasure);
             this.GroupBoxProductInfo.Controls.Add(this.TextBoxProductCost);
@@ -82,183 +89,268 @@ namespace View
             this.GroupBoxProductInfo.Controls.Add(this.LabelProductCategory);
             this.GroupBoxProductInfo.Controls.Add(this.TextBoxProductName);
             this.GroupBoxProductInfo.Controls.Add(this.LabelProductName);
-            this.GroupBoxProductInfo.Location = new System.Drawing.Point(3, 3);
+            this.GroupBoxProductInfo.Location = new System.Drawing.Point(3, 4);
+            this.GroupBoxProductInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GroupBoxProductInfo.Name = "GroupBoxProductInfo";
-            this.GroupBoxProductInfo.Size = new System.Drawing.Size(923, 264);
+            this.GroupBoxProductInfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GroupBoxProductInfo.Size = new System.Drawing.Size(1055, 352);
             this.GroupBoxProductInfo.TabIndex = 0;
             this.GroupBoxProductInfo.TabStop = false;
             this.GroupBoxProductInfo.Text = "Информация о продукте";
+            // 
+            // LabelMeasure
+            // 
             this.LabelMeasure.AutoSize = true;
             this.LabelMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMeasure.Location = new System.Drawing.Point(19, 179);
+            this.LabelMeasure.Location = new System.Drawing.Point(22, 239);
             this.LabelMeasure.Name = "LabelMeasure";
-            this.LabelMeasure.Size = new System.Drawing.Size(155, 18);
+            this.LabelMeasure.Size = new System.Drawing.Size(203, 24);
             this.LabelMeasure.TabIndex = 15;
             this.LabelMeasure.Text = "Единицы измерения*";
+            // 
+            // CheckBoxMeasure
+            // 
             this.CheckBoxMeasure.FormattingEnabled = true;
             this.CheckBoxMeasure.Items.AddRange(new object[] {"Литры", "Килограммы", "Штуки"});
-            this.CheckBoxMeasure.Location = new System.Drawing.Point(19, 200);
+            this.CheckBoxMeasure.Location = new System.Drawing.Point(22, 266);
+            this.CheckBoxMeasure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CheckBoxMeasure.Name = "CheckBoxMeasure";
-            this.CheckBoxMeasure.Size = new System.Drawing.Size(182, 58);
+            this.CheckBoxMeasure.Size = new System.Drawing.Size(207, 70);
             this.CheckBoxMeasure.TabIndex = 14;
-            this.TextBoxProductCost.Location = new System.Drawing.Point(691, 127);
+            // 
+            // TextBoxProductCost
+            // 
+            this.TextBoxProductCost.Location = new System.Drawing.Point(790, 169);
+            this.TextBoxProductCost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxProductCost.Mask = "00000";
             this.TextBoxProductCost.Name = "TextBoxProductCost";
-            this.TextBoxProductCost.Size = new System.Drawing.Size(207, 23);
+            this.TextBoxProductCost.Size = new System.Drawing.Size(236, 27);
             this.TextBoxProductCost.TabIndex = 13;
             this.TextBoxProductCost.ValidatingType = typeof(int);
+            // 
+            // LabelProductCost
+            // 
             this.LabelProductCost.AutoSize = true;
             this.LabelProductCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelProductCost.Location = new System.Drawing.Point(673, 106);
+            this.LabelProductCost.Location = new System.Drawing.Point(739, 141);
             this.LabelProductCost.Name = "LabelProductCost";
-            this.LabelProductCost.Size = new System.Drawing.Size(244, 18);
+            this.LabelProductCost.Size = new System.Drawing.Size(316, 24);
             this.LabelProductCost.TabIndex = 12;
             this.LabelProductCost.Text = "Стоимость единицы товара, руб.*";
-            this.TextBoxExpirationDate.Location = new System.Drawing.Point(344, 127);
+            // 
+            // TextBoxExpirationDate
+            // 
+            this.TextBoxExpirationDate.Location = new System.Drawing.Point(393, 169);
+            this.TextBoxExpirationDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxExpirationDate.Mask = "00/00/0000";
             this.TextBoxExpirationDate.Name = "TextBoxExpirationDate";
-            this.TextBoxExpirationDate.Size = new System.Drawing.Size(238, 23);
+            this.TextBoxExpirationDate.Size = new System.Drawing.Size(271, 27);
             this.TextBoxExpirationDate.TabIndex = 11;
             this.TextBoxExpirationDate.ValidatingType = typeof(System.DateTime);
+            // 
+            // LabelExpirationDate
+            // 
             this.LabelExpirationDate.AutoSize = true;
             this.LabelExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelExpirationDate.Location = new System.Drawing.Point(344, 106);
+            this.LabelExpirationDate.Location = new System.Drawing.Point(393, 141);
             this.LabelExpirationDate.Name = "LabelExpirationDate";
-            this.LabelExpirationDate.Size = new System.Drawing.Size(118, 18);
+            this.LabelExpirationDate.Size = new System.Drawing.Size(151, 24);
             this.LabelExpirationDate.TabIndex = 10;
             this.LabelExpirationDate.Text = "Срок годности*";
-            this.TextBoxCountryProduction.Location = new System.Drawing.Point(19, 127);
+            // 
+            // TextBoxCountryProduction
+            // 
+            this.TextBoxCountryProduction.Location = new System.Drawing.Point(22, 169);
+            this.TextBoxCountryProduction.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxCountryProduction.Name = "TextBoxCountryProduction";
-            this.TextBoxCountryProduction.Size = new System.Drawing.Size(226, 23);
+            this.TextBoxCountryProduction.Size = new System.Drawing.Size(258, 27);
             this.TextBoxCountryProduction.TabIndex = 9;
+            // 
+            // LabelCountryProduction
+            // 
             this.LabelCountryProduction.AutoSize = true;
             this.LabelCountryProduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelCountryProduction.Location = new System.Drawing.Point(19, 106);
+            this.LabelCountryProduction.Location = new System.Drawing.Point(22, 141);
             this.LabelCountryProduction.Name = "LabelCountryProduction";
-            this.LabelCountryProduction.Size = new System.Drawing.Size(166, 18);
+            this.LabelCountryProduction.Size = new System.Drawing.Size(216, 24);
             this.LabelCountryProduction.TabIndex = 8;
             this.LabelCountryProduction.Text = "Страна производства*";
-            this.TextBoxProductGroup.Location = new System.Drawing.Point(691, 48);
+            // 
+            // TextBoxProductGroup
+            // 
+            this.TextBoxProductGroup.Location = new System.Drawing.Point(790, 64);
+            this.TextBoxProductGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxProductGroup.Name = "TextBoxProductGroup";
-            this.TextBoxProductGroup.Size = new System.Drawing.Size(207, 23);
+            this.TextBoxProductGroup.Size = new System.Drawing.Size(236, 27);
             this.TextBoxProductGroup.TabIndex = 7;
+            // 
+            // LabelProductGroup
+            // 
             this.LabelProductGroup.AutoSize = true;
             this.LabelProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelProductGroup.Location = new System.Drawing.Point(691, 27);
+            this.LabelProductGroup.Location = new System.Drawing.Point(790, 36);
             this.LabelProductGroup.Name = "LabelProductGroup";
-            this.LabelProductGroup.Size = new System.Drawing.Size(155, 18);
+            this.LabelProductGroup.Size = new System.Drawing.Size(200, 24);
             this.LabelProductGroup.TabIndex = 6;
             this.LabelProductGroup.Text = "Продуктовая группа*";
-            this.TextBoxProductCategory.Location = new System.Drawing.Point(344, 48);
+            // 
+            // TextBoxProductCategory
+            // 
+            this.TextBoxProductCategory.Location = new System.Drawing.Point(393, 64);
+            this.TextBoxProductCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxProductCategory.Name = "TextBoxProductCategory";
-            this.TextBoxProductCategory.Size = new System.Drawing.Size(238, 23);
+            this.TextBoxProductCategory.Size = new System.Drawing.Size(271, 27);
             this.TextBoxProductCategory.TabIndex = 5;
+            // 
+            // LabelProductCategory
+            // 
             this.LabelProductCategory.AutoSize = true;
             this.LabelProductCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelProductCategory.Location = new System.Drawing.Point(344, 27);
+            this.LabelProductCategory.Location = new System.Drawing.Point(393, 36);
             this.LabelProductCategory.Name = "LabelProductCategory";
-            this.LabelProductCategory.Size = new System.Drawing.Size(180, 18);
+            this.LabelProductCategory.Size = new System.Drawing.Size(231, 24);
             this.LabelProductCategory.TabIndex = 4;
             this.LabelProductCategory.Text = "Продуктовая категория*";
-            this.TextBoxProductName.Location = new System.Drawing.Point(19, 48);
+            // 
+            // TextBoxProductName
+            // 
+            this.TextBoxProductName.Location = new System.Drawing.Point(22, 64);
+            this.TextBoxProductName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxProductName.Name = "TextBoxProductName";
-            this.TextBoxProductName.Size = new System.Drawing.Size(226, 23);
+            this.TextBoxProductName.Size = new System.Drawing.Size(258, 27);
             this.TextBoxProductName.TabIndex = 3;
+            // 
+            // LabelProductName
+            // 
             this.LabelProductName.AutoSize = true;
             this.LabelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelProductName.Location = new System.Drawing.Point(19, 27);
+            this.LabelProductName.Location = new System.Drawing.Point(22, 36);
             this.LabelProductName.Name = "LabelProductName";
-            this.LabelProductName.Size = new System.Drawing.Size(149, 18);
+            this.LabelProductName.Size = new System.Drawing.Size(192, 24);
             this.LabelProductName.TabIndex = 2;
             this.LabelProductName.Text = "Название продукта*";
+            // 
+            // GroupBoxLotInfo
+            // 
             this.GroupBoxLotInfo.Controls.Add(this.TextBoxNumberOfProduct);
             this.GroupBoxLotInfo.Controls.Add(this.LabelNumberOfProduct);
             this.GroupBoxLotInfo.Controls.Add(this.TextBoxProductionDate);
             this.GroupBoxLotInfo.Controls.Add(this.LabelProductionDate);
-            this.GroupBoxLotInfo.Location = new System.Drawing.Point(3, 273);
+            this.GroupBoxLotInfo.Location = new System.Drawing.Point(3, 364);
+            this.GroupBoxLotInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GroupBoxLotInfo.Name = "GroupBoxLotInfo";
-            this.GroupBoxLotInfo.Size = new System.Drawing.Size(923, 128);
+            this.GroupBoxLotInfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GroupBoxLotInfo.Size = new System.Drawing.Size(1055, 171);
             this.GroupBoxLotInfo.TabIndex = 1;
             this.GroupBoxLotInfo.TabStop = false;
             this.GroupBoxLotInfo.Text = "Информация о поставке";
-            this.TextBoxNumberOfProduct.Location = new System.Drawing.Point(286, 51);
+            // 
+            // TextBoxNumberOfProduct
+            // 
+            this.TextBoxNumberOfProduct.Location = new System.Drawing.Point(327, 68);
+            this.TextBoxNumberOfProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxNumberOfProduct.Name = "TextBoxNumberOfProduct";
-            this.TextBoxNumberOfProduct.Size = new System.Drawing.Size(238, 23);
+            this.TextBoxNumberOfProduct.Size = new System.Drawing.Size(271, 27);
             this.TextBoxNumberOfProduct.TabIndex = 15;
+            // 
+            // LabelNumberOfProduct
+            // 
             this.LabelNumberOfProduct.AutoSize = true;
             this.LabelNumberOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelNumberOfProduct.Location = new System.Drawing.Point(286, 30);
+            this.LabelNumberOfProduct.Location = new System.Drawing.Point(327, 40);
             this.LabelNumberOfProduct.Name = "LabelNumberOfProduct";
-            this.LabelNumberOfProduct.Size = new System.Drawing.Size(203, 18);
+            this.LabelNumberOfProduct.Size = new System.Drawing.Size(264, 24);
             this.LabelNumberOfProduct.TabIndex = 14;
             this.LabelNumberOfProduct.Text = "Количество единиц товара*";
-            this.TextBoxProductionDate.Location = new System.Drawing.Point(6, 51);
+            // 
+            // TextBoxProductionDate
+            // 
+            this.TextBoxProductionDate.Location = new System.Drawing.Point(7, 68);
+            this.TextBoxProductionDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxProductionDate.Mask = "00/00/0000";
             this.TextBoxProductionDate.Name = "TextBoxProductionDate";
-            this.TextBoxProductionDate.Size = new System.Drawing.Size(238, 23);
+            this.TextBoxProductionDate.Size = new System.Drawing.Size(271, 27);
             this.TextBoxProductionDate.TabIndex = 13;
             this.TextBoxProductionDate.ValidatingType = typeof(System.DateTime);
+            // 
+            // LabelProductionDate
+            // 
             this.LabelProductionDate.AutoSize = true;
             this.LabelProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelProductionDate.Location = new System.Drawing.Point(6, 30);
+            this.LabelProductionDate.Location = new System.Drawing.Point(7, 40);
             this.LabelProductionDate.Name = "LabelProductionDate";
-            this.LabelProductionDate.Size = new System.Drawing.Size(151, 18);
+            this.LabelProductionDate.Size = new System.Drawing.Size(195, 24);
             this.LabelProductionDate.TabIndex = 12;
             this.LabelProductionDate.Text = "Дата производства*";
+            // 
+            // PanelControlButtons
+            // 
             this.PanelControlButtons.Controls.Add(this.LabelMessageRequiredFields);
             this.PanelControlButtons.Controls.Add(this.ButtonAddProduct);
             this.PanelControlButtons.Controls.Add(this.ButtonBack);
-            this.PanelControlButtons.Location = new System.Drawing.Point(2, 406);
+            this.PanelControlButtons.Location = new System.Drawing.Point(2, 541);
             this.PanelControlButtons.Margin = new System.Windows.Forms.Padding(2);
             this.PanelControlButtons.Name = "PanelControlButtons";
-            this.PanelControlButtons.Size = new System.Drawing.Size(920, 106);
+            this.PanelControlButtons.Size = new System.Drawing.Size(1051, 141);
             this.PanelControlButtons.TabIndex = 6;
+            // 
+            // LabelMessageRequiredFields
+            // 
             this.LabelMessageRequiredFields.AutoSize = true;
             this.LabelMessageRequiredFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMessageRequiredFields.Location = new System.Drawing.Point(134, 15);
+            this.LabelMessageRequiredFields.Location = new System.Drawing.Point(153, 20);
             this.LabelMessageRequiredFields.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelMessageRequiredFields.Name = "LabelMessageRequiredFields";
-            this.LabelMessageRequiredFields.Size = new System.Drawing.Size(651, 18);
+            this.LabelMessageRequiredFields.Size = new System.Drawing.Size(844, 24);
             this.LabelMessageRequiredFields.TabIndex = 2;
             this.LabelMessageRequiredFields.Text =
-                (("Были введены не все обязательные поля(*). Проверьте ввод и повторите попытку ещё " + "" + "") +
-                 "раз.");
+                "Были введены не все обязательные поля(*). Проверьте ввод и повторите попытку ещё " + "раз.";
             this.LabelMessageRequiredFields.Visible = false;
+            // 
+            // ButtonAddProduct
+            // 
             this.ButtonAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonAddProduct.Location = new System.Drawing.Point(741, 76);
+            this.ButtonAddProduct.Location = new System.Drawing.Point(847, 101);
             this.ButtonAddProduct.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonAddProduct.Name = "ButtonAddProduct";
-            this.ButtonAddProduct.Size = new System.Drawing.Size(149, 29);
+            this.ButtonAddProduct.Size = new System.Drawing.Size(170, 39);
             this.ButtonAddProduct.TabIndex = 1;
             this.ButtonAddProduct.Text = "Добавить продукт";
             this.ButtonAddProduct.UseVisualStyleBackColor = true;
+            // 
+            // ButtonBack
+            // 
             this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonBack.Location = new System.Drawing.Point(12, 76);
+            this.ButtonBack.Location = new System.Drawing.Point(14, 101);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(115, 29);
+            this.ButtonBack.Size = new System.Drawing.Size(131, 39);
             this.ButtonBack.TabIndex = 0;
             this.ButtonBack.Text = "Назад";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.OnButtonBackClick);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            // 
+            // PurcpManagerAddProductInOrderView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 525);
+            this.ClientSize = new System.Drawing.Size(1064, 689);
             this.Controls.Add(this.PanelMainContainer);
-            this.MaximumSize = new System.Drawing.Size(949, 564);
-            this.MinimumSize = new System.Drawing.Size(949, 564);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1082, 736);
+            this.MinimumSize = new System.Drawing.Size(1082, 736);
             this.Name = "PurcpManagerAddProductInOrderView";
             this.Text = "PurcpManagerAddOrderSecondStepView";
             this.PanelMainContainer.ResumeLayout(false);
