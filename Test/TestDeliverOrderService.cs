@@ -7,7 +7,7 @@ namespace Test
 {
     public class TestDeliverOrderService
     {
-        public static void Main()
+       /* public static void Main()
         {
             var kernel = new StandardKernel(new NinjectConfiguration());
             IDeliveryOrderServiceForBooker booker = kernel.Get<IDeliveryOrderServiceForBooker>();
@@ -191,6 +191,6 @@ namespace Test
             else
                 Console.WriteLine(order.OrderDate + " ID:" + order.OrderId + " " + order.TotalSumOrder);
             Console.WriteLine();
-        }
+        }*/
     }
 }

@@ -2,6 +2,7 @@
 using Model;
 using Presenter;
 using System.Windows.Forms;
+using Presenter.PurcpManager.PurcpManagerAddProvider;
 
 namespace View
 {
@@ -32,6 +33,8 @@ namespace View
             // kernel.Bind<IClientOrder>().To<ClientOrder>();
             Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
             Bind<ICourierGetOrderView>().To<CourierGetOrderView>();
+            Bind<IPurcpManagerAddProviderView>().To<PurcpManagerAddProviderView>();
+            Bind<IPurcpManagerRemoveProviderView>().To<IPurcpManagerRemoveProviderView>();
 
             Bind<CourierPresenter>().ToSelf();
             Bind<BookerPresenter>().ToSelf();
@@ -44,6 +47,8 @@ namespace View
             Bind<ClientManagerAddOrderPresenter>().ToSelf();
             Bind<ClientManagerInspectOrderPresenter>().ToSelf();
             Bind<CourierGetOrderPresenter>().ToSelf();
+            Bind<PurcpManagerAddProviderPresenter>().ToSelf();
+            Bind<PurcpManagerRemoveProviderPresenter>().ToSelf();
         }
     }
 }

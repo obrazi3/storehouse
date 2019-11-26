@@ -21,6 +21,7 @@ namespace Test
             lot.ProductionDate = new DateTime(2019, 11, 6);
             lot.QuantityProduct = 25;
             product.Lot = lot;
+            
             serviceDelivery.AddProduct(product);
 
 

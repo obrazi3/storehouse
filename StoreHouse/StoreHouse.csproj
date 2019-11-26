@@ -112,6 +112,24 @@
     <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.Designer.cs">
       <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerInfoProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerRemoveProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerRemoveProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerRemoveProviderView.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurcpManager\PurcpManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +204,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.resx">
       <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddProviderView.resx">
+      <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerInfoProviderView.resx">
+      <DependentUpon>PurcpManagerInfoProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerRemoveProviderView.resx">
+      <DependentUpon>PurcpManagerRemoveProviderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurcpManager\PurcpManagerView.resx">
       <DependentUpon>PurcpManagerView.cs</DependentUpon>
