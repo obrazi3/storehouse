@@ -12,23 +12,26 @@ namespace View
         public event Action SearchProvider;
 
         private readonly ApplicationContext context;
-        private List<Label> listProductLabels;
 
         public PurcpManagerInfoProviderView(ApplicationContext _context)
         {
-            listProductLabels = new List<Label>();
             context = _context;
             InitializeComponent();
         }
 
         public void SetInfoProvider(ProductProvider provider)
         {
+            LabelCurrentEmail.Text.Remove(0, LabelCurrentEmail.Text.Length);
+            LabelCurrentBankAccount.Text.Remove(0, LabelCurrentBankAccount.Text.Length);
+            LabelCurrentContactNumber.Text.Remove(0, LabelContactNumber.Text.Length);
+            LabelCurrentNameOrganization.Text.Remove(0, LabelOrganizationName.Text.Length);
+            PanelProductCategories.Controls.Clear();
+
             LabelCurrentEmail.Text = provider.Email;
             LabelCurrentBankAccount.Text = provider.BankAccountNumber;
             LabelCurrentContactNumber.Text = provider.ContactNumber;
             LabelCurrentNameOrganization.Text = provider.Name;
             
-            throw new System.NotImplementedException();
             foreach (var category in provider.GetListProductCategories())
             {
                 Label label = new Label();
