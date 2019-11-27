@@ -35,6 +35,7 @@ namespace View
             Bind<ICourierGetOrderView>().To<CourierGetOrderView>();
             Bind<IPurcpManagerAddProviderView>().To<PurcpManagerAddProviderView>();
             Bind<IPurcpManagerRemoveProviderView>().To<IPurcpManagerRemoveProviderView>();
+            Bind<IPurcpManagerInfoProviderView>().To<PurcpManagerInfoProviderView>();
 
             Bind<CourierPresenter>().ToSelf();
             Bind<BookerPresenter>().ToSelf();
@@ -49,6 +50,7 @@ namespace View
             Bind<CourierGetOrderPresenter>().ToSelf();
             Bind<PurcpManagerAddProviderPresenter>().ToSelf();
             Bind<PurcpManagerRemoveProviderPresenter>().ToSelf();
+            Bind<PurcpManagerInfoProviderPresenter>().ToSelf();
         }
     }
 }

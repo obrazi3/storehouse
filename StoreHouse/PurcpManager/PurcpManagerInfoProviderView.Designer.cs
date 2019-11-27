@@ -40,6 +40,7 @@ namespace View
             this.GroupBoxInformation = new System.Windows.Forms.GroupBox();
             this.LabelCurrentEmail = new System.Windows.Forms.Label();
             this.LabelCurrentContactNumber = new System.Windows.Forms.Label();
+            this.PanelProductCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.LabelProductCategories = new System.Windows.Forms.Label();
             this.LabelCurrentBankAccount = new System.Windows.Forms.Label();
             this.LabelCurrentNameOrganization = new System.Windows.Forms.Label();
@@ -47,10 +48,8 @@ namespace View
             this.LabelContactNumber = new System.Windows.Forms.Label();
             this.LabelBankAccount = new System.Windows.Forms.Label();
             this.LabelOrganizationName = new System.Windows.Forms.Label();
-            this.PanelProductCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelControlButtons = new System.Windows.Forms.Panel();
             this.ButtonBack = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.PanelInputInformation.SuspendLayout();
             this.GroupBoxInformation.SuspendLayout();
@@ -62,7 +61,6 @@ namespace View
             // 
             this.flowLayoutPanel1.Controls.Add(this.PanelInputInformation);
             this.flowLayoutPanel1.Controls.Add(this.GroupBoxInformation);
-            this.flowLayoutPanel1.Controls.Add(this.PanelProductCategories);
             this.flowLayoutPanel1.Controls.Add(this.PanelControlButtons);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -108,6 +106,7 @@ namespace View
             // TextBoxIDProvider
             // 
             this.TextBoxIDProvider.Location = new System.Drawing.Point(3, 28);
+            this.TextBoxIDProvider.Mask = "0000000";
             this.TextBoxIDProvider.Name = "TextBoxIDProvider";
             this.TextBoxIDProvider.Size = new System.Drawing.Size(748, 24);
             this.TextBoxIDProvider.TabIndex = 1;
@@ -126,6 +125,7 @@ namespace View
             // 
             this.GroupBoxInformation.Controls.Add(this.LabelCurrentEmail);
             this.GroupBoxInformation.Controls.Add(this.LabelCurrentContactNumber);
+            this.GroupBoxInformation.Controls.Add(this.PanelProductCategories);
             this.GroupBoxInformation.Controls.Add(this.LabelProductCategories);
             this.GroupBoxInformation.Controls.Add(this.LabelCurrentBankAccount);
             this.GroupBoxInformation.Controls.Add(this.LabelCurrentNameOrganization);
@@ -137,7 +137,7 @@ namespace View
             this.GroupBoxInformation.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.GroupBoxInformation.Name = "GroupBoxInformation";
             this.GroupBoxInformation.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.GroupBoxInformation.Size = new System.Drawing.Size(921, 177);
+            this.GroupBoxInformation.Size = new System.Drawing.Size(920, 312);
             this.GroupBoxInformation.TabIndex = 3;
             this.GroupBoxInformation.TabStop = false;
             this.GroupBoxInformation.Text = "Информация о поставщике";
@@ -157,6 +157,14 @@ namespace View
             this.LabelCurrentContactNumber.Name = "LabelCurrentContactNumber";
             this.LabelCurrentContactNumber.Size = new System.Drawing.Size(663, 18);
             this.LabelCurrentContactNumber.TabIndex = 12;
+            // 
+            // PanelProductCategories
+            // 
+            this.PanelProductCategories.AutoScroll = true;
+            this.PanelProductCategories.Location = new System.Drawing.Point(5, 183);
+            this.PanelProductCategories.Name = "PanelProductCategories";
+            this.PanelProductCategories.Size = new System.Drawing.Size(915, 118);
+            this.PanelProductCategories.TabIndex = 4;
             // 
             // LabelProductCategories
             // 
@@ -234,44 +242,27 @@ namespace View
             this.LabelOrganizationName.TabIndex = 0;
             this.LabelOrganizationName.Text = "Название организации:";
             // 
-            // PanelProductCategories
-            // 
-            this.PanelProductCategories.AutoScroll = true;
-            this.PanelProductCategories.Controls.Add(this.label4);
-            this.PanelProductCategories.Location = new System.Drawing.Point(3, 297);
-            this.PanelProductCategories.Name = "PanelProductCategories";
-            this.PanelProductCategories.Size = new System.Drawing.Size(920, 118);
-            this.PanelProductCategories.TabIndex = 4;
-            // 
             // PanelControlButtons
             // 
             this.PanelControlButtons.Controls.Add(this.ButtonBack);
-            this.PanelControlButtons.Location = new System.Drawing.Point(2, 419);
+            this.PanelControlButtons.Location = new System.Drawing.Point(2, 430);
             this.PanelControlButtons.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PanelControlButtons.Name = "PanelControlButtons";
-            this.PanelControlButtons.Size = new System.Drawing.Size(921, 91);
+            this.PanelControlButtons.Size = new System.Drawing.Size(920, 83);
             this.PanelControlButtons.TabIndex = 8;
             // 
             // ButtonBack
             // 
             this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonBack.Location = new System.Drawing.Point(6, 54);
+            this.ButtonBack.Location = new System.Drawing.Point(6, 48);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(114, 29);
             this.ButtonBack.TabIndex = 0;
             this.ButtonBack.Text = "Назад";
             this.ButtonBack.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(897, 18);
-            this.label4.TabIndex = 14;
+            this.ButtonBack.Click += new System.EventHandler(this.OnButtonBackClick);
             // 
             // PurcpManagerInfoProviderView
             // 
@@ -311,7 +302,6 @@ namespace View
         private System.Windows.Forms.GroupBox GroupBoxInformation;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Panel PanelControlButtons;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel PanelProductCategories;
     }
 }
