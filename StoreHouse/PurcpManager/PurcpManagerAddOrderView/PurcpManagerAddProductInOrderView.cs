@@ -94,7 +94,7 @@ namespace View
             if (TextBoxNumberOfProduct.Text.Length == 0)
                 return false;
             if (CheckBoxMeasure.SelectedIndex == -1)
-                return false; //проверить
+                return false; 
 
             return true;
         }

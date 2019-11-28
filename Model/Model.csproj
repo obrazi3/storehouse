@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bank\Bank.cs" />
+    <Compile Include="Bank\IBank.cs" />
     <Compile Include="BriefInvoiceInfo.cs" />
     <Compile Include="ClientOrder\ClientInformation.cs" />
     <Compile Include="ClientOrder\ClientOrder.cs" />
@@ -93,6 +95,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

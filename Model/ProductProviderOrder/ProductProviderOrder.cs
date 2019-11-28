@@ -19,7 +19,6 @@ namespace Model
         {
             listProducts = new List<ProductFromLot>();
             Provider = new ProductProvider();
-            // OrderDate = new DateTime();
         }
 
         public void AddProduct(ProductFromLot prod)
@@ -50,7 +49,6 @@ namespace Model
             ProductProviderOrder clone = new ProductProviderOrder();
             clone.Provider = (ProductProvider)this.Provider.Clone();
             clone.OrderId = this.OrderId;
-            clone.TotalSumOrder = this.TotalSumOrder;
             clone.Status = this.Status;
             clone.OrderDate = this.OrderDate;
             
