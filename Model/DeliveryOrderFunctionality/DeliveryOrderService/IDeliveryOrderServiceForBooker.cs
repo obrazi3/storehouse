@@ -6,5 +6,6 @@ namespace Model
     {
         List<ProductProviderOrder> GetListNotPaidProviderOrders();
         void ConfirmPaymentProviderOrder(int orderId);
+        bool PayDeliveryFromProvider(int bankIdProvider, int sum);
     }
 }

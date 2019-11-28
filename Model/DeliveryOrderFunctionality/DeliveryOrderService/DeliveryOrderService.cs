@@ -14,14 +14,17 @@ namespace Model
         private IProductProviderRepository providersRepository;
         private IProviderOrderRepository ordersRepository;
         private IStorehouseServiceForDeliveryOrderService storehouseService;
+        private IBankForDeliveryOrderService bank;
 
 
         public DeliveryOrderService(IProductProviderRepository _providersRepository,
-            IProviderOrderRepository _ordersRepository, IStorehouseServiceForDeliveryOrderService _storehouseService)
+            IProviderOrderRepository _ordersRepository, IStorehouseServiceForDeliveryOrderService _storehouseService,
+            IBankForDeliveryOrderService _bank)
         {
             providersRepository = _providersRepository;
             ordersRepository = _ordersRepository;
             storehouseService = _storehouseService;
+            bank = _bank;
             nextIdOrder = 1;
             nextIdProvider = 1;
         }
@@ -102,6 +105,11 @@ namespace Model
             ordersRepository.RemoveProductProviderOrder(orderId);
             order.Status = StatusProviderOrder.Paid;
             ordersRepository.AddProductProviderOrder(order);
+        }
+
+        public bool PayDeliveryFromProvider(int bankIdProvider, int sum)
+        {
+            return bank.PayDeliveryFromProvider(bankIdProvider, sum);
         }
 
         public ProductProviderOrder GetProviderPaidOrder(int orderId)

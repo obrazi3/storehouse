@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public class Bank : IBank
+    public class Bank : IBankForClientOrderService, IBankForDeliveryOrderService
     {
         private int digit;
 

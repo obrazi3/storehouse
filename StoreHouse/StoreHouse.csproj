@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booker\BookerShowNotPaidProviderOrdersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booker\BookerShowNotPaidProviderOrdersView.Designer.cs">
+      <DependentUpon>BookerShowNotPaidProviderOrdersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Booker\BookerView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <Compile Include="Storekeeper\StorekeeperView.Designer.cs">
       <DependentUpon>StorekeeperView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Booker\BookerShowNotPaidProviderOrdersView.resx">
+      <DependentUpon>BookerShowNotPaidProviderOrdersView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Booker\BookerView.resx">
       <DependentUpon>BookerView.cs</DependentUpon>
     </EmbeddedResource>

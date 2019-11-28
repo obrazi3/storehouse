@@ -18,6 +18,7 @@ namespace Presenter
             _view.ViewInfoProvider += OnButtonViewInfoProviderClick;
             _view.ViewInfoEndedProd += OnButtonViewInfoEndedProdClick;
             _view.ViewInfoOrderProd += OnButtonViewInfoOrderProdClick;
+            _view.Back += OnButtonBackClick;
         }
 
         public void Run()
@@ -58,6 +59,12 @@ namespace Presenter
         private void OnButtonViewInfoEndedProdClick()
         {
             _kernel.Get<PurcpManagerInfoDificitProductsPresenter>().Run();
+            _view.Close();
+        }
+
+        private void OnButtonBackClick()
+        {
+            _kernel.Get<SignInPresenter>().Run();
             _view.Close();
         }
     }

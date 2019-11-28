@@ -13,6 +13,7 @@ namespace View
         public event Action AddProvider;
         public event Action RemoveProvider;
         public event Action ViewInfoEndedProd;
+        public event Action Back;
 
         private readonly ApplicationContext _context;
 
@@ -58,6 +59,11 @@ namespace View
         {
             ViewInfoEndedProd?.Invoke();
         }
-        
+
+        private void OnButtonBackClick(object o, EventArgs e)
+        {
+            Back?.Invoke();
+        }
+
     }
 }

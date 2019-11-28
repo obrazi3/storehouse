@@ -2,18 +2,23 @@
 
 namespace Presenter
 {
-    public interface IPurcpManagerView : IView
+    public interface IPurcpManagerView : IView, IBack
     {
         //Просмотреть информацию о заказанных товарах
         event Action ViewInfoOrderProd;
+
         //Добавить новый заказ
         event Action AddOrder;
+
         //Просмотреть информацию о поставщике
         event Action ViewInfoProvider;
+
         //Добавить поставщика
         event Action AddProvider;
+
         //Удалить поставщика
         event Action RemoveProvider;
+
         //Просмотреть информацию о закончившихся и заканчивающихся товарах
         event Action ViewInfoEndedProd;
     }

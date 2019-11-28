@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank\Bank.cs" />
-    <Compile Include="Bank\IBank.cs" />
+    <Compile Include="Bank\IBankForClientOrderService.cs" />
+    <Compile Include="Bank\IBankForDeliveryOrderService.cs" />
     <Compile Include="BriefInvoiceInfo.cs" />
     <Compile Include="ClientOrder\ClientInformation.cs" />
     <Compile Include="ClientOrder\ClientOrder.cs" />

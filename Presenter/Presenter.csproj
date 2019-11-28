@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booker\BookerPresenter.cs" />
-    <Compile Include="Booker\IBookerView.cs" />
+    <Compile Include="Booker\BookerMainMenu\BookerPresenter.cs" />
+    <Compile Include="Booker\BookerMainMenu\IBookerView.cs" />
+    <Compile Include="Booker\BookerShowNotPaidProviderOrders\BookerShowNotPaidProviderOrdersPresenter.cs" />
+    <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrderPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrderSecondStepPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerInspectOrderPresenter.cs" />

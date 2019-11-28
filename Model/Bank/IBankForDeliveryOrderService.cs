@@ -1,8 +1,7 @@
 ﻿namespace Model
 {
-    public interface IBank
+    public interface IBankForDeliveryOrderService
     {
-        bool CheckPaymentByClient(int orderId);
         bool PayDeliveryFromProvider(int bankIdProvider, int sum);
     }
 }
