@@ -118,6 +118,12 @@
     <Compile Include="PurcpManager\PurcpManagerAddProviderView.Designer.cs">
       <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProductsView.Designer.cs">
+      <DependentUpon>PurcpManagerInfoDificitProductsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurcpManager\PurcpManagerInfoProviderView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurcpManager\PurcpManagerAddProviderView.resx">
       <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerInfoDificitProductsView.resx">
+      <DependentUpon>PurcpManagerInfoDificitProductsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurcpManager\PurcpManagerInfoProviderView.resx">
       <DependentUpon>PurcpManagerInfoProviderView.cs</DependentUpon>

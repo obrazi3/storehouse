@@ -17,6 +17,7 @@ namespace View
         {
             context = _context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             numberProducts = 0;
         }
 
@@ -27,7 +28,7 @@ namespace View
             LabelNumberOfProductInDelivery.Text += number.ToString();
         }
 
-        public new void Run()
+        public new void Show()
         {
             context.MainForm = this;
             base.Show();
@@ -47,7 +48,7 @@ namespace View
                 LabelMessageNotEnoughProducts.Visible = true;
         }
 
-        private void OnButtonAddOrderClick(object o, EventArgs e)
+        private void OnButtonAddProductClick(object o, EventArgs e)
         {
             AddProduct?.Invoke();
         }

@@ -19,7 +19,7 @@ namespace Model
         {
             listProducts = new List<ProductFromLot>();
             Provider = new ProductProvider();
-            OrderDate = new DateTime();
+            // OrderDate = new DateTime();
         }
 
         public void AddProduct(ProductFromLot prod)
@@ -53,12 +53,12 @@ namespace Model
             clone.TotalSumOrder = this.TotalSumOrder;
             clone.Status = this.Status;
             clone.OrderDate = this.OrderDate;
-
-            List<ProductFromLot> clonelistProducts = new List<ProductFromLot>();
+            
             foreach (var prod in listProducts)
             {
-                clonelistProducts.Add((ProductFromLot)prod.Clone());
+                clone.AddProduct((ProductFromLot)prod.Clone());
             }
+
 
             return clone;
         }

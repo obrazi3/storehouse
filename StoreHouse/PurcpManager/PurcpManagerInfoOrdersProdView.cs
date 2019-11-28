@@ -20,6 +20,7 @@ namespace View
         {
             InitializeComponent();
             context = _context;
+            StartPosition = FormStartPosition.CenterScreen;
             dictionaryCheckBoxes = new Dictionary<int, CheckBox>();
         }
 
@@ -31,14 +32,16 @@ namespace View
 
         public void AddOrders(List<ProductProviderOrder> listNotPaidOrders)
         {
+            PanelOrdersInfo.Controls.Clear();
+            dictionaryCheckBoxes.Clear();
             foreach (var order in listNotPaidOrders)
             {
                 FlowLayoutPanel panelCurrentOrder = new FlowLayoutPanel();
-                panelCurrentOrder.Size = new System.Drawing.Size(905, 74);
+                panelCurrentOrder.Size = new System.Drawing.Size(800, 100);
                 panelCurrentOrder.MaximumSize = panelCurrentOrder.Size;
                 panelCurrentOrder.MinimumSize = panelCurrentOrder.Size;
-                panelCurrentOrder.TabIndex = 8;
-                panelCurrentOrder.ResumeLayout(false);
+                //panelCurrentOrder.TabIndex = 8;
+                //panelCurrentOrder.ResumeLayout(false);
 
                 Label labelOrganizationName = new Label();
                 labelOrganizationName.Font =
@@ -51,8 +54,8 @@ namespace View
                 Label labelCurrentOrganizationName = new Label();
                 labelCurrentOrganizationName.Font = new System.Drawing.Font("Times New Roman", 11F);
                 labelCurrentOrganizationName.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentOrganizationName.Size = new System.Drawing.Size(703, 18);
-                labelOrganizationName.Text = order.Provider.Name;
+                labelCurrentOrganizationName.Size = new System.Drawing.Size(600, 18);
+                labelCurrentOrganizationName.Text = order.Provider.Name;
                 panelCurrentOrder.Controls.Add(labelCurrentOrganizationName);
 
                 Label labelOrderNumber = new Label();
@@ -98,7 +101,7 @@ namespace View
                 Label labelCurrentDate = new Label();
                 labelCurrentDate.Font = new System.Drawing.Font("Times New Roman", 11F);
                 labelCurrentDate.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentDate.Size = new System.Drawing.Size(348, 18);
+                labelCurrentDate.Size = new System.Drawing.Size(250, 18);
                 labelCurrentDate.TabIndex = 7;
                 labelCurrentDate.Text = order.OrderDate.ToShortDateString();
                 panelCurrentOrder.Controls.Add(labelCurrentDate);
@@ -114,10 +117,10 @@ namespace View
                 Label labelCurrentContent = new Label();
                 labelCurrentContent.Font = new System.Drawing.Font("Times New Roman", 11F);
                 labelCurrentContent.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-                labelCurrentContent.Size = new System.Drawing.Size(696, 18);
+                labelCurrentContent.Size = new System.Drawing.Size(680, 18);
                 labelCurrentContent.TabIndex = 9;
                 AddThreeProduct(labelCurrentContent, order);
-                panelCurrentOrder.Controls.Add(labelContent);
+                panelCurrentOrder.Controls.Add(labelCurrentContent);
 
                 CheckBox checkBoxRemove = new CheckBox();
                 checkBoxRemove.Size = new System.Drawing.Size(82, 18);
@@ -127,6 +130,8 @@ namespace View
                 panelCurrentOrder.Controls.Add(checkBoxRemove);
 
                 dictionaryCheckBoxes.Add(order.OrderId, checkBoxRemove);
+
+                PanelOrdersInfo.Controls.Add(panelCurrentOrder);
             }
         }
 
@@ -157,14 +162,16 @@ namespace View
             var listProd = order.GetListProducts();
             while (i < 3 && i < listProd.Count)
             {
-                label.Text += listProd[i].ProductName + "-" + listProd[i].Lot.QuantityProduct.ToString() + " " +
+                label.Text += listProd[i].ProductName + " - " + listProd[i].Lot.QuantityProduct + " " +
                               listProd[i].Measure.TypeMeasure;
-                if (i == 2)
+                if (i == 2 || i + 1 == listProd.Count)
                     label.Text += ".";
                 else
                 {
                     label.Text += ", ";
                 }
+
+                i++;
             }
         }
     }

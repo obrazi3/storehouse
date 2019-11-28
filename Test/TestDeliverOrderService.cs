@@ -1,7 +1,7 @@
 ﻿using System;
 using Model;
-using Ninject;
-using View;
+//using Ninject;
+//using View;
 
 namespace Test
 {

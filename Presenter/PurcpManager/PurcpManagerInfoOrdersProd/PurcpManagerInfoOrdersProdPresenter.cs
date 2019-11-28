@@ -48,7 +48,6 @@ namespace Presenter
                 {
                     isMarked = true;
                     markedOrders.Add(checkBox.Key);
-                    break;
                 }
             }
 
@@ -58,10 +57,11 @@ namespace Presenter
                 {
                     model.RemoveNotPaidOrder(order);
                 }
-
-                view.Close();
-                kernel.Get<PurcpManagerInfoOrdersProdPresenter>().Run();
+                DisplayInfo();
+                //kernel.Get<PurcpManagerPresenter>().Run();
+               // view.Close();
             }
+           
         }
 
         private void DisplayInfo()

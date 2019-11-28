@@ -17,6 +17,7 @@ namespace View
         {
             productCategories = new List<string>();
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             context = _context;
         }
 
@@ -33,6 +34,7 @@ namespace View
         public new void Show()
         {
             context.MainForm = this;
+            base.Show();
         }
 
         private void OnButtonBackClick(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace View
                 AddProvider?.Invoke();
             }
 
-            LabelMessageRequiredFields.Visible = false;
+            LabelMessageRequiredFields.Visible = true;
         }
 
         private bool CheckFields()

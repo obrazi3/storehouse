@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace View
 {
@@ -54,10 +55,10 @@ namespace View
             // 
             this.PanelMainContainer.Controls.Add(this.GroupBoxInitials);
             this.PanelMainContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.PanelMainContainer.Location = new System.Drawing.Point(3, 8);
-            this.PanelMainContainer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PanelMainContainer.Location = new System.Drawing.Point(2, 5);
+            this.PanelMainContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelMainContainer.Name = "PanelMainContainer";
-            this.PanelMainContainer.Size = new System.Drawing.Size(1056, 144);
+            this.PanelMainContainer.Size = new System.Drawing.Size(792, 94);
             this.PanelMainContainer.TabIndex = 0;
             // 
             // GroupBoxInitials
@@ -70,90 +71,90 @@ namespace View
             this.GroupBoxInitials.Controls.Add(this.LabelBankAccount);
             this.GroupBoxInitials.Controls.Add(this.TextBoxOrganizationName);
             this.GroupBoxInitials.Controls.Add(this.LabelOrganizationName);
-            this.GroupBoxInitials.Location = new System.Drawing.Point(3, 4);
-            this.GroupBoxInitials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GroupBoxInitials.Location = new System.Drawing.Point(2, 3);
+            this.GroupBoxInitials.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.GroupBoxInitials.Name = "GroupBoxInitials";
-            this.GroupBoxInitials.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GroupBoxInitials.Size = new System.Drawing.Size(1034, 126);
+            this.GroupBoxInitials.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.GroupBoxInitials.Size = new System.Drawing.Size(776, 82);
             this.GroupBoxInitials.TabIndex = 1;
             this.GroupBoxInitials.TabStop = false;
             this.GroupBoxInitials.Text = "Информация о поставщике";
             // 
             // TextBoxEmail
             // 
-            this.TextBoxEmail.Location = new System.Drawing.Point(762, 62);
-            this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxEmail.Location = new System.Drawing.Point(572, 40);
+            this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TextBoxEmail.Name = "TextBoxEmail";
-            this.TextBoxEmail.Size = new System.Drawing.Size(223, 27);
+            this.TextBoxEmail.Size = new System.Drawing.Size(168, 20);
             this.TextBoxEmail.TabIndex = 10;
             // 
             // LabelEmail
             // 
             this.LabelEmail.AutoSize = true;
-            this.LabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelEmail.Location = new System.Drawing.Point(762, 36);
+            this.LabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelEmail.Location = new System.Drawing.Point(572, 23);
+            this.LabelEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelEmail.Name = "LabelEmail";
-            this.LabelEmail.Size = new System.Drawing.Size(255, 24);
+            this.LabelEmail.Size = new System.Drawing.Size(197, 18);
             this.LabelEmail.TabIndex = 9;
             this.LabelEmail.Text = "Адрес электронной почты*";
             // 
             // TextBoxPhoneNumber
             // 
-            this.TextBoxPhoneNumber.Location = new System.Drawing.Point(538, 62);
-            this.TextBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxPhoneNumber.Location = new System.Drawing.Point(404, 40);
+            this.TextBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TextBoxPhoneNumber.Mask = "(00) 000-00-00";
             this.TextBoxPhoneNumber.Name = "TextBoxPhoneNumber";
-            this.TextBoxPhoneNumber.Size = new System.Drawing.Size(162, 27);
+            this.TextBoxPhoneNumber.Size = new System.Drawing.Size(122, 20);
             this.TextBoxPhoneNumber.TabIndex = 8;
             // 
             // LabelContactNumber
             // 
             this.LabelContactNumber.AutoSize = true;
-            this.LabelContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelContactNumber.Location = new System.Drawing.Point(534, 36);
+            this.LabelContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelContactNumber.Location = new System.Drawing.Point(400, 23);
+            this.LabelContactNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelContactNumber.Name = "LabelContactNumber";
-            this.LabelContactNumber.Size = new System.Drawing.Size(187, 24);
+            this.LabelContactNumber.Size = new System.Drawing.Size(146, 18);
             this.LabelContactNumber.TabIndex = 4;
             this.LabelContactNumber.Text = "Контактный номер*";
             // 
             // TextBoxBankAccount
             // 
-            this.TextBoxBankAccount.Location = new System.Drawing.Point(326, 62);
-            this.TextBoxBankAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxBankAccount.Location = new System.Drawing.Point(244, 40);
+            this.TextBoxBankAccount.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TextBoxBankAccount.Mask = "0000000";
             this.TextBoxBankAccount.Name = "TextBoxBankAccount";
-            this.TextBoxBankAccount.Size = new System.Drawing.Size(150, 27);
+            this.TextBoxBankAccount.Size = new System.Drawing.Size(114, 20);
             this.TextBoxBankAccount.TabIndex = 3;
             // 
             // LabelBankAccount
             // 
             this.LabelBankAccount.AutoSize = true;
-            this.LabelBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelBankAccount.Location = new System.Drawing.Point(326, 36);
+            this.LabelBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelBankAccount.Location = new System.Drawing.Point(244, 23);
+            this.LabelBankAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelBankAccount.Name = "LabelBankAccount";
-            this.LabelBankAccount.Size = new System.Drawing.Size(169, 24);
+            this.LabelBankAccount.Size = new System.Drawing.Size(132, 18);
             this.LabelBankAccount.TabIndex = 2;
             this.LabelBankAccount.Text = "Банковский счёт*";
             // 
             // TextBoxOrganizationName
             // 
-            this.TextBoxOrganizationName.Location = new System.Drawing.Point(10, 64);
-            this.TextBoxOrganizationName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxOrganizationName.Location = new System.Drawing.Point(8, 42);
+            this.TextBoxOrganizationName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TextBoxOrganizationName.Name = "TextBoxOrganizationName";
-            this.TextBoxOrganizationName.Size = new System.Drawing.Size(271, 27);
+            this.TextBoxOrganizationName.Size = new System.Drawing.Size(204, 20);
             this.TextBoxOrganizationName.TabIndex = 1;
             // 
             // LabelOrganizationName
             // 
             this.LabelOrganizationName.AutoSize = true;
-            this.LabelOrganizationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelOrganizationName.Location = new System.Drawing.Point(7, 36);
+            this.LabelOrganizationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelOrganizationName.Location = new System.Drawing.Point(5, 23);
+            this.LabelOrganizationName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelOrganizationName.Name = "LabelOrganizationName";
-            this.LabelOrganizationName.Size = new System.Drawing.Size(225, 24);
+            this.LabelOrganizationName.Size = new System.Drawing.Size(172, 18);
             this.LabelOrganizationName.TabIndex = 0;
             this.LabelOrganizationName.Text = "Название организации*";
             // 
@@ -162,60 +163,59 @@ namespace View
             this.PanelControlButtons.Controls.Add(this.LabelMessageRequiredFields);
             this.PanelControlButtons.Controls.Add(this.ButtonNextStep);
             this.PanelControlButtons.Controls.Add(this.ButtonBack);
-            this.PanelControlButtons.Location = new System.Drawing.Point(7, 179);
-            this.PanelControlButtons.Margin = new System.Windows.Forms.Padding(2);
+            this.PanelControlButtons.Location = new System.Drawing.Point(5, 116);
+            this.PanelControlButtons.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PanelControlButtons.Name = "PanelControlButtons";
-            this.PanelControlButtons.Size = new System.Drawing.Size(1051, 161);
+            this.PanelControlButtons.Size = new System.Drawing.Size(788, 105);
             this.PanelControlButtons.TabIndex = 5;
             // 
             // LabelMessageRequiredFields
             // 
             this.LabelMessageRequiredFields.AutoSize = true;
-            this.LabelMessageRequiredFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMessageRequiredFields.Location = new System.Drawing.Point(153, 20);
+            this.LabelMessageRequiredFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelMessageRequiredFields.Location = new System.Drawing.Point(67, 9);
             this.LabelMessageRequiredFields.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelMessageRequiredFields.Name = "LabelMessageRequiredFields";
-            this.LabelMessageRequiredFields.Size = new System.Drawing.Size(844, 24);
+            this.LabelMessageRequiredFields.Size = new System.Drawing.Size(651, 18);
             this.LabelMessageRequiredFields.TabIndex = 2;
-            this.LabelMessageRequiredFields.Text =
-                "Были введены не все обязательные поля(*). Проверьте ввод и повторите попытку ещё " + "раз.";
+            this.LabelMessageRequiredFields.Text = "Были введены не все обязательные поля(*). Проверьте ввод и повторите попытку ещё " +
+    "раз.";
             this.LabelMessageRequiredFields.Visible = false;
             // 
             // ButtonNextStep
             // 
-            this.ButtonNextStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonNextStep.Location = new System.Drawing.Point(886, 101);
+            this.ButtonNextStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonNextStep.Location = new System.Drawing.Point(664, 66);
             this.ButtonNextStep.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonNextStep.Name = "ButtonNextStep";
-            this.ButtonNextStep.Size = new System.Drawing.Size(131, 39);
+            this.ButtonNextStep.Size = new System.Drawing.Size(98, 25);
             this.ButtonNextStep.TabIndex = 1;
             this.ButtonNextStep.Text = "Далее";
             this.ButtonNextStep.UseVisualStyleBackColor = true;
+            this.ButtonNextStep.Click += new System.EventHandler(this.OnButtonClickNextStep);
             // 
             // ButtonBack
             // 
-            this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonBack.Location = new System.Drawing.Point(14, 101);
+            this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonBack.Location = new System.Drawing.Point(10, 66);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(131, 39);
+            this.ButtonBack.Size = new System.Drawing.Size(98, 25);
             this.ButtonBack.TabIndex = 0;
             this.ButtonBack.Text = "Назад";
             this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.OnButtonClickBack);
             // 
             // PurcpManagerAddOrderFirstStepView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 334);
+            this.ClientSize = new System.Drawing.Size(800, 222);
             this.Controls.Add(this.PanelControlButtons);
             this.Controls.Add(this.PanelMainContainer);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(1082, 381);
-            this.MinimumSize = new System.Drawing.Size(1082, 381);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MaximumSize = new System.Drawing.Size(816, 261);
+            this.MinimumSize = new System.Drawing.Size(816, 261);
             this.Name = "PurcpManagerAddOrderFirstStepView";
             this.Text = "Информация о поставщике";
             this.PanelMainContainer.ResumeLayout(false);
@@ -224,6 +224,7 @@ namespace View
             this.PanelControlButtons.ResumeLayout(false);
             this.PanelControlButtons.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

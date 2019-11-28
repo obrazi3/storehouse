@@ -14,12 +14,19 @@ namespace View
         {
             context = _context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
-        public string OrganizationName { get => TextBoxEmail.Text; set => TextBoxEmail.Text = value; }
+        public string OrganizationName { get => TextBoxOrganizationName.Text; set => TextBoxOrganizationName.Text = value; }
         public string BankAccount { get => TextBoxBankAccount.Text; set => TextBoxBankAccount.Text = value; }
         public string ContactNumber { get => TextBoxPhoneNumber.Text; set => TextBoxPhoneNumber.Text = value; }
         public string Email { get => TextBoxEmail.Text; set => TextBoxEmail.Text = value; }
+
+        public new void Show()
+        {
+            context.MainForm = this;
+            base.Show();
+        }
 
         private void OnButtonClickBack(object o, EventArgs e)
         {
@@ -43,5 +50,7 @@ namespace View
 
             return false;
         }
+
+
     }
 }

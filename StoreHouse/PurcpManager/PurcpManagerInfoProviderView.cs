@@ -17,31 +17,40 @@ namespace View
         {
             context = _context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         public void SetInfoProvider(ProductProvider provider)
         {
-            LabelCurrentEmail.Text.Remove(0, LabelCurrentEmail.Text.Length);
-            LabelCurrentBankAccount.Text.Remove(0, LabelCurrentBankAccount.Text.Length);
-            LabelCurrentContactNumber.Text.Remove(0, LabelContactNumber.Text.Length);
-            LabelCurrentNameOrganization.Text.Remove(0, LabelOrganizationName.Text.Length);
+            LabelMessageNotFoundProvider.Visible = false;
+            //LabelMesageInputID.Visible = false;
+            TextBoxIDProvider.ResetText();
+            LabelCurrentEmail.ResetText();
+            LabelCurrentBankAccount.ResetText();
+            LabelCurrentContactNumber.ResetText();
+            LabelCurrentNameOrganization.ResetText();
             PanelProductCategories.Controls.Clear();
 
-            LabelCurrentEmail.Text = provider.Email;
-            LabelCurrentBankAccount.Text = provider.BankAccountNumber;
-            LabelCurrentContactNumber.Text = provider.ContactNumber;
-            LabelCurrentNameOrganization.Text = provider.Name;
-            
-            foreach (var category in provider.GetListProductCategories())
+            if (provider != null)
             {
-                Label label = new Label();
-                label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                label.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                label.Size = new System.Drawing.Size(892, 18);
-                label.Text = category;
-                
-                PanelProductCategories.Controls.Add(label);
+                LabelCurrentEmail.Text = provider.Email;
+                LabelCurrentBankAccount.Text = provider.BankAccountNumber;
+                LabelCurrentContactNumber.Text = provider.ContactNumber;
+                LabelCurrentNameOrganization.Text = provider.Name;
+
+                foreach (var category in provider.GetListProductCategories())
+                {
+                    Label label = new Label();
+                    label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                    label.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+                    label.Size = new System.Drawing.Size(600, 18);
+                    label.Text = category;
+
+                    PanelProductCategories.Controls.Add(label);
+                }
             }
+            else
+                LabelMessageNotFoundProvider.Visible = true;
         }
 
         public int GetProviderNumber()
@@ -60,13 +69,12 @@ namespace View
             Back?.Invoke();
         }
 
-        private void OnButtuonSearchClick(object o, EventArgs e)
+        private void OnButtonSearchClick(object o, EventArgs e)
         {
-            throw new System.NotImplementedException();
             if (TextBoxIDProvider.Text.Length != 0)
                 SearchProvider?.Invoke();
             else
-                LabelMesageInputID.Visible = true;
+                LabelMessageNotFoundProvider.Visible = true;
         }
     }
 }

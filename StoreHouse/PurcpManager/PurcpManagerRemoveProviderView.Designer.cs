@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace View
 {
@@ -65,6 +66,7 @@ namespace View
             this.ButtonRemoveProvider.TabIndex = 14;
             this.ButtonRemoveProvider.Text = "Удалить Поставщика";
             this.ButtonRemoveProvider.UseVisualStyleBackColor = true;
+            this.ButtonRemoveProvider.Click+=new EventHandler(OnButtonRemoveProviderClick);
             this.TextBoxIDProvider.Location = new System.Drawing.Point(3, 28);
             this.TextBoxIDProvider.Name = "TextBoxIDProvider";
             this.TextBoxIDProvider.Size = new System.Drawing.Size(634, 24);

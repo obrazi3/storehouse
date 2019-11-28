@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using System;
+using Model;
 using Ninject;
 
 namespace Presenter
@@ -34,8 +35,8 @@ namespace Presenter
 
         private void OnButtonBackClick()
         {
-            view.Close();
             kernel.Get<PurcpManagerPresenter>().Run();
+            view.Close();
         }
 
         private void OnButtonNextStepClick()
@@ -45,7 +46,10 @@ namespace Presenter
             order.Provider.Name = view.OrganizationName;
             order.Provider.ContactNumber = view.ContactNumber;
             order.Provider.BankAccountNumber = view.BankAccount;
-            new PurcpManagerAddProductToOrderPresenter(kernel.Get<IPurcpManagerAddProductInOrderView>(), kernel, order).Run();
+            /// Console.WriteLine(DateTime.Now);
+            order.OrderDate = DateTime.Now;
+            new PurcpManagerAddOrderSecondStepPresenter(kernel.Get<IPurcpManagerAddOrderSecondStepView>(),
+                kernel.Get<IDeliveryOrderServiceForPurcpManager>(), kernel, order).Run();
             view.Close();
             //TO-DO
             //Ninject

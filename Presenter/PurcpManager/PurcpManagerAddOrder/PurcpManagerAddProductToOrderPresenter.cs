@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using Model;
 using Ninject;
-using View;
+//using View;
 
 namespace Presenter
 {
@@ -39,7 +39,6 @@ namespace Presenter
         private void OnButtonAddProductClick()
         {
             ProductFromLot product = new ProductFromLot();
-
             product.Lot.ProductionDate = view.ProductionDate;
             product.Lot.QuantityProduct = view.QuantityProduct;
             product.Measure = view.Measure;
@@ -49,6 +48,9 @@ namespace Presenter
             product.ProductCategory = view.ProductCategory;
             product.ProductGroup = view.ProductGroup;
             product.ProductName = view.ProductName;
+
+            order.AddProduct(product);
+
             new PurcpManagerAddOrderSecondStepPresenter(kernel.Get<IPurcpManagerAddOrderSecondStepView>(),
                 kernel.Get<IDeliveryOrderServiceForPurcpManager>(), kernel, order).Run();
             view.Close();

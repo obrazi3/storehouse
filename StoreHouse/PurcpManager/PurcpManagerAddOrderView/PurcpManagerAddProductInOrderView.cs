@@ -16,6 +16,7 @@ namespace View
         {
             context = _context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         public string ProductName { get => TextBoxProductName.Text; }
@@ -71,7 +72,7 @@ namespace View
             int day = Int32.Parse(digits[0]);
             int month = Int32.Parse(digits[1]);
             int year = Int32.Parse(digits[2]);
-            return new DateTime(day, month, year);
+            return new DateTime(year, month, day);
         }
 
         private bool CheckFields()

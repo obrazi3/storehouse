@@ -21,5 +21,6 @@ namespace View
             _context.MainForm = this;
             base.Show();
         }
+        
     }
 }

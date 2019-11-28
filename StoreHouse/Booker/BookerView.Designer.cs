@@ -41,45 +41,42 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(253, 278);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 268);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CheckClientPaymentButton
             // 
-            this.CheckClientPaymentButton.Location = new System.Drawing.Point(7, 6);
-            this.CheckClientPaymentButton.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.CheckClientPaymentButton.Location = new System.Drawing.Point(6, 6);
+            this.CheckClientPaymentButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CheckClientPaymentButton.Name = "CheckClientPaymentButton";
-            this.CheckClientPaymentButton.Size = new System.Drawing.Size(241, 127);
+            this.CheckClientPaymentButton.Size = new System.Drawing.Size(211, 119);
             this.CheckClientPaymentButton.TabIndex = 0;
             this.CheckClientPaymentButton.Text = "Проверить платежи клиентов";
             this.CheckClientPaymentButton.UseVisualStyleBackColor = true;
             // 
             // PayOrderProviderButton
             // 
-            this.PayOrderProviderButton.Location = new System.Drawing.Point(7, 145);
-            this.PayOrderProviderButton.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.PayOrderProviderButton.Location = new System.Drawing.Point(6, 137);
+            this.PayOrderProviderButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.PayOrderProviderButton.Name = "PayOrderProviderButton";
-            this.PayOrderProviderButton.Size = new System.Drawing.Size(241, 127);
+            this.PayOrderProviderButton.Size = new System.Drawing.Size(211, 119);
             this.PayOrderProviderButton.TabIndex = 1;
             this.PayOrderProviderButton.Text = "Оплатить заказы у поставщиков";
             this.PayOrderProviderButton.UseVisualStyleBackColor = true;
             // 
             // BookerView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 278);
+            this.ClientSize = new System.Drawing.Size(223, 268);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(271, 325);
-            this.MinimumSize = new System.Drawing.Size(271, 325);
+            this.MaximumSize = new System.Drawing.Size(239, 307);
+            this.MinimumSize = new System.Drawing.Size(239, 307);
             this.Name = "BookerView";
             this.Text = "BookerView";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

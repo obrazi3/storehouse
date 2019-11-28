@@ -15,6 +15,7 @@ namespace View
         {
             context = _context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
 

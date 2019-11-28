@@ -15,7 +15,7 @@ namespace Presenter
             ProductProviderOrder _order)
         {
             kernel = _kernel;
-            model = model;
+            model = _model;
             view = _view;
             order = _order;
 
@@ -36,6 +36,7 @@ namespace Presenter
                 .Run();
             view.Close();
             //TO-DO
+            //Ninject
         }
 
         private void OnButtonConfirmOrderClick()
@@ -47,7 +48,10 @@ namespace Presenter
 
         private void OnButtonAddProductClick()
         {
+            new PurcpManagerAddProductToOrderPresenter(kernel.Get<IPurcpManagerAddProductInOrderView>(),kernel,order).Run();
+            view.Close();
             //TO-DO
+            //Ninject
         }
     }
 }

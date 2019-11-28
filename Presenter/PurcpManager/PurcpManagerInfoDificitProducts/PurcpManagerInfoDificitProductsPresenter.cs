@@ -3,13 +3,13 @@ using Ninject;
 
 namespace Presenter
 {
-    public class PurcpManagerInfoProviderPresenter : IPresenter
+    public class PurcpManagerInfoDificitProductsPresenter : IPresenter
     {
         private readonly IKernel kernel;
-        private IPurcpManagerInfoProviderView view;
+        private IPurcpManagerInfoDificitProductsView view;
         private IDeliveryOrderServiceForPurcpManager model;
 
-        public PurcpManagerInfoProviderPresenter(IPurcpManagerInfoProviderView _view,
+        public PurcpManagerInfoDificitProductsPresenter(IPurcpManagerInfoDificitProductsView _view,
             IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
         {
             kernel = _kernel;
@@ -17,11 +17,11 @@ namespace Presenter
             model = _model;
 
             view.Back += OnButtonBackClick;
-            view.SearchProvider += OnButtonSearchClick;
         }
 
         public void Run()
         {
+            view.SetInformation(model.GetListDificitProducts(10));
             view.Show();
         }
 
@@ -29,13 +29,6 @@ namespace Presenter
         {
             kernel.Get<PurcpManagerPresenter>().Run();
             view.Close();
-        }
-
-        private void OnButtonSearchClick()
-        {
-            int id = view.GetProviderNumber();
-            var provider = model.GetProductProvider(id);
-            view.SetInfoProvider(provider);
         }
     }
 }

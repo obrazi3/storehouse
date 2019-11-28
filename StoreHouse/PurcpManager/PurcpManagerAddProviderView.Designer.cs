@@ -97,6 +97,7 @@ namespace View
             this.ButtonAddCategory.TabIndex = 13;
             this.ButtonAddCategory.Text = "Добавить категорию";
             this.ButtonAddCategory.UseVisualStyleBackColor = true;
+            this.ButtonAddCategory.Click += this.OnButtonAddCategoryClick;
             this.TextBoxCategory.Location = new System.Drawing.Point(9, 185);
             this.TextBoxCategory.Name = "TextBoxCategory";
             this.TextBoxCategory.Size = new System.Drawing.Size(705, 23);
@@ -194,6 +195,7 @@ namespace View
             this.ButtonAddProvider.TabIndex = 1;
             this.ButtonAddProvider.Text = "Добавить поставщика";
             this.ButtonAddProvider.UseVisualStyleBackColor = true;
+            this.ButtonAddProvider.Click += this.OnButtonAddProviderClick;
             this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonBack.Location = new System.Drawing.Point(12, 76);
@@ -204,6 +206,7 @@ namespace View
             this.ButtonBack.Text = "Назад";
             this.ButtonBack.UseVisualStyleBackColor = true;
             this.ButtonBack.Click += new System.EventHandler(this.OnButtonBackClick);
+            this.ButtonBack.Click += this.OnButtonBackClick;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 369);

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using CsvHelper;
+//using CsvHelper;
 using Model;
 
 namespace Test
 {
     public class TestCSVHelper
     {
-        public static void Main()
+      /*  public static void Main()
         {
             ProductProviderOrder order = new ProductProviderOrder();
 
@@ -59,6 +59,6 @@ namespace Test
             order.Status = StatusProviderOrder.Paid;
             order.OrderDate = new DateTime(2019, 11, 26);
             
-        }
+        }*/
     }
 }

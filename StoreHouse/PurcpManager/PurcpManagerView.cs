@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 using Presenter;
 
@@ -14,16 +15,49 @@ namespace View
         public event Action ViewInfoEndedProd;
 
         private readonly ApplicationContext _context;
+
         public PurcpManagerView(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+
         public new void Show()
         {
             _context.MainForm = this;
             base.Show();
         }
+
+        private void OnButtonViewInfoOrderProdClick(object o, EventArgs e)
+        {
+            ViewInfoOrderProd?.Invoke();
+        }
+
+        private void OnButtonAddOrderClick(object o, EventArgs e)
+        {
+            AddOrder?.Invoke();
+        }
+
+        private void OnButtonViewInfoProviderClick(object o, EventArgs e)
+        {
+            ViewInfoProvider?.Invoke();
+        }
+
+        private void OnButtonAddProviderClick(object o, EventArgs e)
+        {
+            AddProvider?.Invoke();
+        }
+
+        private void OnButtonRemoveProviderClick(object o, EventArgs e)
+        {
+            RemoveProvider?.Invoke();
+        }
+
+        private void OnButtonViewInfoEndedProdClick(object o, EventArgs e)
+        {
+            ViewInfoEndedProd?.Invoke();
+        }
+        
     }
 }

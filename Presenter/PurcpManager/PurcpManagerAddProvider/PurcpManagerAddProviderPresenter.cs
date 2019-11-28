@@ -1,9 +1,9 @@
 ﻿using Model;
 using Ninject;
 
-namespace Presenter.PurcpManager.PurcpManagerAddProvider
+namespace Presenter
 {
-    public class PurcpManagerAddProviderPresenter
+    public class PurcpManagerAddProviderPresenter : IPresenter
     {
         private readonly IPurcpManagerAddProviderView view;
         private readonly IDeliveryOrderServiceForPurcpManager model;
@@ -20,6 +20,10 @@ namespace Presenter.PurcpManager.PurcpManagerAddProvider
             view.Back += () => OnButtonBackClick();
         }
 
+        public void Run()
+        {
+            view.Show();
+        }
 
         private void OnButtonBackClick()
         {

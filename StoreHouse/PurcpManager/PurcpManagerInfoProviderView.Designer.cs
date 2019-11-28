@@ -33,8 +33,8 @@ namespace View
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelInputInformation = new System.Windows.Forms.Panel();
-            this.LabelMessageRequiredFields = new System.Windows.Forms.Label();
-            this.ButtonRemoveProvider = new System.Windows.Forms.Button();
+            this.LabelMessageNotFoundProvider = new System.Windows.Forms.Label();
+            this.ButtonSearchProvider = new System.Windows.Forms.Button();
             this.TextBoxIDProvider = new System.Windows.Forms.MaskedTextBox();
             this.LabelMesageInputID = new System.Windows.Forms.Label();
             this.GroupBoxInformation = new System.Windows.Forms.GroupBox();
@@ -53,7 +53,6 @@ namespace View
             this.flowLayoutPanel1.SuspendLayout();
             this.PanelInputInformation.SuspendLayout();
             this.GroupBoxInformation.SuspendLayout();
-            this.PanelProductCategories.SuspendLayout();
             this.PanelControlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,39 +68,40 @@ namespace View
             // 
             // PanelInputInformation
             // 
-            this.PanelInputInformation.Controls.Add(this.LabelMessageRequiredFields);
-            this.PanelInputInformation.Controls.Add(this.ButtonRemoveProvider);
+            this.PanelInputInformation.Controls.Add(this.LabelMessageNotFoundProvider);
+            this.PanelInputInformation.Controls.Add(this.ButtonSearchProvider);
             this.PanelInputInformation.Controls.Add(this.TextBoxIDProvider);
             this.PanelInputInformation.Controls.Add(this.LabelMesageInputID);
             this.PanelInputInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.PanelInputInformation.Location = new System.Drawing.Point(3, 3);
             this.PanelInputInformation.Name = "PanelInputInformation";
-            this.PanelInputInformation.Size = new System.Drawing.Size(920, 105);
+            this.PanelInputInformation.Size = new System.Drawing.Size(920, 121);
             this.PanelInputInformation.TabIndex = 1;
             // 
-            // LabelMessageRequiredFields
+            // LabelMessageNotFoundProvider
             // 
-            this.LabelMessageRequiredFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.LabelMessageRequiredFields.Location = new System.Drawing.Point(3, 69);
-            this.LabelMessageRequiredFields.Name = "LabelMessageRequiredFields";
-            this.LabelMessageRequiredFields.Size = new System.Drawing.Size(897, 27);
-            this.LabelMessageRequiredFields.TabIndex = 16;
-            this.LabelMessageRequiredFields.Text =
+            this.LabelMessageNotFoundProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.LabelMessageNotFoundProvider.Location = new System.Drawing.Point(6, 69);
+            this.LabelMessageNotFoundProvider.Name = "LabelMessageNotFoundProvider";
+            this.LabelMessageNotFoundProvider.Size = new System.Drawing.Size(909, 52);
+            this.LabelMessageNotFoundProvider.TabIndex = 16;
+            this.LabelMessageNotFoundProvider.Text =
                 "К сожалению, поставщик с таким номером не найден. Проверьте правильность введённо" +
                 "го номера и повторите попытку.\r\n";
-            this.LabelMessageRequiredFields.Visible = false;
+            this.LabelMessageNotFoundProvider.Visible = false;
             // 
-            // ButtonRemoveProvider
+            // ButtonSearchProvider
             // 
-            this.ButtonRemoveProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+            this.ButtonSearchProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonRemoveProvider.Location = new System.Drawing.Point(794, 27);
-            this.ButtonRemoveProvider.Margin = new System.Windows.Forms.Padding(0);
-            this.ButtonRemoveProvider.Name = "ButtonRemoveProvider";
-            this.ButtonRemoveProvider.Size = new System.Drawing.Size(106, 29);
-            this.ButtonRemoveProvider.TabIndex = 15;
-            this.ButtonRemoveProvider.Text = "Поиск";
-            this.ButtonRemoveProvider.UseVisualStyleBackColor = true;
+            this.ButtonSearchProvider.Location = new System.Drawing.Point(794, 27);
+            this.ButtonSearchProvider.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonSearchProvider.Name = "ButtonSearchProvider";
+            this.ButtonSearchProvider.Size = new System.Drawing.Size(106, 29);
+            this.ButtonSearchProvider.TabIndex = 15;
+            this.ButtonSearchProvider.Text = "Поиск";
+            this.ButtonSearchProvider.UseVisualStyleBackColor = true;
+            this.ButtonSearchProvider.Click += new System.EventHandler(this.OnButtonSearchClick);
             // 
             // TextBoxIDProvider
             // 
@@ -133,11 +133,11 @@ namespace View
             this.GroupBoxInformation.Controls.Add(this.LabelContactNumber);
             this.GroupBoxInformation.Controls.Add(this.LabelBankAccount);
             this.GroupBoxInformation.Controls.Add(this.LabelOrganizationName);
-            this.GroupBoxInformation.Location = new System.Drawing.Point(2, 114);
+            this.GroupBoxInformation.Location = new System.Drawing.Point(2, 130);
             this.GroupBoxInformation.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.GroupBoxInformation.Name = "GroupBoxInformation";
             this.GroupBoxInformation.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.GroupBoxInformation.Size = new System.Drawing.Size(920, 312);
+            this.GroupBoxInformation.Size = new System.Drawing.Size(920, 294);
             this.GroupBoxInformation.TabIndex = 3;
             this.GroupBoxInformation.TabStop = false;
             this.GroupBoxInformation.Text = "Информация о поставщике";
@@ -163,7 +163,7 @@ namespace View
             this.PanelProductCategories.AutoScroll = true;
             this.PanelProductCategories.Location = new System.Drawing.Point(5, 183);
             this.PanelProductCategories.Name = "PanelProductCategories";
-            this.PanelProductCategories.Size = new System.Drawing.Size(915, 118);
+            this.PanelProductCategories.Size = new System.Drawing.Size(915, 111);
             this.PanelProductCategories.TabIndex = 4;
             // 
             // LabelProductCategories
@@ -245,7 +245,7 @@ namespace View
             // PanelControlButtons
             // 
             this.PanelControlButtons.Controls.Add(this.ButtonBack);
-            this.PanelControlButtons.Location = new System.Drawing.Point(2, 430);
+            this.PanelControlButtons.Location = new System.Drawing.Point(2, 428);
             this.PanelControlButtons.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PanelControlButtons.Name = "PanelControlButtons";
             this.PanelControlButtons.Size = new System.Drawing.Size(920, 83);
@@ -277,7 +277,6 @@ namespace View
             this.PanelInputInformation.PerformLayout();
             this.GroupBoxInformation.ResumeLayout(false);
             this.GroupBoxInformation.PerformLayout();
-            this.PanelProductCategories.ResumeLayout(false);
             this.PanelControlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
         }
@@ -288,8 +287,7 @@ namespace View
         private System.Windows.Forms.Label LabelMesageInputID;
         private System.Windows.Forms.MaskedTextBox TextBoxIDProvider;
         private System.Windows.Forms.Panel PanelInputInformation;
-        private System.Windows.Forms.Button ButtonRemoveProvider;
-        private System.Windows.Forms.Label LabelMessageRequiredFields;
+        private System.Windows.Forms.Label LabelMessageNotFoundProvider;
         private System.Windows.Forms.Label LabelProductCategories;
         private System.Windows.Forms.Label LabelOrganizationName;
         private System.Windows.Forms.Label LabelBankAccount;
@@ -303,6 +301,7 @@ namespace View
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Panel PanelControlButtons;
         private System.Windows.Forms.FlowLayoutPanel PanelProductCategories;
+        private System.Windows.Forms.Button ButtonSearchProvider;
     }
 }
 
