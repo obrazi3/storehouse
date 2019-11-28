@@ -109,7 +109,18 @@ namespace Model
 
         public bool PayDeliveryFromProvider(int bankIdProvider, int sum)
         {
-            return bank.PayDeliveryFromProvider(bankIdProvider, sum);
+            bool result = bank.PayDeliveryFromProvider(bankIdProvider, sum);
+            if (result)
+            {
+                int orderId = FindPaidOrder(bankIdProvider, sum);
+                if (orderId != -1)
+                {
+                    ConfirmPaymentProviderOrder(orderId);
+                }
+                else { result = false; }
+            }
+
+            return result;
         }
 
         public ProductProviderOrder GetProviderPaidOrder(int orderId)
@@ -137,6 +148,20 @@ namespace Model
         private static int GetProviderId()
         {
             return nextIdProvider++;
+        }
+
+        private int FindPaidOrder(int bankIdProvider, int sum)
+        {
+            var listNotPaidOrders = ordersRepository.GetOrderSelectionByStatus(StatusProviderOrder.NotPaid);
+            foreach (var order in listNotPaidOrders)
+            {
+                if (order.TotalSumOrder == sum && Int32.Parse(order.Provider.BankAccountNumber) == bankIdProvider)
+                {
+                    return order.OrderId;
+                }
+            }
+
+            return -1;
         }
     }
 }

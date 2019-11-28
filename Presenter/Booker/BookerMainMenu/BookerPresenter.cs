@@ -14,6 +14,7 @@ namespace Presenter
 
             _view.Back += OnButtonBackClick;
             _view.ShowNotPaidDeliveriesFromProvider += OnButtonShowNotPaidDeliveriesFromProvidersClick;
+            _view.PayOrderProvider += OnButtonPayProviderOrderClick;
         }
 
 
@@ -31,6 +32,12 @@ namespace Presenter
         private void OnButtonShowNotPaidDeliveriesFromProvidersClick()
         {
             _kernel.Get<BookerShowNotPaidProviderOrdersPresenter>().Run();
+            _view.Close();
+        }
+
+        private void OnButtonPayProviderOrderClick()
+        {
+            _kernel.Get<BookerPayProviderOrderPresenter>().Run();
             _view.Close();
         }
     }

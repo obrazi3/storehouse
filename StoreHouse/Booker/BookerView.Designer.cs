@@ -36,6 +36,9 @@
             this.ButtonExit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
             this.flowLayoutPanel1.Controls.Add(this.ButtonShowNotPaidClientOrders);
             this.flowLayoutPanel1.Controls.Add(this.CheckClientPaymentButton);
             this.flowLayoutPanel1.Controls.Add(this.ButtonShowNotPaidDeliveriesFromProvider);
@@ -47,6 +50,9 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 635);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // ButtonShowNotPaidClientOrders
+            // 
             this.ButtonShowNotPaidClientOrders.Location = new System.Drawing.Point(6, 6);
             this.ButtonShowNotPaidClientOrders.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ButtonShowNotPaidClientOrders.Name = "ButtonShowNotPaidClientOrders";
@@ -54,6 +60,9 @@
             this.ButtonShowNotPaidClientOrders.TabIndex = 4;
             this.ButtonShowNotPaidClientOrders.Text = "Просмотреть список неоплаченных платежей клиентов";
             this.ButtonShowNotPaidClientOrders.UseVisualStyleBackColor = true;
+            // 
+            // CheckClientPaymentButton
+            // 
             this.CheckClientPaymentButton.Location = new System.Drawing.Point(6, 130);
             this.CheckClientPaymentButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CheckClientPaymentButton.Name = "CheckClientPaymentButton";
@@ -61,6 +70,9 @@
             this.CheckClientPaymentButton.TabIndex = 0;
             this.CheckClientPaymentButton.Text = "Проверить платеж клиента";
             this.CheckClientPaymentButton.UseVisualStyleBackColor = true;
+            // 
+            // ButtonShowNotPaidDeliveriesFromProvider
+            // 
             this.ButtonShowNotPaidDeliveriesFromProvider.Location = new System.Drawing.Point(6, 261);
             this.ButtonShowNotPaidDeliveriesFromProvider.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ButtonShowNotPaidDeliveriesFromProvider.Name = "ButtonShowNotPaidDeliveriesFromProvider";
@@ -69,7 +81,10 @@
             this.ButtonShowNotPaidDeliveriesFromProvider.Text = "Просмотреть список неоплаченных заказов у поставщика";
             this.ButtonShowNotPaidDeliveriesFromProvider.UseVisualStyleBackColor = true;
             this.ButtonShowNotPaidDeliveriesFromProvider.Click +=
-                new System.EventHandler(this.ButtonShowNotPaidDeliveriesFromProviderClick);
+                new System.EventHandler(this.OnButtonShowNotPaidDeliveriesFromProviderClick);
+            // 
+            // ButtonPayOrderProvider
+            // 
             this.ButtonPayOrderProvider.Location = new System.Drawing.Point(6, 385);
             this.ButtonPayOrderProvider.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ButtonPayOrderProvider.Name = "ButtonPayOrderProvider";
@@ -77,6 +92,10 @@
             this.ButtonPayOrderProvider.TabIndex = 1;
             this.ButtonPayOrderProvider.Text = "Оплатить заказ у поставщика";
             this.ButtonPayOrderProvider.UseVisualStyleBackColor = true;
+            this.ButtonPayOrderProvider.Click += new System.EventHandler(this.OnButtonPayOrderProviderClick);
+            // 
+            // ButtonExit
+            // 
             this.ButtonExit.Location = new System.Drawing.Point(6, 516);
             this.ButtonExit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ButtonExit.Name = "ButtonExit";
@@ -85,6 +104,9 @@
             this.ButtonExit.Text = "Выйти из Бухгалтера";
             this.ButtonExit.UseVisualStyleBackColor = true;
             this.ButtonExit.Click += new System.EventHandler(this.OnButtonExitClick);
+            // 
+            // BookerView
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(223, 635);

@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Booker\BookerMainMenu\BookerPresenter.cs" />
     <Compile Include="Booker\BookerMainMenu\IBookerView.cs" />
+    <Compile Include="Booker\BookerPayProviderOrder\BookerPayProviderOrderPresenter.cs" />
+    <Compile Include="Booker\BookerPayProviderOrder\IBookerPayProviderOrderView.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\BookerShowNotPaidProviderOrdersPresenter.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrderPresenter.cs" />

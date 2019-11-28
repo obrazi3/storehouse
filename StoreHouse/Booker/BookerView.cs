@@ -32,9 +32,14 @@ namespace View
             Back?.Invoke();
         }
 
-        private void ButtonShowNotPaidDeliveriesFromProviderClick(object sender, EventArgs e)
+        private void OnButtonShowNotPaidDeliveriesFromProviderClick(object sender, EventArgs e)
         {
             ShowNotPaidDeliveriesFromProvider?.Invoke();
+        }
+
+        private void OnButtonPayOrderProviderClick(object sender, EventArgs e)
+        {
+            PayOrderProvider?.Invoke();
         }
     }
 }

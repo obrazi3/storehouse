@@ -69,23 +69,23 @@ namespace View
                 LabelCurrentSum.Text = order.TotalSumOrder.ToString();
                 PanelCurrentOrder.Controls.Add(LabelCurrentSum);
 
-                Label LabelOrderDate = new Label();
-                LabelOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelOrderDate.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelOrderDate.Name = "LabelOrderDate";
-                LabelOrderDate.Size = new System.Drawing.Size(112, 22);
-                LabelOrderDate.TabIndex = 4;
-                LabelOrderDate.Text = "Дата заказа:";
-                PanelCurrentOrder.Controls.Add(LabelOrderDate);
+                Label LabelBankAccount = new Label();
+                LabelBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                LabelBankAccount.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+                LabelBankAccount.Name = "LabelOrderDate";
+                LabelBankAccount.Size = new System.Drawing.Size(140, 22);
+                LabelBankAccount.TabIndex = 4;
+                LabelBankAccount.Text = "Банковский счёт:";
+                PanelCurrentOrder.Controls.Add(LabelBankAccount);
 
-                Label LabelCurrentOrderDate = new Label();
-                LabelCurrentOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelCurrentOrderDate.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelCurrentOrderDate.Name = "LabelCurrentOrderDate";
-                LabelCurrentOrderDate.Size = new System.Drawing.Size(750, 22);
-                LabelCurrentOrderDate.TabIndex = 5;
-                LabelCurrentOrderDate.Text = order.OrderDate.ToShortDateString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentOrderDate);
+                Label LabelCurrentBankAccount = new Label();
+                LabelCurrentBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                LabelCurrentBankAccount.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+                LabelCurrentBankAccount.Name = "LabelCurrentOrderDate";
+                LabelCurrentBankAccount.Size = new System.Drawing.Size(722, 22);
+                LabelCurrentBankAccount.TabIndex = 5;
+                LabelCurrentBankAccount.Text = order.Provider.BankAccountNumber;
+                PanelCurrentOrder.Controls.Add(LabelCurrentBankAccount);
 
                 PanelNotPaidOrders.Controls.Add(PanelCurrentOrder);
             }
