@@ -7,7 +7,7 @@ namespace Presenter
     public class StorekeeperSeacrhIncomingInvoicePresenter : IPresenter
     {
         private readonly IKernel _kernel;
-        private readonly IStorekeeperSearchInvoiceView _view;
+        private readonly IStorekeeperSearchIncomingInvoiceView _view;
         private readonly IModel _model;
 
         public StorekeeperSeacrhIncomingInvoicePresenter(IKernel kernel, IStorekeeperSearchIncomingInvoiceView view, IModel model)

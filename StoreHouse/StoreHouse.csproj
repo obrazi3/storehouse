@@ -91,11 +91,11 @@
     <Compile Include="ClientManager\ClientManagerView.Designer.cs">
       <DependentUpon>ClientManagerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Courier\CourierGetOrderView.cs">
+    <Compile Include="Courier\CourierGetClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Courier\CourierGetOrderView.Designer.cs">
-      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+      <DependentUpon>CourierGetClientOrderView.cs</DependentUpon>
     </Compile>
     <Compile Include="Courier\CourierView.cs">
       <SubType>Form</SubType>
@@ -206,7 +206,7 @@
       <DependentUpon>ClientManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Courier\CourierGetOrderView.resx">
-      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+      <DependentUpon>CourierGetClientOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Courier\CourierView.resx">
       <DependentUpon>CourierView.cs</DependentUpon>

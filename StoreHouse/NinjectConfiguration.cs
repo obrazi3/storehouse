@@ -47,7 +47,7 @@ namespace View
 
             // kernel.Bind<IClientOrder>().To<ClientOrder>();
 
-            Bind<ICourierGetOrderView>().To<CourierGetOrderView>();
+            Bind<ICourierGetOrderView>().To<CourierGetClientOrderView>();
 
             Bind<IPurcpManagerView>().To<PurcpManagerView>();
             Bind<IPurcpManagerAddProviderView>().To<PurcpManagerAddProviderView>();

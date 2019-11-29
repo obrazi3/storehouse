@@ -4,7 +4,7 @@ using Presenter;
 
 namespace View
 {
-    public partial class CourierGetOrderView : Form, ICourierGetOrderView
+    public partial class CourierGetClientOrderView : Form, ICourierGetOrderView
     {
         public event Action ConfirmDelivery;
         public event Action InspectOrder;
@@ -12,7 +12,7 @@ namespace View
 
         private readonly ApplicationContext _context;
 
-        public CourierGetOrderView(ApplicationContext context)
+        public CourierGetClientOrderView(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();
@@ -34,6 +34,6 @@ namespace View
         private void OnButtonCancelOrderClick(object o, EventArgs e) { Back?.Invoke(); }
         private void OnButtonConfirmDeliveryClick(object o, EventArgs e) { ConfirmDelivery?.Invoke(); }
         private void OnButtonInspectOrderClick(object o, EventArgs e) { InspectOrder?.Invoke(); }
-
+        
     }
 }
