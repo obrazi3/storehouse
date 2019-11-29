@@ -89,13 +89,13 @@
     <Compile Include="PurcpManager\PurcpManagerRemoveProvider\IPurcpManagerRemoveProviderView.cs" />
     <Compile Include="PurcpManager\PurcpManagerRemoveProvider\PurcpManagerRemoveProviderPresenter.cs" />
     <Compile Include="SignInPresenter.cs" />
-    <Compile Include="Storekeeper\IStorekeeperSearchIncomingInvoiceView.cs" />
     <Compile Include="Storekeeper\IStorekeeperSearchInvoiceView.cs" />
-    <Compile Include="Storekeeper\IStorekeeperSearchSalesInvoiceView.cs" />
-    <Compile Include="Storekeeper\IStorekeeperView.cs" />
-    <Compile Include="Storekeeper\StorekeeperPresenter.cs" />
-    <Compile Include="Storekeeper\StorekeeperSeacrhIncomingInvoicePresenter.cs" />
-    <Compile Include="Storekeeper\StorekeeperSearchSalesInvoicePresenter.cs" />
+    <Compile Include="Storekeeper\StorekeeperMainMenu\IStorekeeperView.cs" />
+    <Compile Include="Storekeeper\StorekeeperMainMenu\StorekeeperPresenter.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrder\IStorekeeperSearchClientOrderView.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrder\StorekeeperSearchClientOrderPresenter.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrder\IStorekeeperSearchProviderOrderView.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrder\StorekeeperSearchProviderOrderPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

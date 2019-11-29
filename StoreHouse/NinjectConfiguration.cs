@@ -37,8 +37,8 @@ namespace View
             Bind<ICourierView>().To<CourierView>();
 
             Bind<IStorekeeperView>().To<StorekeeperView>();
-            Bind<IStorekeeperSearchIncomingInvoiceView>().To<StorekeeperSearchIncomingInvoiceView>();
-            Bind<IStorekeeperSearchSalesInvoiceView>().To<StorekeeperSearchSalesInvoiceView>();
+            Bind<IStorekeeperSearchProviderOrderView>().To<StorekeeperSearchProviderOrderView>();
+            Bind<IStorekeeperSearchClientOrderView>().To<StorekeeperSearchClientOrderView>();
 
             Bind<IClientManagerView>().To<ClientManagerView>();
             Bind<IClientManagerAddOrderView>().To<ClientManagerAddOrderView>();
@@ -67,8 +67,8 @@ namespace View
             Bind<BookerPayProviderOrderPresenter>().ToSelf();
 
             Bind<StorekeeperPresenter>().ToSelf();
-            Bind<StorekeeperSeacrhIncomingInvoicePresenter>().ToSelf();
-            Bind<StorekeeperSearchSalesInvoicePresenter>().ToSelf();
+            Bind<StorekeeperSearchProviderOrderPresenter>().ToSelf();
+            Bind<StorekeeperSearchClientOrderPresenter>().ToSelf();
 
             Bind<ClientManagerPresenter>().ToSelf();
             Bind<ClientManagerAddOrderPresenter>().ToSelf();

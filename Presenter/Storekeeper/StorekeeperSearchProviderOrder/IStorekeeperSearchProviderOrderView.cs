@@ -3,11 +3,12 @@ using Model;
 
 namespace Presenter
 {
-    public interface IStorekeeperSearchIncomingInvoiceView :IBack,IView
+    public interface IStorekeeperSearchProviderOrderView :IBack,IView
     {
         event Action ConfirmGettingOrder;
         event Action SearchOrder;
-        int GetOrderNumber();
+        int GetOrderNumberToSearch();
+        int GetOrderNumberToConfirm();
         void SetOrder(ProductProviderOrder order);
     }
 }

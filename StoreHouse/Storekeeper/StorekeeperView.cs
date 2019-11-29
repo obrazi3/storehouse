@@ -6,10 +6,11 @@ namespace View
 {
     public partial class StorekeeperView : Form, IStorekeeperView
     {
-        public event Action SearchPurchInvoice;
-        public event Action SearchExprenseInvoice;
+        public event Action SearchClientOrder;
+        public event Action SearchProviderOrder;
         public event Action ShowListClientPurch;
         public event Action ShowListCourierPurch;
+        public event Action Back;
 
         private readonly ApplicationContext _context;
         public StorekeeperView(ApplicationContext context)
@@ -26,14 +27,14 @@ namespace View
         }
 
 
-        private void OnButtonSearchPurchInvoiceClick(object o, EventArgs e)
+        private void OnButtonSearchClientOrderClick(object o, EventArgs e)
         {
-            SearchPurchInvoice?.Invoke();
+            SearchClientOrder?.Invoke();
         }
 
-        private void OnButtonSearchExprenseInvoiceClick(object o, EventArgs e)
+        private void OnButtonSearchProviderOrderClick(object o, EventArgs e)
         {
-            SearchExprenseInvoice?.Invoke();
+            SearchProviderOrder?.Invoke();
         }
 
         private void OnButtonShowListClientPurchClick(object o, EventArgs e)
@@ -46,6 +47,9 @@ namespace View
             ShowListCourierPurch?.Invoke();
         }
 
-      
+        private void OnButtonBackClick(object sender, EventArgs e)
+        {
+            Back?.Invoke();
+        }
     }
 }

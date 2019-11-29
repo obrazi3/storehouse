@@ -126,7 +126,7 @@ namespace Model
         public ProductProviderOrder GetProviderPaidOrder(int orderId)
         {
             var order = ordersRepository.GetProductProviderOrder(orderId);
-            if (order.Status == StatusProviderOrder.Paid)
+            if (order != null && order.Status == StatusProviderOrder.Paid)
                 return order;
             else
                 return null;

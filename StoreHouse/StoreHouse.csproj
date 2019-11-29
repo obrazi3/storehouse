@@ -166,17 +166,17 @@
     <Compile Include="SignInView.Designer.cs">
       <DependentUpon>SignInView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.cs">
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.Designer.cs">
-      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+      <DependentUpon>StorekeeperSearchProviderOrderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Storekeeper\StorekeeperSearchSalesInvoiceView.cs">
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Storekeeper\StorekeeperSearchSalesInvoiceView.Designer.cs">
-      <DependentUpon>StorekeeperSearchSalesInvoiceView.cs</DependentUpon>
+      <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
     </Compile>
     <Compile Include="Storekeeper\StorekeeperView.cs">
       <SubType>Form</SubType>
@@ -251,10 +251,10 @@
       <DependentUpon>SignInView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.resx">
-      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+      <DependentUpon>StorekeeperSearchProviderOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storekeeper\StorekeeperSearchSalesInvoiceView.resx">
-      <DependentUpon>StorekeeperSearchSalesInvoiceView.cs</DependentUpon>
+      <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storekeeper\StorekeeperView.resx">
       <DependentUpon>StorekeeperView.cs</DependentUpon>

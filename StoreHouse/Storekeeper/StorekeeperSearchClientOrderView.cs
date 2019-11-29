@@ -4,7 +4,7 @@ using Presenter;
 
 namespace View
 {
-    public partial class StorekeeperSearchSalesInvoiceView : Form, IBack, IStorekeeperSearchSalesInvoiceView
+    public partial class StorekeeperSearchClientOrderView : Form, IBack, IStorekeeperSearchClientOrderView
     {
         public event Action Back;
         public event Search Search;
@@ -13,7 +13,7 @@ namespace View
 
         private readonly ApplicationContext _context;
 
-        public StorekeeperSearchSalesInvoiceView(ApplicationContext context)
+        public StorekeeperSearchClientOrderView(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();

@@ -2,12 +2,12 @@
 
 namespace Presenter
 {
-    public interface IStorekeeperView : IView
+    public interface IStorekeeperView : IView, IBack
     {
-        //Поиск приходной накладной
-        event Action SearchPurchInvoice;
-        //Поиск расходной накладной
-        event Action SearchExprenseInvoice;
+        //Поиск заказа клиента
+        event Action SearchClientOrder;
+        //Поиск поставки от поставщика
+        event Action SearchProviderOrder;
         //Просмотреть список несформированных заказов клиентов
         event Action ShowListClientPurch;
         //Просмотреть список несформированных заказов для курьеров

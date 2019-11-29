@@ -4,13 +4,13 @@ using Ninject;
 
 namespace Presenter
 {
-    public class StorekeeperSearchSalesInvoicePresenter : IPresenter
+    public class StorekeeperSearchClientOrderPresenter : IPresenter
     {
         private readonly IKernel _kernel;
         private readonly IStorekeeperSearchInvoiceView _view;
         private readonly IModel _model;
 
-        public StorekeeperSearchSalesInvoicePresenter(IKernel kernel, IStorekeeperSearchSalesInvoiceView view, IModel model)
+        public StorekeeperSearchClientOrderPresenter(IKernel kernel, IStorekeeperSearchInvoiceView view, IModel model)
         {
             _kernel = kernel;
             _view = view;

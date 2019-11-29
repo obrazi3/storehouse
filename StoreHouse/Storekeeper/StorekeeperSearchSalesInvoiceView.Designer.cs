@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class StorekeeperSearchSalesInvoiceView
+    partial class StorekeeperSearchClientOrderView
     {
         /// <summary>
         /// Required designer variable.
@@ -261,7 +261,7 @@
                 System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MaximumSize = new System.Drawing.Size(918, 553);
             this.MinimumSize = new System.Drawing.Size(918, 553);
-            this.Name = "StorekeeperSearchSalesInvoiceView";
+            this.Name = "StorekeeperSearchClientOrderView";
             this.Text = "Поиск расходной накладной";
             this.GeneralPanel.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
