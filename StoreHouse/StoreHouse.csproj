@@ -67,17 +67,17 @@
     <Compile Include="Booker\BookerView.Designer.cs">
       <DependentUpon>BookerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManager\ClientManagerAddOrderSecondStepView.cs">
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManager\ClientManagerAddOrderSecondStepView.Designer.cs">
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepView.Designer.cs">
       <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManager\ClientManagerAddOrderView.cs">
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderFirstStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManager\ClientManagerAddOrderView.Designer.cs">
-      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderView.Designer.cs">
+      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientManager\ClientManagerInspectOrderView.cs">
       <SubType>Form</SubType>
@@ -193,11 +193,11 @@
     <EmbeddedResource Include="Booker\BookerView.resx">
       <DependentUpon>BookerView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManager\ClientManagerAddOrderSecondStepView.resx">
+    <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepView.resx">
       <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManager\ClientManagerAddOrderView.resx">
-      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerAddOrderView.resx">
+      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientManager\ClientManagerInspectOrderView.resx">
       <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>

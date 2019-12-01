@@ -1,38 +1,73 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 
 namespace Model
 {
-    public class ClientOrder
+    public class ClientOrder : ICloneable
     {
-        public int OrderId { get; private set; }
-        public DateTime OrderDate { get; private set; }
-        private List<ProductFromLot> ListClientProduct { get; }
+        public int OrderId { get; set; }
+        public DateTime OrderDate { get; set; }
+        private List<ProductFromLot> listClientProduct;
         public ClientInformation ClientInfo { get; set; }
         public StatusClientOrder Status { get; set; }
+        public int TotalCost { get; set; }
 
-        public ClientOrder(int _orderId, DateTime _orderDate)
+        public ClientOrder()
         {
-            this.OrderId = _orderId;
-            this.OrderDate = _orderDate;
-            ListClientProduct = new List<ProductFromLot>();
+            listClientProduct = new List<ProductFromLot>();
+            ClientInfo = new ClientInformation();
         }
 
         public void AddProduct(ProductFromLot prod)
         {
-            ListClientProduct.Add(prod);
+            listClientProduct.Add(prod);
         }
 
         public void RemoveProduct(ProductFromLot prod)
         {
-            ListClientProduct.Remove(prod);
+            listClientProduct.Remove(prod);
         }
 
         public bool Equals(ClientOrder order)
         {
             return OrderId.Equals(order.OrderId);
+        }
+
+
+        public object Clone()
+        {
+            ClientOrder order = new ClientOrder();
+            order.OrderId = this.OrderId;
+            order.OrderDate = this.OrderDate;
+            order.listClientProduct = CloneProductList();
+            order.ClientInfo = (ClientInformation)this.ClientInfo.Clone();
+            order.Status = this.Status;
+            order.TotalCost = this.TotalCost;
+
+            return order;
+        }
+
+        public List<ProductFromLot> GetProductList()
+        {
+            return CloneProductList();
+        }
+
+
+        internal List<ProductFromLot> GetListProducts()
+        {
+            return listClientProduct;
+        }
+
+        private List<ProductFromLot> CloneProductList()
+        {
+            List<ProductFromLot> products = new List<ProductFromLot>();
+            foreach (var prod in listClientProduct)
+            {
+                products.Add((ProductFromLot)prod.Clone());
+            }
+
+            return products;
         }
     }
 

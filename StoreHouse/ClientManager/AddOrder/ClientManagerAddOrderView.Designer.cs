@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class ClientManagerAddOrderView
+    partial class ClientManagerAddOrderFirstStepView
     {
         /// <summary>
         /// Required designer variable.
@@ -420,7 +420,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1085, 601);
             this.MinimumSize = new System.Drawing.Size(1085, 601);
-            this.Name = "ClientManagerAddOrderView";
+            this.Name = "ClientManagerAddOrderFirstStepView";
             this.Text = "ClientManagerAddOrderView";
             this.GroupBoxInitials.ResumeLayout(false);
             this.GroupBoxInitials.PerformLayout();

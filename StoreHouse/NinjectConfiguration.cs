@@ -18,6 +18,7 @@ namespace View
             Bind<IProductProviderRepository>().To<ProductProviderRepository>().InSingletonScope();
 
             Bind<IStorehouseRepository>().To<StorehouseRepository>().InSingletonScope();
+
             Bind<IStorehouseServiceForDeliveryOrderService>().To<StorehouseService>().InSingletonScope();
             Bind<IStorehouseServiceForClientOrderService>().To<StorehouseService>().InSingletonScope();
 
@@ -27,6 +28,8 @@ namespace View
 
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();
+
+            Bind<IClientOrderRepository>().To<ClientOrderRepository>().InSingletonScope();
 
             Bind<ISignInView>().To<SignInView>();
 
@@ -41,7 +44,7 @@ namespace View
             Bind<IStorekeeperSearchClientOrderView>().To<StorekeeperSearchClientOrderView>();
 
             Bind<IClientManagerView>().To<ClientManagerView>();
-            Bind<IClientManagerAddOrderView>().To<ClientManagerAddOrderView>();
+            Bind<IClientManagerAddOrderView>().To<ClientManagerAddOrderFirstStepView>();
             Bind<IClientManagerAddOrderSecondStepView>().To<ClientManagerAddOrderSecondStepView>();
             Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
 

@@ -58,6 +58,9 @@
     <Compile Include="Bank\IBankForClientOrderService.cs" />
     <Compile Include="Bank\IBankForDeliveryOrderService.cs" />
     <Compile Include="BriefInvoiceInfo.cs" />
+    <Compile Include="ClientOrderRepository\ClientOrderRepository.cs" />
+    <Compile Include="ClientOrderRepository\IClientOrderRepository.cs" />
+    <Compile Include="ClientOrderService\ClientOrderService.cs" />
     <Compile Include="ClientOrder\ClientInformation.cs" />
     <Compile Include="ClientOrder\ClientOrder.cs" />
     <Compile Include="ClientOrder\HomeAddress.cs" />
@@ -87,6 +90,8 @@
     <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductProvider\ProductProvider.cs" />
+    <Compile Include="ServiceForFillingClientOrder\IServiceForFilingClientOrder.cs" />
+    <Compile Include="ServiceForFillingClientOrder\ServiceForFillingClientOrder.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\StorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForClientOrderService.cs" />

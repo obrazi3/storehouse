@@ -4,14 +4,14 @@ using Presenter;
 
 namespace View
 {
-    public partial class ClientManagerAddOrderView : Form, IClientManagerAddOrderView
+    public partial class ClientManagerAddOrderFirstStepView : Form, IClientManagerAddOrderView
     {
         public event Action Back;
         public event Action NextStep;
 
         private readonly ApplicationContext _context;
 
-        public ClientManagerAddOrderView(ApplicationContext context)
+        public ClientManagerAddOrderFirstStepView(ApplicationContext context)
         {
             _context = context;
             InitializeComponent();
