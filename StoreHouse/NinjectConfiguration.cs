@@ -26,6 +26,11 @@ namespace View
             Bind<IDeliveryOrderServiceForStorekeeper>().To<DeliveryOrderService>().InSingletonScope();
             Bind<IDeliveryOrderServiceForPurcpManager>().To<DeliveryOrderService>().InSingletonScope();
 
+            Bind<IClientOrderServiceForBooker>().To<ClientOrderService>().InSingletonScope();
+            Bind<IClientOrderServiceForCourier>().To<ClientOrderService>().InSingletonScope();
+            Bind<IClientOrderServiceForStorekeeper>().To<ClientOrderService>().InSingletonScope();
+            Bind<IClientOrderServiceForClientManager>().To<ClientOrderService>().InSingletonScope();
+
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();
 

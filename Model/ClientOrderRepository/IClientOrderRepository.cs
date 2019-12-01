@@ -9,5 +9,6 @@ namespace Model
         void RemoveClientOrder(int orderId);
         List<ClientOrder> GetListOrdersByStatus(StatusClientOrder status);
         List<ClientOrder> GetListAllOrders();
+        ClientOrder GetOrderByStatus(StatusClientOrder status);
     }
 }

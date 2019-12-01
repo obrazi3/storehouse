@@ -73,6 +73,6 @@ namespace Model
 
     public enum StatusClientOrder
     {
-        NotPaid, Paid, GiveOut
+        NotPaid, Paid, GiveOut, OnDelivery
     }
 }

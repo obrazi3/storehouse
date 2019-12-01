@@ -61,6 +61,10 @@
     <Compile Include="ClientOrderRepository\ClientOrderRepository.cs" />
     <Compile Include="ClientOrderRepository\IClientOrderRepository.cs" />
     <Compile Include="ClientOrderService\ClientOrderService.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForBooker.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForClientManager.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForCourier.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForStorekeeper.cs" />
     <Compile Include="ClientOrder\ClientInformation.cs" />
     <Compile Include="ClientOrder\ClientOrder.cs" />
     <Compile Include="ClientOrder\HomeAddress.cs" />

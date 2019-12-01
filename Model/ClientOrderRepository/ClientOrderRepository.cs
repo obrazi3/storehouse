@@ -32,8 +32,10 @@ namespace Model
             foreach (var order in orders)
             {
                 if (order.OrderId == orderId)
+                {
                     orders.Remove(order);
-                return;
+                    return;
+                }
             }
         }
 
@@ -60,6 +62,17 @@ namespace Model
             }
 
             return ordrs;
+        }
+
+        public ClientOrder GetOrderByStatus(StatusClientOrder status)
+        {
+            foreach (var order in orders)
+            {
+                if (order.Status == status)
+                    return (ClientOrder)order.Clone();
+            }
+
+            return null;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace View
         [STAThread]
         static void Main()
         {
-            Ninject.StandardKernel kernel = new StandardKernel(new NinjectConfiguration());
+            StandardKernel kernel = new StandardKernel(new NinjectConfiguration());
             /* kernel.Bind<ApplicationContext>().ToConstant(new ApplicationContext());
              kernel.Bind<ISignInView>().To<SignInView>();
              kernel.Bind<IClientManagerView>().To<ClientManagerView>();

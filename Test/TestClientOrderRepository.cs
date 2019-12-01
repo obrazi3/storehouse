@@ -5,7 +5,7 @@ namespace Test
 {
     public class TestClientOrderRepository
     {
-        public static void Main()
+        /*  public static void Main()
         {
             HomeAddress address = new HomeAddress();
             address.City = "Минск";
@@ -83,6 +83,6 @@ namespace Test
             {
                 Console.WriteLine(order.Status + " " + order.OrderDate.ToShortDateString() + " ID:" + order.OrderId);
             }
-        }
+        }*/
     }
 }
