@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 
 namespace Model
 {
-    public class HomeAddress:ICloneable
+    public class HomeAddress : ICloneable
     {
         public string City { get; set; }
         public string Street { get; set; }
@@ -13,10 +12,20 @@ namespace Model
         public string FloorNumber { get; set; }
         public string FlatNumber { get; set; }
 
-        public HomeAddress() { }
+        public HomeAddress()
+        {
+            City = "none";
+            Street = "none";
+            HomeNumber = "none";
+            PavilionNumber = "none";
+            PorchNumber = "none";
+            FloorNumber = "none";
+            FlatNumber = "none";
+        }
+
         public object Clone()
         {
-            HomeAddress address=new HomeAddress();
+            HomeAddress address = new HomeAddress();
             address.City = (string)this.City.Clone();
             address.Street = (string)this.Street.Clone();
             address.HomeNumber = (string)this.HomeNumber.Clone();

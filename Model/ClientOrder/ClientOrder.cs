@@ -12,6 +12,7 @@ namespace Model
         public ClientInformation ClientInfo { get; set; }
         public StatusClientOrder Status { get; set; }
         public int TotalCost { get; set; }
+        public bool isDelivery;
 
         public ClientOrder()
         {
@@ -44,6 +45,7 @@ namespace Model
             order.ClientInfo = (ClientInformation)this.ClientInfo.Clone();
             order.Status = this.Status;
             order.TotalCost = this.TotalCost;
+            order.isDelivery = this.isDelivery;
 
             return order;
         }
@@ -73,6 +75,6 @@ namespace Model
 
     public enum StatusClientOrder
     {
-        NotPaid, Paid, GiveOut, OnDelivery
+        NotPaid, Paid, PaidForDelivery, GiveOut, OnDelivery
     }
 }

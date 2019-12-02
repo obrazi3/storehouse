@@ -30,7 +30,10 @@ namespace Model
             if (order != null && order.Status == StatusClientOrder.NotPaid)
             {
                 repository.RemoveClientOrder(orderId);
-                order.Status = StatusClientOrder.Paid;
+                if (order.isDelivery)
+                    order.Status = StatusClientOrder.PaidForDelivery;
+                else
+                    order.Status = StatusClientOrder.Paid;
                 repository.AddClientOrder(order);
                 return true;
             }
@@ -40,7 +43,7 @@ namespace Model
 
         public ClientOrder GetForDeliveryClientOrder()
         {
-            var order = repository.GetOrderByStatus(StatusClientOrder.Paid);
+            var order = repository.GetOrderByStatus(StatusClientOrder.PaidForDelivery);
             if (order != null)
             {
                 repository.RemoveClientOrder(order.OrderId);

@@ -11,7 +11,10 @@ namespace Model
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
 
-        public ClientInformation() { }
+        public ClientInformation()
+        {
+            Address = new HomeAddress();
+        }
 
         public object Clone()
         {
