@@ -54,7 +54,9 @@
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
     <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderFirstStepPresenter.cs" />
     <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddProductPresenter.cs" />
     <Compile Include="ClientManager\AddOrder\ClientManagerProductCatalogPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\IClientManagerAddProductView.cs" />
     <Compile Include="ClientManager\AddOrder\IClientManagerProductCatalogView.cs" />
     <Compile Include="ClientManager\ClientManagerInspectOrderPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerPresenter.cs" />

@@ -114,7 +114,7 @@ namespace Model
             prod3.ProductGroup = "Творожные изделия";
             prod3.ProductName = "101 зерно";
             prod3.Lot.ProductionDate = new DateTime(2010, 10, 10);
-            prod3.Lot.QuantityProduct = 25;
+            prod3.Lot.QuantityProduct = 15;
             
             AddProduct(prod3);
         }

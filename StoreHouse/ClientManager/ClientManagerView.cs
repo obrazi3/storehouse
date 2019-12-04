@@ -8,6 +8,7 @@ namespace View
     {
         public event Action addOrder;
         public event Action lookOrder;
+        public event Action Back;
 
         private readonly ApplicationContext _context;
         public ClientManagerView(ApplicationContext context)
@@ -32,6 +33,10 @@ namespace View
         {
             lookOrder?.Invoke();
         }
-        
+
+        private void OnButtonExitClick(object sender, EventArgs e)
+        {
+            Back?.Invoke();
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace Presenter
         private void OnButtonAddProducts()
         {
             new ClientManagerAddOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
+                kernel.Get<IClientOrderServiceForClientManager>(),
                 order).Run();
             view.Close();
         }
@@ -41,8 +42,9 @@ namespace Presenter
         private void CheckedProduct()
         {
             var characteristic = view.GetProductCharacteristic();
-            MessageBox.Show("Продукт");
-            throw new NotImplementedException();
+            new ClientManagerAddProductPresenter(kernel, kernel.Get<IServiceForFilingClientOrder>(),
+                kernel.Get<IClientManagerAddProductView>(), order,
+                characteristic).Run();
             view.Close();
         }
     }

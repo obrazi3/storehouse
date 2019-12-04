@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Model;
 
 namespace Presenter
@@ -8,7 +9,9 @@ namespace Presenter
     {
         event Action AddProduct;
         event Action ConfirmOrder;
+        event Action RemoveProducts;
         void SetProductBasket(List<ProductFromLot> products);
         void SetOrderPrice(int cost);
+        List<int> GetIdProductsForDelete();
     }
 }

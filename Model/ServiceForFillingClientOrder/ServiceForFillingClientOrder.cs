@@ -5,13 +5,18 @@ namespace Model
     public class ServiceForFillingClientOrder : IServiceForFilingClientOrder
     {
         private ClientOrder order;
+        private IStorehouseServiceForClientOrderService model;
 
-        public ServiceForFillingClientOrder() { }
-
-        public bool AddProduct(ProductFromLot prod)
+        public ServiceForFillingClientOrder(IStorehouseServiceForClientOrderService _model)
+        {
+            model = _model;
+        }
+        
+        public bool AddProduct(int productId, int numberOfProduct)
         {
             if (order != null)
             {
+                var prod = model.GetProduct(productId, numberOfProduct);
                 order.AddProduct(prod);
                 order.TotalCost += (prod.Lot.QuantityProduct * prod.Price);
                 return true;
@@ -29,6 +34,7 @@ namespace Model
                 {
                     if (prod.ProductId == prodId)
                     {
+                        model.AddProduct(prod);
                         order.RemoveProduct(prod);
                         order.TotalCost -= (prod.Price * prod.Lot.QuantityProduct);
                         return true;

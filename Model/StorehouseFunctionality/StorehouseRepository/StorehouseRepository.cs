@@ -114,8 +114,11 @@ namespace Model
                     cloneGroup.Add(groupPair.Key, cloneListCharact);
                     foreach (var prod in groupPair.Value)
                     {
-                        var cloneProd = (ProductCharacteristic)prod.Clone();
-                        cloneListCharact.Add(cloneProd);
+                        if (prod.TotalQuantityProduct != 0)
+                        {
+                            var cloneProd = (ProductCharacteristic)prod.Clone();
+                            cloneListCharact.Add(cloneProd);
+                        }
                     }
                 }
             }

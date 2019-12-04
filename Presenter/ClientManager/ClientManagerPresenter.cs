@@ -12,8 +12,15 @@ namespace Presenter
             _kernel = kernel;
             _view = view;
 
-            _view.addOrder += () => CreateNewOrder();
+            _view.addOrder += CreateNewOrder;
+            _view.Back += ExitClientManager;
             //_view.lookOrder += () => ShowOrders();
+        }
+
+
+        public void Run()
+        {
+            _view.Show();
         }
 
         private void CreateNewOrder()
@@ -29,9 +36,10 @@ namespace Presenter
             _view.Close();
         }
 
-        public void Run()
+        private void ExitClientManager()
         {
-            _view.Show();
+            _kernel.Get<SignInPresenter>().Run();
+            _view.Close();
         }
     }
 }

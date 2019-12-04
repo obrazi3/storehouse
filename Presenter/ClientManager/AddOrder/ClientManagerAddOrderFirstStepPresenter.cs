@@ -78,6 +78,7 @@ namespace Presenter
             serviceForOrder.AddClientInfo(info);
 
             new ClientManagerAddOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(),
+                _kernel.Get<IClientOrderServiceForClientManager>(),
                 order).Run();
             _view.Close();
         }

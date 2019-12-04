@@ -55,6 +55,7 @@ namespace View
             Bind<IClientManagerAddOrderSecondStepView>().To<ClientManagerAddOrderSecondStepView>();
             Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
             Bind<IClientManagerProductCatalogView>().To<ClientManagerProductCatalogView>();
+            Bind<IClientManagerAddProductView>().To<ClientManagerAddProductView>();
 
             // kernel.Bind<IClientOrder>().To<ClientOrder>();
 

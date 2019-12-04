@@ -76,7 +76,7 @@ namespace View
             this.ButtonAddProducts.TabIndex = 3;
             this.ButtonAddProducts.Text = "Завершить добавление товаров\r\n";
             this.ButtonAddProducts.UseVisualStyleBackColor = true;
-            this.ButtonAddProducts.Click+=new EventHandler(OnButtonAddProductsClick);
+            this.ButtonAddProducts.Click += new System.EventHandler(this.OnButtonAddProductsClick);
             // 
             // ClientManagerProductCatalogView
             // 
@@ -84,6 +84,8 @@ namespace View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 756);
             this.Controls.Add(this.PanelMainContainer);
+            this.MaximumSize = new System.Drawing.Size(893, 803);
+            this.MinimumSize = new System.Drawing.Size(893, 803);
             this.Name = "ClientManagerProductCatalogView";
             this.Text = "Каталог продукции";
             this.PanelMainContainer.ResumeLayout(false);

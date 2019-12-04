@@ -159,6 +159,9 @@ namespace Model
                 characteristic.Price = this.Price;
                 characteristic.ProductId = this.ProductId;
                 characteristic.ProductName = (string)this.ProductName.Clone();
+                characteristic.ProduceCountry = (string)this.ProduceCountry.Clone();
+                characteristic.ProductCategory = (string)this.ProductCategory.Clone();
+                characteristic.ProductGroup = (string)this.ProductGroup.Clone();
             }
 
             characteristic.TotalQuantityProduct = TotalQuantityProduct;

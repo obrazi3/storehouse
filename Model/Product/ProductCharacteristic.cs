@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace Model
 {
@@ -11,6 +10,9 @@ namespace Model
         public int Price { get; internal set; }
         public int TotalQuantityProduct { get; internal set; }
 
+        public string ProduceCountry { get; internal set; }
+        public string ProductGroup { get; internal set; }
+        public string ProductCategory { get; internal set; }
         public ProductCharacteristic() { }
 
         public object Clone()
@@ -21,6 +23,9 @@ namespace Model
             clone.ProductId = this.ProductId;
             clone.Price = this.Price;
             clone.TotalQuantityProduct = this.TotalQuantityProduct;
+            clone.ProduceCountry = (string)this.ProduceCountry.Clone();
+            clone.ProductGroup = (string)this.ProductGroup.Clone();
+            clone.ProductCategory = (string)this.ProductCategory.Clone();
             return clone;
         }
     }
