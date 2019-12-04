@@ -1,4 +1,6 @@
-﻿namespace View
+﻿using System;
+
+namespace View
 {
     partial class ClientManagerView
     {
@@ -55,6 +57,7 @@
             this.AddOrderButton.TabIndex = 0;
             this.AddOrderButton.Text = "Добавить заказ";
             this.AddOrderButton.UseVisualStyleBackColor = true;
+            this.AddOrderButton.Click+=new EventHandler(OnButtonAddOrderClick);
             // 
             // LookOrderButton
             // 
@@ -66,6 +69,7 @@
             this.LookOrderButton.TabIndex = 1;
             this.LookOrderButton.Text = "Просмотреть заказы";
             this.LookOrderButton.UseVisualStyleBackColor = true;
+            this.LookOrderButton.Click+=new EventHandler(OnButtonLookOrderClick);
             // 
             // ClientManagerView
             // 

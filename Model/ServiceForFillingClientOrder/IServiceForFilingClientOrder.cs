@@ -2,10 +2,11 @@
 {
     public interface IServiceForFilingClientOrder
     {
-        void AddProduct(ProductFromLot prod);
-        void RemoveProduct(int prodId);
-        void InitializeOrder();
-        void AddClientInfo(ClientInformation info);
+        bool AddProduct(ProductFromLot prod);
+        bool RemoveProduct(int prodId);
+        bool InitializeOrder();
+        bool AddClientInfo(ClientInformation info);
         ClientOrder GetClientOrder();
+        bool SetClientOrder(ClientOrder order);
     }
 }

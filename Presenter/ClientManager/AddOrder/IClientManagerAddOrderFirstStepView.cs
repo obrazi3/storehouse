@@ -2,7 +2,7 @@
 
 namespace Presenter
 {
-    public interface IClientManagerAddOrderView : IView, IBack
+    public interface IClientManagerAddOrderFirstStepView : IView, IBack
     {
         event Action NextStep;
 
@@ -26,5 +26,11 @@ namespace Presenter
         void SetPhoneNumber(string phoneNumber);
         string GetEmailAddress();
         void SetEmailAddress(string emailAddress);
+        string GetFloorNumber();
+        void SetFloorNumber(string floorNumber);
+        string GetPorchNumber();
+        void SetPorchNumber(string porchNumber);
+        bool IsDelivery();
+        void SetDelivery(bool isDelivery);
     }
 }

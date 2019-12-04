@@ -79,6 +79,18 @@
     <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderView.Designer.cs">
       <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddProduct.Designer.cs">
+      <DependentUpon>ClientManagerAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManager\AddOrder\ClientManagerProductCatalogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManager\AddOrder\ClientManagerProductCatalog.Designer.cs">
+      <DependentUpon>ClientManagerProductCatalogView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientManager\ClientManagerInspectOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,11 +205,14 @@
     <EmbeddedResource Include="Booker\BookerView.resx">
       <DependentUpon>BookerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerAddOrderFirstStepView.resx">
+      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepView.resx">
       <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerAddOrderView.resx">
-      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
+    <EmbeddedResource Include="ClientManager\AddOrder\ClientManagerProductCatalogView.resx">
+      <DependentUpon>ClientManagerProductCatalogView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientManager\ClientManagerInspectOrderView.resx">
       <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>

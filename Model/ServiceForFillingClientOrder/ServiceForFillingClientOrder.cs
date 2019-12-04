@@ -6,45 +6,78 @@ namespace Model
     {
         private ClientOrder order;
 
-        public ServiceForFillingClientOrder(ClientOrder _order)
-        {
-            order = _order;
-        }
+        public ServiceForFillingClientOrder() { }
 
-        public void AddProduct(ProductFromLot prod)
+        public bool AddProduct(ProductFromLot prod)
         {
-            order.AddProduct(prod);
-            order.TotalCost += (prod.Lot.QuantityProduct * prod.Price);
-        }
-
-        public void RemoveProduct(int prodId)
-        {
-            var listProducts = order.GetListProducts();
-            foreach (var prod in listProducts)
+            if (order != null)
             {
-                if (prod.ProductId == prodId)
-                {
-                    order.RemoveProduct(prod);
-                    order.TotalCost -= (prod.Price * prod.Lot.QuantityProduct);
-                    return;
-                }
+                order.AddProduct(prod);
+                order.TotalCost += (prod.Lot.QuantityProduct * prod.Price);
+                return true;
             }
+
+            return false;
         }
 
-        public void InitializeOrder()
+        public bool RemoveProduct(int prodId)
         {
-            order.OrderDate = DateTime.Now;
-            order.Status = StatusClientOrder.NotPaid;
+            if (order != null)
+            {
+                var listProducts = order.GetListProducts();
+                foreach (var prod in listProducts)
+                {
+                    if (prod.ProductId == prodId)
+                    {
+                        order.RemoveProduct(prod);
+                        order.TotalCost -= (prod.Price * prod.Lot.QuantityProduct);
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            return false;
         }
 
-        public void AddClientInfo(ClientInformation info)
+        public bool InitializeOrder()
         {
-            order.ClientInfo = info;
+            if (order != null)
+            {
+                order.OrderDate = DateTime.Now;
+                order.Status = StatusClientOrder.NotPaid;
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool AddClientInfo(ClientInformation info)
+        {
+            if (order != null)
+            {
+                order.ClientInfo = info;
+                return true;
+            }
+
+            return false;
         }
 
         public ClientOrder GetClientOrder()
         {
             return order;
+        }
+
+        public bool SetClientOrder(ClientOrder _order)
+        {
+            if (_order != null)
+            {
+                order = _order;
+                return true;
+            }
+
+            return false;
         }
     }
 }

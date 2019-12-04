@@ -13,13 +13,13 @@ namespace Presenter
             _view = view;
 
             _view.addOrder += () => CreateNewOrder();
-            _view.lookOrder += () => ShowOrders();
+            //_view.lookOrder += () => ShowOrders();
         }
 
         private void CreateNewOrder()
         {
             //_kernel.Get<ClientManagerAddOrderPresenter>().Run();
-            new ClientManagerAddOrderPresenter(_kernel, _kernel.Get<IClientManagerAddOrderView>()).Run();
+            new ClientManagerAddOrderFirstStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderFirstStepView>()).Run();
             _view.Close();
         }
 

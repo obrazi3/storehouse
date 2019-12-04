@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Model
@@ -13,6 +12,7 @@ namespace Model
         {
             productStorage = new SortedDictionary<string, SortedDictionary<string, List<StorehouseProduct>>>();
             productCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
+
         }
 
         public void AddProductFromLot(ProductFromLot prod)
@@ -21,7 +21,8 @@ namespace Model
             var listProducts = dictCategory[prod.ProductGroup];
             foreach (StorehouseProduct pr in listProducts)
             {
-                if (pr.ProductName.Equals(prod.ProductName) && pr.Price.Equals(prod.Price) && pr.Measure.Equals(prod.Measure))
+                if (pr.ProductName.Equals(prod.ProductName) && pr.Price.Equals(prod.Price) &&
+                    pr.Measure.Equals(prod.Measure))
                 {
                     pr.AddLot(prod.Lot);
                     break;
@@ -74,11 +75,13 @@ namespace Model
                     List<StorehouseProduct> listProducts = dictCategory[prod.ProductGroup];
                     foreach (StorehouseProduct pr in listProducts)
                     {
-                        if (pr.ProductName.Equals(prod.ProductName) && pr.Price.Equals(prod.Price) && pr.Measure.Equals(prod.Measure))
+                        if (pr.ProductName.Equals(prod.ProductName) && pr.Price.Equals(prod.Price) &&
+                            pr.Measure.Equals(prod.Measure))
                         {
                             return true;
                         }
                     }
+
                     return false;
                 }
                 else
@@ -93,7 +96,6 @@ namespace Model
             StorehouseProduct baseProd = FindStorehouseProductById(productId);
             ProductFromLot prod = baseProd.GetProductFromLot(numberOfProduct);
             return prod;
-
         }
 
         public SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProductCatalog()
@@ -143,9 +145,10 @@ namespace Model
             if (productStorage.ContainsKey(category))
                 return productStorage[category];
             return null;
-
         }
-        private List<StorehouseProduct> GetListProductsFromGroup(SortedDictionary<string, List<StorehouseProduct>> category, string group)
+
+        private List<StorehouseProduct> GetListProductsFromGroup(
+            SortedDictionary<string, List<StorehouseProduct>> category, string group)
         {
             if (category.ContainsKey(group))
                 return category[group];
@@ -178,7 +181,8 @@ namespace Model
             return null;
         }
 
-        private List<ProductCharacteristic> GetCatalogListProductsFromGroup(SortedDictionary<string, List<ProductCharacteristic>> category, string group)
+        private List<ProductCharacteristic> GetCatalogListProductsFromGroup(
+            SortedDictionary<string, List<ProductCharacteristic>> category, string group)
         {
             if (category.ContainsKey(group))
                 return category[group];
@@ -215,6 +219,6 @@ namespace Model
             }
         }
 
-
+       
     }
 }

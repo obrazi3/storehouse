@@ -52,8 +52,10 @@
     <Compile Include="Booker\BookerPayProviderOrder\IBookerPayProviderOrderView.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\BookerShowNotPaidProviderOrdersPresenter.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
-    <Compile Include="ClientManager\ClientManagerAddOrderPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderFirstStepPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\ClientManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\ClientManagerProductCatalogPresenter.cs" />
+    <Compile Include="ClientManager\AddOrder\IClientManagerProductCatalogView.cs" />
     <Compile Include="ClientManager\ClientManagerInspectOrderPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerPresenter.cs" />
     <Compile Include="Courier\CourierGetOrderPresenter.cs" />
@@ -61,8 +63,8 @@
     <Compile Include="Courier\ICourierGetOrderView.cs" />
     <Compile Include="Courier\ICourierView.cs" />
     <Compile Include="IBack.cs" />
-    <Compile Include="ClientManager\IClientManagerAddOrderSecondStepView.cs" />
-    <Compile Include="ClientManager\IClientManagerAddOrderView.cs" />
+    <Compile Include="ClientManager\AddOrder\IClientManagerAddOrderSecondStepView.cs" />
+    <Compile Include="ClientManager\AddOrder\IClientManagerAddOrderFirstStepView.cs" />
     <Compile Include="ClientManager\IClientManagerInspectOrderView.cs" />
     <Compile Include="ClientManager\IClientManagerView.cs" />
     <Compile Include="IPresenter.cs" />

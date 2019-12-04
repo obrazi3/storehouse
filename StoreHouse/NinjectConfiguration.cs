@@ -31,6 +31,8 @@ namespace View
             Bind<IClientOrderServiceForStorekeeper>().To<ClientOrderService>().InSingletonScope();
             Bind<IClientOrderServiceForClientManager>().To<ClientOrderService>().InSingletonScope();
 
+            Bind<IServiceForFilingClientOrder>().To<ServiceForFillingClientOrder>();
+
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();
 
@@ -49,9 +51,10 @@ namespace View
             Bind<IStorekeeperSearchClientOrderView>().To<StorekeeperSearchClientOrderView>();
 
             Bind<IClientManagerView>().To<ClientManagerView>();
-            Bind<IClientManagerAddOrderView>().To<ClientManagerAddOrderFirstStepView>();
+            Bind<IClientManagerAddOrderFirstStepView>().To<ClientManagerAddOrderFirstStepView>();
             Bind<IClientManagerAddOrderSecondStepView>().To<ClientManagerAddOrderSecondStepView>();
             Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
+            Bind<IClientManagerProductCatalogView>().To<ClientManagerProductCatalogView>();
 
             // kernel.Bind<IClientOrder>().To<ClientOrder>();
 
@@ -79,8 +82,10 @@ namespace View
             Bind<StorekeeperSearchClientOrderPresenter>().ToSelf();
 
             Bind<ClientManagerPresenter>().ToSelf();
-            Bind<ClientManagerAddOrderPresenter>().ToSelf();
+            Bind<ClientManagerAddOrderFirstStepPresenter>().ToSelf();
             Bind<ClientManagerInspectOrderPresenter>().ToSelf();
+            Bind<ClientManagerAddOrderSecondStepPresenter>().ToSelf();
+            Bind<ClientManagerProductCatalogPresenter>().ToSelf();
 
             Bind<CourierPresenter>().ToSelf();
             Bind<CourierGetOrderPresenter>().ToSelf();

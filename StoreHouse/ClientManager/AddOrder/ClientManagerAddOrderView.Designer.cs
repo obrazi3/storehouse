@@ -1,4 +1,6 @@
-﻿namespace View
+﻿using System;
+
+namespace View
 {
     partial class ClientManagerAddOrderFirstStepView
     {
@@ -56,9 +58,13 @@
             this.RadiobuttonDelivery = new System.Windows.Forms.RadioButton();
             this.RadioButtonPickup = new System.Windows.Forms.RadioButton();
             this.PanelControlButtons = new System.Windows.Forms.Panel();
+            this.LabelMessageRequiredFields = new System.Windows.Forms.Label();
             this.ButtonNextStep = new System.Windows.Forms.Button();
             this.ButtonBack = new System.Windows.Forms.Button();
-            this.LabelMessageRequiredFields = new System.Windows.Forms.Label();
+            this.TextBoxPorch = new System.Windows.Forms.MaskedTextBox();
+            this.LabelPorch = new System.Windows.Forms.Label();
+            this.TextBoxFloor = new System.Windows.Forms.MaskedTextBox();
+            this.LabelFloor = new System.Windows.Forms.Label();
             this.GroupBoxInitials.SuspendLayout();
             this.GroupBoxHomeAddress.SuspendLayout();
             this.PanelMainContainer.SuspendLayout();
@@ -76,9 +82,9 @@
             this.GroupBoxInitials.Controls.Add(this.TextBoxSurname);
             this.GroupBoxInitials.Controls.Add(this.LabelSurname);
             this.GroupBoxInitials.Location = new System.Drawing.Point(4, 4);
-            this.GroupBoxInitials.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBoxInitials.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxInitials.Name = "GroupBoxInitials";
-            this.GroupBoxInitials.Padding = new System.Windows.Forms.Padding(4);
+            this.GroupBoxInitials.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxInitials.Size = new System.Drawing.Size(1035, 101);
             this.GroupBoxInitials.TabIndex = 0;
             this.GroupBoxInitials.TabStop = false;
@@ -87,7 +93,7 @@
             // TextBoxPatronymic
             // 
             this.TextBoxPatronymic.Location = new System.Drawing.Point(443, 49);
-            this.TextBoxPatronymic.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxPatronymic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxPatronymic.Name = "TextBoxPatronymic";
             this.TextBoxPatronymic.Size = new System.Drawing.Size(132, 22);
             this.TextBoxPatronymic.TabIndex = 5;
@@ -106,7 +112,7 @@
             // TextBoxName
             // 
             this.TextBoxName.Location = new System.Drawing.Point(229, 50);
-            this.TextBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.Size = new System.Drawing.Size(161, 22);
             this.TextBoxName.TabIndex = 3;
@@ -125,7 +131,7 @@
             // TextBoxSurname
             // 
             this.TextBoxSurname.Location = new System.Drawing.Point(12, 50);
-            this.TextBoxSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxSurname.Name = "TextBoxSurname";
             this.TextBoxSurname.Size = new System.Drawing.Size(157, 22);
             this.TextBoxSurname.TabIndex = 1;
@@ -143,6 +149,10 @@
             // 
             // GroupBoxHomeAddress
             // 
+            this.GroupBoxHomeAddress.Controls.Add(this.LabelFloor);
+            this.GroupBoxHomeAddress.Controls.Add(this.TextBoxFloor);
+            this.GroupBoxHomeAddress.Controls.Add(this.LabelPorch);
+            this.GroupBoxHomeAddress.Controls.Add(this.TextBoxPorch);
             this.GroupBoxHomeAddress.Controls.Add(this.TextBoxFlat);
             this.GroupBoxHomeAddress.Controls.Add(this.TextBoxHouseNumber);
             this.GroupBoxHomeAddress.Controls.Add(this.TextBoxPavilion);
@@ -154,10 +164,10 @@
             this.GroupBoxHomeAddress.Controls.Add(this.LabelHouseNumber);
             this.GroupBoxHomeAddress.Controls.Add(this.LabelCity);
             this.GroupBoxHomeAddress.Location = new System.Drawing.Point(0, 61);
-            this.GroupBoxHomeAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBoxHomeAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxHomeAddress.Name = "GroupBoxHomeAddress";
-            this.GroupBoxHomeAddress.Padding = new System.Windows.Forms.Padding(4);
-            this.GroupBoxHomeAddress.Size = new System.Drawing.Size(1006, 106);
+            this.GroupBoxHomeAddress.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxHomeAddress.Size = new System.Drawing.Size(1023, 103);
             this.GroupBoxHomeAddress.TabIndex = 1;
             this.GroupBoxHomeAddress.TabStop = false;
             this.GroupBoxHomeAddress.Text = "Адрес доставки";
@@ -165,32 +175,38 @@
             // 
             // TextBoxFlat
             // 
-            this.TextBoxFlat.Location = new System.Drawing.Point(707, 46);
-            this.TextBoxFlat.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxFlat.Location = new System.Drawing.Point(916, 46);
+            this.TextBoxFlat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxFlat.Mask = "00000";
             this.TextBoxFlat.Name = "TextBoxFlat";
             this.TextBoxFlat.Size = new System.Drawing.Size(72, 22);
             this.TextBoxFlat.TabIndex = 12;
+            this.TextBoxFlat.ValidatingType = typeof(int);
             // 
             // TextBoxHouseNumber
             // 
             this.TextBoxHouseNumber.Location = new System.Drawing.Point(443, 46);
-            this.TextBoxHouseNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxHouseNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxHouseNumber.Mask = "00000";
             this.TextBoxHouseNumber.Name = "TextBoxHouseNumber";
             this.TextBoxHouseNumber.Size = new System.Drawing.Size(72, 22);
             this.TextBoxHouseNumber.TabIndex = 11;
+            this.TextBoxHouseNumber.ValidatingType = typeof(int);
             // 
             // TextBoxPavilion
             // 
             this.TextBoxPavilion.Location = new System.Drawing.Point(567, 46);
-            this.TextBoxPavilion.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxPavilion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxPavilion.Mask = "00000";
             this.TextBoxPavilion.Name = "TextBoxPavilion";
             this.TextBoxPavilion.Size = new System.Drawing.Size(72, 22);
             this.TextBoxPavilion.TabIndex = 9;
+            this.TextBoxPavilion.ValidatingType = typeof(int);
             // 
             // TextBoxStreet
             // 
             this.TextBoxStreet.Location = new System.Drawing.Point(229, 46);
-            this.TextBoxStreet.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxStreet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxStreet.Name = "TextBoxStreet";
             this.TextBoxStreet.Size = new System.Drawing.Size(161, 22);
             this.TextBoxStreet.TabIndex = 7;
@@ -198,7 +214,7 @@
             // TextBoxCity
             // 
             this.TextBoxCity.Location = new System.Drawing.Point(12, 46);
-            this.TextBoxCity.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxCity.Name = "TextBoxCity";
             this.TextBoxCity.Size = new System.Drawing.Size(161, 22);
             this.TextBoxCity.TabIndex = 6;
@@ -207,7 +223,7 @@
             // 
             this.LabelFlat.AutoSize = true;
             this.LabelFlat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelFlat.Location = new System.Drawing.Point(703, 20);
+            this.LabelFlat.Location = new System.Drawing.Point(912, 20);
             this.LabelFlat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelFlat.Name = "LabelFlat";
             this.LabelFlat.Size = new System.Drawing.Size(103, 24);
@@ -265,9 +281,9 @@
             this.PanelMainContainer.Controls.Add(this.GroupBoxOrderReceiptMethod);
             this.PanelMainContainer.Controls.Add(this.PanelControlButtons);
             this.PanelMainContainer.Location = new System.Drawing.Point(16, 15);
-            this.PanelMainContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelMainContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelMainContainer.Name = "PanelMainContainer";
-            this.PanelMainContainer.Size = new System.Drawing.Size(1035, 524);
+            this.PanelMainContainer.Size = new System.Drawing.Size(1035, 526);
             this.PanelMainContainer.TabIndex = 2;
             // 
             // GroupBoxContactInfo
@@ -286,7 +302,7 @@
             // TextBoxEmailAddress
             // 
             this.TextBoxEmailAddress.Location = new System.Drawing.Point(230, 46);
-            this.TextBoxEmailAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxEmailAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxEmailAddress.Name = "TextBoxEmailAddress";
             this.TextBoxEmailAddress.Size = new System.Drawing.Size(244, 22);
             this.TextBoxEmailAddress.TabIndex = 9;
@@ -305,7 +321,7 @@
             // TextBoxPhoneNumber
             // 
             this.TextBoxPhoneNumber.Location = new System.Drawing.Point(13, 46);
-            this.TextBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxPhoneNumber.Mask = "(00) 000-00-00";
             this.TextBoxPhoneNumber.Name = "TextBoxPhoneNumber";
             this.TextBoxPhoneNumber.Size = new System.Drawing.Size(161, 22);
@@ -328,10 +344,10 @@
             this.GroupBoxOrderReceiptMethod.Controls.Add(this.RadioButtonPickup);
             this.GroupBoxOrderReceiptMethod.Controls.Add(this.GroupBoxHomeAddress);
             this.GroupBoxOrderReceiptMethod.Location = new System.Drawing.Point(4, 219);
-            this.GroupBoxOrderReceiptMethod.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBoxOrderReceiptMethod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxOrderReceiptMethod.Name = "GroupBoxOrderReceiptMethod";
-            this.GroupBoxOrderReceiptMethod.Padding = new System.Windows.Forms.Padding(4);
-            this.GroupBoxOrderReceiptMethod.Size = new System.Drawing.Size(1031, 186);
+            this.GroupBoxOrderReceiptMethod.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxOrderReceiptMethod.Size = new System.Drawing.Size(1031, 183);
             this.GroupBoxOrderReceiptMethod.TabIndex = 2;
             this.GroupBoxOrderReceiptMethod.TabStop = false;
             this.GroupBoxOrderReceiptMethod.Text = "Способ получения заказа";
@@ -341,14 +357,14 @@
             this.RadiobuttonDelivery.AutoSize = true;
             this.RadiobuttonDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RadiobuttonDelivery.Location = new System.Drawing.Point(180, 23);
-            this.RadiobuttonDelivery.Margin = new System.Windows.Forms.Padding(4);
+            this.RadiobuttonDelivery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RadiobuttonDelivery.Name = "RadiobuttonDelivery";
             this.RadiobuttonDelivery.Size = new System.Drawing.Size(116, 28);
             this.RadiobuttonDelivery.TabIndex = 1;
             this.RadiobuttonDelivery.TabStop = true;
             this.RadiobuttonDelivery.Text = "Доставка";
             this.RadiobuttonDelivery.UseVisualStyleBackColor = true;
-            this.RadiobuttonDelivery.Click += OnRadioButtonDeliveryClick;
+            this.RadiobuttonDelivery.Click += new System.EventHandler(this.OnRadioButtonDeliveryClick);
             // 
             // RadioButtonPickup
             // 
@@ -356,48 +372,24 @@
             this.RadioButtonPickup.Checked = true;
             this.RadioButtonPickup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RadioButtonPickup.Location = new System.Drawing.Point(12, 25);
-            this.RadioButtonPickup.Margin = new System.Windows.Forms.Padding(4);
+            this.RadioButtonPickup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RadioButtonPickup.Name = "RadioButtonPickup";
             this.RadioButtonPickup.Size = new System.Drawing.Size(134, 28);
             this.RadioButtonPickup.TabIndex = 0;
             this.RadioButtonPickup.TabStop = true;
             this.RadioButtonPickup.Text = "Самовывоз";
             this.RadioButtonPickup.UseVisualStyleBackColor = true;
-            this.RadioButtonPickup.Click += OnRadioButtonPickupClick;
+            this.RadioButtonPickup.Click += new System.EventHandler(this.OnRadioButtonPickupClick);
             // 
             // PanelControlButtons
             // 
             this.PanelControlButtons.Controls.Add(this.LabelMessageRequiredFields);
             this.PanelControlButtons.Controls.Add(this.ButtonNextStep);
             this.PanelControlButtons.Controls.Add(this.ButtonBack);
-            this.PanelControlButtons.Location = new System.Drawing.Point(3, 412);
+            this.PanelControlButtons.Location = new System.Drawing.Point(3, 409);
             this.PanelControlButtons.Name = "PanelControlButtons";
-            this.PanelControlButtons.Size = new System.Drawing.Size(1032, 112);
+            this.PanelControlButtons.Size = new System.Drawing.Size(1032, 114);
             this.PanelControlButtons.TabIndex = 4;
-            // 
-            // ButtonNextStep
-            // 
-            this.ButtonNextStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonNextStep.Location = new System.Drawing.Point(885, 81);
-            this.ButtonNextStep.Margin = new System.Windows.Forms.Padding(0);
-            this.ButtonNextStep.Name = "ButtonNextStep";
-            this.ButtonNextStep.Size = new System.Drawing.Size(132, 31);
-            this.ButtonNextStep.TabIndex = 1;
-            this.ButtonNextStep.Text = "Далее";
-            this.ButtonNextStep.UseVisualStyleBackColor = true;
-            this.ButtonNextStep.Click += OnButtonNextStepClick;
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonBack.Location = new System.Drawing.Point(13, 81);
-            this.ButtonBack.Margin = new System.Windows.Forms.Padding(0);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(132, 31);
-            this.ButtonBack.TabIndex = 0;
-            this.ButtonBack.Text = "Назад";
-            this.ButtonBack.UseVisualStyleBackColor = true;
-            this.ButtonBack.Click += OnButtonBackClick;
             // 
             // LabelMessageRequiredFields
             // 
@@ -411,17 +403,83 @@
     "раз.";
             this.LabelMessageRequiredFields.Visible = false;
             // 
-            // ClientManagerAddOrderView
+            // ButtonNextStep
+            // 
+            this.ButtonNextStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonNextStep.Location = new System.Drawing.Point(885, 81);
+            this.ButtonNextStep.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonNextStep.Name = "ButtonNextStep";
+            this.ButtonNextStep.Size = new System.Drawing.Size(132, 31);
+            this.ButtonNextStep.TabIndex = 1;
+            this.ButtonNextStep.Text = "Далее";
+            this.ButtonNextStep.UseVisualStyleBackColor = true;
+            this.ButtonNextStep.Click += new System.EventHandler(this.OnButtonNextStepClick);
+            // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonBack.Location = new System.Drawing.Point(13, 81);
+            this.ButtonBack.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(132, 31);
+            this.ButtonBack.TabIndex = 0;
+            this.ButtonBack.Text = "Назад";
+            this.ButtonBack.UseVisualStyleBackColor = true;
+            this.ButtonBack.Click += new System.EventHandler(this.OnButtonBackClick);
+            // 
+            // TextBoxPorch
+            // 
+            this.TextBoxPorch.Location = new System.Drawing.Point(681, 46);
+            this.TextBoxPorch.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxPorch.Mask = "00000";
+            this.TextBoxPorch.Name = "TextBoxPorch";
+            this.TextBoxPorch.Size = new System.Drawing.Size(72, 22);
+            this.TextBoxPorch.TabIndex = 13;
+            this.TextBoxPorch.ValidatingType = typeof(int);
+            // 
+            // LabelPorch
+            // 
+            this.LabelPorch.AutoSize = true;
+            this.LabelPorch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelPorch.Location = new System.Drawing.Point(677, 20);
+            this.LabelPorch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelPorch.Name = "LabelPorch";
+            this.LabelPorch.Size = new System.Drawing.Size(97, 24);
+            this.LabelPorch.TabIndex = 14;
+            this.LabelPorch.Text = "Подъезд*";
+            // 
+            // TextBoxFloor
+            // 
+            this.TextBoxFloor.Location = new System.Drawing.Point(804, 46);
+            this.TextBoxFloor.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxFloor.Mask = "00000";
+            this.TextBoxFloor.Name = "TextBoxFloor";
+            this.TextBoxFloor.Size = new System.Drawing.Size(72, 22);
+            this.TextBoxFloor.TabIndex = 15;
+            this.TextBoxFloor.ValidatingType = typeof(int);
+            // 
+            // LabelFloor
+            // 
+            this.LabelFloor.AutoSize = true;
+            this.LabelFloor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelFloor.Location = new System.Drawing.Point(800, 20);
+            this.LabelFloor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelFloor.Name = "LabelFloor";
+            this.LabelFloor.Size = new System.Drawing.Size(64, 24);
+            this.LabelFloor.TabIndex = 16;
+            this.LabelFloor.Text = "Этаж*";
+            // 
+            // ClientManagerAddOrderFirstStepView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.PanelMainContainer);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1085, 601);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1085, 800);
             this.MinimumSize = new System.Drawing.Size(1085, 601);
             this.Name = "ClientManagerAddOrderFirstStepView";
-            this.Text = "ClientManagerAddOrderView";
+            this.Text = "Новый заказ";
             this.GroupBoxInitials.ResumeLayout(false);
             this.GroupBoxInitials.PerformLayout();
             this.GroupBoxHomeAddress.ResumeLayout(false);
@@ -470,5 +528,9 @@
         private System.Windows.Forms.Button ButtonNextStep;
         private System.Windows.Forms.Button ButtonBack;
         private System.Windows.Forms.Label LabelMessageRequiredFields;
+        private System.Windows.Forms.Label LabelFloor;
+        private System.Windows.Forms.MaskedTextBox TextBoxFloor;
+        private System.Windows.Forms.Label LabelPorch;
+        private System.Windows.Forms.MaskedTextBox TextBoxPorch;
     }
 }
