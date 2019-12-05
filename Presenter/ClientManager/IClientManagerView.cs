@@ -4,7 +4,7 @@ namespace Presenter
 {
     public interface IClientManagerView : IView, IBack
     {
-        event Action addOrder;
-        event Action lookOrder;
+        event Action AddOrder;
+        event Action LookOrder;
     }
 }

@@ -23,6 +23,12 @@ namespace View
             _context.MainForm = this;
             base.Show();
         }
+
+        public void SetFormName(string name)
+        {
+            this.Text = name;
+        }
+
         public string GetName() => this.TextBoxName.Text;
 
         public void SetName(string name) => this.TextBoxName.Text = (string)name.Clone();
@@ -107,6 +113,7 @@ namespace View
             if (CheckRequiredFields())
                 NextStep?.Invoke();
         }
+
         private bool CheckRequiredFields()
         {
             if (TextBoxName.Text.Length == 0)
@@ -132,15 +139,17 @@ namespace View
                 MessageBox.Show("Введите ваш мобильный номер.", "Мобильный номер");
                 return false;
             }
-            if(TextBoxPhoneNumber.Text.Length!=14)
+
+            if (TextBoxPhoneNumber.Text.Length != 14)
             {
                 MessageBox.Show("Мобильный номер введён не полностью", "Мобильный номер");
                 return false;
             }
 
-            if(TextBoxEmailAddress.Text.Length!=0 && !TextBoxEmailAddress.Text.Contains("@"))
+            if (TextBoxEmailAddress.Text.Length != 0 && !TextBoxEmailAddress.Text.Contains("@"))
             {
-                MessageBox.Show("Некорректный адрес электронной почты. Исправьте введённые данные и повторите попытку.", "Электронная почта");
+                MessageBox.Show("Некорректный адрес электронной почты. Исправьте введённые данные и повторите попытку.",
+                    "Электронная почта");
                 return false;
             }
 
@@ -163,15 +172,19 @@ namespace View
                     MessageBox.Show("Введите номер вашего дома.", "Номер дома");
                     return false;
                 }
+
                 if (TextBoxPavilion.Text.Length == 0)
                 {
-                    MessageBox.Show("Введите номер корпуса. Если в вашем доме отсутствует корпус, то введите 0.", "Корпус");
+                    MessageBox.Show("Введите номер корпуса. Если в вашем доме отсутствует корпус, то введите 0.",
+                        "Корпус");
                     return false;
                 }
 
                 if (TextBoxPorch.Text.Length == 0)
                 {
-                    MessageBox.Show("Введите номер подъезда. Если в вашем доме отсутсвует номер подъезда, то введите 0.", "Номер подъезда");
+                    MessageBox.Show(
+                        "Введите номер подъезда. Если в вашем доме отсутсвует номер подъезда, то введите 0.",
+                        "Номер подъезда");
                     return false;
                 }
 
@@ -187,9 +200,8 @@ namespace View
                     return false;
                 }
             }
+
             return true;
         }
-
-
     }
 }

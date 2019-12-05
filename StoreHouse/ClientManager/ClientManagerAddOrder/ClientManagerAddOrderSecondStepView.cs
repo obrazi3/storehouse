@@ -32,6 +32,11 @@ namespace View
         }
 
 
+        public void SetFromName(string name)
+        {
+            this.Text = name;
+        }
+
         public void SetProductBasket(List<ProductFromLot> products)
         {
             PanelListProducts.Controls.Clear();

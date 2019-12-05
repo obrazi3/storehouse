@@ -94,6 +94,8 @@
     <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductProvider\ProductProvider.cs" />
+    <Compile Include="ServiceForEditingClientOrder\IServiceForEditingClientOrder.cs" />
+    <Compile Include="ServiceForEditingClientOrder\ServiceForEditingClientOrder.cs" />
     <Compile Include="ServiceForFillingClientOrder\IServiceForFilingClientOrder.cs" />
     <Compile Include="ServiceForFillingClientOrder\ServiceForFillingClientOrder.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />

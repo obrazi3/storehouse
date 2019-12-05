@@ -36,10 +36,7 @@ namespace Presenter
         {
             int number = view.GetNumberOfProduct();
             model.AddProduct(characteristic.ProductId, number);
-            new ClientManagerAddOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
-                kernel.Get<IClientOrderServiceForClientManager>(),
-                order).Run();
-            view.Close();
+            OnButtonCancelClick();
         }
 
         private void OnButtonCancelClick()

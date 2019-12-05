@@ -12,9 +12,9 @@ namespace Presenter
             _kernel = kernel;
             _view = view;
 
-            _view.addOrder += CreateNewOrder;
+            _view.AddOrder += CreateNewOrder;
             _view.Back += ExitClientManager;
-            //_view.lookOrder += () => ShowOrders();
+            _view.LookOrder += () => ViewOrder();
         }
 
 
@@ -30,7 +30,7 @@ namespace Presenter
             _view.Close();
         }
 
-        private void ShowOrders()
+        private void ViewOrder()
         {
             _kernel.Get<ClientManagerInspectOrderPresenter>().Run();
             _view.Close();

@@ -5,6 +5,7 @@ namespace Presenter
     public interface IClientManagerAddOrderFirstStepView : IView, IBack
     {
         event Action NextStep;
+        void SetFormName(string name);
 
         string GetName();
         void SetName(string name);

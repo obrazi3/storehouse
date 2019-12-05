@@ -112,7 +112,8 @@ namespace Model
         public bool AddNotPaidOrder(ClientOrder order)
         {
             order.Status = StatusClientOrder.NotPaid;
-            order.OrderId = GetOrderId();
+            if (order.OrderId == -1)
+                order.OrderId = GetOrderId();
             repository.AddClientOrder(order);
             return true;
         }

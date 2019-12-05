@@ -6,8 +6,8 @@ namespace View
 {
     public partial class ClientManagerView : Form, IClientManagerView
     {
-        public event Action addOrder;
-        public event Action lookOrder;
+        public event Action AddOrder;
+        public event Action LookOrder;
         public event Action Back;
 
         private readonly ApplicationContext _context;
@@ -26,12 +26,12 @@ namespace View
 
         private void OnButtonAddOrderClick(object sender, EventArgs e)
         {
-            addOrder?.Invoke();
+            AddOrder?.Invoke();
         }
 
         private void OnButtonLookOrderClick(object sender, EventArgs e)
         {
-            lookOrder?.Invoke();
+            LookOrder?.Invoke();
         }
 
         private void OnButtonExitClick(object sender, EventArgs e)

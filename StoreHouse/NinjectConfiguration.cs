@@ -32,6 +32,7 @@ namespace View
             Bind<IClientOrderServiceForClientManager>().To<ClientOrderService>().InSingletonScope();
 
             Bind<IServiceForFilingClientOrder>().To<ServiceForFillingClientOrder>();
+            Bind<IServiceForEditingClientOrder>().To<ServiceForEditingClientOrder>().InSingletonScope();
 
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();

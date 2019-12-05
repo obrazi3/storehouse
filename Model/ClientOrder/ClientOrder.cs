@@ -18,6 +18,7 @@ namespace Model
         {
             listClientProduct = new List<ProductFromLot>();
             ClientInfo = new ClientInformation();
+            OrderId = -1;
         }
 
         public void AddProduct(ProductFromLot prod)
