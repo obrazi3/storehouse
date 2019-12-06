@@ -16,6 +16,7 @@ namespace Presenter
             _view.ShowNotPaidDeliveriesFromProvider += OnButtonShowNotPaidDeliveriesFromProvidersClick;
             _view.PayOrderProvider += OnButtonPayProviderOrderClick;
             _view.ShowNotPaidClientOrders += OnButtonShowNotPaidClientOrdersClick;
+            _view.CheckClientPayment += OnButtonCheckPaymentClientOrderClick;
         }
 
 
@@ -45,6 +46,12 @@ namespace Presenter
         private void OnButtonShowNotPaidClientOrdersClick()
         {
             _kernel.Get<BookerShowNotPaidClientOrdersPresenter>().Run();
+            _view.Close();
+        }
+
+        private void OnButtonCheckPaymentClientOrderClick()
+        {
+            _kernel.Get<BookerCheckPaymentClientOrderPresenter>().Run();
             _view.Close();
         }
     }

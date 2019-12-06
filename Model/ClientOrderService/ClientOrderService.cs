@@ -41,6 +41,11 @@ namespace Model
             return false;
         }
 
+        public ClientOrder GetNotPaidClientOrder(int order)
+        {
+            return GetNotPaidOrder(order);
+        }
+
         public ClientOrder GetForDeliveryClientOrder()
         {
             var order = repository.GetOrderByStatus(StatusClientOrder.PaidForDelivery);

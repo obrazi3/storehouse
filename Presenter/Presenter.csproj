@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booker\BookerCheckPaymentClientOrder\BookerCheckPaymentClientOrderPresenter.cs" />
+    <Compile Include="Booker\BookerCheckPaymentClientOrder\IBookerCheckPaymentClientOrderView.cs" />
     <Compile Include="Booker\BookerMainMenu\BookerPresenter.cs" />
     <Compile Include="Booker\BookerMainMenu\IBookerView.cs" />
     <Compile Include="Booker\BookerPayProviderOrder\BookerPayProviderOrderPresenter.cs" />

@@ -46,6 +46,7 @@ namespace View
             Bind<IBookerShowNotPaidProviderOrdersView>().To<BookerShowNotPaidProviderOrdersView>();
             Bind<IBookerPayProviderOrderView>().To<BookerPayProviderOrderView>();
             Bind<IBookerShowNotPaidClientOrdersView>().To<BookerShowNotPaidClientOrdersView>();
+            Bind<IBookerCheckPaymentClientOrderView>().To<BookerCheckPaymentClientOrderView>();
 
             Bind<ICourierView>().To<CourierView>();
 
@@ -82,6 +83,7 @@ namespace View
             Bind<BookerShowNotPaidProviderOrdersPresenter>().ToSelf();
             Bind<BookerPayProviderOrderPresenter>().ToSelf();
             Bind<BookerShowNotPaidClientOrdersPresenter>().ToSelf();
+            Bind<BookerCheckPaymentClientOrderPresenter>().ToSelf();
 
             Bind<StorekeeperPresenter>().ToSelf();
             Bind<StorekeeperSearchProviderOrderPresenter>().ToSelf();

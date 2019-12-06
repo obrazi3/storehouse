@@ -6,5 +6,6 @@ namespace Model
     {
         List<ClientOrder> GetListNotPaidClientOrders();
         bool ConfirmPaymentNotPaidClientOrder(int orderId);
+        ClientOrder GetNotPaidClientOrder(int orderId);
     }
 }

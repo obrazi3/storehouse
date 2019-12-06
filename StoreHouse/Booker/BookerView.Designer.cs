@@ -73,6 +73,7 @@ namespace View
             this.CheckClientPaymentButton.TabIndex = 0;
             this.CheckClientPaymentButton.Text = "Проверить платеж клиента";
             this.CheckClientPaymentButton.UseVisualStyleBackColor = true;
+            this.CheckClientPaymentButton.Click+=new EventHandler(OnButtonCheckPaymentClientOrderClick);
             // 
             // ButtonShowNotPaidDeliveriesFromProvider
             // 
