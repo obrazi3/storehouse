@@ -6,5 +6,6 @@ namespace Presenter
     {
         event Action AddOrder;
         event Action LookOrder;
+        event Action ShowOrders;
     }
 }

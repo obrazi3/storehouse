@@ -18,7 +18,7 @@ namespace View
         public ClientManagerInspectOrderView(ApplicationContext context)
         {
             _context = context;
-            this.StartPosition = FormStartPosition.CenterScreen;
+          //  this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
@@ -75,7 +75,7 @@ namespace View
                     LabelCurrentWayToReceiveOrder.Text = "Самовывоз";
 
                 LabelCurrentOrderDate.Text = order.OrderDate.ToShortDateString();
-                LabelCurrentOrderCost.Text = order.TotalCost.ToString();
+                LabelCurrentOrderCost.Text = order.TotalCost.ToString()+" рубля(-ей)";
 
                 var products = order.GetProductList();
                 foreach (var product in products)

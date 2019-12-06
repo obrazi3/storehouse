@@ -2,6 +2,7 @@
 using Model;
 using Presenter;
 using System.Windows.Forms;
+using View;
 
 namespace View
 {
@@ -44,6 +45,7 @@ namespace View
             Bind<IBookerView>().To<BookerView>();
             Bind<IBookerShowNotPaidProviderOrdersView>().To<BookerShowNotPaidProviderOrdersView>();
             Bind<IBookerPayProviderOrderView>().To<BookerPayProviderOrderView>();
+            Bind<IBookerShowNotPaidClientOrdersView>().To<BookerShowNotPaidClientOrdersView>();
 
             Bind<ICourierView>().To<CourierView>();
 
@@ -57,6 +59,7 @@ namespace View
             Bind<IClientManagerInspectOrderView>().To<ClientManagerInspectOrderView>();
             Bind<IClientManagerProductCatalogView>().To<ClientManagerProductCatalogView>();
             Bind<IClientManagerAddProductView>().To<ClientManagerAddProductView>();
+            Bind<IClientManagerShowListOrdersView>().To<ClientManagerShowListOrdersView>();
 
             // kernel.Bind<IClientOrder>().To<ClientOrder>();
 
@@ -78,6 +81,7 @@ namespace View
             Bind<BookerPresenter>().ToSelf();
             Bind<BookerShowNotPaidProviderOrdersPresenter>().ToSelf();
             Bind<BookerPayProviderOrderPresenter>().ToSelf();
+            Bind<BookerShowNotPaidClientOrdersPresenter>().ToSelf();
 
             Bind<StorekeeperPresenter>().ToSelf();
             Bind<StorekeeperSearchProviderOrderPresenter>().ToSelf();
@@ -88,6 +92,7 @@ namespace View
             Bind<ClientManagerInspectOrderPresenter>().ToSelf();
             Bind<ClientManagerAddOrderSecondStepPresenter>().ToSelf();
             Bind<ClientManagerProductCatalogPresenter>().ToSelf();
+            Bind<ClientManagerShowListOrdersPresenter>().ToSelf();
 
             Bind<CourierPresenter>().ToSelf();
             Bind<CourierGetOrderPresenter>().ToSelf();

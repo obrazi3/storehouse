@@ -50,6 +50,8 @@
     <Compile Include="Booker\BookerMainMenu\IBookerView.cs" />
     <Compile Include="Booker\BookerPayProviderOrder\BookerPayProviderOrderPresenter.cs" />
     <Compile Include="Booker\BookerPayProviderOrder\IBookerPayProviderOrderView.cs" />
+    <Compile Include="Booker\BookerShowNotPaidClientOrders\BookerShowNotPaidClientOrdersPresenter.cs" />
+    <Compile Include="Booker\BookerShowNotPaidClientOrders\IBookerShowNotPaidClientOrdersView.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\BookerShowNotPaidProviderOrdersPresenter.cs" />
     <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderFirstStepPresenter.cs" />
@@ -63,7 +65,11 @@
     <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerEditOrderProductCatalogPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerEditOrderSecondStepPresenter.cs" />
     <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerInspectOrderPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\IClientManagerInspectOrderView.cs" />
+    <Compile Include="ClientManager\ClientManagerMainMenu\ClientManagerPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerMainMenu\IClientManagerView.cs" />
+    <Compile Include="ClientManager\ClientManagerShowListOrders\ClientManagerShowListOrdersPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerShowListOrders\IClientManagerShowListOrdersView.cs" />
     <Compile Include="Courier\CourierGetOrderPresenter.cs" />
     <Compile Include="Courier\CourierPresenter.cs" />
     <Compile Include="Courier\ICourierGetOrderView.cs" />
@@ -71,8 +77,6 @@
     <Compile Include="IBack.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerAddOrderSecondStepView.cs" />
     <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerAddOrderFirstStepView.cs" />
-    <Compile Include="ClientManager\IClientManagerInspectOrderView.cs" />
-    <Compile Include="ClientManager\IClientManagerView.cs" />
     <Compile Include="IPresenter.cs" />
     <Compile Include="ISetInfoInvoiceForSearchInvoice.cs" />
     <Compile Include="ISignInView.cs" />

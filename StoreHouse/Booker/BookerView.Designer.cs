@@ -1,4 +1,6 @@
-﻿namespace View
+﻿using System;
+
+namespace View
 {
     partial class BookerView
     {
@@ -60,6 +62,7 @@
             this.ButtonShowNotPaidClientOrders.TabIndex = 4;
             this.ButtonShowNotPaidClientOrders.Text = "Просмотреть список неоплаченных платежей клиентов";
             this.ButtonShowNotPaidClientOrders.UseVisualStyleBackColor = true;
+            this.ButtonShowNotPaidClientOrders.Click+=new EventHandler(OnButtonShowNotPaidClientOrdersClick);
             // 
             // CheckClientPaymentButton
             // 

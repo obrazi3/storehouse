@@ -41,5 +41,10 @@ namespace View
         {
             PayOrderProvider?.Invoke();
         }
+
+        private void OnButtonShowNotPaidClientOrdersClick(object o, EventArgs e)
+        {
+            ShowNotPaidClientOrders?.Invoke();
+        }
     }
 }
