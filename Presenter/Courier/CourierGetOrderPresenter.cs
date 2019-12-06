@@ -1,40 +1,57 @@
-﻿using Ninject;
+﻿using Model;
+using Ninject;
 
 namespace Presenter
 {
     public class CourierGetOrderPresenter : IPresenter
     {
-        IKernel _kernel;
-        ICourierGetOrderView _view;
+        private readonly IKernel kernel;
+        private ICourierGetOrderView view;
+        private IClientOrderServiceForCourier model;
+        private int orderId;
 
-        public CourierGetOrderPresenter(IKernel kernel, ICourierGetOrderView view)
+        public CourierGetOrderPresenter(IKernel _kernel, ICourierGetOrderView _view,
+            IClientOrderServiceForCourier _model)
         {
-            _kernel = kernel;
-            _view = view;
+            this.kernel = _kernel;
+            this.view = _view;
+            this.model = _model;
 
-            _view.ConfirmDelivery += () => ConfirmDelivery();
-            _view.Back += () => CancelOrder();
-            _view.InspectOrder += () => ConfirmDelivery();
+            this.view.ConfirmDelivery += ConfirmDelivery;
+            this.view.Back += CancelOrder;
+            var order = model.GetForDeliveryClientOrder();
+            if (order != null)
+                orderId = order.OrderId;
+            else
+                orderId = -1;
+            this.view.SetOrderInfo(order);
+        }
 
+        public void Run()
+        {
+            if (orderId != -1)
+                view.Show();
+            else
+                CancelOrder();
         }
 
         private void CancelOrder()
         {
-            _kernel.Get<CourierPresenter>().Run();
-            _view.Close();
+            if (orderId != -1)
+                model.CancelDelivery(orderId);
+            kernel.Get<CourierPresenter>().Run();
+            view.Close();
         }
 
-        private void InspectOrder()
-        {
-
-        }
         private void ConfirmDelivery()
         {
-
-        }
-        public void Run()
-        {
-            _view.Show();
+            if (orderId != -1)
+            {
+                model.ConfirmDelivery(orderId);
+                view.ShowMessageSuccessConfirm();
+                kernel.Get<CourierPresenter>().Run();
+                view.Close();
+            }
         }
     }
 }

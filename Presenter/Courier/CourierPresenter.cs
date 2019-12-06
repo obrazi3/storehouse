@@ -12,17 +12,26 @@ namespace Presenter
             _kernel = kernel;
             _view = view;
 
-            _view.GetInfoOrder += () => GetOrder();
+            _view.GetInfoOrder += GetOrder;
+            _view.Back += Back;
         }
+
+        public void Run()
+        {
+            _view.Show();
+        }
+
 
         private void GetOrder()
         {
             _kernel.Get<CourierGetOrderPresenter>().Run();
             _view.Close();
         }
-        public void Run()
+
+        private void Back()
         {
-            _view.Show();
+            _kernel.Get<SignInPresenter>().Run();
+            _view.Close();
         }
     }
 }

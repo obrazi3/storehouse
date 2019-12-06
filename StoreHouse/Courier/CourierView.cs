@@ -7,8 +7,10 @@ namespace View
     public partial class CourierView : Form, ICourierView
     {
         public event Action GetInfoOrder;
+        public event Action Back;
 
         private readonly ApplicationContext _context;
+
         public CourierView(ApplicationContext context)
         {
             _context = context;
@@ -25,6 +27,11 @@ namespace View
         private void OnButtonGetOrderInfoClick(object o, EventArgs e)
         {
             GetInfoOrder?.Invoke();
+        }
+
+        private void OnButtonExitCourierClick(object sender, EventArgs e)
+        {
+            Back?.Invoke();
         }
     }
 }

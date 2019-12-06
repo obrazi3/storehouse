@@ -1,10 +1,12 @@
 ﻿using System;
+using Model;
 
 namespace Presenter
 {
     public interface ICourierGetOrderView : IView, IBack
     {
         event Action ConfirmDelivery;
-        event Action InspectOrder;
+        void SetOrderInfo(ClientOrder order);
+        void ShowMessageSuccessConfirm();
     }
 }

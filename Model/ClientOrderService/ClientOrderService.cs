@@ -81,7 +81,7 @@ namespace Model
             if (order != null && order.Status == StatusClientOrder.OnDelivery)
             {
                 repository.RemoveClientOrder(order.OrderId);
-                order.Status = StatusClientOrder.Paid;
+                order.Status = StatusClientOrder.PaidForDelivery;
                 repository.AddClientOrder(order);
                 return true;
             }
@@ -92,7 +92,7 @@ namespace Model
         public ClientOrder GetGiveOutClientOrder(int orderId)
         {
             var order = repository.GetClientOrder(orderId);
-            if (order != null && order.Status == StatusClientOrder.Paid)
+            if (order != null && order.Status == StatusClientOrder.Paid )
             {
                 return order;
             }
@@ -103,7 +103,7 @@ namespace Model
         public bool ConfirmGiveOutClientOrder(int orderId)
         {
             var order = repository.GetClientOrder(orderId);
-            if (order != null && order.Status == StatusClientOrder.Paid)
+            if (order != null && order.Status == StatusClientOrder.Paid )
             {
                 repository.RemoveClientOrder(order.OrderId);
                 order.Status = StatusClientOrder.GiveOut;

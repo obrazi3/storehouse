@@ -72,7 +72,7 @@ namespace View
             this.PanelMainContainer.Controls.Add(this.PanelOfProducts);
             this.PanelMainContainer.Location = new System.Drawing.Point(3, 5);
             this.PanelMainContainer.Name = "PanelMainContainer";
-            this.PanelMainContainer.Size = new System.Drawing.Size(894, 786);
+            this.PanelMainContainer.Size = new System.Drawing.Size(894, 670);
             this.PanelMainContainer.TabIndex = 0;
             // 
             // PanelHead
@@ -105,7 +105,7 @@ namespace View
             this.TextBoxOrderNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxOrderNumber.Mask = "00000";
             this.TextBoxOrderNumber.Name = "TextBoxOrderNumber";
-            this.TextBoxOrderNumber.Size = new System.Drawing.Size(494, 21);
+            this.TextBoxOrderNumber.Size = new System.Drawing.Size(494, 24);
             this.TextBoxOrderNumber.TabIndex = 1;
             this.TextBoxOrderNumber.ValidatingType = typeof(int);
             // 
@@ -116,7 +116,7 @@ namespace View
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelMessageInput.Location = new System.Drawing.Point(3, 19);
             this.LabelMessageInput.Name = "LabelMessageInput";
-            this.LabelMessageInput.Size = new System.Drawing.Size(174, 18);
+            this.LabelMessageInput.Size = new System.Drawing.Size(224, 24);
             this.LabelMessageInput.TabIndex = 0;
             this.LabelMessageInput.Text = "Введите номер заказа: ";
             // 
@@ -161,7 +161,7 @@ namespace View
             this.LabelWayToReceiveOrder.Location = new System.Drawing.Point(277, 89);
             this.LabelWayToReceiveOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelWayToReceiveOrder.Name = "LabelWayToReceiveOrder";
-            this.LabelWayToReceiveOrder.Size = new System.Drawing.Size(191, 18);
+            this.LabelWayToReceiveOrder.Size = new System.Drawing.Size(240, 24);
             this.LabelWayToReceiveOrder.TabIndex = 13;
             this.LabelWayToReceiveOrder.Text = "Способ получения заказа";
             // 
@@ -184,7 +184,7 @@ namespace View
             this.LabelPhoneNumber.Location = new System.Drawing.Point(7, 89);
             this.LabelPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelPhoneNumber.Name = "LabelPhoneNumber";
-            this.LabelPhoneNumber.Size = new System.Drawing.Size(157, 18);
+            this.LabelPhoneNumber.Size = new System.Drawing.Size(198, 24);
             this.LabelPhoneNumber.TabIndex = 11;
             this.LabelPhoneNumber.Text = "Мобильный телефон";
             // 
@@ -229,7 +229,7 @@ namespace View
             this.LabelPatronymic.Location = new System.Drawing.Point(510, 21);
             this.LabelPatronymic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelPatronymic.Name = "LabelPatronymic";
-            this.LabelPatronymic.Size = new System.Drawing.Size(75, 18);
+            this.LabelPatronymic.Size = new System.Drawing.Size(98, 24);
             this.LabelPatronymic.TabIndex = 7;
             this.LabelPatronymic.Text = "Отчество";
             // 
@@ -241,7 +241,7 @@ namespace View
             this.LabelName.Location = new System.Drawing.Point(277, 21);
             this.LabelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(38, 18);
+            this.LabelName.Size = new System.Drawing.Size(46, 24);
             this.LabelName.TabIndex = 6;
             this.LabelName.Text = "Имя";
             // 
@@ -253,7 +253,7 @@ namespace View
             this.LabelSurname.Location = new System.Drawing.Point(3, 21);
             this.LabelSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelSurname.Name = "LabelSurname";
-            this.LabelSurname.Size = new System.Drawing.Size(73, 18);
+            this.LabelSurname.Size = new System.Drawing.Size(91, 24);
             this.LabelSurname.TabIndex = 5;
             this.LabelSurname.Text = "Фамилия";
             // 
@@ -292,7 +292,7 @@ namespace View
             this.LabelOrderCost.Location = new System.Drawing.Point(336, 21);
             this.LabelOrderCost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelOrderCost.Name = "LabelOrderCost";
-            this.LabelOrderCost.Size = new System.Drawing.Size(138, 18);
+            this.LabelOrderCost.Size = new System.Drawing.Size(174, 24);
             this.LabelOrderCost.TabIndex = 9;
             this.LabelOrderCost.Text = "Стоимость заказа";
             // 
@@ -315,7 +315,7 @@ namespace View
             this.LabelOrderDate.Location = new System.Drawing.Point(7, 21);
             this.LabelOrderDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelOrderDate.Name = "LabelOrderDate";
-            this.LabelOrderDate.Size = new System.Drawing.Size(95, 18);
+            this.LabelOrderDate.Size = new System.Drawing.Size(118, 24);
             this.LabelOrderDate.TabIndex = 5;
             this.LabelOrderDate.Text = "Дата заказа";
             // 
@@ -325,7 +325,7 @@ namespace View
             this.LabelListProductsInOrder.Location = new System.Drawing.Point(15, 351);
             this.LabelListProductsInOrder.Margin = new System.Windows.Forms.Padding(15, 19, 3, 0);
             this.LabelListProductsInOrder.Name = "LabelListProductsInOrder";
-            this.LabelListProductsInOrder.Size = new System.Drawing.Size(152, 15);
+            this.LabelListProductsInOrder.Size = new System.Drawing.Size(185, 18);
             this.LabelListProductsInOrder.TabIndex = 5;
             this.LabelListProductsInOrder.Text = "Список товаров в заказе";
             this.LabelListProductsInOrder.Visible = false;
@@ -333,10 +333,10 @@ namespace View
             // PanelOfProducts
             // 
             this.PanelOfProducts.AutoScroll = true;
-            this.PanelOfProducts.Location = new System.Drawing.Point(3, 370);
+            this.PanelOfProducts.Location = new System.Drawing.Point(3, 373);
             this.PanelOfProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelOfProducts.Name = "PanelOfProducts";
-            this.PanelOfProducts.Size = new System.Drawing.Size(882, 403);
+            this.PanelOfProducts.Size = new System.Drawing.Size(882, 287);
             this.PanelOfProducts.TabIndex = 6;
             this.PanelOfProducts.Visible = false;
             // 
@@ -344,17 +344,17 @@ namespace View
             // 
             this.PanelSecondaryButtons.Controls.Add(this.ButtonConfirmGiveOut);
             this.PanelSecondaryButtons.Controls.Add(this.ButtonBack);
-            this.PanelSecondaryButtons.Location = new System.Drawing.Point(3, 798);
+            this.PanelSecondaryButtons.Location = new System.Drawing.Point(3, 682);
             this.PanelSecondaryButtons.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
             this.PanelSecondaryButtons.Name = "PanelSecondaryButtons";
-            this.PanelSecondaryButtons.Size = new System.Drawing.Size(882, 71);
+            this.PanelSecondaryButtons.Size = new System.Drawing.Size(894, 71);
             this.PanelSecondaryButtons.TabIndex = 7;
             // 
             // ButtonConfirmGiveOut
             // 
             this.ButtonConfirmGiveOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonConfirmGiveOut.Location = new System.Drawing.Point(578, 16);
+            this.ButtonConfirmGiveOut.Location = new System.Drawing.Point(589, 16);
             this.ButtonConfirmGiveOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonConfirmGiveOut.Name = "ButtonConfirmGiveOut";
             this.ButtonConfirmGiveOut.Size = new System.Drawing.Size(296, 45);
@@ -367,7 +367,7 @@ namespace View
             // 
             this.ButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
                 System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonBack.Location = new System.Drawing.Point(3, 16);
+            this.ButtonBack.Location = new System.Drawing.Point(11, 16);
             this.ButtonBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonBack.Name = "ButtonBack";
             this.ButtonBack.Size = new System.Drawing.Size(117, 45);
@@ -378,15 +378,15 @@ namespace View
             // 
             // StorekeeperSearchClientOrderView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 873);
+            this.ClientSize = new System.Drawing.Size(900, 753);
             this.Controls.Add(this.PanelSecondaryButtons);
             this.Controls.Add(this.PanelMainContainer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MaximumSize = new System.Drawing.Size(918, 912);
-            this.MinimumSize = new System.Drawing.Size(918, 912);
+            this.MaximumSize = new System.Drawing.Size(918, 800);
+            this.MinimumSize = new System.Drawing.Size(918, 800);
             this.Name = "StorekeeperSearchClientOrderView";
             this.Text = "Поиск клиентского заказа";
             this.PanelMainContainer.ResumeLayout(false);
