@@ -14,6 +14,7 @@ namespace Presenter
 
             _view.SearchProviderOrder += OnButtonProviderOrderClick;
             _view.Back += OnButtonBackClick;
+            _view.SearchClientOrder += OnButtonSearchClientOrderClick;
         }
 
 
@@ -24,7 +25,7 @@ namespace Presenter
 
         private void OnButtonSearchClientOrderClick()
         {
-            _kernel.Get<StorekeeperSearchProviderOrderPresenter>().Run();
+            _kernel.Get<StorekeeperSearchClientOrderPresenter>().Run();
             _view.Close();
         }
 

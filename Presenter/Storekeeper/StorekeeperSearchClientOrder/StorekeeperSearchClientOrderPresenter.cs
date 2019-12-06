@@ -1,68 +1,56 @@
-﻿using System;
-using Model;
+﻿using Model;
 using Ninject;
 
 namespace Presenter
 {
     public class StorekeeperSearchClientOrderPresenter : IPresenter
     {
-        private readonly IKernel _kernel;
-        private readonly IStorekeeperSearchInvoiceView _view;
-        private readonly IModel _model;
+        private readonly IKernel kernel;
+        private IStorekeeperSearchClientOrderView view;
+        private IClientOrderServiceForStorekeeper model;
+        private int orderNumber;
 
-        public StorekeeperSearchClientOrderPresenter(IKernel kernel, IStorekeeperSearchInvoiceView view, IModel model)
+        public StorekeeperSearchClientOrderPresenter(IKernel _kernel, IStorekeeperSearchClientOrderView _view,
+            IClientOrderServiceForStorekeeper _model)
         {
-            _kernel = kernel;
-            _view = view;
-            _model = model;
+            kernel = _kernel;
+            view = _view;
+            model = _model;
 
-            _view.Search += () => SearchInvoice();
-            _view.ShowInvoiceContent += () => ShowInvoiceContent();
-            _view.ConfirmAdmission += () => ConfirmAdmission();
-            _view.Back += () => Back();
+            view.Back += OnButtonBackClick;
+            view.Search += OnButtonSearchClick;
+            view.ConfirmGiveOut += OnButtonConfirmOrderClick;
+
+            orderNumber = -1;
         }
 
-        private bool SearchInvoice()
-        {
-            int number = 0;
-            try
-            {
-                number = int.Parse((_view.GetNumberInvoice()));
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-            IBriefInvoiceInfo info = _model.findSalesInvoice(number);
-            if (info != null)
-            {
-                _view.SetName(info.getName());
-                _view.SetNumberInvoice(info.getNumber());
-                _view.SetCost(info.getCost());
-                return true;
-            }
-            else
-                return false;
-        }
-
-        private void ShowInvoiceContent()
-        {
-
-        }
-
-        private void ConfirmAdmission()
-        {
-
-        }
-
-        private void Back()
-        {
-            _kernel.Get<StorekeeperPresenter>().Run();
-            _view.Close();
-        }
         public void Run()
         {
-            _view.Show();
+            view.Show();
+        }
+
+        public void OnButtonBackClick()
+        {
+            kernel.Get<StorekeeperPresenter>().Run();
+            view.Close();
+        }
+
+        public void OnButtonSearchClick()
+        {
+            var order = model.GetGiveOutClientOrder(view.GetOrderNumber());
+            view.SetOrderInfo(order);
+            if (order != null)
+                orderNumber = order.OrderId;
+        }
+
+        public void OnButtonConfirmOrderClick()
+        {
+            if (orderNumber != -1)
+            {
+                model.ConfirmGiveOutClientOrder(orderNumber);
+                orderNumber = -1;
+                view.ClearView();
+            }
         }
     }
 }

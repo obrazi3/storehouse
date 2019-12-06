@@ -58,6 +58,7 @@ namespace View
                 LabelCurrentPhoneNumber.Text = clientInfo.PhoneNumber;
                 if (order.isDelivery)
                 {
+                    this.PanelOfProducts.Size = new System.Drawing.Size(862, 289);
                     LabelCurrentWayToReceiveOrder.Text = "Доставка";
 
                     var address = clientInfo.Address;
@@ -72,7 +73,11 @@ namespace View
                     GroupBoxClientAddress.Visible = true;
                 }
                 else
+                {
                     LabelCurrentWayToReceiveOrder.Text = "Самовывоз";
+                    this.PanelOfProducts.Size = new System.Drawing.Size(862, 389);
+
+                }
 
                 LabelCurrentOrderDate.Text = order.OrderDate.ToShortDateString();
                 LabelCurrentOrderCost.Text = order.TotalCost.ToString()+" рубля(-ей)";

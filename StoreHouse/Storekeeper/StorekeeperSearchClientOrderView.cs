@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
+using Model;
 using Presenter;
 
 namespace View
 {
-    public partial class StorekeeperSearchClientOrderView : Form, IBack, IStorekeeperSearchClientOrderView
+    public partial class StorekeeperSearchClientOrderView : Form, IStorekeeperSearchClientOrderView
     {
         public event Action Back;
-        public event Search Search;
-        public event Action ShowInvoiceContent;
-        public event Action ConfirmAdmission;
+
+        public event Action Search;
+        public event Action ConfirmGiveOut;
 
         private readonly ApplicationContext _context;
 
@@ -17,26 +18,7 @@ namespace View
         {
             _context = context;
             InitializeComponent();
-        }
-
-        public string GetNumberInvoice()
-        {
-            return TextBoxNumberInvoice.Text;
-        }
-
-        public void SetCost(string cost)
-        {
-            this.LabelCostSet.Text = cost;
-        }
-
-        public void SetName(string name)
-        {
-            this.LabelNameOrganizSet.Text = name;
-        }
-
-        public void SetNumberInvoice(string number)
-        {
-            this.LabelNumberSet.Text = number;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         public new void Show()
@@ -45,33 +27,149 @@ namespace View
             base.Show();
         }
 
-        private void OnButtonSearchClick(object o, EventArgs e)
+
+        public int GetOrderNumber()
         {
-            this.PanelNotFoundInvoice.Visible = false;
-            this.PanelFoundInvoice.Visible = false;
-            this.LabelNameOrganizSet.Text = " ";
-            this.LabelNumberSet.Text = " ";
-            this.LabelCostSet.Text = " ";
-            if (Search != null && Search.Invoke())
-                this.PanelFoundInvoice.Visible = true;
+            return Int32.Parse(TextBoxOrderNumber.Text);
+        }
+
+        public void SetOrderInfo(ClientOrder order)
+        {
+            if (order != null)
+            {
+                var clientInfo = order.ClientInfo;
+                LabelCurrentSurname.Text = clientInfo.Surname;
+                LabelCurrentName.Text = clientInfo.Name;
+                LabelCurrentPatronymic.Text = clientInfo.Patronymic;
+                LabelCurrentPhoneNumber.Text = clientInfo.PhoneNumber;
+                LabelCurrentOrderDate.Text = order.OrderDate.ToShortDateString();
+                LabelCurrentOrderCost.Text = order.TotalCost.ToString() + " рубля(-ей)";
+
+                var products = order.GetProductList();
+                foreach (var product in products)
+                {
+                    FlowLayoutPanel PanelCurrentProduct = new FlowLayoutPanel();
+                    PanelCurrentProduct.Name = "PanelCurrentProduct";
+                    PanelCurrentProduct.Size = new System.Drawing.Size(732, 127);
+
+                    Label LabelProductGroup = new Label();
+                    LabelProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelProductGroup.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
+                    LabelProductGroup.Name = "LabelProductGroup";
+                    LabelProductGroup.Size = new System.Drawing.Size(339, 24);
+                    LabelProductGroup.Text = "Продуктовая группа";
+                    PanelCurrentProduct.Controls.Add(LabelProductGroup);
+
+                    Label LabelProductName = new Label();
+                    LabelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelProductName.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
+                    LabelProductName.Name = "LabelProductName";
+                    LabelProductName.Size = new System.Drawing.Size(373, 24);
+                    LabelProductName.Text = "Название продукта";
+                    PanelCurrentProduct.Controls.Add(LabelProductName);
+
+                    Label LabelCurrentProductGroup = new Label();
+                    LabelCurrentProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelCurrentProductGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+                    LabelCurrentProductGroup.Name = "LabelCurrentProductGroup";
+                    LabelCurrentProductGroup.Size = new System.Drawing.Size(339, 24);
+                    LabelCurrentProductGroup.Text = product.ProductGroup;
+                    PanelCurrentProduct.Controls.Add(LabelCurrentProductGroup);
+
+                    Label LabelCurrentProductName = new Label();
+                    LabelCurrentProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelCurrentProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+                    LabelCurrentProductName.Name = "LabelCurrentProductName";
+                    LabelCurrentProductName.Size = new System.Drawing.Size(372, 24);
+                    LabelCurrentProductName.Text = product.ProductName;
+                    PanelCurrentProduct.Controls.Add(LabelCurrentProductName);
+
+                    Label LabelProductPrice = new Label();
+                    LabelProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelProductPrice.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
+                    LabelProductPrice.Name = "LabelProductPrice";
+                    LabelProductPrice.Size = new System.Drawing.Size(339, 24);
+                    LabelProductPrice.Text = "Стоимость единицы продукта";
+                    PanelCurrentProduct.Controls.Add(LabelProductPrice);
+
+                    Label LabelNumberOfProductInOrder = new Label();
+                    LabelNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelNumberOfProductInOrder.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
+                    LabelNumberOfProductInOrder.Name = "LabelNumberOfProductInOrder";
+                    LabelNumberOfProductInOrder.Size = new System.Drawing.Size(372, 24);
+                    LabelNumberOfProductInOrder.Text = "Количество продукта в заказе";
+                    PanelCurrentProduct.Controls.Add(LabelNumberOfProductInOrder);
+
+                    Label LabelCurrentProductPrice = new Label();
+                    LabelCurrentProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelCurrentProductPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+                    LabelCurrentProductPrice.Name = "LabelCurrentProductPrice";
+                    LabelCurrentProductPrice.Size = new System.Drawing.Size(339, 24);
+                    LabelCurrentProductPrice.Text = product.Price.ToString() + " рубля(-ей)";
+                    PanelCurrentProduct.Controls.Add(LabelCurrentProductPrice);
+
+                    Label LabelCurrentNumberOfProductInOrder = new Label();
+                    LabelCurrentNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+                    LabelCurrentNumberOfProductInOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+                    LabelCurrentNumberOfProductInOrder.Name = "LabelCurrentNumberOfProductInOrder";
+                    LabelCurrentNumberOfProductInOrder.Size = new System.Drawing.Size(339, 24);
+                    LabelCurrentNumberOfProductInOrder.Text = product.Lot.QuantityProduct.ToString();
+                    PanelCurrentProduct.Controls.Add(LabelCurrentNumberOfProductInOrder);
+
+                    PanelOfProducts.Controls.Add(PanelCurrentProduct);
+                }
+
+                GroupBoxClientInfo.Visible = true;
+                LabelListProductsInOrder.Visible = true;
+                PanelOfProducts.Visible = true;
+                GroupBoxGeneralOrderInfo.Visible = true;
+            }
             else
-                this.PanelNotFoundInvoice.Visible = true;
+                MessageBox.Show(
+                    "Заказ с таким номером не был найден в базе. Проверьте правильность введённых данных повторите попытку.",
+                    "Заказ не найден");
         }
 
-        private void OnButtonShowInvcContClick(object o, EventArgs e)
+
+        public void ClearView()
         {
-            ShowInvoiceContent?.Invoke();
+            GroupBoxClientInfo.Visible = false;
+            LabelListProductsInOrder.Visible = false;
+            PanelOfProducts.Visible = false;
+            GroupBoxGeneralOrderInfo.Visible = false;
+            PanelOfProducts.Controls.Clear();
+            TextBoxOrderNumber.Text="";
+            MessageBox.Show("Выдача заказа подтверждена.", "Заказ выдан");
+        }
+        private void OnButtonSearchClientOrderClick(object o, EventArgs e)
+        {
+            GroupBoxClientInfo.Visible = false;
+            LabelListProductsInOrder.Visible = false;
+            PanelOfProducts.Visible = false;
+            GroupBoxGeneralOrderInfo.Visible = false;
+            PanelOfProducts.Controls.Clear();
+            if (TextBoxOrderNumber.Text.Length != 0)
+                Search?.Invoke();
+            else
+                MessageBox.Show("Введите номер заказа и осуществите поиск", "Номер заказа");
         }
 
-        private void OnButtonIssuanceAdmissionClick(object o, EventArgs e)
+        private void OnButtonConfirmGiveOutOrderClick(object o, EventArgs e)
         {
-            ConfirmAdmission?.Invoke();
+            ConfirmGiveOut?.Invoke();
         }
 
         private void OnButtonBackClick(object o, EventArgs e)
         {
             Back?.Invoke();
         }
-        
     }
 }

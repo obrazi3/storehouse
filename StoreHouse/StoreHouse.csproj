@@ -205,7 +205,7 @@
     <Compile Include="Storekeeper\StorekeeperSearchClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Storekeeper\StorekeeperSearchSalesInvoiceView.Designer.cs">
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrderView.Designer.cs">
       <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
     </Compile>
     <Compile Include="Storekeeper\StorekeeperView.cs">
@@ -298,7 +298,7 @@
     <EmbeddedResource Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.resx">
       <DependentUpon>StorekeeperSearchProviderOrderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Storekeeper\StorekeeperSearchSalesInvoiceView.resx">
+    <EmbeddedResource Include="Storekeeper\StorekeeperSearchClientOrderView.resx">
       <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storekeeper\StorekeeperView.resx">
