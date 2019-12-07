@@ -17,9 +17,9 @@ namespace Presenter
             _view = view;
             _model = model;
 
-            _view.SearchOrder += () => SearchInvoice();
-            _view.ConfirmGettingOrder += () => ConfirmGettingOrder();
-            _view.Back += () => Back();
+            _view.SearchOrder += SearchInvoice;
+            _view.ConfirmGettingOrder += ConfirmGettingOrder;
+            _view.Back += Back;
         }
 
         private void SearchInvoice()

@@ -8,12 +8,12 @@ namespace Presenter
     {
         private readonly IKernel kernel;
         private IClientOrderServiceForClientManager model;
-        private IServiceForEditingClientOrder editor;
+        private IServiceForControlProductMovementInClientOrder editor;
         private IClientManagerAddOrderSecondStepView view;
         private ClientOrder order;
 
         public ClientManagerEditOrderSecondStepPresenter(IKernel _kernel, IClientManagerAddOrderSecondStepView _view,
-            IClientOrderServiceForClientManager _model, IServiceForEditingClientOrder _editor, ClientOrder _order)
+            IClientOrderServiceForClientManager _model, IServiceForControlProductMovementInClientOrder _editor, ClientOrder _order)
         {
             kernel = _kernel;
             view = _view;
@@ -37,7 +37,7 @@ namespace Presenter
         private void Back()
         {
             new ClientManagerEditOrderFirstStepPresenter(kernel, kernel.Get<IClientManagerAddOrderFirstStepView>(),
-                kernel.Get<IServiceForEditingClientOrder>(),
+                kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 order).Run();
             view.Close();
         }

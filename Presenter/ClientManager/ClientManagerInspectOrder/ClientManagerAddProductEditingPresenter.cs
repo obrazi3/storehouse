@@ -8,11 +8,11 @@ namespace Presenter
         private readonly IKernel kernel;
         private ClientOrder order;
         private IClientManagerAddProductView view;
-        private IServiceForEditingClientOrder editor;
+        private IServiceForControlProductMovementInClientOrder editor;
         private ProductCharacteristic characteristic;
 
         public ClientManagerAddProductEditingPresenter(IKernel _kernel, IClientManagerAddProductView _view,
-            IServiceForEditingClientOrder _editor, ClientOrder _order, ProductCharacteristic _characteristic)
+            IServiceForControlProductMovementInClientOrder _editor, ClientOrder _order, ProductCharacteristic _characteristic)
         {
             kernel = _kernel;
             order = _order;
@@ -40,7 +40,7 @@ namespace Presenter
         private void OnButtonCancelClick()
         {
             new ClientManagerEditOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
-                kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForEditingClientOrder>(),
+                kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 order).Run();
         }
     }

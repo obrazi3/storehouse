@@ -6,22 +6,27 @@ namespace Presenter
     public class ClientManagerAddOrderFirstStepPresenter : IPresenter
     {
         private readonly IKernel _kernel;
-        private readonly IClientManagerAddOrderFirstStepView _view;
+        private IClientManagerAddOrderFirstStepView _view;
+        private IServiceForControlProductMovementInClientOrder _productMovementService;
         private ClientOrder order;
         private bool isNewOrder;
 
-        public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view,
-            ClientOrder order) : this(kernel, view)
+        public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view
+            , IServiceForControlProductMovementInClientOrder productMovementService, ClientOrder order) : this(kernel,
+            view,
+            productMovementService)
         {
             this.order = order;
             isNewOrder = false;
             setOrderInfo();
         }
 
-        public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view)
+        public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view,
+            IServiceForControlProductMovementInClientOrder productMovementService)
         {
             _kernel = kernel;
             _view = view;
+            _productMovementService = productMovementService;
             isNewOrder = true;
 
             _view.Back += Back;
@@ -32,6 +37,8 @@ namespace Presenter
         {
             _kernel.Get<ClientManagerPresenter>().Run();
             _view.Close();
+            if (!isNewOrder)
+                _productMovementService.CancelEditing(order.OrderId);
         }
 
         public void Run()
@@ -41,16 +48,18 @@ namespace Presenter
 
         private void NextStep()
         {
-            IServiceForFilingClientOrder serviceForOrder = _kernel.Get<IServiceForFilingClientOrder>();
+            IServiceForFilingPersonInfoInClientOrder serviceForPersonalInfo =
+                _kernel.Get<IServiceForFilingPersonInfoInClientOrder>();
             if (isNewOrder)
             {
                 order = new ClientOrder();
-                serviceForOrder.SetClientOrder(order);
-                serviceForOrder.InitializeOrder();
+                serviceForPersonalInfo.SetClientOrder(order);
+                serviceForPersonalInfo.InitializeOrder();
             }
             else
-                serviceForOrder.SetClientOrder(order);
+                serviceForPersonalInfo.SetClientOrder(order);
 
+            _productMovementService.AddClientOrder(order);
             ClientInformation info = new ClientInformation();
 
             if (_view.IsDelivery())
@@ -75,10 +84,11 @@ namespace Presenter
             info.EmailAddress = _view.GetEmailAddress();
             info.PhoneNumber = _view.GetPhoneNumber();
 
-            serviceForOrder.AddClientInfo(info);
+            serviceForPersonalInfo.AddClientInfo(info);
 
             new ClientManagerAddOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(),
                 _kernel.Get<IClientOrderServiceForClientManager>(),
+                _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 order).Run();
             _view.Close();
         }

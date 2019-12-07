@@ -35,6 +35,7 @@ namespace Presenter
         {
             new ClientManagerAddOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
                 kernel.Get<IClientOrderServiceForClientManager>(),
+                kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 order).Run();
             view.Close();
         }
@@ -42,7 +43,7 @@ namespace Presenter
         private void CheckedProduct()
         {
             var characteristic = view.GetProductCharacteristic();
-            new ClientManagerAddProductPresenter(kernel, kernel.Get<IServiceForFilingClientOrder>(),
+            new ClientManagerAddProductPresenter(kernel, kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 kernel.Get<IClientManagerAddProductView>(), order,
                 characteristic).Run();
             view.Close();

@@ -52,7 +52,7 @@ namespace Presenter
             if (_order != null)
             {
                 new ClientManagerEditOrderFirstStepPresenter(_kernel,
-                    _kernel.Get<IClientManagerAddOrderFirstStepView>(), _kernel.Get<IServiceForEditingClientOrder>(),
+                    _kernel.Get<IClientManagerAddOrderFirstStepView>(), _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                     _order).Run();
                 _view.Close();
             }

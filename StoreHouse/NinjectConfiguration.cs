@@ -32,8 +32,9 @@ namespace View
             Bind<IClientOrderServiceForStorekeeper>().To<ClientOrderService>().InSingletonScope();
             Bind<IClientOrderServiceForClientManager>().To<ClientOrderService>().InSingletonScope();
 
-            Bind<IServiceForFilingClientOrder>().To<ServiceForFillingClientOrder>();
-            Bind<IServiceForEditingClientOrder>().To<ServiceForEditingClientOrder>().InSingletonScope();
+            Bind<IServiceForFilingPersonInfoInClientOrder>().To<ServiceForFillingPersonInfoInClientOrder>();
+            Bind<IServiceForControlProductMovementInClientOrder>().To<ServiceForControlProductMovementInClientOrder>().InSingletonScope();
+            Bind<IServiceForAddingProductsInClientOrder>().To<ServiceForAddingProductsInClientOrder>();
 
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();

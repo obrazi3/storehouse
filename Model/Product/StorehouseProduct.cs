@@ -88,12 +88,14 @@ namespace Model
                         lotsForRemove.Add(lot);
                     //listLotInformation.Remove(lot);
                     lot.QuantityProduct -= number;
+                    //TotalQuantityProduct -= number;
                     break;
                 }
                 else
                 {
                     clientLot.QuantityProduct += lot.QuantityProduct;
                     number -= lot.QuantityProduct;
+                   // TotalQuantityProduct -= lot.QuantityProduct;
                     if (oldestProduct.Equals(new DateTime(1, 1, 1)))
                     {
                         clientLot.ProductionDate = lot.ProductionDate;
@@ -146,6 +148,7 @@ namespace Model
             clone.ProductId = this.ProductId;
             clone.ProductName = (string)this.ProductName.Clone();
             clone.TotalQuantityProduct = this.TotalQuantityProduct;
+            clone.characteristic = (ProductCharacteristic)this.characteristic.Clone();
 
             return clone;
         }

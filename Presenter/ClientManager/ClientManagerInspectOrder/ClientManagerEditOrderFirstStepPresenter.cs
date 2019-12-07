@@ -8,11 +8,11 @@ namespace Presenter
     {
         private readonly IKernel kernel;
         private IClientManagerAddOrderFirstStepView view;
-        private IServiceForEditingClientOrder editor;
+        private IServiceForControlProductMovementInClientOrder editor;
         private ClientOrder order;
 
         public ClientManagerEditOrderFirstStepPresenter(IKernel _kernel,
-            IClientManagerAddOrderFirstStepView _view, IServiceForEditingClientOrder _editor, ClientOrder _order)
+            IClientManagerAddOrderFirstStepView _view, IServiceForControlProductMovementInClientOrder _editor, ClientOrder _order)
         {
             kernel = _kernel;
             view = _view;
@@ -66,7 +66,7 @@ namespace Presenter
 
         private void OnButtonNextStepClick()
         {
-            IServiceForFilingClientOrder serviceForOrder = kernel.Get<IServiceForFilingClientOrder>();
+            IServiceForFilingPersonInfoInClientOrder serviceForOrder = kernel.Get<IServiceForFilingPersonInfoInClientOrder>();
 
             serviceForOrder.SetClientOrder(order);
 
@@ -97,7 +97,7 @@ namespace Presenter
             serviceForOrder.AddClientInfo(info);
 
             new ClientManagerEditOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
-                    kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForEditingClientOrder>(),
+                    kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                     order)
                 .Run();
             view.Close();

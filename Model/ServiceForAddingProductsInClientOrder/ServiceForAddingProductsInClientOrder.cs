@@ -2,16 +2,16 @@
 
 namespace Model
 {
-    public class ServiceForFillingClientOrder : IServiceForFilingClientOrder
+    public class ServiceForAddingProductsInClientOrder : IServiceForAddingProductsInClientOrder
     {
         private ClientOrder order;
         private IStorehouseServiceForClientOrderService model;
 
-        public ServiceForFillingClientOrder(IStorehouseServiceForClientOrderService _model)
+        public ServiceForAddingProductsInClientOrder(IStorehouseServiceForClientOrderService _model)
         {
             model = _model;
         }
-        
+
         public bool AddProduct(int productId, int numberOfProduct)
         {
             if (order != null)
@@ -40,50 +40,17 @@ namespace Model
                         return true;
                     }
                 }
-
-                return false;
             }
 
             return false;
         }
 
-        public bool InitializeOrder()
-        {
-            if (order != null)
-            {
-                order.OrderDate = DateTime.Now;
-                order.Status = StatusClientOrder.NotPaid;
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool AddClientInfo(ClientInformation info)
-        {
-            if (order != null)
-            {
-                order.ClientInfo = info;
-                return true;
-            }
-
-            return false;
-        }
-
-        public ClientOrder GetClientOrder()
-        {
-            return order;
-        }
-
-        public bool SetClientOrder(ClientOrder _order)
+        public void SetClientOrder(ClientOrder _order)
         {
             if (_order != null)
-            {
                 order = _order;
-                return true;
-            }
-
-            return false;
+            else
+                throw new NullReferenceException();
         }
     }
 }

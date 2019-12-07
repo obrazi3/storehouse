@@ -1,13 +1,10 @@
 ﻿namespace Model
 {
-    public interface IServiceForFilingClientOrder
+    public interface IServiceForFilingPersonInfoInClientOrder
     {
-        bool AddProduct(int productId, int numberOfProduct);
-        bool RemoveProduct(int prodId);
         bool InitializeOrder();
         bool AddClientInfo(ClientInformation info);
         ClientOrder GetClientOrder();
         bool SetClientOrder(ClientOrder order);
-
     }
 }

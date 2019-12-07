@@ -138,6 +138,10 @@ namespace Model
             ordersRepository.RemoveProductProviderOrder(orderId);
             order.Status = StatusProviderOrder.Received;
             ordersRepository.AddProductProviderOrder(order);
+            foreach (var prod in order.GetListProducts())
+            {
+                storehouseService.AddProductFromDelivery(prod);
+            }
         }
 
         private static int GetOrderId()

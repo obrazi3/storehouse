@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public interface IServiceForEditingClientOrder
+    public interface IServiceForControlProductMovementInClientOrder
     {
         void AddClientOrder(ClientOrder order);
         void ConfirmCompletionEditing(int orderId);

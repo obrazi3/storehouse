@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Model;
+using Ninject;
 
 namespace Presenter
 {
@@ -27,7 +28,8 @@ namespace Presenter
         private void CreateNewOrder()
         {
             //_kernel.Get<ClientManagerAddOrderPresenter>().Run();
-            new ClientManagerAddOrderFirstStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderFirstStepView>()).Run();
+            new ClientManagerAddOrderFirstStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderFirstStepView>(),
+                _kernel.Get<IServiceForControlProductMovementInClientOrder>()).Run();
             _view.Close();
         }
 

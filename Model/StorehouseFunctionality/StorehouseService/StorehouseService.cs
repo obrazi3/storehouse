@@ -7,11 +7,16 @@ namespace Model
     {
         private static int productId;
         private IStorehouseRepository repository;
+        private static int initializeOnce = 0;
 
         public StorehouseService(IStorehouseRepository _repository)
         {
             repository = _repository;
-            TestCatalog();
+            if (initializeOnce == 0)
+            {
+                TestCatalog();
+                initializeOnce++;
+            }
         }
 
         public void AddProduct(ProductFromLot prod)
@@ -115,7 +120,7 @@ namespace Model
             prod3.ProductName = "101 зерно";
             prod3.Lot.ProductionDate = new DateTime(2010, 10, 10);
             prod3.Lot.QuantityProduct = 15;
-            
+
             AddProduct(prod3);
         }
     }

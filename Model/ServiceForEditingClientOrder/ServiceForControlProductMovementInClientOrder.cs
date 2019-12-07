@@ -3,14 +3,14 @@ using Ninject;
 
 namespace Model
 {
-    public class ServiceForEditingClientOrder : IServiceForEditingClientOrder
+    public class ServiceForControlProductMovementInClientOrder : IServiceForControlProductMovementInClientOrder
     {
         private readonly IKernel kernel;
         private Dictionary<int, List<ProductFromLot>> AddedProducts;
         private Dictionary<int, List<ProductFromLot>> RemovedProducts;
         private Dictionary<int, ClientOrder> orders;
 
-        public ServiceForEditingClientOrder(IKernel _kernel)
+        public ServiceForControlProductMovementInClientOrder(IKernel _kernel)
         {
             AddedProducts = new Dictionary<int, List<ProductFromLot>>();
             RemovedProducts = new Dictionary<int, List<ProductFromLot>>();
@@ -37,22 +37,24 @@ namespace Model
 
         public void CancelEditing(int orderId)
         {
-            var productService = kernel.Get<IServiceForFilingClientOrder>();
+            var serviceForAddingProductsInClientOrder = kernel.Get<IServiceForAddingProductsInClientOrder>();
 
             var order = orders[orderId];
-            productService.SetClientOrder(order);
+            serviceForAddingProductsInClientOrder.SetClientOrder(order);
 
             var listRemoved = RemovedProducts[orderId];
             foreach (var prod in listRemoved)
             {
-                productService.AddProduct(prod.ProductId, prod.Lot.QuantityProduct);
+                serviceForAddingProductsInClientOrder.AddProduct(prod.ProductId, prod.Lot.QuantityProduct);
             }
 
             var listAdded = AddedProducts[orderId];
             foreach (var prod in listAdded)
             {
-                productService.RemoveProduct(prod.ProductId);
+                serviceForAddingProductsInClientOrder.RemoveProduct(prod.ProductId);
             }
+
+            ConfirmCompletionEditing(orderId);
         }
 
         public void AddProduct(int orderId, int productId, int numberOfProduct)
@@ -62,11 +64,11 @@ namespace Model
             prod.Lot.QuantityProduct = numberOfProduct;
             AddedProducts[orderId].Add(prod);
 
-            var productService = kernel.Get<IServiceForFilingClientOrder>();
-
             var order = orders[orderId];
-            productService.SetClientOrder(order);
-            productService.AddProduct(productId, numberOfProduct);
+
+            var serviceForAddingProductsInClientOrder = kernel.Get<IServiceForAddingProductsInClientOrder>();
+            serviceForAddingProductsInClientOrder.SetClientOrder(order);
+            serviceForAddingProductsInClientOrder.AddProduct(productId, numberOfProduct);
         }
 
         public void RemoveProduct(int orderId, int productId)
@@ -82,11 +84,11 @@ namespace Model
 
             RemovedProducts[orderId].Add(prod);
 
-            var productService = kernel.Get<IServiceForFilingClientOrder>();
-
             var order = orders[orderId];
-            productService.SetClientOrder(order);
-            productService.RemoveProduct(productId);
+
+            var serviceForAddingProductsInClientOrder = kernel.Get<IServiceForAddingProductsInClientOrder>();
+            serviceForAddingProductsInClientOrder.SetClientOrder(order);
+            serviceForAddingProductsInClientOrder.RemoveProduct(productId);
         }
     }
 }

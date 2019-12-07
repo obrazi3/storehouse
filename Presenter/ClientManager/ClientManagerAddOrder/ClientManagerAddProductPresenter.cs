@@ -8,15 +8,14 @@ namespace Presenter
     {
         private readonly IKernel kernel;
         private IClientManagerAddProductView view;
-        private IServiceForFilingClientOrder model;
+        private IServiceForControlProductMovementInClientOrder model;
         private ClientOrder order;
         private ProductCharacteristic characteristic;
 
-        public ClientManagerAddProductPresenter(IKernel _kernel, IServiceForFilingClientOrder _model,
+        public ClientManagerAddProductPresenter(IKernel _kernel, IServiceForControlProductMovementInClientOrder _model,
             IClientManagerAddProductView _view, ClientOrder _order, ProductCharacteristic _characteristic)
         {
             model = _model;
-            model.SetClientOrder(_order);
             kernel = _kernel;
             view = _view;
             order = _order;
@@ -35,7 +34,7 @@ namespace Presenter
         private void OnButtonAddProductClick()
         {
             int number = view.GetNumberOfProduct();
-            model.AddProduct(characteristic.ProductId, number);
+            model.AddProduct(order.OrderId, characteristic.ProductId, number);
             OnButtonCancelClick();
         }
 
@@ -43,6 +42,7 @@ namespace Presenter
         {
             new ClientManagerAddOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
                 kernel.Get<IClientOrderServiceForClientManager>(),
+                kernel.Get<IServiceForControlProductMovementInClientOrder>(),
                 order).Run();
             view.Close();
         }
