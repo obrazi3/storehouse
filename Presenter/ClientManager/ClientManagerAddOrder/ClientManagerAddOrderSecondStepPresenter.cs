@@ -66,8 +66,8 @@ namespace Presenter
 
         private void ConfirmOrder()
         {
-            _model.AddNotPaidOrder(_order);
             _productService.ConfirmCompletionEditing(_order.OrderId);
+            _model.AddNotPaidOrder(_order);
             MessageBox.Show("Заказ успешно добавлен в складскую систему.", "Заказ добавлен");
             _kernel.Get<ClientManagerPresenter>().Run();
             _view.Close();

@@ -92,7 +92,7 @@ namespace Model
         public ClientOrder GetGiveOutClientOrder(int orderId)
         {
             var order = _repository.GetClientOrder(orderId);
-            if (order != null && order.Status == StatusClientOrder.Paid )
+            if (order != null && order.Status == StatusClientOrder.Paid)
             {
                 return order;
             }
@@ -103,7 +103,7 @@ namespace Model
         public bool ConfirmGiveOutClientOrder(int orderId)
         {
             var order = _repository.GetClientOrder(orderId);
-            if (order != null && order.Status == StatusClientOrder.Paid )
+            if (order != null && order.Status == StatusClientOrder.Paid)
             {
                 _repository.RemoveClientOrder(order.OrderId);
                 order.Status = StatusClientOrder.GiveOut;
@@ -152,7 +152,14 @@ namespace Model
             var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.NotPaid)
             {
+                var products = order.GetListProducts();
+                foreach (var prod in products)
+                {
+                    _storehouseService.AddProduct(prod);
+                }
+
                 _repository.RemoveClientOrder(orderId);
+
                 return true;
             }
 

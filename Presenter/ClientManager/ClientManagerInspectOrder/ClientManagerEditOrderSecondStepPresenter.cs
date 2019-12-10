@@ -65,9 +65,9 @@ namespace Presenter
 
         private void ConfirmOrder()
         {
+            _editor.ConfirmCompletionEditing(_order.OrderId);
             _model.RemoveNotPaidOrder(_order.OrderId);
             _model.AddNotPaidOrder(_order);
-            _editor.ConfirmCompletionEditing(_order.OrderId);
             MessageBox.Show("Заказ успешно отредактирован.", "Заказ отредактирован");
             new ClientManagerInspectOrderPresenter(_kernel, _kernel.Get<IClientManagerInspectOrderView>(),
                 _kernel.Get<IClientOrderServiceForClientManager>(), _order).Run();

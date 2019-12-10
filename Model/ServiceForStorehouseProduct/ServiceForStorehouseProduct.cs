@@ -106,18 +106,25 @@ namespace Model
 
         public void UpdateProductCharacteristic()
         {
-            ProductCharacteristic characteristic = new ProductCharacteristic();
-
-            characteristic.Measure = (Measure)_product.Measure.Clone();
-            characteristic.Price = _product.Price;
-            characteristic.ProductId = _product.ProductId;
-            characteristic.ProductName = (string)_product.ProductName.Clone();
-            characteristic.ProduceCountry = (string)_product.ProduceCountry.Clone();
-            characteristic.ProductCategory = (string)_product.ProductCategory.Clone();
-            characteristic.ProductGroup = (string)_product.ProductGroup.Clone();
+            ProductCharacteristic characteristic;
+            if (_product.GetProductCharacteristic() == null)
+            {
+                characteristic = new ProductCharacteristic();
+                characteristic.Measure = (Measure)_product.Measure.Clone();
+                characteristic.Price = _product.Price;
+                characteristic.ProductId = _product.ProductId;
+                characteristic.ProductName = (string)_product.ProductName.Clone();
+                characteristic.ProduceCountry = (string)_product.ProduceCountry.Clone();
+                characteristic.ProductCategory = (string)_product.ProductCategory.Clone();
+                characteristic.ProductGroup = (string)_product.ProductGroup.Clone();
+                _product.SetProductCharacteristic(characteristic);
+            }
+            else
+                characteristic = _product.GetProductCharacteristic();
+            
             characteristic.TotalQuantityProduct = _product.TotalQuantityProduct;
 
-            _product.SetProductCharacteristic(characteristic);
+            
         }
     }
 }
