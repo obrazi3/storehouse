@@ -5,34 +5,34 @@ namespace Presenter
 {
     public class PurcpManagerRemoveProviderPresenter:IPresenter
     {
-        private IPurcpManagerRemoveProviderView view;
-        private IDeliveryOrderServiceForPurcpManager model;
-        private readonly IKernel kernel;
+        private IPurcpManagerRemoveProviderView _view;
+        private IDeliveryOrderServiceForPurcpManager _model;
+        private readonly IKernel _kernel;
 
-        public PurcpManagerRemoveProviderPresenter(IPurcpManagerRemoveProviderView _view,
-            IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
+        public PurcpManagerRemoveProviderPresenter(IPurcpManagerRemoveProviderView view,
+            IDeliveryOrderServiceForPurcpManager model, IKernel kernel)
         {
-            view = _view;
-            model = _model;
-            kernel = _kernel;
+            this._view = view;
+            this._model = model;
+            this._kernel = kernel;
 
-            view.RemoveProvider += OnButtonRemoveProviderClick;
-            view.Back += OnButtonBackClick;
+            this._view.RemoveProvider += OnButtonRemoveProviderClick;
+            this._view.Back += OnButtonBackClick;
         }        
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
 
         private void OnButtonRemoveProviderClick()
         {
-            model.RemoveProductProvider(view.GetProviderId());
+            _model.RemoveProductProvider(_view.GetProviderId());
             OnButtonBackClick();
         }
     }

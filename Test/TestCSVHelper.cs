@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Text;
-//using CsvHelper;
-using Model;
+﻿//using CsvHelper;
 
 namespace Test
 {
-    public class TestCSVHelper
+    public class TestCsvHelper
     {
       /*  public static void Main()
         {

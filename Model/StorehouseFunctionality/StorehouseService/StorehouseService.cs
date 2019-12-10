@@ -1,45 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ninject;
 
 namespace Model
 {
     public class StorehouseService : IStorehouseServiceForClientOrderService, IStorehouseServiceForDeliveryOrderService
     {
-        private static int productId;
-        private IStorehouseRepository repository;
-        private static int initializeOnce = 0;
+        private readonly IKernel _kernel;
+        private static int _productId;
+        private IStorehouseRepository _repository;
+        private static int _initializeOnce;
 
-        public StorehouseService(IStorehouseRepository _repository)
+        public StorehouseService(IStorehouseRepository repository, IKernel kernel)
         {
-            repository = _repository;
-            if (initializeOnce == 0)
+            this._kernel = kernel;
+            this._repository = repository;
+            if (_initializeOnce == 0)
             {
                 TestCatalog();
-                initializeOnce++;
+                _initializeOnce++;
             }
         }
 
         public void AddProduct(ProductFromLot prod)
         {
-            bool contains = repository.ContainsProduct(prod);
+            bool contains = _repository.ContainsProduct(prod);
             if (contains)
-                repository.AddProductFromLot(prod);
+                _repository.AddProductFromLot(prod);
             else
             {
                 StorehouseProduct storehouseProduct = new StorehouseProduct(prod);
                 storehouseProduct.ProductId = GetProductId();
-                repository.AddStoreHouseProduct(storehouseProduct);
+                IServiceForStorehouseProduct service = _kernel.Get<IServiceForStorehouseProduct>();
+                service.SetStorehouseProduct(storehouseProduct);
+                service.UpdateProductCharacteristic();
+                _repository.AddStoreHouseProduct(storehouseProduct);
             }
         }
 
         public SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProdCatalog()
         {
-            return repository.GetProductCatalog();
+            return _repository.GetProductCatalog();
         }
 
         public ProductFromLot GetProduct(int idProduct, int numberOfProduct)
         {
-            return repository.GetProduct(idProduct, numberOfProduct);
+            return _repository.GetProduct(idProduct, numberOfProduct);
         }
 
 
@@ -51,7 +57,7 @@ namespace Model
         public List<StorehouseProduct> GetListDificitProducts(int number)
         {
             List<StorehouseProduct> dificitProducts = new List<StorehouseProduct>();
-            List<StorehouseProduct> products = repository.GetListAllProducts();
+            List<StorehouseProduct> products = _repository.GetListAllProducts();
 
             foreach (var product in products)
             {
@@ -64,8 +70,8 @@ namespace Model
 
         private static int GetProductId()
         {
-            productId++;
-            return productId;
+            _productId++;
+            return _productId;
         }
 
         private void TestCatalog()
@@ -78,7 +84,6 @@ namespace Model
             prod.ProductCategory = "Мясные полуфабрикаты";
             prod.ProductGroup = "Пельмени";
             prod.ProductName = "Мясные подушечки";
-            LotInformation lot = new LotInformation();
             prod.Lot.QuantityProduct = 30;
             prod.Lot.ProductionDate = new DateTime(2010, 10, 10);
 

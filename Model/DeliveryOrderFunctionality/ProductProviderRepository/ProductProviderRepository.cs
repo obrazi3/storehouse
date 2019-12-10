@@ -4,23 +4,23 @@ namespace Model
 {
     public class ProductProviderRepository : IProductProviderRepository
     {
-        private List<ProductProvider> providers;
+        private List<ProductProvider> _providers;
 
         public ProductProviderRepository()
         {
-            providers = new List<ProductProvider>();
+            _providers = new List<ProductProvider>();
         }
 
         public void AddProductProvider(ProductProvider prov)
         {
-            providers.Add(prov);
-            providers.Sort();
+            _providers.Add(prov);
+            _providers.Sort();
         }
 
         public List<ProductProvider> GetListProductProviders()
         {
             List<ProductProvider> clone = new List<ProductProvider>();
-            foreach(var provider in providers)
+            foreach(var provider in _providers)
             {
                 clone.Add((ProductProvider)provider.Clone());
             }
@@ -30,7 +30,7 @@ namespace Model
 
         public ProductProvider GetProductProvider(int providerId)
         {
-            foreach (var provider in providers)
+            foreach (var provider in _providers)
             {
                 if (provider.ProviderId == providerId)
                     return (ProductProvider)provider.Clone();
@@ -41,11 +41,11 @@ namespace Model
 
         public void RemoveProductProvider(int providerId)
         {
-            foreach (var provider in providers)
+            foreach (var provider in _providers)
             {
                 if (provider.ProviderId == providerId)
                 {
-                    providers.Remove(provider);
+                    _providers.Remove(provider);
                     break;
                 }
             }

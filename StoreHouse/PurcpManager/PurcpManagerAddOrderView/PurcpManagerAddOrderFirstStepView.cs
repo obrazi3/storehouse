@@ -6,13 +6,13 @@ namespace View
 {
     public partial class PurcpManagerAddOrderFirstStepView : Form, IPurcpManagerAddOrderFirstStepView
     {
-        private ApplicationContext context;
+        private ApplicationContext _context;
         public event Action Back;
         public event Action NextStep;
 
-        public PurcpManagerAddOrderFirstStepView(ApplicationContext _context)
+        public PurcpManagerAddOrderFirstStepView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -24,7 +24,7 @@ namespace View
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

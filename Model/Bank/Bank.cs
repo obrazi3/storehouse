@@ -2,20 +2,20 @@
 {
     public class Bank : IBankForClientOrderService, IBankForDeliveryOrderService
     {
-        private int digit;
+        private int _digit;
 
         public bool CheckPaymentByClient(int orderId)
         {
-            digit++;
-            if (digit % 2 == 0)
+            _digit++;
+            if (_digit % 2 == 0)
                 return true;
             return false;
         }
 
         public bool PayDeliveryFromProvider(int bankIdProvider, int sum)
         {
-            digit++;
-            if (digit % 2 != 0)
+            _digit++;
+            if (_digit % 2 != 0)
                 return true;
             return false;
         }

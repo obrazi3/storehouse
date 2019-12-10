@@ -4,20 +4,20 @@ namespace Model
 {
     public class ServiceForFillingPersonInfoInClientOrder : IServiceForFilingPersonInfoInClientOrder
     {
-        private ClientOrder order;
-        private IStorehouseServiceForClientOrderService model;
+        private ClientOrder _order;
+        private IStorehouseServiceForClientOrderService _model;
 
-        public ServiceForFillingPersonInfoInClientOrder(IStorehouseServiceForClientOrderService _model)
+        public ServiceForFillingPersonInfoInClientOrder(IStorehouseServiceForClientOrderService model)
         {
-            model = _model;
+            this._model = model;
         }
 
         public bool InitializeOrder()
         {
-            if (order != null)
+            if (_order != null)
             {
-                order.OrderDate = DateTime.Now;
-                order.Status = StatusClientOrder.NotPaid;
+                _order.OrderDate = DateTime.Now;
+                _order.Status = StatusClientOrder.NotPaid;
                 return true;
             }
 
@@ -26,9 +26,9 @@ namespace Model
 
         public bool AddClientInfo(ClientInformation info)
         {
-            if (order != null)
+            if (_order != null)
             {
-                order.ClientInfo = info;
+                _order.ClientInfo = info;
                 return true;
             }
 
@@ -37,14 +37,14 @@ namespace Model
 
         public ClientOrder GetClientOrder()
         {
-            return order;
+            return _order;
         }
 
-        public bool SetClientOrder(ClientOrder _order)
+        public bool SetClientOrder(ClientOrder order)
         {
-            if (_order != null)
+            if (order != null)
             {
-                order = _order;
+                this._order = order;
                 return true;
             }
 

@@ -100,6 +100,8 @@
     <Compile Include="ServiceForControlProductMovementInClientOrder\ServiceForControlProductMovementInClientOrder.cs" />
     <Compile Include="ServiceForFillingPersonInfoInClientOrder\IServiceForFilingPersonInfoInClientOrder.cs" />
     <Compile Include="ServiceForFillingPersonInfoInClientOrder\ServiceForFillingPersonInfoInClientOrder.cs" />
+    <Compile Include="ServiceForStorehouseProduct\IServiceForStorehouseProduct.cs" />
+    <Compile Include="ServiceForStorehouseProduct\ServiceForStorehouseProduct.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\StorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForClientOrderService.cs" />

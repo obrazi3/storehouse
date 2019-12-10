@@ -5,36 +5,36 @@ namespace Model
     public class ClientOrderService : IClientOrderServiceForBooker, IClientOrderServiceForCourier,
         IClientOrderServiceForStorekeeper, IClientOrderServiceForClientManager
     {
-        private static int nextIdOrder;
-        private IStorehouseServiceForClientOrderService storehouseService;
-        private IClientOrderRepository repository;
+        private static int _nextIdOrder;
+        private IStorehouseServiceForClientOrderService _storehouseService;
+        private IClientOrderRepository _repository;
 
 
-        public ClientOrderService(IStorehouseServiceForClientOrderService _storehouseService,
-            IClientOrderRepository _repository)
+        public ClientOrderService(IStorehouseServiceForClientOrderService storehouseService,
+            IClientOrderRepository repository)
         {
-            storehouseService = _storehouseService;
-            repository = _repository;
-            nextIdOrder = 0;
+            this._storehouseService = storehouseService;
+            this._repository = repository;
+            _nextIdOrder = 0;
         }
 
         public List<ClientOrder> GetListNotPaidClientOrders()
         {
-            List<ClientOrder> orders = repository.GetListOrdersByStatus(StatusClientOrder.NotPaid);
+            List<ClientOrder> orders = _repository.GetListOrdersByStatus(StatusClientOrder.NotPaid);
             return orders;
         }
 
         public bool ConfirmPaymentNotPaidClientOrder(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.NotPaid)
             {
-                repository.RemoveClientOrder(orderId);
-                if (order.isDelivery)
+                _repository.RemoveClientOrder(orderId);
+                if (order.IsDelivery)
                     order.Status = StatusClientOrder.PaidForDelivery;
                 else
                     order.Status = StatusClientOrder.Paid;
-                repository.AddClientOrder(order);
+                _repository.AddClientOrder(order);
                 return true;
             }
 
@@ -48,13 +48,13 @@ namespace Model
 
         public ClientOrder GetForDeliveryClientOrder()
         {
-            var order = repository.GetOrderByStatus(StatusClientOrder.PaidForDelivery);
+            var order = _repository.GetOrderByStatus(StatusClientOrder.PaidForDelivery);
             if (order != null)
             {
-                repository.RemoveClientOrder(order.OrderId);
+                _repository.RemoveClientOrder(order.OrderId);
                 var ord = (ClientOrder)order.Clone();
                 ord.Status = StatusClientOrder.OnDelivery;
-                repository.AddClientOrder(ord);
+                _repository.AddClientOrder(ord);
                 return order;
             }
 
@@ -63,12 +63,12 @@ namespace Model
 
         public bool ConfirmDelivery(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.OnDelivery)
             {
-                repository.RemoveClientOrder(order.OrderId);
+                _repository.RemoveClientOrder(order.OrderId);
                 order.Status = StatusClientOrder.GiveOut;
-                repository.AddClientOrder(order);
+                _repository.AddClientOrder(order);
                 return true;
             }
 
@@ -77,12 +77,12 @@ namespace Model
 
         public bool CancelDelivery(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.OnDelivery)
             {
-                repository.RemoveClientOrder(order.OrderId);
+                _repository.RemoveClientOrder(order.OrderId);
                 order.Status = StatusClientOrder.PaidForDelivery;
-                repository.AddClientOrder(order);
+                _repository.AddClientOrder(order);
                 return true;
             }
 
@@ -91,7 +91,7 @@ namespace Model
 
         public ClientOrder GetGiveOutClientOrder(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.Paid )
             {
                 return order;
@@ -102,12 +102,12 @@ namespace Model
 
         public bool ConfirmGiveOutClientOrder(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.Paid )
             {
-                repository.RemoveClientOrder(order.OrderId);
+                _repository.RemoveClientOrder(order.OrderId);
                 order.Status = StatusClientOrder.GiveOut;
-                repository.AddClientOrder(order);
+                _repository.AddClientOrder(order);
                 return true;
             }
 
@@ -119,13 +119,13 @@ namespace Model
             order.Status = StatusClientOrder.NotPaid;
             if (order.OrderId == -1)
                 order.OrderId = GetOrderId();
-            repository.AddClientOrder(order);
+            _repository.AddClientOrder(order);
             return true;
         }
 
         public ClientOrder GetNotPaidOrder(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.NotPaid)
             {
                 return order;
@@ -136,11 +136,11 @@ namespace Model
 
         public bool EditNotPaidOrder(ClientOrder order)
         {
-            var ord = repository.GetClientOrder(order.OrderId);
+            var ord = _repository.GetClientOrder(order.OrderId);
             if (ord != null && ord.Status == StatusClientOrder.NotPaid)
             {
-                repository.RemoveClientOrder(ord.OrderId);
-                repository.AddClientOrder(order);
+                _repository.RemoveClientOrder(ord.OrderId);
+                _repository.AddClientOrder(order);
                 return true;
             }
 
@@ -149,10 +149,10 @@ namespace Model
 
         public bool RemoveNotPaidOrder(int orderId)
         {
-            var order = repository.GetClientOrder(orderId);
+            var order = _repository.GetClientOrder(orderId);
             if (order != null && order.Status == StatusClientOrder.NotPaid)
             {
-                repository.RemoveClientOrder(orderId);
+                _repository.RemoveClientOrder(orderId);
                 return true;
             }
 
@@ -161,18 +161,18 @@ namespace Model
 
         public ProductFromLot GetProductFromLot(int productId, int numberOfProd)
         {
-            return storehouseService.GetProduct(productId, numberOfProd);
+            return _storehouseService.GetProduct(productId, numberOfProd);
         }
 
         public SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProductCatalog()
         {
-            return storehouseService.GetProdCatalog();
+            return _storehouseService.GetProdCatalog();
         }
 
         private static int GetOrderId()
         {
-            nextIdOrder++;
-            return nextIdOrder;
+            _nextIdOrder++;
+            return _nextIdOrder;
         }
     }
 }

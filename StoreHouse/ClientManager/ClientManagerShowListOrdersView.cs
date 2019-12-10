@@ -10,19 +10,19 @@ namespace View
     {
         public event Action Back;
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
 
-        public ClientManagerShowListOrdersView(ApplicationContext _context)
+        public ClientManagerShowListOrdersView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
@@ -30,90 +30,90 @@ namespace View
         {
             foreach (var order in orders)
             {
-                FlowLayoutPanel PanelCurrentOrder = new FlowLayoutPanel();
-                PanelCurrentOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-                PanelCurrentOrder.Name = "PanelCurrentOrder";
-                PanelCurrentOrder.Size = new System.Drawing.Size(751, 96);
+                FlowLayoutPanel panelCurrentOrder = new FlowLayoutPanel();
+                panelCurrentOrder.Margin = new Padding(3, 2, 3, 2);
+                panelCurrentOrder.Name = "PanelCurrentOrder";
+                panelCurrentOrder.Size = new System.Drawing.Size(751, 96);
 
-                Label LabelClientName = new Label();
-                LabelClientName.AutoSize = true;
-                LabelClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelClientName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 0);
-                LabelClientName.Name = "LabelClientName";
+                Label labelClientName = new Label();
+                labelClientName.AutoSize = true;
+                labelClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelClientName.Margin = new Padding(4, 5, 4, 0);
+                labelClientName.Name = "LabelClientName";
                 // this.LabelClientName.Size = new System.Drawing.Size(153, 24);
-                LabelClientName.Text = "Имя покупателя";
-                PanelCurrentOrder.Controls.Add(LabelClientName);
+                labelClientName.Text = "Имя покупателя";
+                panelCurrentOrder.Controls.Add(labelClientName);
 
-                Label LabelCurrentClientName = new Label();
-                LabelCurrentClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCurrentClientName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 0);
-                LabelCurrentClientName.Name = "LabelCurrentClientName";
-                LabelCurrentClientName.Size = new System.Drawing.Size(574, 30);
-                LabelCurrentClientName.Text = order.ClientInfo.Surname + " " + order.ClientInfo.Name + " " +
+                Label labelCurrentClientName = new Label();
+                labelCurrentClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                labelCurrentClientName.Margin = new Padding(4, 5, 4, 0);
+                labelCurrentClientName.Name = "LabelCurrentClientName";
+                labelCurrentClientName.Size = new System.Drawing.Size(574, 30);
+                labelCurrentClientName.Text = order.ClientInfo.Surname + " " + order.ClientInfo.Name + " " +
                                               order.ClientInfo.Patronymic;
-                PanelCurrentOrder.Controls.Add(LabelCurrentClientName);
+                panelCurrentOrder.Controls.Add(labelCurrentClientName);
 
-                Label LabelOrderNumber = new Label();
-                LabelOrderNumber.AutoSize = true;
-                LabelOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelOrderNumber.Margin = new System.Windows.Forms.Padding(4, 5, 0, 0);
-                LabelOrderNumber.Name = "LabelOrderNumber";
+                Label labelOrderNumber = new Label();
+                labelOrderNumber.AutoSize = true;
+                labelOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelOrderNumber.Margin = new Padding(4, 5, 0, 0);
+                labelOrderNumber.Name = "LabelOrderNumber";
                 // this.LabelOrderNumber.Size = new System.Drawing.Size(133, 24);
-                LabelOrderNumber.Text = "Номер заказа";
-                PanelCurrentOrder.Controls.Add(LabelOrderNumber);
+                labelOrderNumber.Text = "Номер заказа";
+                panelCurrentOrder.Controls.Add(labelOrderNumber);
 
-                Label LabelCurrentOrderNumber = new Label();
-                LabelCurrentOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCurrentOrderNumber.Margin = new System.Windows.Forms.Padding(0, 5, 4, 0);
-                LabelCurrentOrderNumber.Name = "LabelCurrentOrderNumber";
-                LabelCurrentOrderNumber.Size = new System.Drawing.Size(124, 30);
-                LabelCurrentOrderNumber.Text = order.OrderId.ToString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentOrderNumber);
+                Label labelCurrentOrderNumber = new Label();
+                labelCurrentOrderNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                labelCurrentOrderNumber.Margin = new Padding(0, 5, 4, 0);
+                labelCurrentOrderNumber.Name = "LabelCurrentOrderNumber";
+                labelCurrentOrderNumber.Size = new System.Drawing.Size(124, 30);
+                labelCurrentOrderNumber.Text = order.OrderId.ToString();
+                panelCurrentOrder.Controls.Add(labelCurrentOrderNumber);
 
-                Label LabelCost = new Label();
-                LabelCost.AutoSize = true;
-                LabelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular,
-                    System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCost.Margin = new System.Windows.Forms.Padding(4, 5, 0, 0);
-                LabelCost.Name = "LabelCost";
+                Label labelCost = new Label();
+                labelCost.AutoSize = true;
+                labelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular,
+                    System.Drawing.GraphicsUnit.Point, 204);
+                labelCost.Margin = new Padding(4, 5, 0, 0);
+                labelCost.Name = "LabelCost";
                 // this.LabelCost.Size = new System.Drawing.Size(68, 24);
-                LabelCost.Text = "Сумма";
-                PanelCurrentOrder.Controls.Add(LabelCost);
+                labelCost.Text = "Сумма";
+                panelCurrentOrder.Controls.Add(labelCost);
 
-                Label LabelCurrentCost = new Label();
-                LabelCurrentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCurrentCost.Margin = new System.Windows.Forms.Padding(0, 5, 4, 0);
-                LabelCurrentCost.Name = "LabelCurrentCost";
-                LabelCurrentCost.Size = new System.Drawing.Size(125, 30);
-                LabelCurrentCost.Text = order.TotalCost.ToString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentCost);
+                Label labelCurrentCost = new Label();
+                labelCurrentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                labelCurrentCost.Margin = new Padding(0, 5, 4, 0);
+                labelCurrentCost.Name = "LabelCurrentCost";
+                labelCurrentCost.Size = new System.Drawing.Size(125, 30);
+                labelCurrentCost.Text = order.TotalCost.ToString();
+                panelCurrentOrder.Controls.Add(labelCurrentCost);
 
-                Label LabelDate = new Label();
-                LabelDate.AutoSize = true;
-                LabelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular,
-                    System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelDate.Margin = new System.Windows.Forms.Padding(4, 5, 0, 0);
-                LabelDate.Name = "LabelDate";
+                Label labelDate = new Label();
+                labelDate.AutoSize = true;
+                labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular,
+                    System.Drawing.GraphicsUnit.Point, 204);
+                labelDate.Margin = new Padding(4, 5, 0, 0);
+                labelDate.Name = "LabelDate";
                 //this.LabelDate.Size = new System.Drawing.Size(54, 24);
-                LabelDate.Text = "Дата";
-                PanelCurrentOrder.Controls.Add(LabelDate);
+                labelDate.Text = "Дата";
+                panelCurrentOrder.Controls.Add(labelDate);
 
-                Label LabelCurrentDate = new Label();
-                LabelCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCurrentDate.Margin = new System.Windows.Forms.Padding(0, 5, 4, 0);
-                LabelCurrentDate.Name = "LabelCurrentDate";
-                LabelCurrentDate.Size = new System.Drawing.Size(142, 30);
-                LabelCurrentDate.Text = order.OrderDate.ToShortDateString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentDate);
+                Label labelCurrentDate = new Label();
+                labelCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                    System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                labelCurrentDate.Margin = new Padding(0, 5, 4, 0);
+                labelCurrentDate.Name = "LabelCurrentDate";
+                labelCurrentDate.Size = new System.Drawing.Size(142, 30);
+                labelCurrentDate.Text = order.OrderDate.ToShortDateString();
+                panelCurrentOrder.Controls.Add(labelCurrentDate);
 
 
-                PanelForOrders.Controls.Add(PanelCurrentOrder);
+                PanelForOrders.Controls.Add(panelCurrentOrder);
             }
         }
 

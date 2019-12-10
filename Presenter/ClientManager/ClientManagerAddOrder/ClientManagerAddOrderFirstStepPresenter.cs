@@ -8,17 +8,17 @@ namespace Presenter
         private readonly IKernel _kernel;
         private IClientManagerAddOrderFirstStepView _view;
         private IServiceForControlProductMovementInClientOrder _productMovementService;
-        private ClientOrder order;
-        private bool isNewOrder;
+        private ClientOrder _order;
+        private bool _isNewOrder;
 
         public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view
             , IServiceForControlProductMovementInClientOrder productMovementService, ClientOrder order) : this(kernel,
             view,
             productMovementService)
         {
-            this.order = order;
-            isNewOrder = false;
-            setOrderInfo();
+            this._order = order;
+            _isNewOrder = false;
+            SetOrderInfo();
         }
 
         public ClientManagerAddOrderFirstStepPresenter(IKernel kernel, IClientManagerAddOrderFirstStepView view,
@@ -27,7 +27,7 @@ namespace Presenter
             _kernel = kernel;
             _view = view;
             _productMovementService = productMovementService;
-            isNewOrder = true;
+            _isNewOrder = true;
 
             _view.Back += Back;
             _view.NextStep += NextStep;
@@ -37,8 +37,8 @@ namespace Presenter
         {
             _kernel.Get<ClientManagerPresenter>().Run();
             _view.Close();
-            if (!isNewOrder)
-                _productMovementService.CancelEditing(order.OrderId);
+            if (!_isNewOrder)
+                _productMovementService.CancelEditing(_order.OrderId);
         }
 
         public void Run()
@@ -50,16 +50,16 @@ namespace Presenter
         {
             IServiceForFilingPersonInfoInClientOrder serviceForPersonalInfo =
                 _kernel.Get<IServiceForFilingPersonInfoInClientOrder>();
-            if (isNewOrder)
+            if (_isNewOrder)
             {
-                order = new ClientOrder();
-                serviceForPersonalInfo.SetClientOrder(order);
+                _order = new ClientOrder();
+                serviceForPersonalInfo.SetClientOrder(_order);
                 serviceForPersonalInfo.InitializeOrder();
             }
             else
-                serviceForPersonalInfo.SetClientOrder(order);
+                serviceForPersonalInfo.SetClientOrder(_order);
 
-            _productMovementService.AddClientOrder(order);
+            _productMovementService.AddClientOrder(_order);
             ClientInformation info = new ClientInformation();
 
             if (_view.IsDelivery())
@@ -73,10 +73,10 @@ namespace Presenter
                 address.PavilionNumber = _view.GetPavilion();
                 address.PorchNumber = _view.GetPorchNumber();
                 info.Address = address;
-                order.isDelivery = true;
+                _order.IsDelivery = true;
             }
             else
-                order.isDelivery = false;
+                _order.IsDelivery = false;
 
             info.Name = _view.GetName();
             info.Patronymic = _view.GetPatronymic();
@@ -89,28 +89,28 @@ namespace Presenter
             new ClientManagerAddOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(),
                 _kernel.Get<IClientOrderServiceForClientManager>(),
                 _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
-                order).Run();
+                _order).Run();
             _view.Close();
         }
 
-        private void setOrderInfo()
+        private void SetOrderInfo()
         {
-            _view.SetName(order.ClientInfo.Name);
-            _view.SetSurname(order.ClientInfo.Surname);
-            _view.SetPatronymic(order.ClientInfo.Patronymic);
-            _view.SetPhoneNumber(order.ClientInfo.PhoneNumber);
-            _view.SetEmailAddress(order.ClientInfo.EmailAddress);
+            _view.SetName(_order.ClientInfo.Name);
+            _view.SetSurname(_order.ClientInfo.Surname);
+            _view.SetPatronymic(_order.ClientInfo.Patronymic);
+            _view.SetPhoneNumber(_order.ClientInfo.PhoneNumber);
+            _view.SetEmailAddress(_order.ClientInfo.EmailAddress);
 
-            if (order.isDelivery)
+            if (_order.IsDelivery)
             {
-                _view.SetCity(order.ClientInfo.Address.City);
-                _view.SetStreet(order.ClientInfo.Address.Street);
-                _view.SetHouseNumber(order.ClientInfo.Address.HomeNumber);
-                _view.SetPavilion(order.ClientInfo.Address.PavilionNumber);
-                _view.SetFlat(order.ClientInfo.Address.FlatNumber);
-                _view.SetFloorNumber(order.ClientInfo.Address.FloorNumber);
-                _view.SetPorchNumber(order.ClientInfo.Address.PorchNumber);
-                _view.SetCity(order.ClientInfo.Address.City);
+                _view.SetCity(_order.ClientInfo.Address.City);
+                _view.SetStreet(_order.ClientInfo.Address.Street);
+                _view.SetHouseNumber(_order.ClientInfo.Address.HomeNumber);
+                _view.SetPavilion(_order.ClientInfo.Address.PavilionNumber);
+                _view.SetFlat(_order.ClientInfo.Address.FlatNumber);
+                _view.SetFloorNumber(_order.ClientInfo.Address.FloorNumber);
+                _view.SetPorchNumber(_order.ClientInfo.Address.PorchNumber);
+                _view.SetCity(_order.ClientInfo.Address.City);
                 _view.SetDelivery(true);
             }
             else

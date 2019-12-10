@@ -6,72 +6,72 @@ namespace Presenter
 {
     public class ClientManagerEditOrderSecondStepPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IClientOrderServiceForClientManager model;
-        private IServiceForControlProductMovementInClientOrder editor;
-        private IClientManagerAddOrderSecondStepView view;
-        private ClientOrder order;
+        private readonly IKernel _kernel;
+        private IClientOrderServiceForClientManager _model;
+        private IServiceForControlProductMovementInClientOrder _editor;
+        private IClientManagerAddOrderSecondStepView _view;
+        private ClientOrder _order;
 
-        public ClientManagerEditOrderSecondStepPresenter(IKernel _kernel, IClientManagerAddOrderSecondStepView _view,
-            IClientOrderServiceForClientManager _model, IServiceForControlProductMovementInClientOrder _editor, ClientOrder _order)
+        public ClientManagerEditOrderSecondStepPresenter(IKernel kernel, IClientManagerAddOrderSecondStepView view,
+            IClientOrderServiceForClientManager model, IServiceForControlProductMovementInClientOrder editor, ClientOrder order)
         {
-            kernel = _kernel;
-            view = _view;
-            model = _model;
-            order = _order;
-            editor = _editor;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
+            this._order = order;
+            this._editor = editor;
 
-            view.SetProductBasket(order.GetCloneProductList());
+            this._view.SetProductBasket(this._order.GetCloneProductList());
 
-            view.Back += Back;
-            view.RemoveProducts += RemoveProducts;
-            view.ConfirmOrder += ConfirmOrder;
-            view.AddProduct += AddProduct;
+            this._view.Back += Back;
+            this._view.RemoveProducts += RemoveProducts;
+            this._view.ConfirmOrder += ConfirmOrder;
+            this._view.AddProduct += AddProduct;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void Back()
         {
-            new ClientManagerEditOrderFirstStepPresenter(kernel, kernel.Get<IClientManagerAddOrderFirstStepView>(),
-                kernel.Get<IServiceForControlProductMovementInClientOrder>(),
-                order).Run();
-            view.Close();
+            new ClientManagerEditOrderFirstStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderFirstStepView>(),
+                _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
+                _order).Run();
+            _view.Close();
         }
 
         private void AddProduct()
         {
-            new ClientManagerEditOrderProductCatalogPresenter(kernel, kernel.Get<IClientManagerProductCatalogView>(),
-                    kernel.Get<IClientOrderServiceForClientManager>(),
-                    order)
+            new ClientManagerEditOrderProductCatalogPresenter(_kernel, _kernel.Get<IClientManagerProductCatalogView>(),
+                    _kernel.Get<IClientOrderServiceForClientManager>(),
+                    _order)
                 .Run();
-            view.Close();
+            _view.Close();
         }
 
         private void RemoveProducts()
         {
-            var productsId = view.GetIdProductsForDelete();
+            var productsId = _view.GetIdProductsForDelete();
             foreach (var prod in productsId)
             {
-                editor.RemoveProduct(order.OrderId, prod);
+                _editor.RemoveProduct(_order.OrderId, prod);
             }
 
-            view.SetProductBasket(order.GetCloneProductList());
-            view.SetOrderPrice(order.TotalCost);
+            _view.SetProductBasket(_order.GetCloneProductList());
+            _view.SetOrderPrice(_order.TotalCost);
         }
 
         private void ConfirmOrder()
         {
-            model.RemoveNotPaidOrder(order.OrderId);
-            model.AddNotPaidOrder(order);
-            editor.ConfirmCompletionEditing(order.OrderId);
+            _model.RemoveNotPaidOrder(_order.OrderId);
+            _model.AddNotPaidOrder(_order);
+            _editor.ConfirmCompletionEditing(_order.OrderId);
             MessageBox.Show("Заказ успешно отредактирован.", "Заказ отредактирован");
-            new ClientManagerInspectOrderPresenter(kernel, kernel.Get<IClientManagerInspectOrderView>(),
-                kernel.Get<IClientOrderServiceForClientManager>(), order).Run();
-            view.Close();
+            new ClientManagerInspectOrderPresenter(_kernel, _kernel.Get<IClientManagerInspectOrderView>(),
+                _kernel.Get<IClientOrderServiceForClientManager>(), _order).Run();
+            _view.Close();
         }
     }
 }

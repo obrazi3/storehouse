@@ -7,7 +7,7 @@ namespace Model
 
         public override object Clone()
         {
-            return (object)new MeasurePiece();
+            return new MeasurePiece();
         }
     }
 }

@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Model
 {
     public class ProviderOrderRepository : IProviderOrderRepository
     {
-        private List<ProductProviderOrder> orders;
+        private List<ProductProviderOrder> _orders;
 
 
         public ProviderOrderRepository()
         {
-            orders = new List<ProductProviderOrder>();
+            _orders = new List<ProductProviderOrder>();
         }
 
         public void AddProductProviderOrder(ProductProviderOrder order)
         {
-            orders.Add(order);
-            orders.Sort(new ComparerProductProviderOrderForRepository());
+            _orders.Add(order);
+            _orders.Sort(new ComparerProductProviderOrderForRepository());
         }
 
         public bool ContainsOrder(int orderId)
         {
-            foreach (var order in orders)
+            foreach (var order in _orders)
             {
                 if (order.OrderId == orderId)
                     return true;
@@ -36,7 +32,7 @@ namespace Model
         public List<ProductProviderOrder> GetListAllOrders()
         {
             List<ProductProviderOrder> clone = new List<ProductProviderOrder>();
-            foreach (var order in orders)
+            foreach (var order in _orders)
             {
                 clone.Add((ProductProviderOrder)order.Clone());
             }
@@ -48,7 +44,7 @@ namespace Model
         {
             List<ProductProviderOrder> cloneByStatus = new List<ProductProviderOrder>();
 
-            foreach (var order in orders)
+            foreach (var order in _orders)
             {
                 if (order.Status == status)
                     cloneByStatus.Add((ProductProviderOrder)order.Clone());
@@ -61,7 +57,7 @@ namespace Model
 
         public ProductProviderOrder GetProductProviderOrder(int orderId)
         {
-            foreach (var order in orders)
+            foreach (var order in _orders)
             {
                 if (order.OrderId == orderId)
                     return (ProductProviderOrder)order.Clone();
@@ -73,11 +69,11 @@ namespace Model
         public void RemoveProductProviderOrder(int orderId)
         {
 
-            foreach (var order in orders)
+            foreach (var order in _orders)
             {
                 if (order.OrderId == orderId)
                 {
-                    orders.Remove(order);
+                    _orders.Remove(order);
                     break;
                 }
             }

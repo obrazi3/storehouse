@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Model;
 using Presenter;
@@ -11,7 +12,7 @@ namespace View
         public event Action ConfirmGettingOrder;
         public event Action SearchOrder;
 
-        private int orderNumberToConfirm;
+        private int _orderNumberToConfirm;
         private ApplicationContext _context;
 
         public StorekeeperSearchProviderOrderView(ApplicationContext context)
@@ -19,7 +20,7 @@ namespace View
             _context = context;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            orderNumberToConfirm = -1;
+            _orderNumberToConfirm = -1;
 
             PanelOrderInfo.Visible = false;
             LabelOrderContent.Visible = false;
@@ -42,8 +43,8 @@ namespace View
 
         public int GetOrderNumberToConfirm()
         {
-            int number = orderNumberToConfirm;
-            orderNumberToConfirm = -1;
+            int number = _orderNumberToConfirm;
+            _orderNumberToConfirm = -1;
             return number;
         }
 
@@ -51,55 +52,55 @@ namespace View
         {
             if (order != null)
             {
-                orderNumberToConfirm = order.OrderId;
-                LabelCurrentCost.Text = order.TotalSumOrder.ToString() + "руб.";
+                _orderNumberToConfirm = order.OrderId;
+                LabelCurrentCost.Text = order.TotalSumOrder + "руб.";
                 LabelCurrentNumberOrder.Text = order.OrderId.ToString();
                 LabelNameCurrentOrganization.Text = order.Provider.Name;
                 foreach (var prod in order.GetListProducts())
                 {
-                    FlowLayoutPanel PanelCurrentProduct = new FlowLayoutPanel();
-                    PanelCurrentProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-                    PanelCurrentProduct.Name = "PanelCurrentProduct";
-                    PanelCurrentProduct.Size = new System.Drawing.Size(842, 50);
+                    FlowLayoutPanel panelCurrentProduct = new FlowLayoutPanel();
+                    panelCurrentProduct.Margin = new Padding(3, 5, 3, 5);
+                    panelCurrentProduct.Name = "PanelCurrentProduct";
+                    panelCurrentProduct.Size = new Size(842, 50);
 
-                    Label LabelProductName = new Label();
-                    LabelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelProductName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                    LabelProductName.Name = "LabelProductName";
-                    LabelProductName.Size = new System.Drawing.Size(166, 19);
-                    LabelProductName.Text = "Название продукта: ";
-                    PanelCurrentProduct.Controls.Add(LabelProductName);
+                    Label labelProductName = new Label();
+                    labelProductName.Font = new Font("Microsoft Sans Serif", 11F,
+                        FontStyle.Bold, GraphicsUnit.Point, 204);
+                    labelProductName.Margin = new Padding(3, 5, 3, 0);
+                    labelProductName.Name = "LabelProductName";
+                    labelProductName.Size = new Size(166, 19);
+                    labelProductName.Text = "Название продукта: ";
+                    panelCurrentProduct.Controls.Add(labelProductName);
 
-                    Label LabelCurrentProductName = new Label();
-                    LabelCurrentProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentProductName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                    LabelCurrentProductName.Name = "LabelCurrentProductName";
-                    LabelCurrentProductName.Size = new System.Drawing.Size(656, 19);
-                    LabelCurrentProductName.Text = prod.ProductName;
-                    PanelCurrentProduct.Controls.Add(LabelCurrentProductName);
+                    Label labelCurrentProductName = new Label();
+                    labelCurrentProductName.Font = new Font("Microsoft Sans Serif", 11F,
+                        FontStyle.Regular, GraphicsUnit.Point, 204);
+                    labelCurrentProductName.Margin = new Padding(3, 5, 3, 0);
+                    labelCurrentProductName.Name = "LabelCurrentProductName";
+                    labelCurrentProductName.Size = new Size(656, 19);
+                    labelCurrentProductName.Text = prod.ProductName;
+                    panelCurrentProduct.Controls.Add(labelCurrentProductName);
 
-                    Label LabelNumberProduct = new Label();
-                    LabelNumberProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelNumberProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                    LabelNumberProduct.Name = "LabelNumberProduct";
-                    LabelNumberProduct.Size = new System.Drawing.Size(146, 19);
-                    LabelNumberProduct.Text = "Кол-во продукта:\r\n";
-                    PanelCurrentProduct.Controls.Add(LabelNumberProduct);
+                    Label labelNumberProduct = new Label();
+                    labelNumberProduct.Font = new Font("Microsoft Sans Serif", 11F,
+                        FontStyle.Bold, GraphicsUnit.Point, 204);
+                    labelNumberProduct.Margin = new Padding(3, 5, 3, 0);
+                    labelNumberProduct.Name = "LabelNumberProduct";
+                    labelNumberProduct.Size = new Size(146, 19);
+                    labelNumberProduct.Text = "Кол-во продукта:\r\n";
+                    panelCurrentProduct.Controls.Add(labelNumberProduct);
 
-                    Label LabelCurrentNumberProduct = new Label();
-                    LabelCurrentNumberProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentNumberProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                    LabelCurrentNumberProduct.Name = "LabelCurrentNumberProduct";
-                    LabelCurrentNumberProduct.Size = new System.Drawing.Size(222, 19);
-                    LabelCurrentNumberProduct.Text =
-                        prod.Lot.QuantityProduct.ToString() + " " + prod.Measure.TypeMeasure;
-                    PanelCurrentProduct.Controls.Add(LabelCurrentNumberProduct);
+                    Label labelCurrentNumberProduct = new Label();
+                    labelCurrentNumberProduct.Font = new Font("Microsoft Sans Serif", 11F,
+                        FontStyle.Regular, GraphicsUnit.Point, 204);
+                    labelCurrentNumberProduct.Margin = new Padding(3, 5, 3, 0);
+                    labelCurrentNumberProduct.Name = "LabelCurrentNumberProduct";
+                    labelCurrentNumberProduct.Size = new Size(222, 19);
+                    labelCurrentNumberProduct.Text =
+                        prod.Lot.QuantityProduct + " " + prod.Measure.TypeMeasure;
+                    panelCurrentProduct.Controls.Add(labelCurrentNumberProduct);
 
-                    PanelProductsInOrder.Controls.Add(PanelCurrentProduct);
+                    PanelProductsInOrder.Controls.Add(panelCurrentProduct);
                 }
 
                 PanelOrderInfo.Visible = true;
@@ -107,11 +108,9 @@ namespace View
                 PanelProductsInOrder.Visible = true;
             }
             else
-            {
-                LabelMessage.Visible = true;
-                LabelMessage.Text =
-                    "К сожалению, накладная с таким номером не найдена. Проверьте правильность ввода и повторите поиска ещё раз";
-            }
+                MessageBox.Show(
+                    "К сожалению, накладная с таким номером не найдена. Проверьте правильность ввода и повторите поиска ещё раз",
+                    "Накладная отсутствует");
         }
 
 
@@ -122,38 +121,29 @@ namespace View
 
         private void OnButtonSearchClick(object o, EventArgs e)
         {
-            orderNumberToConfirm = -1;
+            _orderNumberToConfirm = -1;
             PanelOrderInfo.Visible = false;
             LabelOrderContent.Visible = false;
             PanelProductsInOrder.Visible = false;
             PanelProductsInOrder.Controls.Clear();
-            LabelMessage.Visible = false;
             if (TextBoxOrderNumber.Text.Length != 0)
             {
                 SearchOrder?.Invoke();
             }
             else
-            {
-                LabelMessage.Text = "Введите номер поставки, а затем осуществите поиск";
-                LabelMessage.Visible = true;
-            }
+                MessageBox.Show("Введите номер поставки, а затем осуществите поиск", "Отсутствует номер поставки");
         }
 
         private void OnButtonConfirmGettingOrderClick(object o, EventArgs e)
         {
-            if (orderNumberToConfirm != -1)
+            if (_orderNumberToConfirm != -1)
             {
                 ConfirmGettingOrder?.Invoke();
                 PanelOrderInfo.Visible = false;
                 LabelOrderContent.Visible = false;
                 PanelProductsInOrder.Visible = false;
                 PanelProductsInOrder.Controls.Clear();
-                LabelMessage.Visible = false;
-            }
-            else
-            {
-                LabelMessage.Text = "Отсутствует заказ для подтверждения";
-                LabelMessage.Visible = true;
+                MessageBox.Show("Приём заказа подтвержден.");
             }
         }
     }

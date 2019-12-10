@@ -11,12 +11,12 @@ namespace View
         public event Action ProductChecked;
         public event Action Back;
 
-        private ApplicationContext context;
-        private ProductCharacteristic characteristic;
+        private ApplicationContext _context;
+        private ProductCharacteristic _characteristic;
 
-        public ClientManagerProductCatalogView(ApplicationContext _context)
+        public ClientManagerProductCatalogView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -49,32 +49,32 @@ namespace View
             }
 
 
-            TreeView CatalogTree = new TreeView();
-            CatalogTree.Location = new System.Drawing.Point(4, 25);
-            CatalogTree.Size = new System.Drawing.Size(635, 632);
-            CatalogTree.Nodes.AddRange(categories.ToArray());
-            CatalogTree.CheckBoxes = true;
-            CatalogTree.AfterCheck += AfterCheck;
+            TreeView catalogTree = new TreeView();
+            catalogTree.Location = new System.Drawing.Point(4, 25);
+            catalogTree.Size = new System.Drawing.Size(635, 632);
+            catalogTree.Nodes.AddRange(categories.ToArray());
+            catalogTree.CheckBoxes = true;
+            catalogTree.AfterCheck += AfterCheck;
             GroupBoxCatalog.Controls.Clear();
-            GroupBoxCatalog.Controls.Add(CatalogTree);
+            GroupBoxCatalog.Controls.Add(catalogTree);
         }
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
         public ProductCharacteristic GetProductCharacteristic()
         {
-            return characteristic;
+            return _characteristic;
         }
 
         private void AfterCheck(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Tag != null)
             {
-                characteristic = (ProductCharacteristic)e.Node.Tag;
+                _characteristic = (ProductCharacteristic)e.Node.Tag;
                 ProductChecked.Invoke();
             }
         }

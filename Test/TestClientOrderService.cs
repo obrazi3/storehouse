@@ -1,12 +1,6 @@
-﻿using System;
-using System.Xml;
-using Model;
-using Ninject;
-using View;
-
-namespace Test
+﻿namespace Test
 {
-    public class TestClientOrderService
+   /* public class TestClientOrderService
     {
         public static void Main()
         {
@@ -241,5 +235,5 @@ namespace Test
             else
                 Console.WriteLine("Заказ отсутствует");
         }
-    }
+    }*/
 }

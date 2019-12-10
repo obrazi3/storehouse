@@ -5,51 +5,51 @@ namespace Presenter
 {
     public class StorekeeperSearchClientOrderPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IStorekeeperSearchClientOrderView view;
-        private IClientOrderServiceForStorekeeper model;
-        private int orderNumber;
+        private readonly IKernel _kernel;
+        private IStorekeeperSearchClientOrderView _view;
+        private IClientOrderServiceForStorekeeper _model;
+        private int _orderNumber;
 
-        public StorekeeperSearchClientOrderPresenter(IKernel _kernel, IStorekeeperSearchClientOrderView _view,
-            IClientOrderServiceForStorekeeper _model)
+        public StorekeeperSearchClientOrderPresenter(IKernel kernel, IStorekeeperSearchClientOrderView view,
+            IClientOrderServiceForStorekeeper model)
         {
-            kernel = _kernel;
-            view = _view;
-            model = _model;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
 
-            view.Back += OnButtonBackClick;
-            view.Search += OnButtonSearchClick;
-            view.ConfirmGiveOut += OnButtonConfirmOrderClick;
+            this._view.Back += OnButtonBackClick;
+            this._view.Search += OnButtonSearchClick;
+            this._view.ConfirmGiveOut += OnButtonConfirmOrderClick;
 
-            orderNumber = -1;
+            _orderNumber = -1;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         public void OnButtonBackClick()
         {
-            kernel.Get<StorekeeperPresenter>().Run();
-            view.Close();
+            _kernel.Get<StorekeeperPresenter>().Run();
+            _view.Close();
         }
 
         public void OnButtonSearchClick()
         {
-            var order = model.GetGiveOutClientOrder(view.GetOrderNumber());
-            view.SetOrderInfo(order);
+            var order = _model.GetGiveOutClientOrder(_view.GetOrderNumber());
+            _view.SetOrderInfo(order);
             if (order != null)
-                orderNumber = order.OrderId;
+                _orderNumber = order.OrderId;
         }
 
         public void OnButtonConfirmOrderClick()
         {
-            if (orderNumber != -1)
+            if (_orderNumber != -1)
             {
-                model.ConfirmGiveOutClientOrder(orderNumber);
-                orderNumber = -1;
-                view.ClearView();
+                _model.ConfirmGiveOutClientOrder(_orderNumber);
+                _orderNumber = -1;
+                _view.ClearView();
             }
         }
     }

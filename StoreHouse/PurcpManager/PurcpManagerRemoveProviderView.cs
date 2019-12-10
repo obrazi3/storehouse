@@ -9,11 +9,11 @@ namespace View
         public event Action Back;
         public event Action RemoveProvider;
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
-        public PurcpManagerRemoveProviderView(ApplicationContext _context)
+        public PurcpManagerRemoveProviderView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -26,7 +26,7 @@ namespace View
 
         public void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

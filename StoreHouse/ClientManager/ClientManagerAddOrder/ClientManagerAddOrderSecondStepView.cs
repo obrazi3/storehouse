@@ -13,8 +13,8 @@ namespace View
         public event Action Back;
         public event Action RemoveProducts;
 
-        private Dictionary<int, CheckBox> deleteCheckBoxes;
-        private List<int> idProductsForDelete;
+        private Dictionary<int, CheckBox> _deleteCheckBoxes;
+        private List<int> _idProductsForDelete;
 
         private readonly ApplicationContext _context;
 
@@ -40,77 +40,77 @@ namespace View
         public void SetProductBasket(List<ProductFromLot> products)
         {
             PanelListProducts.Controls.Clear();
-            idProductsForDelete = new List<int>();
-            deleteCheckBoxes = new Dictionary<int, CheckBox>();
+            _idProductsForDelete = new List<int>();
+            _deleteCheckBoxes = new Dictionary<int, CheckBox>();
 
             foreach (var product in products)
             {
-                FlowLayoutPanel PanelCurrentProduct = new FlowLayoutPanel();
-                PanelCurrentProduct.Margin = new Padding(3, 4, 3, 4);
-                PanelCurrentProduct.Name = "PanelCurrentProduct";
-                PanelCurrentProduct.Size = new System.Drawing.Size(760, 30);
+                FlowLayoutPanel panelCurrentProduct = new FlowLayoutPanel();
+                panelCurrentProduct.Margin = new Padding(3, 4, 3, 4);
+                panelCurrentProduct.Name = "PanelCurrentProduct";
+                panelCurrentProduct.Size = new System.Drawing.Size(760, 30);
 
-                Label LabelNameProduct = new Label();
-                LabelNameProduct.AutoSize = true;
-                LabelNameProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelNameProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelNameProduct.Name = "LabelNameProduct";
-                LabelNameProduct.Text = "Название продукта:";
-                PanelCurrentProduct.Controls.Add(LabelNameProduct);
+                Label labelNameProduct = new Label();
+                labelNameProduct.AutoSize = true;
+                labelNameProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelNameProduct.Margin = new Padding(3, 5, 3, 0);
+                labelNameProduct.Name = "LabelNameProduct";
+                labelNameProduct.Text = "Название продукта:";
+                panelCurrentProduct.Controls.Add(labelNameProduct);
 
-                Label LabelNameCurrentProduct = new Label();
-                LabelNameCurrentProduct.AutoSize = true;
-                LabelNameCurrentProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelNameCurrentProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelNameCurrentProduct.Name = "LabelNameProduct";
-                LabelNameCurrentProduct.Text = product.ProductName;
-                PanelCurrentProduct.Controls.Add(LabelNameCurrentProduct);
+                Label labelNameCurrentProduct = new Label();
+                labelNameCurrentProduct.AutoSize = true;
+                labelNameCurrentProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelNameCurrentProduct.Margin = new Padding(3, 5, 3, 0);
+                labelNameCurrentProduct.Name = "LabelNameProduct";
+                labelNameCurrentProduct.Text = product.ProductName;
+                panelCurrentProduct.Controls.Add(labelNameCurrentProduct);
 
-                Label LabelNumberProduct = new Label();
-                LabelNumberProduct.AutoSize = true;
-                LabelNumberProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelNumberProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelNumberProduct.Name = "LabelNumberProduct";
-                LabelNumberProduct.Text = "Количество продукта:";
-                PanelCurrentProduct.Controls.Add(LabelNumberProduct);
+                Label labelNumberProduct = new Label();
+                labelNumberProduct.AutoSize = true;
+                labelNumberProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelNumberProduct.Margin = new Padding(3, 5, 3, 0);
+                labelNumberProduct.Name = "LabelNumberProduct";
+                labelNumberProduct.Text = "Количество продукта:";
+                panelCurrentProduct.Controls.Add(labelNumberProduct);
 
-                Label LabelNumberCurrentProduct = new Label();
-                LabelNumberCurrentProduct.AutoSize = true;
-                LabelNumberCurrentProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelNumberCurrentProduct.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelNumberCurrentProduct.Name = "LabelCurrentProduct";
-                LabelNumberCurrentProduct.Text = product.Lot.QuantityProduct.ToString();
-                PanelCurrentProduct.Controls.Add(LabelNumberCurrentProduct);
+                Label labelNumberCurrentProduct = new Label();
+                labelNumberCurrentProduct.AutoSize = true;
+                labelNumberCurrentProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelNumberCurrentProduct.Margin = new Padding(3, 5, 3, 0);
+                labelNumberCurrentProduct.Name = "LabelCurrentProduct";
+                labelNumberCurrentProduct.Text = product.Lot.QuantityProduct.ToString();
+                panelCurrentProduct.Controls.Add(labelNumberCurrentProduct);
 
-                Label LabelCost = new Label();
-                LabelCost.AutoSize = true;
-                LabelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular,
-                    System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCost.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelCost.Name = "LabelCost";
-                LabelCost.Text = "Стоимость:";
-                PanelCurrentProduct.Controls.Add(LabelCost);
+                Label labelCost = new Label();
+                labelCost.AutoSize = true;
+                labelCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular,
+                    System.Drawing.GraphicsUnit.Point, 204);
+                labelCost.Margin = new Padding(3, 5, 3, 0);
+                labelCost.Name = "LabelCost";
+                labelCost.Text = "Стоимость:";
+                panelCurrentProduct.Controls.Add(labelCost);
 
-                Label LabelCurrentCost = new Label();
-                LabelCurrentCost.AutoSize = true;
-                LabelCurrentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
-                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                LabelCurrentCost.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-                LabelCurrentCost.Name = "LabelCurrentCost";
-                LabelCurrentCost.Text = (product.Lot.QuantityProduct * product.Price).ToString();
-                PanelCurrentProduct.Controls.Add(LabelCurrentCost);
+                Label labelCurrentCost = new Label();
+                labelCurrentCost.AutoSize = true;
+                labelCurrentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F,
+                    System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                labelCurrentCost.Margin = new Padding(3, 5, 3, 0);
+                labelCurrentCost.Name = "LabelCurrentCost";
+                labelCurrentCost.Text = (product.Lot.QuantityProduct * product.Price).ToString();
+                panelCurrentProduct.Controls.Add(labelCurrentCost);
 
                 CheckBox checkBoxDelete = new CheckBox();
                 checkBoxDelete.Text = "Удалить";
-                PanelCurrentProduct.Controls.Add(checkBoxDelete);
+                panelCurrentProduct.Controls.Add(checkBoxDelete);
 
-                deleteCheckBoxes.Add(product.ProductId, checkBoxDelete);
+                _deleteCheckBoxes.Add(product.ProductId, checkBoxDelete);
 
-                PanelListProducts.Controls.Add(PanelCurrentProduct);
+                PanelListProducts.Controls.Add(panelCurrentProduct);
             }
         }
 
@@ -126,7 +126,7 @@ namespace View
 
         private void OnButtonConfirmOrderClick(object o, EventArgs e)
         {
-            if (deleteCheckBoxes.Count != 0)
+            if (_deleteCheckBoxes.Count != 0)
 
                 ConfirmOrder?.Invoke();
             else
@@ -141,18 +141,18 @@ namespace View
 
         public List<int> GetIdProductsForDelete()
         {
-            return idProductsForDelete;
+            return _idProductsForDelete;
         }
 
         private void OnButtonDeleteProductsClick(object o, EventArgs e)
         {
             bool isRemoveSomething = false;
-            foreach (var box in deleteCheckBoxes)
+            foreach (var box in _deleteCheckBoxes)
             {
                 if (box.Value.Checked)
                 {
                     isRemoveSomething = true;
-                    idProductsForDelete.Add(box.Key);
+                    _idProductsForDelete.Add(box.Key);
                 }
             }
 

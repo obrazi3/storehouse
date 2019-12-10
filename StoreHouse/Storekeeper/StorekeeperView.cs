@@ -37,16 +37,6 @@ namespace View
             SearchProviderOrder?.Invoke();
         }
 
-        private void OnButtonShowListClientPurchClick(object o, EventArgs e)
-        {
-            ShowListClientPurch?.Invoke();
-        }
-
-        private void OnButtonShowListCourierPurchClick(object o, EventArgs e)
-        {
-            ShowListCourierPurch?.Invoke();
-        }
-
         private void OnButtonBackClick(object sender, EventArgs e)
         {
             Back?.Invoke();

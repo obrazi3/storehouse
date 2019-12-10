@@ -10,18 +10,18 @@ namespace View
         public event Action CheckPayment;
 
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
-        public BookerCheckPaymentClientOrderView(ApplicationContext _context)
+        public BookerCheckPaymentClientOrderView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

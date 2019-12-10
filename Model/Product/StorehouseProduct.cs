@@ -5,14 +5,14 @@ namespace Model
 {
     public class StorehouseProduct : Product, IComparable
     {
-        public int TotalQuantityProduct { private set; get; }
+        public int TotalQuantityProduct { internal set; get; }
 
-        private List<LotInformation> listLotInformation;
-        private ProductCharacteristic characteristic;
+        private List<LotInformation> _listLotInformation;
+        private ProductCharacteristic _characteristic;
 
         public StorehouseProduct()
         {
-            listLotInformation = new List<LotInformation>();
+            _listLotInformation = new List<LotInformation>();
         }
 
         public StorehouseProduct(ProductFromLot prod) : this()
@@ -22,102 +22,98 @@ namespace Model
             ProductGroup = (string)prod.ProductGroup.Clone();
             ProductName = (string)prod.ProductName.Clone();
             TotalQuantityProduct += prod.Lot.QuantityProduct;
-            listLotInformation.Add(prod.Lot);
+            _listLotInformation.Add(prod.Lot);
             Measure = (Measure)prod.Measure.Clone();
             Price = prod.Price;
         }
 
-        public void AddLot(LotInformation info)
-        {
-            TotalQuantityProduct += info.QuantityProduct;
-            UpdateProductCharacteristic();
-            foreach (LotInformation inf in listLotInformation)
-            {
-                if (inf.EqualsProductionDate(info))
-                {
-                    inf.QuantityProduct += info.QuantityProduct;
-                    return;
-                }
-            }
+        /* public void AddLot(LotInformation info)
+         {
+             TotalQuantityProduct += info.QuantityProduct;
+             UpdateProductCharacteristic();
+             foreach (LotInformation inf in listLotInformation)
+             {
+                 if (inf.EqualsProductionDate(info))
+                 {
+                     inf.QuantityProduct += info.QuantityProduct;
+                     return;
+                 }
+             }
+ 
+             listLotInformation.Add(info);
+         }*/
 
-            listLotInformation.Add(info);
-        }
+        /*  public void RemoveLot(LotInformation info)
+          {
+              foreach (LotInformation lot in listLotInformation)
+              {
+                  if (lot.Equals(info))
+                  {
+                      TotalQuantityProduct -= lot.QuantityProduct;
+                      listLotInformation.Remove(lot);
+                      break;
+                  }
+              }
+  
+              UpdateProductCharacteristic();
+          }*/
 
-        public void RemoveLot(LotInformation info)
-        {
-            foreach (LotInformation lot in listLotInformation)
-            {
-                if (lot.Equals(info))
-                {
-                    TotalQuantityProduct -= lot.QuantityProduct;
-                    listLotInformation.Remove(lot);
-                    break;
-                }
-            }
+        /*  public ProductFromLot GetProductFromLot(int number)
+          {
+              TotalQuantityProduct -= number;
+  
+              ProductFromLot product = new ProductFromLot();
+  
+              product.ProductName = (string)this.ProductName.Clone();
+              product.ProduceCountry = (string)this.ProduceCountry.Clone();
+              product.ProductGroup = (string)this.ProductGroup.Clone();
+              product.Price = this.Price;
+              product.ProductCategory = (string)this.ProductCategory.Clone();
+              product.ProductId = this.ProductId;
+              product.Measure = (Measure)this.Measure.Clone();
+              product.ExpirationDate = this.ExpirationDate;
+  
+              DateTime oldestProduct = new DateTime(1, 1, 1);
+              LotInformation clientLot = new LotInformation();
+  
+              List<LotInformation> lotsForRemove = new List<LotInformation>();
+              foreach (LotInformation lot in listLotInformation)
+              {
+                  if (lot.QuantityProduct >= number)
+                  {
+                      clientLot.QuantityProduct += number;
+                      if (oldestProduct.Equals(new DateTime(1, 1, 1)))
+                          clientLot.ProductionDate = lot.ProductionDate;
+                      if (lot.QuantityProduct == number)
+                          lotsForRemove.Add(lot);
+                      lot.QuantityProduct -= number;
+                      break;
+                  }
+                  else
+                  {
+                      clientLot.QuantityProduct += lot.QuantityProduct;
+                      number -= lot.QuantityProduct;
+                      if (oldestProduct.Equals(new DateTime(1, 1, 1)))
+                      {
+                          clientLot.ProductionDate = lot.ProductionDate;
+                          oldestProduct = lot.ProductionDate;
+                      }
+  
+                      lotsForRemove.Add(lot);
+                  }
+              }
+  
+              product.Lot.ProductionDate = clientLot.ProductionDate;
+              product.Lot.QuantityProduct = clientLot.QuantityProduct;
+              UpdateProductCharacteristic();
+              RemoveEmptyLots(lotsForRemove);
+              return product;
+          }*/
 
-            UpdateProductCharacteristic();
-        }
-
-        public ProductFromLot GetProductFromLot(int number)
-        {
-            TotalQuantityProduct -= number;
-
-            ProductFromLot product = new ProductFromLot();
-
-            product.ProductName = (string)this.ProductName.Clone();
-            product.ProduceCountry = (string)this.ProduceCountry.Clone();
-            product.ProductGroup = (string)this.ProductGroup.Clone();
-            product.Price = this.Price;
-            product.ProductCategory = (string)this.ProductCategory.Clone();
-            product.ProductId = this.ProductId;
-            product.Measure = (Measure)this.Measure.Clone();
-            product.ExpirationDate = this.ExpirationDate;
-
-            DateTime oldestProduct = new DateTime(1, 1, 1);
-            LotInformation clientLot = new LotInformation();
-
-            List<LotInformation> lotsForRemove = new List<LotInformation>();
-            foreach (LotInformation lot in listLotInformation)
-            {
-                if (lot.QuantityProduct >= number)
-                {
-                    clientLot.QuantityProduct += number;
-                    if (oldestProduct.Equals(new DateTime(1, 1, 1)))
-                        clientLot.ProductionDate = lot.ProductionDate;
-                    if (lot.QuantityProduct == number)
-                        lotsForRemove.Add(lot);
-                    //listLotInformation.Remove(lot);
-                    lot.QuantityProduct -= number;
-                    //TotalQuantityProduct -= number;
-                    break;
-                }
-                else
-                {
-                    clientLot.QuantityProduct += lot.QuantityProduct;
-                    number -= lot.QuantityProduct;
-                   // TotalQuantityProduct -= lot.QuantityProduct;
-                    if (oldestProduct.Equals(new DateTime(1, 1, 1)))
-                    {
-                        clientLot.ProductionDate = lot.ProductionDate;
-                        oldestProduct = lot.ProductionDate;
-                    }
-
-                    lotsForRemove.Add(lot);
-                    //listLotInformation.Remove(lot);
-                }
-            }
-
-            product.Lot.ProductionDate = clientLot.ProductionDate;
-            product.Lot.QuantityProduct = clientLot.QuantityProduct;
-            UpdateProductCharacteristic();
-            RemoveEmptyLots(lotsForRemove);
-            return product;
-        }
-
-        public List<LotInformation> GetListLotInformation()
+        public List<LotInformation> GetCloneListLotInformation()
         {
             List<LotInformation> copyList = new List<LotInformation>();
-            foreach (LotInformation lot in listLotInformation)
+            foreach (LotInformation lot in _listLotInformation)
             {
                 copyList.Add((LotInformation)lot.Clone());
             }
@@ -127,8 +123,8 @@ namespace Model
 
         public ProductCharacteristic GetProductCharacteristic()
         {
-            UpdateProductCharacteristic();
-            return characteristic;
+            //UpdateProductCharacteristic();
+            return _characteristic;
         }
 
         public int CompareTo(object obj)
@@ -148,12 +144,24 @@ namespace Model
             clone.ProductId = this.ProductId;
             clone.ProductName = (string)this.ProductName.Clone();
             clone.TotalQuantityProduct = this.TotalQuantityProduct;
-            clone.characteristic = (ProductCharacteristic)this.characteristic.Clone();
+            clone._characteristic = (ProductCharacteristic)this._characteristic.Clone();
 
             return clone;
         }
 
-        private void UpdateProductCharacteristic()
+
+        internal List<LotInformation> GetListLotInformation()
+        {
+            return _listLotInformation;
+        }
+
+        internal void SetProductCharacteristic(ProductCharacteristic characteristic)
+        {
+            this._characteristic = characteristic;
+        }
+
+
+     /*   private void UpdateProductCharacteristic()
         {
             if (characteristic == null)
             {
@@ -168,30 +176,15 @@ namespace Model
             }
 
             characteristic.TotalQuantityProduct = TotalQuantityProduct;
-        }
+        }*/
 
 
-        private void RemoveEmptyLots(List<LotInformation> lotsForRemove)
+     /*   private void RemoveEmptyLots(List<LotInformation> lotsForRemove)
         {
             foreach (var lot in lotsForRemove)
             {
                 listLotInformation.Remove(lot);
             }
-        }
-
-
-        /* 
-private void CountTotalQuantityProduct()
-{
-    int totalQuant = 0;
-
-    foreach (LotInformation lot in listLotInformation)
-    {
-        totalQuant += lot.QuantityProduct;
-    }
-
-    TotalQuantityProduct = totalQuant;
-}
-*/
+        }*/
     }
 }

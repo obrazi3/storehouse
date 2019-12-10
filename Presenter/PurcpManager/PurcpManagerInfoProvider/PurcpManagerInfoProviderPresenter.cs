@@ -5,37 +5,37 @@ namespace Presenter
 {
     public class PurcpManagerInfoProviderPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IPurcpManagerInfoProviderView view;
-        private IDeliveryOrderServiceForPurcpManager model;
+        private readonly IKernel _kernel;
+        private IPurcpManagerInfoProviderView _view;
+        private IDeliveryOrderServiceForPurcpManager _model;
 
-        public PurcpManagerInfoProviderPresenter(IPurcpManagerInfoProviderView _view,
-            IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
+        public PurcpManagerInfoProviderPresenter(IPurcpManagerInfoProviderView view,
+            IDeliveryOrderServiceForPurcpManager model, IKernel kernel)
         {
-            kernel = _kernel;
-            view = _view;
-            model = _model;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
 
-            view.Back += OnButtonBackClick;
-            view.SearchProvider += OnButtonSearchClick;
+            this._view.Back += OnButtonBackClick;
+            this._view.SearchProvider += OnButtonSearchClick;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
 
         private void OnButtonSearchClick()
         {
-            int id = view.GetProviderNumber();
-            var provider = model.GetProductProvider(id);
-            view.SetInfoProvider(provider);
+            int id = _view.GetProviderNumber();
+            var provider = _model.GetProductProvider(id);
+            _view.SetInfoProvider(provider);
         }
     }
 }

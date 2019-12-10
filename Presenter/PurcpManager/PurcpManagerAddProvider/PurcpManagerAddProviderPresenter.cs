@@ -5,50 +5,50 @@ namespace Presenter
 {
     public class PurcpManagerAddProviderPresenter : IPresenter
     {
-        private readonly IPurcpManagerAddProviderView view;
-        private readonly IDeliveryOrderServiceForPurcpManager model;
-        private readonly IKernel kernel;
+        private readonly IPurcpManagerAddProviderView _view;
+        private readonly IDeliveryOrderServiceForPurcpManager _model;
+        private readonly IKernel _kernel;
 
-        public PurcpManagerAddProviderPresenter(IPurcpManagerAddProviderView _view,
-            IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
+        public PurcpManagerAddProviderPresenter(IPurcpManagerAddProviderView view,
+            IDeliveryOrderServiceForPurcpManager model, IKernel kernel)
         {
-            view = _view;
-            model = _model;
-            kernel = _kernel;
+            this._view = view;
+            this._model = model;
+            this._kernel = kernel;
 
-            view.AddProvider += () => OnButtonAddProviderClick();
-            view.Back += () => OnButtonBackClick();
+            this._view.AddProvider += () => OnButtonAddProviderClick();
+            this._view.Back += () => OnButtonBackClick();
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
 
         private void OnButtonAddProviderClick()
         {
             ProductProvider provider = new ProductProvider();
-            provider.Email = view.Email;
-            provider.Name = view.ProviderName;
-            provider.ContactNumber = view.PhoneNumber;
-            provider.BankAccountNumber = view.BankAccount;
+            provider.Email = _view.Email;
+            provider.Name = _view.ProviderName;
+            provider.ContactNumber = _view.PhoneNumber;
+            provider.BankAccountNumber = _view.BankAccount;
 
-            var listCatergories = view.GetListProductCategories();
+            var listCatergories = _view.GetListProductCategories();
             foreach (var category in listCatergories)
             {
                 provider.AddProductCategory(category);
             }
 
-            model.AddProductProvider(provider);
+            _model.AddProductProvider(provider);
 
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
     }
 }

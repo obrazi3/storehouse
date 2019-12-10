@@ -5,14 +5,14 @@
     public interface IBriefInvoiceInfo
     {
         //Номер накладной
-        void setNumber(string number);
-        string getNumber();
+        void SetNumber(string number);
+        string GetNumber();
         //Имя заказчика/Название организации поставщика
-        void setName(string name);
-        string getName();
+        void SetName(string name);
+        string GetName();
         //Стоимость
-        void setCost(string cost);
-        string getCost();
+        void SetCost(string cost);
+        string GetCost();
 
     }
 }

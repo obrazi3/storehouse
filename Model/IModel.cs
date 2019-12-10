@@ -2,7 +2,7 @@
 {
     public interface IModel
     {
-        IBriefInvoiceInfo findIncomingInvoice(int number);
-        IBriefInvoiceInfo findSalesInvoice(int number);
+        IBriefInvoiceInfo FindIncomingInvoice(int number);
+        IBriefInvoiceInfo FindSalesInvoice(int number);
     }
 }

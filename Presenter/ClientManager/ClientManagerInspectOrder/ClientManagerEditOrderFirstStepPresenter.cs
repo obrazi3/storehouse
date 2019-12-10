@@ -1,106 +1,105 @@
-﻿using System;
-using Model;
+﻿using Model;
 using Ninject;
 
 namespace Presenter
 {
     public class ClientManagerEditOrderFirstStepPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IClientManagerAddOrderFirstStepView view;
-        private IServiceForControlProductMovementInClientOrder editor;
-        private ClientOrder order;
+        private readonly IKernel _kernel;
+        private IClientManagerAddOrderFirstStepView _view;
+        private IServiceForControlProductMovementInClientOrder _editor;
+        private ClientOrder _order;
 
-        public ClientManagerEditOrderFirstStepPresenter(IKernel _kernel,
-            IClientManagerAddOrderFirstStepView _view, IServiceForControlProductMovementInClientOrder _editor, ClientOrder _order)
+        public ClientManagerEditOrderFirstStepPresenter(IKernel kernel,
+            IClientManagerAddOrderFirstStepView view, IServiceForControlProductMovementInClientOrder editor, ClientOrder order)
         {
-            kernel = _kernel;
-            view = _view;
-            order = _order;
-            editor = _editor;
+            this._kernel = kernel;
+            this._view = view;
+            this._order = order;
+            this._editor = editor;
 
-            editor.AddClientOrder(order);
+            this._editor.AddClientOrder(this._order);
 
             InitializeView();
 
-            view.Back += OnButtonBackClick;
-            view.NextStep += OnButtonNextStepClick;
-            view.SetFormName("Редактирование данных заказчика");
+            this._view.Back += OnButtonBackClick;
+            this._view.NextStep += OnButtonNextStepClick;
+            this._view.SetFormName("Редактирование данных заказчика");
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void InitializeView()
         {
-            view.SetDelivery(order.isDelivery);
-            if (order.isDelivery)
+            _view.SetDelivery(_order.IsDelivery);
+            if (_order.IsDelivery)
             {
-                var address = order.ClientInfo.Address;
-                view.SetCity((string)address.City.Clone());
-                view.SetStreet((string)address.Street.Clone());
-                view.SetHouseNumber((string)address.HomeNumber.Clone());
-                view.SetPavilion((string)address.PavilionNumber.Clone());
-                view.SetPorchNumber((string)address.PorchNumber.Clone());
-                view.SetFloorNumber((string)address.FloorNumber.Clone());
-                view.SetFlat((string)address.FlatNumber.Clone());
+                var address = _order.ClientInfo.Address;
+                _view.SetCity((string)address.City.Clone());
+                _view.SetStreet((string)address.Street.Clone());
+                _view.SetHouseNumber((string)address.HomeNumber.Clone());
+                _view.SetPavilion((string)address.PavilionNumber.Clone());
+                _view.SetPorchNumber((string)address.PorchNumber.Clone());
+                _view.SetFloorNumber((string)address.FloorNumber.Clone());
+                _view.SetFlat((string)address.FlatNumber.Clone());
             }
 
-            var clientInfo = order.ClientInfo;
-            view.SetName((string)clientInfo.Name.Clone());
-            view.SetSurname((string)clientInfo.Surname.Clone());
-            view.SetPatronymic((string)clientInfo.Patronymic.Clone());
-            view.SetPhoneNumber((string)clientInfo.PhoneNumber.Clone());
-            view.SetEmailAddress((string)clientInfo.EmailAddress.Clone());
+            var clientInfo = _order.ClientInfo;
+            _view.SetName((string)clientInfo.Name.Clone());
+            _view.SetSurname((string)clientInfo.Surname.Clone());
+            _view.SetPatronymic((string)clientInfo.Patronymic.Clone());
+            _view.SetPhoneNumber((string)clientInfo.PhoneNumber.Clone());
+            _view.SetEmailAddress((string)clientInfo.EmailAddress.Clone());
         }
 
         private void OnButtonBackClick()
         {
-            editor.CancelEditing(order.OrderId);
-            new ClientManagerInspectOrderPresenter(kernel, kernel.Get<IClientManagerInspectOrderView>(),
-                kernel.Get<IClientOrderServiceForClientManager>(), order).Run();
-            view.Close();
+            _editor.CancelEditing(_order.OrderId);
+            new ClientManagerInspectOrderPresenter(_kernel, _kernel.Get<IClientManagerInspectOrderView>(),
+                _kernel.Get<IClientOrderServiceForClientManager>(), _order).Run();
+            _view.Close();
         }
 
         private void OnButtonNextStepClick()
         {
-            IServiceForFilingPersonInfoInClientOrder serviceForOrder = kernel.Get<IServiceForFilingPersonInfoInClientOrder>();
+            IServiceForFilingPersonInfoInClientOrder serviceForOrder = _kernel.Get<IServiceForFilingPersonInfoInClientOrder>();
 
-            serviceForOrder.SetClientOrder(order);
+            serviceForOrder.SetClientOrder(_order);
 
             ClientInformation info = new ClientInformation();
 
-            if (view.IsDelivery())
+            if (_view.IsDelivery())
             {
                 HomeAddress address = new HomeAddress();
-                address.City = view.GetCity();
-                address.Street = view.GetStreet();
-                address.FlatNumber = view.GetFlat();
-                address.FloorNumber = view.GetFloorNumber();
-                address.HomeNumber = view.GetHouseNumber();
-                address.PavilionNumber = view.GetPavilion();
-                address.PorchNumber = view.GetPorchNumber();
+                address.City = _view.GetCity();
+                address.Street = _view.GetStreet();
+                address.FlatNumber = _view.GetFlat();
+                address.FloorNumber = _view.GetFloorNumber();
+                address.HomeNumber = _view.GetHouseNumber();
+                address.PavilionNumber = _view.GetPavilion();
+                address.PorchNumber = _view.GetPorchNumber();
                 info.Address = address;
-                order.isDelivery = true;
+                _order.IsDelivery = true;
             }
             else
-                order.isDelivery = false;
+                _order.IsDelivery = false;
 
-            info.Name = view.GetName();
-            info.Patronymic = view.GetPatronymic();
-            info.Surname = view.GetSurname();
-            info.EmailAddress = view.GetEmailAddress();
-            info.PhoneNumber = view.GetPhoneNumber();
+            info.Name = _view.GetName();
+            info.Patronymic = _view.GetPatronymic();
+            info.Surname = _view.GetSurname();
+            info.EmailAddress = _view.GetEmailAddress();
+            info.PhoneNumber = _view.GetPhoneNumber();
 
             serviceForOrder.AddClientInfo(info);
 
-            new ClientManagerEditOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
-                    kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForControlProductMovementInClientOrder>(),
-                    order)
+            new ClientManagerEditOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(),
+                    _kernel.Get<IClientOrderServiceForClientManager>(), _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
+                    _order)
                 .Run();
-            view.Close();
+            _view.Close();
         }
     }
 }

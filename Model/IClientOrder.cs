@@ -16,7 +16,7 @@ namespace Model
         string HouseNumber { get; set; }
         string Flat { get; set; }
         DateTime GetDate();
-        void SetDate(DateTime _date);
+        void SetDate(DateTime date);
         //public void getStatus(); public void SetStatus();
         //public void getPurchaseList public void setPurchaseList();
         //public void addPurchase(Purchase p); public void deletePurchase(Purchase p)

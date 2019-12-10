@@ -10,20 +10,20 @@ namespace View
         public event Action Back;
         public event Action AddProvider;
 
-        private List<string> productCategories;
-        private readonly ApplicationContext context;
+        private List<string> _productCategories;
+        private readonly ApplicationContext _context;
 
-        public PurcpManagerAddProviderView(ApplicationContext _context)
+        public PurcpManagerAddProviderView(ApplicationContext context)
         {
-            productCategories = new List<string>();
+            _productCategories = new List<string>();
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            context = _context;
+            this._context = context;
         }
 
         public List<string> GetListProductCategories()
         {
-            return productCategories;
+            return _productCategories;
         }
 
         public string ProviderName { get => TextBoxOrganizationName.Text; }
@@ -33,7 +33,7 @@ namespace View
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
@@ -47,7 +47,7 @@ namespace View
             LabelMessageRequiredFields.Visible = false;
             if (TextBoxCategory.Text.Length != 0)
             {
-                productCategories.Add((string)TextBoxCategory.Text.Clone());
+                _productCategories.Add((string)TextBoxCategory.Text.Clone());
                 TextBoxCategory.Clear();
             }
             else
@@ -75,7 +75,7 @@ namespace View
                 return false;
             if (TextBoxPhoneNumber.Text.Length == 0)
                 return false;
-            if (productCategories.Count == 0)
+            if (_productCategories.Count == 0)
                 return false;
 
             return true;

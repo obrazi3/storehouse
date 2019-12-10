@@ -9,11 +9,11 @@ namespace View
         public event PayOrder PayOrder;
         public event Action Back;
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
-        public BookerPayProviderOrderView(ApplicationContext _context)
+        public BookerPayProviderOrderView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -23,7 +23,7 @@ namespace View
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

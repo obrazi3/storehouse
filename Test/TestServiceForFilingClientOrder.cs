@@ -1,7 +1,4 @@
-﻿using System;
-using Model;
-
-namespace Test
+﻿namespace Test
 {
     public class TestServiceForFilingClientOrder
     {

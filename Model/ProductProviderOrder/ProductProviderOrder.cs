@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -13,30 +10,30 @@ namespace Model
         public int TotalSumOrder { get; private set; }
         public StatusProviderOrder Status { get; set; }
         public DateTime OrderDate { get; set; }
-        private List<ProductFromLot> listProducts;
+        private List<ProductFromLot> _listProducts;
 
         public ProductProviderOrder()
         {
-            listProducts = new List<ProductFromLot>();
+            _listProducts = new List<ProductFromLot>();
             Provider = new ProductProvider();
         }
 
         public void AddProduct(ProductFromLot prod)
         {
-            listProducts.Add(prod);
+            _listProducts.Add(prod);
             TotalSumOrder += (prod.Price * prod.Lot.QuantityProduct);
         }
 
         public void RemoveProduct(ProductFromLot prod)
         {
-            if (listProducts.Remove(prod))
+            if (_listProducts.Remove(prod))
                 TotalSumOrder -= (prod.Price * prod.Lot.QuantityProduct);
         }
 
         public List<ProductFromLot> GetListProducts()
         {
             List<ProductFromLot> clone = new List<ProductFromLot>();
-            foreach (var prod in listProducts)
+            foreach (var prod in _listProducts)
             {
                 clone.Add((ProductFromLot)prod.Clone());
             }
@@ -52,7 +49,7 @@ namespace Model
             clone.Status = this.Status;
             clone.OrderDate = this.OrderDate;
             
-            foreach (var prod in listProducts)
+            foreach (var prod in _listProducts)
             {
                 clone.AddProduct((ProductFromLot)prod.Clone());
             }

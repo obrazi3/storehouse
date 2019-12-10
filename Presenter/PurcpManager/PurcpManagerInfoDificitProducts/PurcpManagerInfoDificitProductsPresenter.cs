@@ -5,30 +5,30 @@ namespace Presenter
 {
     public class PurcpManagerInfoDificitProductsPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IPurcpManagerInfoDificitProductsView view;
-        private IDeliveryOrderServiceForPurcpManager model;
+        private readonly IKernel _kernel;
+        private IPurcpManagerInfoDificitProductsView _view;
+        private IDeliveryOrderServiceForPurcpManager _model;
 
-        public PurcpManagerInfoDificitProductsPresenter(IPurcpManagerInfoDificitProductsView _view,
-            IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
+        public PurcpManagerInfoDificitProductsPresenter(IPurcpManagerInfoDificitProductsView view,
+            IDeliveryOrderServiceForPurcpManager model, IKernel kernel)
         {
-            kernel = _kernel;
-            view = _view;
-            model = _model;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
 
-            view.Back += OnButtonBackClick;
+            this._view.Back += OnButtonBackClick;
         }
 
         public void Run()
         {
-            view.SetInformation(model.GetListDificitProducts(10));
-            view.Show();
+            _view.SetInformation(_model.GetListDificitProducts(10));
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
     }
 }

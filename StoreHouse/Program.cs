@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using Ninject;
 using Presenter;
-using Model;
 
 namespace View
 {

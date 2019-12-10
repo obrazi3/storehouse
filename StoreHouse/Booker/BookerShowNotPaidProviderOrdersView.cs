@@ -10,17 +10,18 @@ namespace View
     {
         public event Action Back;
 
-        private ApplicationContext context;
+        private ApplicationContext _context;
 
-        public BookerShowNotPaidProviderOrdersView(ApplicationContext _context)
+        public BookerShowNotPaidProviderOrdersView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         public void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
@@ -28,66 +29,66 @@ namespace View
         {
             foreach (var order in list)
             {
-                FlowLayoutPanel PanelCurrentOrder = new FlowLayoutPanel();
-                PanelCurrentOrder.AutoScroll = true;
-                PanelCurrentOrder.Name = "PanelCurrentOrder";
-                PanelCurrentOrder.Size = new System.Drawing.Size(916, 90);
+                FlowLayoutPanel panelCurrentOrder = new FlowLayoutPanel();
+                panelCurrentOrder.AutoScroll = true;
+                panelCurrentOrder.Name = "PanelCurrentOrder";
+                panelCurrentOrder.Size = new System.Drawing.Size(916, 90);
 
-                Label LabelOrderId = new Label();
-                LabelOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelOrderId.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelOrderId.Name = "LabelOrderId";
-                LabelOrderId.Size = new System.Drawing.Size(112, 22);
-                LabelOrderId.TabIndex = 0;
-                LabelOrderId.Text = "Номер заказа:";
-                PanelCurrentOrder.Controls.Add(LabelOrderId);
+                Label labelOrderId = new Label();
+                labelOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelOrderId.Margin = new Padding(3, 3, 0, 0);
+                labelOrderId.Name = "LabelOrderId";
+                labelOrderId.Size = new System.Drawing.Size(112, 22);
+                labelOrderId.TabIndex = 0;
+                labelOrderId.Text = "Номер заказа:";
+                panelCurrentOrder.Controls.Add(labelOrderId);
 
-                Label LabelCurrentOrderId = new Label();
-                LabelCurrentOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelCurrentOrderId.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelCurrentOrderId.Name = "LabelCurrentOrderId";
-                LabelCurrentOrderId.Size = new System.Drawing.Size(750, 22);
-                LabelCurrentOrderId.TabIndex = 1;
-                LabelCurrentOrderId.Text = order.OrderId.ToString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentOrderId);
+                Label labelCurrentOrderId = new Label();
+                labelCurrentOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelCurrentOrderId.Margin = new Padding(3, 3, 0, 0);
+                labelCurrentOrderId.Name = "LabelCurrentOrderId";
+                labelCurrentOrderId.Size = new System.Drawing.Size(750, 22);
+                labelCurrentOrderId.TabIndex = 1;
+                labelCurrentOrderId.Text = order.OrderId.ToString();
+                panelCurrentOrder.Controls.Add(labelCurrentOrderId);
 
-                Label LabelSum = new Label();
-                LabelSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelSum.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelSum.Name = "LabelSum";
-                LabelSum.Size = new System.Drawing.Size(112, 22);
-                LabelSum.TabIndex = 2;
-                LabelSum.Text = "Cумма:";
-                PanelCurrentOrder.Controls.Add(LabelSum);
+                Label labelSum = new Label();
+                labelSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelSum.Margin = new Padding(3, 3, 0, 0);
+                labelSum.Name = "LabelSum";
+                labelSum.Size = new System.Drawing.Size(112, 22);
+                labelSum.TabIndex = 2;
+                labelSum.Text = "Cумма:";
+                panelCurrentOrder.Controls.Add(labelSum);
 
-                Label LabelCurrentSum = new Label();
-                LabelCurrentSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelCurrentSum.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelCurrentSum.Name = "LabelCurrentSum";
-                LabelCurrentSum.Size = new System.Drawing.Size(750, 22);
-                LabelCurrentSum.TabIndex = 3;
-                LabelCurrentSum.Text = order.TotalSumOrder.ToString();
-                PanelCurrentOrder.Controls.Add(LabelCurrentSum);
+                Label labelCurrentSum = new Label();
+                labelCurrentSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelCurrentSum.Margin = new Padding(3, 3, 0, 0);
+                labelCurrentSum.Name = "LabelCurrentSum";
+                labelCurrentSum.Size = new System.Drawing.Size(750, 22);
+                labelCurrentSum.TabIndex = 3;
+                labelCurrentSum.Text = order.TotalSumOrder.ToString();
+                panelCurrentOrder.Controls.Add(labelCurrentSum);
 
-                Label LabelBankAccount = new Label();
-                LabelBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelBankAccount.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelBankAccount.Name = "LabelOrderDate";
-                LabelBankAccount.Size = new System.Drawing.Size(140, 22);
-                LabelBankAccount.TabIndex = 4;
-                LabelBankAccount.Text = "Банковский счёт:";
-                PanelCurrentOrder.Controls.Add(LabelBankAccount);
+                Label labelBankAccount = new Label();
+                labelBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelBankAccount.Margin = new Padding(3, 3, 0, 0);
+                labelBankAccount.Name = "LabelOrderDate";
+                labelBankAccount.Size = new System.Drawing.Size(140, 22);
+                labelBankAccount.TabIndex = 4;
+                labelBankAccount.Text = "Банковский счёт:";
+                panelCurrentOrder.Controls.Add(labelBankAccount);
 
-                Label LabelCurrentBankAccount = new Label();
-                LabelCurrentBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelCurrentBankAccount.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-                LabelCurrentBankAccount.Name = "LabelCurrentOrderDate";
-                LabelCurrentBankAccount.Size = new System.Drawing.Size(722, 22);
-                LabelCurrentBankAccount.TabIndex = 5;
-                LabelCurrentBankAccount.Text = order.Provider.BankAccountNumber;
-                PanelCurrentOrder.Controls.Add(LabelCurrentBankAccount);
+                Label labelCurrentBankAccount = new Label();
+                labelCurrentBankAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+                labelCurrentBankAccount.Margin = new Padding(3, 3, 0, 0);
+                labelCurrentBankAccount.Name = "LabelCurrentOrderDate";
+                labelCurrentBankAccount.Size = new System.Drawing.Size(722, 22);
+                labelCurrentBankAccount.TabIndex = 5;
+                labelCurrentBankAccount.Text = order.Provider.BankAccountNumber;
+                panelCurrentOrder.Controls.Add(labelCurrentBankAccount);
 
-                PanelNotPaidOrders.Controls.Add(PanelCurrentOrder);
+                PanelNotPaidOrders.Controls.Add(panelCurrentOrder);
             }
         }
 

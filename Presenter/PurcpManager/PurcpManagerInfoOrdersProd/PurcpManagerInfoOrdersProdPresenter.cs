@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
 using Model;
 using Ninject;
 
@@ -8,37 +6,37 @@ namespace Presenter
 {
     public class PurcpManagerInfoOrdersProdPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private readonly IPurcpManagerInfoOrderProdView view;
-        private readonly IDeliveryOrderServiceForPurcpManager model;
+        private readonly IKernel _kernel;
+        private readonly IPurcpManagerInfoOrderProdView _view;
+        private readonly IDeliveryOrderServiceForPurcpManager _model;
 
-        public PurcpManagerInfoOrdersProdPresenter(IPurcpManagerInfoOrderProdView _view,
-            IDeliveryOrderServiceForPurcpManager _model, IKernel _kernel)
+        public PurcpManagerInfoOrdersProdPresenter(IPurcpManagerInfoOrderProdView view,
+            IDeliveryOrderServiceForPurcpManager model, IKernel kernel)
         {
-            view = _view;
-            model = _model;
-            kernel = _kernel;
+            this._view = view;
+            this._model = model;
+            this._kernel = kernel;
             
             DisplayInfo();
 
-            view.Back += OnButtonCancelClick;
-            view.RemoveOrders += OnButtonRemoveOrdersClick;
+            this._view.Back += OnButtonCancelClick;
+            this._view.RemoveOrders += OnButtonRemoveOrdersClick;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonCancelClick()
         {
-            kernel.Get<PurcpManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<PurcpManagerPresenter>().Run();
+            _view.Close();
         }
 
         private void OnButtonRemoveOrdersClick()
         {
-            var dictCheckBoxes = view.GetDictionaryBoxes();
+            var dictCheckBoxes = _view.GetDictionaryBoxes();
             var markedOrders = new List<int>();
             bool isMarked = false;
 
@@ -55,7 +53,7 @@ namespace Presenter
             {
                 foreach (var order in markedOrders)
                 {
-                    model.RemoveNotPaidOrder(order);
+                    _model.RemoveNotPaidOrder(order);
                 }
                 DisplayInfo();
                 //kernel.Get<PurcpManagerPresenter>().Run();
@@ -66,7 +64,7 @@ namespace Presenter
 
         private void DisplayInfo()
         {
-            view.AddOrders(model.GetListNotPaidOrders());
+            _view.AddOrders(_model.GetListNotPaidOrders());
         }
 
        

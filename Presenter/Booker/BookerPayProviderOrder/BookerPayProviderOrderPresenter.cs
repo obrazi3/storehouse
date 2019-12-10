@@ -5,37 +5,37 @@ namespace Presenter
 {
     public class BookerPayProviderOrderPresenter : IPresenter
     {
-        private IBookerPayProviderOrderView view;
-        private IDeliveryOrderServiceForBooker model;
-        private readonly IKernel kernel;
+        private IBookerPayProviderOrderView _view;
+        private IDeliveryOrderServiceForBooker _model;
+        private readonly IKernel _kernel;
 
-        public BookerPayProviderOrderPresenter(IBookerPayProviderOrderView _view, IDeliveryOrderServiceForBooker _model,
-            IKernel _kernel)
+        public BookerPayProviderOrderPresenter(IBookerPayProviderOrderView view, IDeliveryOrderServiceForBooker model,
+            IKernel kernel)
         {
-            view = _view;
-            model = _model;
-            kernel = _kernel;
+            this._view = view;
+            this._model = model;
+            this._kernel = kernel;
 
-            view.PayOrder += OnButtonPayOrderClick;
-            view.Back += OnButtonBackClick;
+            this._view.PayOrder += OnButtonPayOrderClick;
+            this._view.Back += OnButtonBackClick;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<BookerPresenter>().Run();
-            view.Close();
+            _kernel.Get<BookerPresenter>().Run();
+            _view.Close();
         }
 
         private bool OnButtonPayOrderClick()
         {
-            int bankAccount = view.BankAccount;
-            int sum = view.PaymentSum;
-            return model.PayDeliveryFromProvider(bankAccount, sum);
+            int bankAccount = _view.BankAccount;
+            int sum = _view.PaymentSum;
+            return _model.PayDeliveryFromProvider(bankAccount, sum);
         }
     }
 }

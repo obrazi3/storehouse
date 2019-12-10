@@ -13,7 +13,6 @@ namespace Model
         public string ProduceCountry { get; internal set; }
         public string ProductGroup { get; internal set; }
         public string ProductCategory { get; internal set; }
-        public ProductCharacteristic() { }
 
         public object Clone()
         {

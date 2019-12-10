@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using Model;
 using Presenter;
@@ -11,11 +10,11 @@ namespace View
         public event Action Back;
         public event Action SearchProvider;
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
-        public PurcpManagerInfoProviderView(ApplicationContext _context)
+        public PurcpManagerInfoProviderView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
@@ -42,7 +41,7 @@ namespace View
                 {
                     Label label = new Label();
                     label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                    label.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+                    label.Margin = new Padding(3, 5, 3, 0);
                     label.Size = new System.Drawing.Size(600, 18);
                     label.Text = category;
 
@@ -60,7 +59,7 @@ namespace View
 
         public void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

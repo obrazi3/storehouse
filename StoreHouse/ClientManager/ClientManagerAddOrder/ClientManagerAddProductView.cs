@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Presenter;
@@ -17,19 +10,19 @@ namespace View
         public event Action Back;
         public event Action AddProduct;
 
-        private readonly ApplicationContext context;
-        private int maxNumberOfProducts;
+        private readonly ApplicationContext _context;
+        private int _maxNumberOfProducts;
 
-        public ClientManagerAddProductView(ApplicationContext _context)
+        public ClientManagerAddProductView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            maxNumberOfProducts = 20;
+            _maxNumberOfProducts = 20;
             NumericUpDownNumberProduct.Value = 0;
         }
 
-        public int MaximumProduct { get => maxNumberOfProducts; set => maxNumberOfProducts = value; }
+        public int MaximumProduct { get => _maxNumberOfProducts; set => _maxNumberOfProducts = value; }
 
         public void SetProductCharacteristic(ProductCharacteristic characteristic)
         {
@@ -52,7 +45,7 @@ namespace View
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 

@@ -2,7 +2,6 @@
 using Model;
 using Presenter;
 using System.Windows.Forms;
-using View;
 
 namespace View
 {
@@ -35,6 +34,7 @@ namespace View
             Bind<IServiceForFilingPersonInfoInClientOrder>().To<ServiceForFillingPersonInfoInClientOrder>();
             Bind<IServiceForControlProductMovementInClientOrder>().To<ServiceForControlProductMovementInClientOrder>().InSingletonScope();
             Bind<IServiceForAddingProductsInClientOrder>().To<ServiceForAddingProductsInClientOrder>();
+            Bind<IServiceForStorehouseProduct>().To<ServiceForStorehouseProduct>();
 
             Bind<IBankForClientOrderService>().To<Bank>().InSingletonScope();
             Bind<IBankForDeliveryOrderService>().To<Bank>().InSingletonScope();

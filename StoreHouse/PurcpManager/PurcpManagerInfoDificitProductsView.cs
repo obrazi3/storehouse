@@ -11,18 +11,18 @@ namespace View
     {
         public event Action Back;
 
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
-        public PurcpManagerInfoDificitProductsView(ApplicationContext _context)
+        public PurcpManagerInfoDificitProductsView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
 
         public void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
@@ -30,52 +30,52 @@ namespace View
         {
             foreach (var prod in list)
             {
-                Label LabelCurrentProductNumber = new Label();
-                LabelCurrentProductNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-                LabelCurrentProductNumber.Name = "LabelCurrentProductNumber";
-                LabelCurrentProductNumber.Size = new System.Drawing.Size(30, 20);
-                LabelCurrentProductNumber.Text = prod.TotalQuantityProduct.ToString();
+                Label labelCurrentProductNumber = new Label();
+                labelCurrentProductNumber.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+                labelCurrentProductNumber.Name = "LabelCurrentProductNumber";
+                labelCurrentProductNumber.Size = new Size(30, 20);
+                labelCurrentProductNumber.Text = prod.TotalQuantityProduct.ToString();
 
-                Label LabelCurrentProductPrice = new Label();
-                LabelCurrentProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-                LabelCurrentProductPrice.Name = "LabelCurrentProductPrice";
-                LabelCurrentProductPrice.Size = new System.Drawing.Size(100, 20);
-                LabelCurrentProductPrice.Text = prod.Price.ToString() + " рубля(-ей)";
+                Label labelCurrentProductPrice = new Label();
+                labelCurrentProductPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+                labelCurrentProductPrice.Name = "LabelCurrentProductPrice";
+                labelCurrentProductPrice.Size = new Size(100, 20);
+                labelCurrentProductPrice.Text = prod.Price.ToString() + " рубля(-ей)";
 
-                Label LabelCurrentProductName = new Label();
-                LabelCurrentProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-                LabelCurrentProductName.Name = "LabelCurrentProductName";
-                LabelCurrentProductName.Size = new System.Drawing.Size(400, 20);
-                LabelCurrentProductName.Text = prod.ProductGroup + " " + prod.ProductName;
+                Label labelCurrentProductName = new Label();
+                labelCurrentProductName.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+                labelCurrentProductName.Name = "LabelCurrentProductName";
+                labelCurrentProductName.Size = new Size(400, 20);
+                labelCurrentProductName.Text = prod.ProductGroup + " " + prod.ProductName;
 
-                Label LabelProductNumber = new Label();
-                LabelProductNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelProductNumber.Name = "LabelProductNumber";
-                LabelProductNumber.Size = new System.Drawing.Size(180, 20);
-                LabelProductNumber.Text = "Количество продукта:";
+                Label labelProductNumber = new Label();
+                labelProductNumber.Font = new Font("Microsoft Sans Serif", 11F);
+                labelProductNumber.Name = "LabelProductNumber";
+                labelProductNumber.Size = new Size(180, 20);
+                labelProductNumber.Text = "Количество продукта:";
 
-                Label LabelProductPrice = new Label();
-                LabelProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelProductPrice.Name = "LabelProductPrice";
-                LabelProductPrice.Size = new System.Drawing.Size(185, 20);
-                LabelProductPrice.Text = "Стоимость продукта:";
+                Label labelProductPrice = new Label();
+                labelProductPrice.Font = new Font("Microsoft Sans Serif", 11F);
+                labelProductPrice.Name = "LabelProductPrice";
+                labelProductPrice.Size = new Size(185, 20);
+                labelProductPrice.Text = "Стоимость продукта:";
 
-                Label LabelProductName = new Label();
-                LabelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-                LabelProductName.Name = "LabelProductName";
-                LabelProductName.Size = new System.Drawing.Size(180, 20);
-                LabelProductName.Text = "Название продукта:";
+                Label labelProductName = new Label();
+                labelProductName.Font = new Font("Microsoft Sans Serif", 11F);
+                labelProductName.Name = "LabelProductName";
+                labelProductName.Size = new Size(180, 20);
+                labelProductName.Text = "Название продукта:";
 
-                FlowLayoutPanel PanelCurrentDificitProduct = new FlowLayoutPanel();
-                PanelCurrentDificitProduct.Controls.Add(LabelProductName);
-                PanelCurrentDificitProduct.Controls.Add(LabelCurrentProductName);
-                PanelCurrentDificitProduct.Controls.Add(LabelProductNumber);
-                PanelCurrentDificitProduct.Controls.Add(LabelCurrentProductNumber);
-                PanelCurrentDificitProduct.Controls.Add(LabelProductPrice);
-                PanelCurrentDificitProduct.Controls.Add(LabelCurrentProductPrice);
-                PanelCurrentDificitProduct.Size = new System.Drawing.Size(700, 50);
+                FlowLayoutPanel panelCurrentDificitProduct = new FlowLayoutPanel();
+                panelCurrentDificitProduct.Controls.Add(labelProductName);
+                panelCurrentDificitProduct.Controls.Add(labelCurrentProductName);
+                panelCurrentDificitProduct.Controls.Add(labelProductNumber);
+                panelCurrentDificitProduct.Controls.Add(labelCurrentProductNumber);
+                panelCurrentDificitProduct.Controls.Add(labelProductPrice);
+                panelCurrentDificitProduct.Controls.Add(labelCurrentProductPrice);
+                panelCurrentDificitProduct.Size = new Size(700, 50);
 
-                PanelDificitProducts.Controls.Add(PanelCurrentDificitProduct);
+                PanelDificitProducts.Controls.Add(panelCurrentDificitProduct);
             }
         }
 

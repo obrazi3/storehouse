@@ -4,6 +4,6 @@
     {
         bool AddProduct(int productId, int numberOfProduct);
         bool RemoveProduct(int prodId);
-        void SetClientOrder(ClientOrder _order);
+        void SetClientOrder(ClientOrder order);
     }
 }

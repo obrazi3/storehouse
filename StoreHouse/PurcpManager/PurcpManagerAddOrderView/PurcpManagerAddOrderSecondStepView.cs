@@ -10,27 +10,27 @@ namespace View
         public event Action ConfirmOrder;
         public event Action AddProduct;
 
-        private readonly ApplicationContext context;
-        private int numberProducts;
+        private readonly ApplicationContext _context;
+        private int _numberProducts;
 
-        public PurcpManagerAddOrderSecondStepView(ApplicationContext _context)
+        public PurcpManagerAddOrderSecondStepView(ApplicationContext context)
         {
-            context = _context;
+            this._context = context;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            numberProducts = 0;
+            _numberProducts = 0;
         }
 
 
         public void SetNumberProductsInOrder(int number)
         {
-            numberProducts = number;
+            _numberProducts = number;
             LabelNumberOfProductInDelivery.Text += number.ToString();
         }
 
         public new void Show()
         {
-            context.MainForm = this;
+            _context.MainForm = this;
             base.Show();
         }
 
@@ -55,7 +55,7 @@ namespace View
 
         private bool CheckNumberProducts()
         {
-            if (numberProducts == 0)
+            if (_numberProducts == 0)
                 return false;
 
             return true;

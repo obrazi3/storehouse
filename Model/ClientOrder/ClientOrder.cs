@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Model
 {
@@ -8,27 +7,27 @@ namespace Model
     {
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        private List<ProductFromLot> listClientProduct;
+        private List<ProductFromLot> _listClientProduct;
         public ClientInformation ClientInfo { get; set; }
         public StatusClientOrder Status { get; set; }
         public int TotalCost { get; set; }
-        public bool isDelivery;
+        public bool IsDelivery;
 
         public ClientOrder()
         {
-            listClientProduct = new List<ProductFromLot>();
+            _listClientProduct = new List<ProductFromLot>();
             ClientInfo = new ClientInformation();
             OrderId = -1;
         }
 
         public void AddProduct(ProductFromLot prod)
         {
-            listClientProduct.Add(prod);
+            _listClientProduct.Add(prod);
         }
 
         public void RemoveProduct(ProductFromLot prod)
         {
-            listClientProduct.Remove(prod);
+            _listClientProduct.Remove(prod);
         }
 
         public bool Equals(ClientOrder order)
@@ -42,11 +41,11 @@ namespace Model
             ClientOrder order = new ClientOrder();
             order.OrderId = this.OrderId;
             order.OrderDate = this.OrderDate;
-            order.listClientProduct = CloneProductList();
+            order._listClientProduct = CloneProductList();
             order.ClientInfo = (ClientInformation)this.ClientInfo.Clone();
             order.Status = this.Status;
             order.TotalCost = this.TotalCost;
-            order.isDelivery = this.isDelivery;
+            order.IsDelivery = this.IsDelivery;
 
             return order;
         }
@@ -59,13 +58,13 @@ namespace Model
 
         internal List<ProductFromLot> GetListProducts()
         {
-            return listClientProduct;
+            return _listClientProduct;
         }
 
         private List<ProductFromLot> CloneProductList()
         {
             List<ProductFromLot> products = new List<ProductFromLot>();
-            foreach (var prod in listClientProduct)
+            foreach (var prod in _listClientProduct)
             {
                 products.Add((ProductFromLot)prod.Clone());
             }

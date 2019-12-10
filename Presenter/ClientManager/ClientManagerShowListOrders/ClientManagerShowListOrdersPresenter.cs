@@ -5,32 +5,32 @@ namespace Presenter
 {
     public class ClientManagerShowListOrdersPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IClientOrderServiceForBooker model;
-        private IClientManagerShowListOrdersView view;
+        private readonly IKernel _kernel;
+        private IClientOrderServiceForBooker _model;
+        private IClientManagerShowListOrdersView _view;
 
 
-        public ClientManagerShowListOrdersPresenter(IKernel _kernel, IClientOrderServiceForBooker _model,
-            IClientManagerShowListOrdersView _view)
+        public ClientManagerShowListOrdersPresenter(IKernel kernel, IClientOrderServiceForBooker model,
+            IClientManagerShowListOrdersView view)
         {
-            kernel = _kernel;
-            model = _model;
-            view = _view;
+            this._kernel = kernel;
+            this._model = model;
+            this._view = view;
 
-            view.Back += OnButtonBackClick;
-            view.SetInformation(model.GetListNotPaidClientOrders());
+            this._view.Back += OnButtonBackClick;
+            this._view.SetInformation(this._model.GetListNotPaidClientOrders());
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
 
         private void OnButtonBackClick()
         {
-            kernel.Get<ClientManagerPresenter>().Run();
-            view.Close();
+            _kernel.Get<ClientManagerPresenter>().Run();
+            _view.Close();
         }
     }
 }

@@ -5,45 +5,45 @@ namespace Presenter
 {
     public class ClientManagerEditOrderProductCatalogPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IClientOrderServiceForClientManager model;
-        private IClientManagerProductCatalogView view;
-        private ClientOrder order;
+        private readonly IKernel _kernel;
+        private IClientOrderServiceForClientManager _model;
+        private IClientManagerProductCatalogView _view;
+        private ClientOrder _order;
 
-        public ClientManagerEditOrderProductCatalogPresenter(IKernel _kernel, IClientManagerProductCatalogView _view,
-            IClientOrderServiceForClientManager _model, ClientOrder _order)
+        public ClientManagerEditOrderProductCatalogPresenter(IKernel kernel, IClientManagerProductCatalogView view,
+            IClientOrderServiceForClientManager model, ClientOrder order)
         {
-            kernel = _kernel;
-            view = _view;
-            model = _model;
-            order = _order;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
+            this._order = order;
             
-            view.Back += OnButtonAddProducts;
-            view.ProductChecked += CheckedProduct;
+            this._view.Back += OnButtonAddProducts;
+            this._view.ProductChecked += CheckedProduct;
 
-            view.SetCatalog(model.GetProductCatalog());
+            this._view.SetCatalog(this._model.GetProductCatalog());
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonAddProducts()
         {
-            new ClientManagerEditOrderSecondStepPresenter(kernel, kernel.Get<IClientManagerAddOrderSecondStepView>(),
-                kernel.Get<IClientOrderServiceForClientManager>(), kernel.Get<IServiceForControlProductMovementInClientOrder>(),
-                order).Run();
-            view.Close();
+            new ClientManagerEditOrderSecondStepPresenter(_kernel, _kernel.Get<IClientManagerAddOrderSecondStepView>(),
+                _kernel.Get<IClientOrderServiceForClientManager>(), _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
+                _order).Run();
+            _view.Close();
         }
 
         private void CheckedProduct()
         {
-            var characteristic = view.GetProductCharacteristic();
-            new ClientManagerAddProductPresenter(kernel, kernel.Get<IServiceForControlProductMovementInClientOrder>(),
-                kernel.Get<IClientManagerAddProductView>(), order,
+            var characteristic = _view.GetProductCharacteristic();
+            new ClientManagerAddProductPresenter(_kernel, _kernel.Get<IServiceForControlProductMovementInClientOrder>(),
+                _kernel.Get<IClientManagerAddProductView>(), _order,
                 characteristic).Run();
-            view.Close();
+            _view.Close();
         }
     }
 }

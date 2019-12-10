@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using Model;
+﻿using Model;
 using Ninject;
 //using View;
 
@@ -7,31 +6,31 @@ namespace Presenter
 {
     public class PurcpManagerAddProductToOrderPresenter : IPresenter
     {
-        private readonly IPurcpManagerAddProductInOrderView view;
-        private readonly IKernel kernel;
-        private ProductProviderOrder order;
+        private readonly IPurcpManagerAddProductInOrderView _view;
+        private readonly IKernel _kernel;
+        private ProductProviderOrder _order;
 
-        public PurcpManagerAddProductToOrderPresenter(IPurcpManagerAddProductInOrderView _view, IKernel _kernel,
-            ProductProviderOrder _order)
+        public PurcpManagerAddProductToOrderPresenter(IPurcpManagerAddProductInOrderView view, IKernel kernel,
+            ProductProviderOrder order)
         {
-            view = _view;
-            kernel = _kernel;
-            order = _order;
+            this._view = view;
+            this._kernel = kernel;
+            this._order = order;
 
-            view.AddProduct += OnButtonAddProductClick;
-            view.Back += OnButtonCancelClick;
+            this._view.AddProduct += OnButtonAddProductClick;
+            this._view.Back += OnButtonCancelClick;
         }
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonCancelClick()
         {
-            new PurcpManagerAddOrderFirstStepPresenter(kernel.Get<IPurcpManagerAddOrderFirstStepView>(), kernel, order)
+            new PurcpManagerAddOrderFirstStepPresenter(_kernel.Get<IPurcpManagerAddOrderFirstStepView>(), _kernel, _order)
                 .Run();
-            view.Close();
+            _view.Close();
             //TO-DO
             //Ninject
         }
@@ -39,21 +38,21 @@ namespace Presenter
         private void OnButtonAddProductClick()
         {
             ProductFromLot product = new ProductFromLot();
-            product.Lot.ProductionDate = view.ProductionDate;
-            product.Lot.QuantityProduct = view.QuantityProduct;
-            product.Measure = view.Measure;
-            product.Price = view.Price;
-            product.ExpirationDate = view.ExpirationDate;
-            product.ProduceCountry = view.ProduceCountry;
-            product.ProductCategory = view.ProductCategory;
-            product.ProductGroup = view.ProductGroup;
-            product.ProductName = view.ProductName;
+            product.Lot.ProductionDate = _view.ProductionDate;
+            product.Lot.QuantityProduct = _view.QuantityProduct;
+            product.Measure = _view.Measure;
+            product.Price = _view.Price;
+            product.ExpirationDate = _view.ExpirationDate;
+            product.ProduceCountry = _view.ProduceCountry;
+            product.ProductCategory = _view.ProductCategory;
+            product.ProductGroup = _view.ProductGroup;
+            product.ProductName = _view.ProductName;
 
-            order.AddProduct(product);
+            _order.AddProduct(product);
 
-            new PurcpManagerAddOrderSecondStepPresenter(kernel.Get<IPurcpManagerAddOrderSecondStepView>(),
-                kernel.Get<IDeliveryOrderServiceForPurcpManager>(), kernel, order).Run();
-            view.Close();
+            new PurcpManagerAddOrderSecondStepPresenter(_kernel.Get<IPurcpManagerAddOrderSecondStepView>(),
+                _kernel.Get<IDeliveryOrderServiceForPurcpManager>(), _kernel, _order).Run();
+            _view.Close();
             //TO-DO
             //Ninject
         }

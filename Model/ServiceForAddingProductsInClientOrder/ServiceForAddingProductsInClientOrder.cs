@@ -4,29 +4,29 @@ namespace Model
 {
     public class ServiceForAddingProductsInClientOrder : IServiceForAddingProductsInClientOrder
     {
-        private ClientOrder order;
-        private IStorehouseServiceForClientOrderService model;
+        private ClientOrder _order;
+        private IStorehouseServiceForClientOrderService _model;
 
-        public ServiceForAddingProductsInClientOrder(IStorehouseServiceForClientOrderService _model)
+        public ServiceForAddingProductsInClientOrder(IStorehouseServiceForClientOrderService model)
         {
-            model = _model;
+            this._model = model;
         }
 
         public bool AddProduct(int productId, int numberOfProduct)
         {
-            if (order != null)
+            if (_order != null)
             {
                 bool isContains = IsContainsProduct(productId);
-                var newProduct = model.GetProduct(productId, numberOfProduct);
+                var newProduct = _model.GetProduct(productId, numberOfProduct);
                 if (isContains)
                 {
                     var oldProduct = GetProductFromOrder(productId);
                     oldProduct.Lot.QuantityProduct += newProduct.Lot.QuantityProduct;
                 }
                 else
-                    order.AddProduct(newProduct);
+                    _order.AddProduct(newProduct);
 
-                order.TotalCost += (newProduct.Lot.QuantityProduct * newProduct.Price);
+                _order.TotalCost += (newProduct.Lot.QuantityProduct * newProduct.Price);
                 return true;
             }
 
@@ -35,16 +35,16 @@ namespace Model
 
         public bool RemoveProduct(int prodId)
         {
-            if (order != null)
+            if (_order != null)
             {
-                var listProducts = order.GetListProducts();
+                var listProducts = _order.GetListProducts();
                 foreach (var prod in listProducts)
                 {
                     if (prod.ProductId == prodId)
                     {
-                        model.AddProduct(prod);
-                        order.RemoveProduct(prod);
-                        order.TotalCost -= (prod.Price * prod.Lot.QuantityProduct);
+                        _model.AddProduct(prod);
+                        _order.RemoveProduct(prod);
+                        _order.TotalCost -= (prod.Price * prod.Lot.QuantityProduct);
                         return true;
                     }
                 }
@@ -53,17 +53,17 @@ namespace Model
             return false;
         }
 
-        public void SetClientOrder(ClientOrder _order)
+        public void SetClientOrder(ClientOrder order)
         {
-            if (_order != null)
-                order = _order;
+            if (order != null)
+                this._order = order;
             else
                 throw new NullReferenceException();
         }
 
         private bool IsContainsProduct(int productId)
         {
-            var listProducts = order.GetListProducts();
+            var listProducts = _order.GetListProducts();
             foreach (var prod in listProducts)
             {
                 if (prod.ProductId == productId)
@@ -75,7 +75,7 @@ namespace Model
 
         private ProductFromLot GetProductFromOrder(int productId)
         {
-            var listProducts = order.GetListProducts();
+            var listProducts = _order.GetListProducts();
             foreach (var prod in listProducts)
             {
                 if (prod.ProductId == productId)

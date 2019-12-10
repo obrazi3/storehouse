@@ -1,6 +1,4 @@
-﻿using System;
-using Model;
-namespace Test
+﻿namespace Test
 {
     class TestStorehouseRepository
     {

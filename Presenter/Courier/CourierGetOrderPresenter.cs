@@ -5,52 +5,52 @@ namespace Presenter
 {
     public class CourierGetOrderPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private ICourierGetOrderView view;
-        private IClientOrderServiceForCourier model;
-        private int orderId;
+        private readonly IKernel _kernel;
+        private ICourierGetOrderView _view;
+        private IClientOrderServiceForCourier _model;
+        private int _orderId;
 
-        public CourierGetOrderPresenter(IKernel _kernel, ICourierGetOrderView _view,
-            IClientOrderServiceForCourier _model)
+        public CourierGetOrderPresenter(IKernel kernel, ICourierGetOrderView view,
+            IClientOrderServiceForCourier model)
         {
-            this.kernel = _kernel;
-            this.view = _view;
-            this.model = _model;
+            this._kernel = kernel;
+            this._view = view;
+            this._model = model;
 
-            this.view.ConfirmDelivery += ConfirmDelivery;
-            this.view.Back += CancelOrder;
-            var order = model.GetForDeliveryClientOrder();
+            this._view.ConfirmDelivery += ConfirmDelivery;
+            this._view.Back += CancelOrder;
+            var order = this._model.GetForDeliveryClientOrder();
             if (order != null)
-                orderId = order.OrderId;
+                _orderId = order.OrderId;
             else
-                orderId = -1;
-            this.view.SetOrderInfo(order);
+                _orderId = -1;
+            this._view.SetOrderInfo(order);
         }
 
         public void Run()
         {
-            if (orderId != -1)
-                view.Show();
+            if (_orderId != -1)
+                _view.Show();
             else
                 CancelOrder();
         }
 
         private void CancelOrder()
         {
-            if (orderId != -1)
-                model.CancelDelivery(orderId);
-            kernel.Get<CourierPresenter>().Run();
-            view.Close();
+            if (_orderId != -1)
+                _model.CancelDelivery(_orderId);
+            _kernel.Get<CourierPresenter>().Run();
+            _view.Close();
         }
 
         private void ConfirmDelivery()
         {
-            if (orderId != -1)
+            if (_orderId != -1)
             {
-                model.ConfirmDelivery(orderId);
-                view.ShowMessageSuccessConfirm();
-                kernel.Get<CourierPresenter>().Run();
-                view.Close();
+                _model.ConfirmDelivery(_orderId);
+                _view.ShowMessageSuccessConfirm();
+                _kernel.Get<CourierPresenter>().Run();
+                _view.Close();
             }
         }
     }

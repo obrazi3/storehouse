@@ -56,7 +56,7 @@ namespace View
                 LabelCurrentName.Text = clientInfo.Name;
                 LabelCurrentPatronymic.Text = clientInfo.Patronymic;
                 LabelCurrentPhoneNumber.Text = clientInfo.PhoneNumber;
-                if (order.isDelivery)
+                if (order.IsDelivery)
                 {
                     this.PanelOfProducts.Size = new System.Drawing.Size(862, 289);
                     LabelCurrentWayToReceiveOrder.Text = "Доставка";
@@ -84,83 +84,83 @@ namespace View
                 var products = order.GetCloneProductList();
                 foreach (var product in products)
                 {
-                    FlowLayoutPanel PanelCurrentProduct = new FlowLayoutPanel();
-                    PanelCurrentProduct.Name = "PanelCurrentProduct";
-                    PanelCurrentProduct.Size = new System.Drawing.Size(732, 127);
+                    FlowLayoutPanel panelCurrentProduct = new FlowLayoutPanel();
+                    panelCurrentProduct.Name = "PanelCurrentProduct";
+                    panelCurrentProduct.Size = new System.Drawing.Size(732, 127);
 
-                    Label LabelProductGroup = new Label();
-                    LabelProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelProductGroup.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
-                    LabelProductGroup.Name = "LabelProductGroup";
-                    LabelProductGroup.Size = new System.Drawing.Size(339, 24);
-                    LabelProductGroup.Text = "Продуктовая группа";
-                    PanelCurrentProduct.Controls.Add(LabelProductGroup);
+                    Label labelProductGroup = new Label();
+                    labelProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                    labelProductGroup.Margin = new Padding(4, 10, 4, 0);
+                    labelProductGroup.Name = "LabelProductGroup";
+                    labelProductGroup.Size = new System.Drawing.Size(339, 24);
+                    labelProductGroup.Text = "Продуктовая группа";
+                    panelCurrentProduct.Controls.Add(labelProductGroup);
 
-                    Label LabelProductName = new Label();
-                    LabelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelProductName.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
-                    LabelProductName.Name = "LabelProductName";
-                    LabelProductName.Size = new System.Drawing.Size(373, 24);
-                    LabelProductName.Text = "Название продукта";
-                    PanelCurrentProduct.Controls.Add(LabelProductName);
+                    Label labelProductName = new Label();
+                    labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                    labelProductName.Margin = new Padding(4, 10, 4, 0);
+                    labelProductName.Name = "LabelProductName";
+                    labelProductName.Size = new System.Drawing.Size(373, 24);
+                    labelProductName.Text = "Название продукта";
+                    panelCurrentProduct.Controls.Add(labelProductName);
 
-                    Label LabelCurrentProductGroup = new Label();
-                    LabelCurrentProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentProductGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-                    LabelCurrentProductGroup.Name = "LabelCurrentProductGroup";
-                    LabelCurrentProductGroup.Size = new System.Drawing.Size(339, 24);
-                    LabelCurrentProductGroup.Text = product.ProductGroup;
-                    PanelCurrentProduct.Controls.Add(LabelCurrentProductGroup);
+                    Label labelCurrentProductGroup = new Label();
+                    labelCurrentProductGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                    labelCurrentProductGroup.Margin = new Padding(4, 0, 4, 0);
+                    labelCurrentProductGroup.Name = "LabelCurrentProductGroup";
+                    labelCurrentProductGroup.Size = new System.Drawing.Size(339, 24);
+                    labelCurrentProductGroup.Text = product.ProductGroup;
+                    panelCurrentProduct.Controls.Add(labelCurrentProductGroup);
 
-                    Label LabelCurrentProductName = new Label();
-                    LabelCurrentProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-                    LabelCurrentProductName.Name = "LabelCurrentProductName";
-                    LabelCurrentProductName.Size = new System.Drawing.Size(372, 24);
-                    LabelCurrentProductName.Text = product.ProductName;
-                    PanelCurrentProduct.Controls.Add(LabelCurrentProductName);
+                    Label labelCurrentProductName = new Label();
+                    labelCurrentProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                    labelCurrentProductName.Margin = new Padding(4, 0, 4, 0);
+                    labelCurrentProductName.Name = "LabelCurrentProductName";
+                    labelCurrentProductName.Size = new System.Drawing.Size(372, 24);
+                    labelCurrentProductName.Text = product.ProductName;
+                    panelCurrentProduct.Controls.Add(labelCurrentProductName);
 
-                    Label LabelProductPrice = new Label();
-                    LabelProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelProductPrice.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
-                    LabelProductPrice.Name = "LabelProductPrice";
-                    LabelProductPrice.Size = new System.Drawing.Size(339, 24);
-                    LabelProductPrice.Text = "Стоимость единицы продукта";
-                    PanelCurrentProduct.Controls.Add(LabelProductPrice);
+                    Label labelProductPrice = new Label();
+                    labelProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                    labelProductPrice.Margin = new Padding(4, 10, 4, 0);
+                    labelProductPrice.Name = "LabelProductPrice";
+                    labelProductPrice.Size = new System.Drawing.Size(339, 24);
+                    labelProductPrice.Text = "Стоимость единицы продукта";
+                    panelCurrentProduct.Controls.Add(labelProductPrice);
 
-                    Label LabelNumberOfProductInOrder = new Label();
-                    LabelNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelNumberOfProductInOrder.Margin = new System.Windows.Forms.Padding(4, 10, 4, 0);
-                    LabelNumberOfProductInOrder.Name = "LabelNumberOfProductInOrder";
-                    LabelNumberOfProductInOrder.Size = new System.Drawing.Size(372, 24);
-                    LabelNumberOfProductInOrder.Text = "Количество продукта в заказе";
-                    PanelCurrentProduct.Controls.Add(LabelNumberOfProductInOrder);
+                    Label labelNumberOfProductInOrder = new Label();
+                    labelNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+                    labelNumberOfProductInOrder.Margin = new Padding(4, 10, 4, 0);
+                    labelNumberOfProductInOrder.Name = "LabelNumberOfProductInOrder";
+                    labelNumberOfProductInOrder.Size = new System.Drawing.Size(372, 24);
+                    labelNumberOfProductInOrder.Text = "Количество продукта в заказе";
+                    panelCurrentProduct.Controls.Add(labelNumberOfProductInOrder);
 
-                    Label LabelCurrentProductPrice = new Label();
-                    LabelCurrentProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentProductPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-                    LabelCurrentProductPrice.Name = "LabelCurrentProductPrice";
-                    LabelCurrentProductPrice.Size = new System.Drawing.Size(339, 24);
-                    LabelCurrentProductPrice.Text = product.Price.ToString() + " рубля(-ей)";
-                    PanelCurrentProduct.Controls.Add(LabelCurrentProductPrice);
+                    Label labelCurrentProductPrice = new Label();
+                    labelCurrentProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                    labelCurrentProductPrice.Margin = new Padding(4, 0, 4, 0);
+                    labelCurrentProductPrice.Name = "LabelCurrentProductPrice";
+                    labelCurrentProductPrice.Size = new System.Drawing.Size(339, 24);
+                    labelCurrentProductPrice.Text = product.Price.ToString() + " рубля(-ей)";
+                    panelCurrentProduct.Controls.Add(labelCurrentProductPrice);
 
-                    Label LabelCurrentNumberOfProductInOrder = new Label();
-                    LabelCurrentNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
-                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                    LabelCurrentNumberOfProductInOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-                    LabelCurrentNumberOfProductInOrder.Name = "LabelCurrentNumberOfProductInOrder";
-                    LabelCurrentNumberOfProductInOrder.Size = new System.Drawing.Size(339, 24);
-                    LabelCurrentNumberOfProductInOrder.Text = product.Lot.QuantityProduct.ToString();
-                    PanelCurrentProduct.Controls.Add(LabelCurrentNumberOfProductInOrder);
+                    Label labelCurrentNumberOfProductInOrder = new Label();
+                    labelCurrentNumberOfProductInOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F,
+                        System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+                    labelCurrentNumberOfProductInOrder.Margin = new Padding(4, 0, 4, 0);
+                    labelCurrentNumberOfProductInOrder.Name = "LabelCurrentNumberOfProductInOrder";
+                    labelCurrentNumberOfProductInOrder.Size = new System.Drawing.Size(339, 24);
+                    labelCurrentNumberOfProductInOrder.Text = product.Lot.QuantityProduct.ToString();
+                    panelCurrentProduct.Controls.Add(labelCurrentNumberOfProductInOrder);
 
-                    PanelOfProducts.Controls.Add(PanelCurrentProduct);
+                    PanelOfProducts.Controls.Add(panelCurrentProduct);
                 }
 
                 GroupBoxClientInfo.Visible = true;

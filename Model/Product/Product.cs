@@ -14,7 +14,6 @@ namespace Model
         public string ProduceCountry { set; get; }
         public int ProductId { set; get; }
 
-        public Product() { }
 
         public bool Equals(Product prod)
         {

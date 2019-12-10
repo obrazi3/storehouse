@@ -1,30 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Ninject;
 
 namespace Model
 {
     public class StorehouseRepository : IStorehouseRepository
     {
-        private SortedDictionary<string, SortedDictionary<string, List<StorehouseProduct>>> productStorage;
-        private SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> productCatalog;
+        private readonly IKernel _kernel;
+        private SortedDictionary<string, SortedDictionary<string, List<StorehouseProduct>>> _productStorage;
+        private SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> _productCatalog;
 
-        public StorehouseRepository()
+        public StorehouseRepository(IKernel kernel)
         {
-            productStorage = new SortedDictionary<string, SortedDictionary<string, List<StorehouseProduct>>>();
-            productCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
-
+            this._kernel = kernel;
+            _productStorage = new SortedDictionary<string, SortedDictionary<string, List<StorehouseProduct>>>();
+            _productCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
         }
 
         public void AddProductFromLot(ProductFromLot prod)
         {
-            var dictCategory = productStorage[prod.ProductCategory];
+            var dictCategory = _productStorage[prod.ProductCategory];
             var listProducts = dictCategory[prod.ProductGroup];
             foreach (StorehouseProduct pr in listProducts)
             {
                 if (pr.ProductName.Equals(prod.ProductName) && pr.Price.Equals(prod.Price) &&
                     pr.Measure.Equals(prod.Measure))
                 {
-                    pr.AddLot(prod.Lot);
+                    IServiceForStorehouseProduct service = _kernel.Get<IServiceForStorehouseProduct>();
+                    service.SetStorehouseProduct(pr);
+                    service.AddLot(prod.Lot);
+                    service.UpdateProductCharacteristic();
                     break;
                 }
             }
@@ -41,7 +45,7 @@ namespace Model
                 listProducts.Add(prod);
                 dictGroups = new SortedDictionary<string, List<StorehouseProduct>>();
                 dictGroups.Add(prod.ProductGroup, listProducts);
-                productStorage.Add(prod.ProductCategory, dictGroups);
+                _productStorage.Add(prod.ProductCategory, dictGroups);
             }
             else
             {
@@ -67,9 +71,9 @@ namespace Model
         //и добавить его в хранилище.
         public bool ContainsProduct(ProductFromLot prod)
         {
-            if (productStorage.ContainsKey(prod.ProductCategory))
+            if (_productStorage.ContainsKey(prod.ProductCategory))
             {
-                SortedDictionary<string, List<StorehouseProduct>> dictCategory = productStorage[prod.ProductCategory];
+                SortedDictionary<string, List<StorehouseProduct>> dictCategory = _productStorage[prod.ProductCategory];
                 if (dictCategory.ContainsKey(prod.ProductGroup))
                 {
                     List<StorehouseProduct> listProducts = dictCategory[prod.ProductGroup];
@@ -94,16 +98,17 @@ namespace Model
         public ProductFromLot GetProduct(int productId, int numberOfProduct)
         {
             StorehouseProduct baseProd = FindStorehouseProductById(productId);
-            ProductFromLot prod = baseProd.GetProductFromLot(numberOfProduct);
+            IServiceForStorehouseProduct service = _kernel.Get<IServiceForStorehouseProduct>();
+            service.SetStorehouseProduct(baseProd);
+            ProductFromLot prod = service.GetProductFromLot(numberOfProduct);
+            service.UpdateProductCharacteristic();
             return prod;
         }
 
         public SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>> GetProductCatalog()
         {
-            //Console.WriteLine("Оригинал: " + productCatalog);
             var cloneCatalog = new SortedDictionary<string, SortedDictionary<string, List<ProductCharacteristic>>>();
-            // Console.WriteLine("Копия: " + cloneCatalog);
-            foreach (var categoryPair in productCatalog)
+            foreach (var categoryPair in _productCatalog)
             {
                 var cloneCategory = categoryPair.Key;
                 cloneCatalog.Add(cloneCategory, new SortedDictionary<string, List<ProductCharacteristic>>());
@@ -129,7 +134,7 @@ namespace Model
         public List<StorehouseProduct> GetListAllProducts()
         {
             List<StorehouseProduct> clone = new List<StorehouseProduct>();
-            foreach (var categoryPair in productStorage)
+            foreach (var categoryPair in _productStorage)
             {
                 foreach (var groupPair in categoryPair.Value)
                 {
@@ -145,8 +150,8 @@ namespace Model
 
         private SortedDictionary<string, List<StorehouseProduct>> GetGroupsFromCategory(string category)
         {
-            if (productStorage.ContainsKey(category))
-                return productStorage[category];
+            if (_productStorage.ContainsKey(category))
+                return _productStorage[category];
             return null;
         }
 
@@ -160,9 +165,9 @@ namespace Model
 
         private StorehouseProduct FindStorehouseProductById(int productId)
         {
-            foreach (string keyCategory in productStorage.Keys)
+            foreach (string keyCategory in _productStorage.Keys)
             {
-                var prodCategory = productStorage[keyCategory];
+                var prodCategory = _productStorage[keyCategory];
                 foreach (string keyGroup in prodCategory.Keys)
                 {
                     var prodGroup = prodCategory[keyGroup];
@@ -179,8 +184,8 @@ namespace Model
 
         private SortedDictionary<string, List<ProductCharacteristic>> GetCatalogGroupsFromCategory(string category)
         {
-            if (productCatalog.ContainsKey(category))
-                return productCatalog[category];
+            if (_productCatalog.ContainsKey(category))
+                return _productCatalog[category];
             return null;
         }
 
@@ -203,7 +208,7 @@ namespace Model
                 listCharacteristics.Add(prod.GetProductCharacteristic());
                 dictGroups = new SortedDictionary<string, List<ProductCharacteristic>>();
                 dictGroups.Add(prod.ProductGroup, listCharacteristics);
-                productCatalog.Add(prod.ProductCategory, dictGroups);
+                _productCatalog.Add(prod.ProductCategory, dictGroups);
             }
             else
             {
@@ -221,7 +226,5 @@ namespace Model
                 }
             }
         }
-
-       
     }
 }

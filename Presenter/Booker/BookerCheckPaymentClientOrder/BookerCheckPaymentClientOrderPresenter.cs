@@ -6,46 +6,46 @@ namespace Presenter
 {
     public class BookerCheckPaymentClientOrderPresenter : IPresenter
     {
-        private readonly IKernel kernel;
-        private IBankForClientOrderService bank;
-        private IBookerCheckPaymentClientOrderView view;
-        private IClientOrderServiceForBooker model;
+        private readonly IKernel _kernel;
+        private IBankForClientOrderService _bank;
+        private IBookerCheckPaymentClientOrderView _view;
+        private IClientOrderServiceForBooker _model;
 
-        public BookerCheckPaymentClientOrderPresenter(IKernel _kernel, IBankForClientOrderService _bank,
-            IBookerCheckPaymentClientOrderView _view, IClientOrderServiceForBooker _model)
+        public BookerCheckPaymentClientOrderPresenter(IKernel kernel, IBankForClientOrderService bank,
+            IBookerCheckPaymentClientOrderView view, IClientOrderServiceForBooker model)
         {
-            kernel = _kernel;
-            bank = _bank;
-            view = _view;
-            model = _model;
+            this._kernel = kernel;
+            this._bank = bank;
+            this._view = view;
+            this._model = model;
 
-            view.Back += OnButtonBackClick;
-            view.CheckPayment += OnButtonCheckPayment;
+            this._view.Back += OnButtonBackClick;
+            this._view.CheckPayment += OnButtonCheckPayment;
         }
 
 
         public void Run()
         {
-            view.Show();
+            _view.Show();
         }
 
         private void OnButtonBackClick()
         {
-            kernel.Get<BookerPresenter>().Run();
-            view.Close();
+            _kernel.Get<BookerPresenter>().Run();
+            _view.Close();
         }
 
         private void OnButtonCheckPayment()
         {
-            if (model.GetNotPaidClientOrder(view.GetClientOrderNumber()) != null)
+            if (_model.GetNotPaidClientOrder(_view.GetClientOrderNumber()) != null)
             {
-                int cost = view.GetClientOrderCost();
-                if (cost == model.GetNotPaidClientOrder(view.GetClientOrderNumber()).TotalCost)
+                int cost = _view.GetClientOrderCost();
+                if (cost == _model.GetNotPaidClientOrder(_view.GetClientOrderNumber()).TotalCost)
                 {
-                    bool isPaid = bank.CheckPaymentByClient(view.GetClientOrderNumber());
+                    bool isPaid = _bank.CheckPaymentByClient(_view.GetClientOrderNumber());
                     if (isPaid)
                     {
-                        model.ConfirmPaymentNotPaidClientOrder(view.GetClientOrderNumber());
+                        _model.ConfirmPaymentNotPaidClientOrder(_view.GetClientOrderNumber());
                         MessageBox.Show("Клиент совершил оплату заказа. Статус заказа изменён автоматически.",
                             "Оплата произведена");
                     }
