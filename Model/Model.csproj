@@ -96,10 +96,10 @@
     <Compile Include="ProductProvider\ProductProvider.cs" />
     <Compile Include="ServiceForAddingProductsInClientOrder\IServiceForAddingProductsInClientOrder.cs" />
     <Compile Include="ServiceForAddingProductsInClientOrder\ServiceForAddingProductsInClientOrder.cs" />
-    <Compile Include="ServiceForEditingClientOrder\IServiceForControlProductMovementInClientOrder.cs" />
-    <Compile Include="ServiceForEditingClientOrder\ServiceForControlProductMovementInClientOrder.cs" />
-    <Compile Include="ServiceForFillingClientOrder\IServiceForFilingPersonInfoInClientOrder.cs" />
-    <Compile Include="ServiceForFillingClientOrder\ServiceForFillingPersonInfoInClientOrder.cs" />
+    <Compile Include="ServiceForControlProductMovementInClientOrder\IServiceForControlProductMovementInClientOrder.cs" />
+    <Compile Include="ServiceForControlProductMovementInClientOrder\ServiceForControlProductMovementInClientOrder.cs" />
+    <Compile Include="ServiceForFillingPersonInfoInClientOrder\IServiceForFilingPersonInfoInClientOrder.cs" />
+    <Compile Include="ServiceForFillingPersonInfoInClientOrder\ServiceForFillingPersonInfoInClientOrder.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseRepository\StorehouseRepository.cs" />
     <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForClientOrderService.cs" />

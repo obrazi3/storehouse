@@ -29,7 +29,7 @@ namespace Presenter
             _view.RemoveProducts += RemoveProducts;
             _view.ConfirmOrder += ConfirmOrder;
 
-            _view.SetProductBasket(_order.GetProductList());
+            _view.SetProductBasket(_order.GetCloneProductList());
             _view.SetOrderPrice(order.TotalCost);
         }
 
@@ -61,7 +61,7 @@ namespace Presenter
                 _productService.RemoveProduct(_order.OrderId, prod);
             }
 
-            _view.SetProductBasket(_order.GetProductList());
+            _view.SetProductBasket(_order.GetCloneProductList());
             _view.SetOrderPrice(_order.TotalCost);
         }
 

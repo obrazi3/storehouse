@@ -21,7 +21,7 @@ namespace Presenter
             order = _order;
             editor = _editor;
 
-            view.SetProductBasket(order.GetProductList());
+            view.SetProductBasket(order.GetCloneProductList());
 
             view.Back += Back;
             view.RemoveProducts += RemoveProducts;
@@ -59,7 +59,7 @@ namespace Presenter
                 editor.RemoveProduct(order.OrderId, prod);
             }
 
-            view.SetProductBasket(order.GetProductList());
+            view.SetProductBasket(order.GetCloneProductList());
             view.SetOrderPrice(order.TotalCost);
         }
 

@@ -51,7 +51,7 @@ namespace Model
             return order;
         }
 
-        public List<ProductFromLot> GetProductList()
+        public List<ProductFromLot> GetCloneProductList()
         {
             return CloneProductList();
         }

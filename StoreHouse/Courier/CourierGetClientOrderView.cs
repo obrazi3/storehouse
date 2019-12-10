@@ -48,7 +48,7 @@ namespace View
 
                 LabelCurrentOrderCost.Text = order.TotalCost.ToString() + " рубля(-ей)";
 
-                var products = order.GetProductList();
+                var products = order.GetCloneProductList();
                 foreach (var product in products)
                 {
                     FlowLayoutPanel PanelCurrentProduct = new FlowLayoutPanel();

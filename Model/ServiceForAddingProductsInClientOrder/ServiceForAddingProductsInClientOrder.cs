@@ -16,9 +16,17 @@ namespace Model
         {
             if (order != null)
             {
-                var prod = model.GetProduct(productId, numberOfProduct);
-                order.AddProduct(prod);
-                order.TotalCost += (prod.Lot.QuantityProduct * prod.Price);
+                bool isContains = IsContainsProduct(productId);
+                var newProduct = model.GetProduct(productId, numberOfProduct);
+                if (isContains)
+                {
+                    var oldProduct = GetProductFromOrder(productId);
+                    oldProduct.Lot.QuantityProduct += newProduct.Lot.QuantityProduct;
+                }
+                else
+                    order.AddProduct(newProduct);
+
+                order.TotalCost += (newProduct.Lot.QuantityProduct * newProduct.Price);
                 return true;
             }
 
@@ -51,6 +59,30 @@ namespace Model
                 order = _order;
             else
                 throw new NullReferenceException();
+        }
+
+        private bool IsContainsProduct(int productId)
+        {
+            var listProducts = order.GetListProducts();
+            foreach (var prod in listProducts)
+            {
+                if (prod.ProductId == productId)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private ProductFromLot GetProductFromOrder(int productId)
+        {
+            var listProducts = order.GetListProducts();
+            foreach (var prod in listProducts)
+            {
+                if (prod.ProductId == productId)
+                    return prod;
+            }
+
+            return null;
         }
     }
 }
