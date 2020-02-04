@@ -31,8 +31,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">
+      <HintPath>..\packages\CsvHelper.12.2.1\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,8 +54,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bank\Bank.cs" />
+    <Compile Include="Bank\IBankForClientOrderService.cs" />
+    <Compile Include="Bank\IBankForDeliveryOrderService.cs" />
     <Compile Include="BriefInvoiceInfo.cs" />
-    <Compile Include="ClientOrder.cs" />
+    <Compile Include="ClientOrderRepository\ClientOrderRepository.cs" />
+    <Compile Include="ClientOrderRepository\IClientOrderRepository.cs" />
+    <Compile Include="ClientOrderService\ClientOrderService.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForBooker.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForClientManager.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForCourier.cs" />
+    <Compile Include="ClientOrderService\IClientOrderServiceForStorekeeper.cs" />
+    <Compile Include="ClientOrder\ClientInformation.cs" />
+    <Compile Include="ClientOrder\ClientOrder.cs" />
+    <Compile Include="ClientOrder\HomeAddress.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\DeliveryOrderService.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\IDeliveryOrderServiceForStorekeeper.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\IDeliveryOrderServiceForPurcpManager.cs" />
+    <Compile Include="DeliveryOrderFunctionality\DeliveryOrderService\IDeliveryOrderServiceForBooker.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\IProductProviderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProductProviderRepository\ProductProviderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProviderOrderRepository\IProviderOrderRepository.cs" />
+    <Compile Include="DeliveryOrderFunctionality\ProviderOrderRepository\ProviderOrderRepository.cs" />
     <Compile Include="IBriefInvoiceInfo.cs" />
     <Compile Include="IClientOrder.cs" />
     <Compile Include="IModel.cs" />
@@ -53,10 +85,31 @@
     <Compile Include="Measure\MeasureLiter.cs" />
     <Compile Include="Measure\MeasurePiece.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="ProductProviderOrder\ComparerProductProviderOrderForRepository.cs" />
+    <Compile Include="ProductProviderOrder\ProductProviderOrder.cs" />
+    <Compile Include="ProductProviderOrder\ComparerProductProviderOrderForSelectionByStatus.cs" />
     <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductCharacteristic.cs" />
     <Compile Include="Product\ProductFromLot.cs" />
     <Compile Include="Product\StorehouseProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProductProvider\ProductProvider.cs" />
+    <Compile Include="ServiceForAddingProductsInClientOrder\IServiceForAddingProductsInClientOrder.cs" />
+    <Compile Include="ServiceForAddingProductsInClientOrder\ServiceForAddingProductsInClientOrder.cs" />
+    <Compile Include="ServiceForControlProductMovementInClientOrder\IServiceForControlProductMovementInClientOrder.cs" />
+    <Compile Include="ServiceForControlProductMovementInClientOrder\ServiceForControlProductMovementInClientOrder.cs" />
+    <Compile Include="ServiceForFillingPersonInfoInClientOrder\IServiceForFilingPersonInfoInClientOrder.cs" />
+    <Compile Include="ServiceForFillingPersonInfoInClientOrder\ServiceForFillingPersonInfoInClientOrder.cs" />
+    <Compile Include="ServiceForStorehouseProduct\IServiceForStorehouseProduct.cs" />
+    <Compile Include="ServiceForStorehouseProduct\ServiceForStorehouseProduct.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseRepository\IStorehouseRepository.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseRepository\StorehouseRepository.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForClientOrderService.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\IStorehouseServiceForDeliveryOrderService.cs" />
+    <Compile Include="StorehouseFunctionality\StorehouseService\StorehouseService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

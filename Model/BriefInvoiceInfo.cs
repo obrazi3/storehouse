@@ -2,47 +2,47 @@
 {
     class BriefInvoiceInfo : IBriefInvoiceInfo
     {
-        private string Name;
-        private string Number;
-        private string Cost;
+        private string _name;
+        private string _number;
+        private string _cost;
 
         public BriefInvoiceInfo() : this(null, null, null) { }
         public BriefInvoiceInfo(string name, string number, string cost)
         {
-            setName(name);
-            setNumber(number);
-            setCost(cost);
+            SetName(name);
+            SetNumber(number);
+            SetCost(cost);
         }
 
-        public string getCost()
+        public string GetCost()
         {
-            return Cost;
+            return _cost;
         }
 
-        public string getName()
+        public string GetName()
         {
-            return Name;
+            return _name;
         }
 
-        public string getNumber()
+        public string GetNumber()
         {
-            return Number;
+            return _number;
         }
 
-        public void setCost(string cost)
+        public void SetCost(string cost)
         {
 
-            Cost = string.Copy(cost);
+            _cost = string.Copy(cost);
         }
 
-        public void setName(string name)
+        public void SetName(string name)
         {
-            Name = string.Copy(name);
+            _name = string.Copy(name);
         }
 
-        public void setNumber(string number)
+        public void SetNumber(string number)
         {
-            Number = string.Copy(number);
+            _number = string.Copy(number);
         }
     }
 }

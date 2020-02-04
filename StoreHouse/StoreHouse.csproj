@@ -49,61 +49,146 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookerView.cs">
+    <Compile Include="Booker\BookerCheckPaymentClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookerView.Designer.cs">
+    <Compile Include="Booker\BookerCheckPaymentClientOrderView.Designer.cs">
+      <DependentUpon>BookerCheckPaymentClientOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booker\BookerPayProviderOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booker\BookerPayProviderOrderView.Designer.cs">
+      <DependentUpon>BookerPayProviderOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booker\BookerShowNotPaidClientOrdersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booker\BookerShowNotPaidClientOrdersView.Designer.cs">
+      <DependentUpon>BookerShowNotPaidClientOrdersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booker\BookerShowNotPaidProviderOrdersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booker\BookerShowNotPaidProviderOrdersView.Designer.cs">
+      <DependentUpon>BookerShowNotPaidProviderOrdersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booker\BookerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booker\BookerView.Designer.cs">
       <DependentUpon>BookerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManagerAddOrderSecondStepView.cs">
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderSecondStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManagerAddOrderSecondStepView.Designer.cs">
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderSecondStepView.Designer.cs">
       <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManagerAddOrderView.cs">
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderFirstStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManagerAddOrderView.Designer.cs">
-      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderView.Designer.cs">
+      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManagerInspectOrderView.cs">
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddProductView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManagerInspectOrderView.Designer.cs">
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddProductView.Designer.cs">
+      <DependentUpon>ClientManagerAddProductView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerProductCatalogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerProductCatalog.Designer.cs">
+      <DependentUpon>ClientManagerProductCatalogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerInspectOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerInspectOrderView.Designer.cs">
       <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientManagerView.cs">
+    <Compile Include="ClientManager\ClientManagerMainMenu\ClientManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientManagerView.Designer.cs">
+    <Compile Include="ClientManager\ClientManagerMainMenu\ClientManagerView.Designer.cs">
       <DependentUpon>ClientManagerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CourierGetOrderView.cs">
+    <Compile Include="ClientManager\ClientManagerShowListOrdersView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CourierGetOrderView.Designer.cs">
-      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+    <Compile Include="ClientManager\ClientManagerShowListOrdersView.Designer.cs">
+      <DependentUpon>ClientManagerShowListOrdersView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CourierView.cs">
+    <Compile Include="Courier\CourierGetClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CourierView.Designer.cs">
+    <Compile Include="Courier\CourierGetOrderView.Designer.cs">
+      <DependentUpon>CourierGetClientOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Courier\CourierView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Courier\CourierView.Designer.cs">
       <DependentUpon>CourierView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="NinjectConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurcpManagerView.cs">
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PurcpManagerView.Designer.cs">
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.Designer.cs">
+      <DependentUpon>PurcpManagerAddOrderFirstStepView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.Designer.cs">
+      <DependentUpon>PurcpManagerAddOrderSecondStepView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.Designer.cs">
+      <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerAddProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProductsView.Designer.cs">
+      <DependentUpon>PurcpManagerInfoDificitProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerInfoProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerRemoveProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerRemoveProviderView.Designer.cs">
+      <DependentUpon>PurcpManagerRemoveProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerView.Designer.cs">
       <DependentUpon>PurcpManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoOrdersProdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurcpManager\PurcpManagerInfoOrdersProdView.Designer.cs">
+      <DependentUpon>PurcpManagerInfoOrdersProdView.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInView.cs">
       <SubType>Form</SubType>
@@ -111,43 +196,64 @@
     <Compile Include="SignInView.Designer.cs">
       <DependentUpon>SignInView.cs</DependentUpon>
     </Compile>
-    <Compile Include="StorekeeperSearchIncomingInvoiceView.cs">
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StorekeeperSearchIncomingInvoiceView.Designer.cs">
-      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+    <Compile Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.Designer.cs">
+      <DependentUpon>StorekeeperSearchProviderOrderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="StorekeeperSearchSalesInvoiceView.cs">
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StorekeeperSearchSalesInvoiceView.Designer.cs">
-      <DependentUpon>StorekeeperSearchSalesInvoiceView.cs</DependentUpon>
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrderView.Designer.cs">
+      <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="StorekeeperView.cs">
+    <Compile Include="Storekeeper\StorekeeperView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StorekeeperView.Designer.cs">
+    <Compile Include="Storekeeper\StorekeeperView.Designer.cs">
       <DependentUpon>StorekeeperView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BookerView.resx">
+    <EmbeddedResource Include="Booker\BookerCheckPaymentClientOrderView.resx">
+      <DependentUpon>BookerCheckPaymentClientOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booker\BookerPayProviderOrderView.resx">
+      <DependentUpon>BookerPayProviderOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booker\BookerShowNotPaidClientOrdersViewView.resx">
+      <DependentUpon>BookerShowNotPaidClientOrdersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booker\BookerShowNotPaidProviderOrdersView.resx">
+      <DependentUpon>BookerShowNotPaidProviderOrdersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booker\BookerView.resx">
       <DependentUpon>BookerView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManagerAddOrderSecondStepView.resx">
+    <EmbeddedResource Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderFirstStepView.resx">
+      <DependentUpon>ClientManagerAddOrderFirstStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderSecondStepView.resx">
       <DependentUpon>ClientManagerAddOrderSecondStepView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManagerAddOrderView.resx">
-      <DependentUpon>ClientManagerAddOrderView.cs</DependentUpon>
+    <EmbeddedResource Include="ClientManager\ClientManagerAddOrder\ClientManagerAddProductView.resx">
+      <DependentUpon>ClientManagerAddProductView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManagerInspectOrderView.resx">
+    <EmbeddedResource Include="ClientManager\ClientManagerAddOrder\ClientManagerProductCatalogView.resx">
+      <DependentUpon>ClientManagerProductCatalogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientManager\ClientManagerInspectOrder\ClientManagerInspectOrderView.resx">
       <DependentUpon>ClientManagerInspectOrderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientManagerView.resx">
+    <EmbeddedResource Include="ClientManager\ClientManagerMainMenu\ClientManagerView.resx">
       <DependentUpon>ClientManagerView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CourierGetOrderView.resx">
-      <DependentUpon>CourierGetOrderView.cs</DependentUpon>
+    <EmbeddedResource Include="ClientManager\ClientManagerShowListOrdersView.resx">
+      <DependentUpon>ClientManagerShowListOrdersView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CourierView.resx">
+    <EmbeddedResource Include="Courier\CourierGetOrderView.resx">
+      <DependentUpon>CourierGetClientOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Courier\CourierView.resx">
       <DependentUpon>CourierView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -159,16 +265,43 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PurcpManagerView.resx">
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderFirstStepView.resx">
+      <DependentUpon>PurcpManagerAddOrderFirstStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddOrderSecondStepView.resx">
+      <DependentUpon>PurcpManagerAddOrderSecondStepView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddOrderView\PurcpManagerAddProductInOrderView.resx">
+      <DependentUpon>PurcpManagerAddProductInOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerAddProviderView.resx">
+      <DependentUpon>PurcpManagerAddProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerInfoDificitProductsView.resx">
+      <DependentUpon>PurcpManagerInfoDificitProductsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerInfoProviderView.resx">
+      <DependentUpon>PurcpManagerInfoProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerRemoveProviderView.resx">
+      <DependentUpon>PurcpManagerRemoveProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerView.resx">
       <DependentUpon>PurcpManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurcpManager\PurcpManagerInfoOrdersProdView.resx">
+      <DependentUpon>PurcpManagerInfoOrdersProdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignInView.resx">
       <DependentUpon>SignInView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StorekeeperSearchIncomingInvoiceView.resx">
-      <DependentUpon>StorekeeperSearchIncomingInvoiceView.cs</DependentUpon>
+    <EmbeddedResource Include="Storekeeper\StorekeeperSearchIncomingInvoiceView.resx">
+      <DependentUpon>StorekeeperSearchProviderOrderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StorekeeperView.resx">
+    <EmbeddedResource Include="Storekeeper\StorekeeperSearchClientOrderView.resx">
+      <DependentUpon>StorekeeperSearchClientOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storekeeper\StorekeeperView.resx">
       <DependentUpon>StorekeeperView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -194,6 +327,9 @@
       <Project>{bf6796e3-bfa4-44db-861e-ec942e07ddb5}</Project>
       <Name>Presenter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

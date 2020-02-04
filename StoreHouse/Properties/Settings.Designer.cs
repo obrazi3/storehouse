@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StoreHouse.Properties
+namespace View.Properties
 {
 
 

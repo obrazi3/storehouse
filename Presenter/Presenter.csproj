@@ -31,14 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Model">
-      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,40 +46,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookerPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerAddOrderPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerAddOrderSecondStepPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerInspectOrderPresenter.cs" />
-    <Compile Include="ClientManager\ClientManagerPresenter.cs" />
-    <Compile Include="CourierGetOrderPresenter.cs" />
-    <Compile Include="CourierPresenter.cs" />
+    <Compile Include="Booker\BookerCheckPaymentClientOrder\BookerCheckPaymentClientOrderPresenter.cs" />
+    <Compile Include="Booker\BookerCheckPaymentClientOrder\IBookerCheckPaymentClientOrderView.cs" />
+    <Compile Include="Booker\BookerMainMenu\BookerPresenter.cs" />
+    <Compile Include="Booker\BookerMainMenu\IBookerView.cs" />
+    <Compile Include="Booker\BookerPayProviderOrder\BookerPayProviderOrderPresenter.cs" />
+    <Compile Include="Booker\BookerPayProviderOrder\IBookerPayProviderOrderView.cs" />
+    <Compile Include="Booker\BookerShowNotPaidClientOrders\BookerShowNotPaidClientOrdersPresenter.cs" />
+    <Compile Include="Booker\BookerShowNotPaidClientOrders\IBookerShowNotPaidClientOrdersView.cs" />
+    <Compile Include="Booker\BookerShowNotPaidProviderOrders\BookerShowNotPaidProviderOrdersPresenter.cs" />
+    <Compile Include="Booker\BookerShowNotPaidProviderOrders\IBookerShowNotPaidProviderOrdersView.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderFirstStepPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerAddProductPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\ClientManagerProductCatalogPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerAddProductView.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerProductCatalogView.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerAddProductEditingPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerEditOrderFirstStepPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerEditOrderProductCatalogPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerEditOrderSecondStepPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\ClientManagerInspectOrderPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerInspectOrder\IClientManagerInspectOrderView.cs" />
+    <Compile Include="ClientManager\ClientManagerMainMenu\ClientManagerPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerMainMenu\IClientManagerView.cs" />
+    <Compile Include="ClientManager\ClientManagerShowListOrders\ClientManagerShowListOrdersPresenter.cs" />
+    <Compile Include="ClientManager\ClientManagerShowListOrders\IClientManagerShowListOrdersView.cs" />
+    <Compile Include="Courier\CourierGetOrderPresenter.cs" />
+    <Compile Include="Courier\CourierPresenter.cs" />
+    <Compile Include="Courier\ICourierGetOrderView.cs" />
+    <Compile Include="Courier\ICourierView.cs" />
     <Compile Include="IBack.cs" />
-    <Compile Include="IBookerView.cs" />
-    <Compile Include="ClientManager\IClientManagerAddOrderSecondStepView.cs" />
-    <Compile Include="ClientManager\IClientManagerAddOrderView.cs" />
-    <Compile Include="ClientManager\IClientManagerInspectOrderView.cs" />
-    <Compile Include="ClientManager\IClientManagerView.cs" />
-    <Compile Include="ICourierGetOrderView.cs" />
-    <Compile Include="ICourierView.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerAddOrderSecondStepView.cs" />
+    <Compile Include="ClientManager\ClientManagerAddOrder\IClientManagerAddOrderFirstStepView.cs" />
     <Compile Include="IPresenter.cs" />
-    <Compile Include="IPurcpManagerView.cs" />
     <Compile Include="ISetInfoInvoiceForSearchInvoice.cs" />
     <Compile Include="ISignInView.cs" />
-    <Compile Include="IStorekeeperSearchIncomingInvoiceView.cs" />
-    <Compile Include="IStorekeeperSearchInvoiceView.cs" />
-    <Compile Include="IStorekeeperSearchSalesInvoiceView.cs" />
-    <Compile Include="IStorekeeperView.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurcpManagerPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\IPurcpManagerAddOrderFirstStepView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\IPurcpManagerAddOrderSecondStepView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\IPurcpManagerAddProductInOrderView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddOrderFirstStepPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddOrderSecondStepPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddOrder\PurcpManagerAddProductToOrderPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddProvider\IPurcpManagerAddProviderView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerAddProvider\PurcpManagerAddProviderPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProducts\IPurcpManagerInfoDificitProductsView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoDificitProducts\PurcpManagerInfoDificitProductsPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoOrdersProd\IPurcpManagerInfoOrdersProdView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoOrdersProd\PurcpManagerInfoOrdersProdPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoProvider\IPurcpManagerInfoProviderView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerInfoProvider\PurcpManagerInfoProviderPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerMainMenu\IPurcpManagerView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerMainMenu\PurcpManagerPresenter.cs" />
+    <Compile Include="PurcpManager\PurcpManagerRemoveProvider\IPurcpManagerRemoveProviderView.cs" />
+    <Compile Include="PurcpManager\PurcpManagerRemoveProvider\PurcpManagerRemoveProviderPresenter.cs" />
     <Compile Include="SignInPresenter.cs" />
-    <Compile Include="StorekeeperPresenter.cs" />
-    <Compile Include="StorekeeperSeacrhIncomingInvoicePresenter.cs" />
-    <Compile Include="StorekeeperSearchSalesInvoicePresenter.cs" />
+    <Compile Include="Storekeeper\IStorekeeperSearchInvoiceView.cs" />
+    <Compile Include="Storekeeper\StorekeeperMainMenu\IStorekeeperView.cs" />
+    <Compile Include="Storekeeper\StorekeeperMainMenu\StorekeeperPresenter.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrder\IStorekeeperSearchClientOrderView.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchClientOrder\StorekeeperSearchClientOrderPresenter.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrder\IStorekeeperSearchProviderOrderView.cs" />
+    <Compile Include="Storekeeper\StorekeeperSearchProviderOrder\StorekeeperSearchProviderOrderPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{23bdf9a6-5b9b-40ff-8e26-9d99652a8fd7}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
